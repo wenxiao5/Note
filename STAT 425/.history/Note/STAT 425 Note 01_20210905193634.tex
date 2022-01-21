@@ -1,0 +1,287 @@
+%!TEX program = xelatex
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{authblk}
+\usepackage{ctex}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{verbatim}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{indentfirst}
+\usepackage{amssymb}
+\setlength{\parindent}{0pt}
+\usetikzlibrary{shapes,snakes}
+\newcommand{\argmax}{\operatornamewithlimits{argmax}}
+\newcommand{\argmin}{\operatornamewithlimits{argmin}}
+\DeclareMathOperator{\col}{col}
+\usepackage{booktabs}
+\newtheorem{theorem}{Theorem}
+\newtheorem{note}{Note}
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{example}{Example}
+\newtheorem{corollary}{Corollary}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{hyperref}
+\newcommand{\code}{	exttt}
+\geometry{a4paper,scale=0.8}
+\title{STAT 425 Note 1}
+\author[*]{Wenxiao Yang}
+\affil[*]{Department of Mathematics, University of Illinois at Urbana-Champaign}
+\date{2021}
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{numbers=left,numberstyle=\tiny,keywordstyle=\color{blue},commentstyle=\color[cmyk]{1,0,1,0},frame=single,escapeinside=``,extendedchars=false,xleftmargin=2em,xrightmargin=2em,aboveskip=1em,tabsize=4,showspaces=false}
+
+
+
+
+
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Regression Analysis (SLR)}
+It is a "tool" used to examine the relationship between
+a \textbf{Dependent Variable} or \textbf{Response} $Y$, and
+one (or more) \textbf{Independent Variables} or \textbf{Regressors} or \textbf{Predictors} $X_1 ,X_2 ,...,X_p$.
+
+\subsection{Simple Linear Regression}
+$$y=\beta_0+\beta_1 x$$
+$\beta_0$ is the *intercept*; $\beta_1$ is the *slope*.
+One Response $\mathcal{Y}$; One Predictor $\mathcal{X}$
+The data come in pairs:
+$$\begin{aligned}
+&x_1\quad &y_1\\&x_2\quad &y_2\\&\vdots\quad &\vdots\\&x_n\quad &y_n
+\end{aligned}$$
+$Y$ is a RANDOM VARIABLE that has a distribution for every level of the independent variable.
+
+\subsection{Simple Linear Regression Model}
+$$y_i=\beta_0+\beta_1 x_i+\varepsilon_i $$
+where the *intercept* $\beta_0$, the *slope* $\beta_1$, and the *error variance* $\sigma^2$ are the *model parameters*.
+
+\subsubsection{Assumptions of errors $\varepsilon$: 1. Mean zero, 2. umcorrelated, 3. homoscedastic}
+The \textit{errors} $\varepsilon_1 , \varepsilon_2 , . . . , \varepsilon_n$ are assumed to\\
+– have \textit{mean zero}: $E(\varepsilon_i ) = 0$\\
+– be \textit{uncorrelated}: $Cov(\varepsilon_ i , \varepsilon_ j ) = 0, i \neq j$\\
+– be \textit{homoscedastic}: $Var(\varepsilon_i ) = \sigma^ 2$ does not depend on $i$.\\
+
+The last two could be combined and written as:
+$$Cov(\varepsilon_1,\varepsilon_j)=\sigma^2\delta_{ij}$$
+where $\delta_{ij}=\left\{\begin{matrix}
+    0&i\neq j\\
+    1&i=j
+\end{matrix}\right.$
+
+\subsubsection{Assumptions on $Y|X$}
+Based on the SLR model moment assumptions on the error terms, we have the following assumptions for the moments of $Y $conditioning on $X$:\\
+1. $E(y_i|x_i)=\beta_0+\beta_1x_i$\\
+2. $Var(y_i|x_i)=\sigma^2$\\
+3. $Cov(y_i,y_j|x_i,x_j)=0,\ i\neq j$
+\subsubsection{Interpretation of $\beta_1$, $\beta_0$}
+$\beta_1$ is the \textbf{change in the mean} of the probability distribution function of $y$ per unit change in $x$.\\
+When $x=0$, $\beta_0$ is the \textbf{mean} of the probability distribution function of $y$(at $x=0$), otherwise $\beta_0$ \textbf{has no particular meaning}.\\
+
+\subsection{Least Squares}
+We want to find estimates of $\beta_0$, $\beta_1$ to minimize:
+$$\min [y_i-E(y_i)]\Leftrightarrow \min [y_i-(\beta_0+\beta_1 x_i)]$$
+minimize the \textbf{Residual Sum of Squares (RSS)}
+$$RSS=\sum_{i=1}^n(y_i-\beta_0-\beta_1 x_i)^2$$
+$$(\hat{\beta_0},\hat{\beta_1})=\argmin_{(\beta_0,\beta_1)}RSS$$
+
+$$\begin{aligned}
+    \frac{\partial RSS}{\partial \beta_0}=0 &\Leftrightarrow -2\sum_{i=1}^n(y_i-\beta_0-\beta_1 x_i)=0\\
+    & \Leftrightarrow \beta_0 n+\beta_1\sum_{i=1}^n x_i=\sum_{i=1}^n y_i
+\end{aligned}$$
+$$\begin{aligned}
+    \frac{\partial RSS}{\partial \beta_1}=0 &\Leftrightarrow -2\sum_{i=1}^n(y_i-\beta_0-\beta_1 x_i)x_i=0\\
+    &\Leftrightarrow \beta_0 \sum_{i=1}^nx_i+\beta_1\sum_{i=1}^n x_i^2=\sum_{i=1}^n x_iy_i
+\end{aligned}$$
+
+\subsubsection{LS Estimators}
+Then we can solve that
+$$\begin{aligned}
+&\hat{\beta}_{1}=\frac{\sum_{i=1}^{n} x_{i} y_{i}-n \bar{x} \bar{y}}{\sum_{i=1}^{n} x_{i}^{2}-n \bar{x}^{2}}=\frac{\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)\left(y_{i}-\bar{y}\right)}{\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}}=\frac{\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)y_{i}}{\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}} \\
+&\hat{\beta}_{0}=\bar{y}-\hat{\beta}_{1} \bar{x}
+\end{aligned}$$
+
+Alternative Representation of $\hat{\beta_1}$
+$$\hat{\beta}_{1}=\frac{\sum_{i}\left(x_{i}-\bar{x}\right)\left(y_{i}-\bar{y}\right)}{\sum_{i}\left(x_{i}-\bar{x}\right)^{2}}=\frac{S_{x y}}{S_{x x}}=r_{x y} \sqrt{\frac{S_{y y}}{S_{x x}}}$$
+Where 
+\begin{equation}
+    \begin{aligned}
+        &S_{xy}=\sum_{i}\left(x_{i}-\bar{x}\right)\left(y_{i}-\bar{y}\right); &S_{xx}=\sum_{i}\left(x_{i}-\bar{x}\right)^{2}\\
+        &S_{yy}=\sum_{i}\left(y_{i}-\bar{y}\right)^{2}; &r_{xy}=\frac{\sum_{i}\left(x_{i}-\bar{x}\right)\left(y_{i}-\bar{y}\right)}{\sqrt{\sum_{i}\left(x_{i}-\bar{x}\right)^{2}\sum_{i}\left(y_{i}-\bar{y}\right)^{2}}}=\frac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}
+    \end{aligned}
+    \nonumber
+\end{equation}
+
+\subsubsection{Fitted Values \& Residuals}
+The \underline{\textit{Prediction of $y_i$}} or the \underline{\textit{fitted value at $x_i$}}
+$$\hat{y_i}=\hat{\beta_0}+\hat{\beta_1}x_i$$
+$$\hat{y_i}=\bar{y}+\hat{\beta_1}(x_i-\bar{x})=\bar{y}+\frac{\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)\left(y_{i}-\bar{y}\right)}{\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}}(x_i-\bar{x})$$
+The \underline{\textit{$i^{th}$ residual}}
+$$r_i=y_i-\hat{y_i}$$
+
+\subsubsection{Properties of residuals}
+1. $\sum_i r_i=0$\\
+2. $RSS=\sum_i r_i^2$ is minimized\\
+3. $\sum_{i=1}y_i=\sum_{i=1}\hat{y_i}$\\
+4. $\sum_ix_ir_i=0$ （proof: $\sum_ix_ir_i=\sum_ix_i(y_i-\bar{y}-\hat{\beta_1}(x_i-\bar{x}))=\sum_ix_iy_i-n\bar{x}\bar{y}-\frac{\sum_{i=1}^{n} x_{i} y_{i}-n \bar{x} \bar{y}}{\sum_{i=1}^{n} x_{i}^{2}-n \bar{x}^{2}}(\sum_ix_i^2-n\bar{x}^2)=0$)\\
+5. $\sum_i \hat{y_i} r_i=0$ (inferred from 4)\\
+6. The regression line always goes through the point $(\bar{x},\bar{y})$.
+
+\subsubsection{Degree of freedom}
+The \textbf{degree of freedom(df)} of the residuals is
+$$df=\textit{(Sample size)}-\textit{(\# of parameters)}$$
+$df=2$ in this case.
+
+\subsubsection{Error variance}
+The error variance is estimated by$$\hat{\sigma}^2=\frac{1}{n-2}\sum_i r_i^2$$
+
+\subsection{Goodness of Fit: $R-$square}
+\subsubsection{TSS, RSS, FSS}
+$TSS: \sum_i(y_i-\bar{y})^2$\\
+$RSS: \sum_ir_i^2$\\
+$FSS: \sum_i(\hat{y}_i-\bar{y})^2$
+$$\begin{aligned}
+    \sum_{i}\left(y_{i}-\bar{y}\right)^{2} &=\sum_{i}\left(y_{i}-\hat{y}_{i}+\hat{y}_{i}-\bar{y}\right)^{2}=\sum_{i}\left(r_{i}+\hat{y}_{i}-\bar{y}\right)^{2} \\
+    &=\sum_{i} r_{i}^{2}+\sum_{i}\left(\hat{y}_{i}-\bar{y}\right)^{2} \\
+    T S S &=R S S+F S S
+    \end{aligned}$$
+\subsubsection{Cofficient of Determination($R^2$)}
+$$R^{2}=\frac{\sum_{i}\left(\hat{y}_{i}-\bar{y}\right)^{2}}{\sum_{i}\left(y_{i}-\bar{y}\right)^{2}}=\frac{F S S}{T S S}=\frac{T S S-R S S}{T S S}=1-\frac{R S S}{T S S}$$
+$0\leq R^2\leq 1$\\
+It measures the effect of $X$ in reducing the variation in $Y$.\\
+The larger $R^2$ is, the more the total variation of $y$ is reduced by reducing the independent variable $x$.\\
+
+$R^2$ can also represent the degree of linear association between $X$ and $Y$.\\
+$r_{xy}= \pm \sqrt{R^2}$, where the sign is the sign of the slope.
+\begin{equation}
+    \begin{aligned}
+       r_{xy}^2
+       &=\frac{(\sum_{i}\left(x_{i}-\bar{x}\right)\left(y_{i}-\bar{y}\right))^2}{\sum_{i}\left(x_{i}-\bar{x}\right)^{2}\sum_{i}\left(y_{i}-\bar{y}\right)^{2}}=\frac{(\sum_{i}\left(x_{i}-\bar{x}\right)\left(r_i+\hat{y}_{i}-\bar{y}\right))^2}{\sum_{i}\left(x_{i}-\bar{x}\right)^{2}\sum_{i}\left(y_{i}-\bar{y}\right)^{2}}\\
+       &=\frac{(\sum_{i}\left(x_{i}-\bar{x}\right)\left(\hat{y}_{i}-\bar{y}\right))^2}{\sum_{i}\left(x_{i}-\bar{x}\right)^{2}\sum_{i}\left(y_{i}-\bar{y}\right)^{2}}=\frac{(\sum_{i}\left(\hat{\beta}_1 x_{i}-\hat{\beta}_1 \bar{x}\right)\left(\hat{y}_{i}-\bar{y}\right))^2}{\sum_{i}\left(\hat{\beta}_1 x_{i}-\hat{\beta}_1 \bar{x}\right)^{2}\sum_{i}\left(y_{i}-\bar{y}\right)^{2}}\\
+       &=\frac{(\sum_{i}\left(\hat{y}_{i}-\bar{y}\right)^2)^2}{\sum_{i}\left(\hat{y}_{i}-\bar{y}\right)^{2}\sum_{i}\left(y_{i}-\bar{y}\right)^{2}}=\frac{\sum_{i}\left(\hat{y}_{i}-\bar{y}\right)^{2}}{\sum_{i}\left(y_{i}-\bar{y}\right)^{2}}=R^2
+    \end{aligned}
+    \nonumber
+\end{equation}
+
+\subsection{Affine Transformations}
+Suppose we have a SLR model of $Y$ on $X$, i.e. $y_i=\beta_0+\beta_1x_i$\\
+\subsubsection{$\tilde{y_i}=ay_i+b$}
+1. Rescale $y_i$ by $\tilde{y_i}=ay_i+b$ and then regress $\tilde{y_i}$ on $x_i$. How would the $LS$ estimates and $R^2$ be affected?
+\begin{equation}
+    \begin{aligned}
+        &\tilde{\beta}_1=\frac{\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)\left(ay_{i}+b-a\bar{y}-b\right)}{\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}}=a \hat{\beta}_1\\
+        &\tilde{\beta}_0=a\bar{y}+b-\tilde{\beta}_{1}\bar{x}=a \hat{\beta}_0+b\\
+        &\tilde{R}^2=\frac{\sum_{i}\left(a\hat{y}_{i}+b-a\bar{y}-b\right)^{2}}{\sum_{i}\left(ay_{i}+b-a\bar{y}-b\right)^{2}}=R^2
+    \end{aligned}
+    \nonumber
+\end{equation}
+\subsubsection{$\tilde{x_i}=ax_i+b$}
+2. Rescale $y_i$ by $\tilde{y_i}=ay_i+b$ and then regress $y_i$ on $\tilde{x_i}$. How would the $LS$ estimates and $R^2$ be affected?
+\begin{equation}
+    \begin{aligned}
+        &\tilde{\beta}_1=\frac{\sum_{i=1}^{n}\left(ax_{i}+b-a\bar{x}-b\right)\left(y_{i}-\bar{y}\right)}{\sum_{i=1}^{n}\left(ax_{i}+b-a\bar{x}-b\right)^{2}}=\frac{\hat{\beta}_1}{a}\\
+        &\tilde{\beta}_0=\bar{y}-\tilde{\beta}_{1}(a\bar{x}+b)=\hat{\beta}_0-\frac{b}{a}\\
+        &\tilde{R}^2=\frac{\sum_{i}\left(\hat{y}_{i}-\bar{y}\right)^{2}}{\sum_{i}\left(y_{i}-\bar{y}\right)^{2}}=R^2
+    \end{aligned}
+    \nonumber
+\end{equation}
+\subsubsection{Regress $x$ on $y$ instead}
+3. Regress $x$ on $y$ instead
+$$x=\tilde{\beta}_0+\tilde{\beta}_1y$$
+\begin{equation}
+    \begin{aligned}
+        &\tilde{\beta}_1=\frac{S_{x y}}{S_{yy}};\ \tilde{\beta}_0=\bar{x}-\tilde{\beta}_1\bar{y};\ \tilde{R}^2=r_{xy}^2=R^2
+    \end{aligned}
+    \nonumber
+\end{equation}
+
+\subsection{Regression Through the Origin}
+$$y_i\thickapprox \beta_1 x_i$$
+(1) $\hat{\beta}_1$:\\
+By LS: $\min_{\hat{\beta}_1} RSS=\sum_i(\hat{\beta}_1x_i-y_i)^2$
+$$\frac{\partial RSS}{\partial \hat{\beta}_1}=\sum_i2x_i(\hat{\beta}_1x_i-y_i)=0 \Rightarrow \hat{\beta}_1=\frac{\sum_{i=1}^{n}x_{i}y_{i}}{\sum_{i=1}^{n}x_{i}^{2}}$$
+(2) $R^2$:\\
+negative $R^2$ is possible since $R^2=1-\frac{RSS}{TSS}$ and $RSS$ may be larger than $TSS$.\\
+We use a modified R-square\\
+$$\sum_iy_i^2=\sum_i(y_i-\hat{y}_i+\hat{y}_i)^2=\sum_i(y_i-\hat{y}_i)^2+\sum_i \hat{y}_i^2$$
+$$\tilde{R}^2=\frac{\sum_i \hat{y}_i^2}{\sum_iy_i^2}=1-\frac{\sum_i(y_i-\hat{y}_i)^2}{\sum_iy_i^2}=1-\frac{RSS}{\sum_iy_i^2}$$
+
+\subsection{LS Estimators Properties}
+\subsubsection{Unbiasedness of LS Estimators $E(\hat{\beta}_1)=\beta_1, E(\hat{\beta}_0)=\beta_0$}
+$x_i$'s ($\mathcal{X}$) are already known.
+\begin{equation}
+    \begin{aligned}
+        \mathbb{E}_{\mathcal{Y}}\left(\hat{\beta}_{1}\right) &=\mathbb{E}\left[\frac{\sum_{i}\left(x_{i}-\bar{x}\right) y_{i}}{\sum_{i}\left(x_{i}-\bar{x}\right)^{2}}\right]=\frac{\sum_{i}\left(x_{i}-\bar{x}\right) \cdot \mathbb{E}\left(y_{i}\right)}{\sum_{i}\left(x_{i}-\bar{x}\right)^{2}} \\
+        &=\frac{\sum_{i}\left(x_{i}-\bar{x}\right) \cdot \mathbb{E}\left(\beta_{0}+\beta_{1} x_{i}\right)}{\sum_{i}\left(x_{i}-\bar{x}\right)^{2}}=\sum_{i} c_{i}\left(\beta_{0}+\beta_{1} x_{i}\right) \\
+        &=\beta_{0} \sum c_{i}+\beta_{1} \sum c_{i} x_{i}=\beta_{1}\ ,where\ c_i=\frac{\left(x_{i}-\bar{x}\right)}{\sum_{i}\left(x_{i}-\bar{x}\right)^2}
+        \end{aligned}
+    \nonumber
+\end{equation}
+
+\begin{equation}
+    \begin{aligned}
+        \mathbb{E}\left(\hat{\beta}_{0}\right) &=\mathbb{E}\left(\bar{y}-\hat{\beta}_{1} \bar{x}\right) \\
+        &=\mathbb{E}(\bar{y})-\bar{x} \cdot \mathbb{E}\left(\hat{\beta}_{1}\right)=\frac{1}{n} \sum_{i} \mathbb{E}\left(y_{i}\right)-\bar{x} \cdot \beta_{1} \\
+        &=\frac{1}{n} \sum_{i} \mathbb{E}\left(\beta_{0}+\beta_{1} x_{i}\right)-\bar{x} \cdot \beta_{1} \\
+        &=\beta_{0}+\bar{x} \cdot \beta_{1}-\bar{x} \cdot \beta_{1}=\beta_{0}
+        \end{aligned}
+    \nonumber
+\end{equation}
+
+\subsubsection{Mean squared error of LS Estimators $Var(\hat{\beta}_1)=\sigma^{2} \frac{1}{S_{x x}}$}
+Mean squared error(MSE)$= \frac{1}{n}\sum_{i=1}^n(y_i-\hat{y}_i)^2$\\
+Note that since both estimators are unbiased $\Rightarrow$ MSE = Variance.\\
+1. MSE for slope
+\begin{equation}
+    \begin{aligned}
+        \operatorname{Var}\left(\hat{\beta}_{1}\right) &=\operatorname{Var}\left[\frac{\sum_{i}\left(x_{i}-\bar{x}\right) y_{i}}{\sum_{i}\left(x_{i}-\bar{x}\right)^{2}}\right]=\operatorname{Var}\left(\sum_{i} c_{i} y_{i}\right)\left(c_{i} \text { as before }\right) \\
+        &=\sum_{i} c_{i}^{2} \cdot \operatorname{Var}\left(y_{i}\right)=\sum_{i} c_{i}^{2} \sigma^{2}(\text { from model assumption }) \\
+        &=\sigma^{2} \cdot\left(\frac{\sum_{i}\left(x_{i}-\bar{x}\right)}{\sum_{i}\left(x_{i}-\bar{x}\right)^{2}}\right)^{2}=\frac{\sigma^{2}}{\sum_{i}\left(x_{i}-\bar{x}\right)^{2}}=\sigma^{2} \frac{1}{S_{x x}}
+        \end{aligned}
+    \nonumber
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

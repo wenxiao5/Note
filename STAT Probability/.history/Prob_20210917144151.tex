@@ -1,0 +1,151 @@
+%!TEX program = xelatex
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{authblk}
+\usepackage{ctex}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{verbatim}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{indentfirst}
+\usepackage{amssymb}
+\setlength{\parindent}{0pt}
+\usetikzlibrary{shapes,snakes}
+\newcommand{\argmax}{\operatornamewithlimits{argmax}}
+\newcommand{\argmin}{\operatornamewithlimits{argmin}}
+\DeclareMathOperator{\col}{col}
+\usepackage{booktabs}
+\newtheorem{theorem}{Theorem}
+\newtheorem{note}{Note}
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{example}{Example}
+\newtheorem{corollary}{Corollary}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{hyperref}
+\newcommand{\code}{	exttt}
+\geometry{a4paper,scale=0.8}
+\title{Probability}
+\author[*]{Wenxiao Yang}
+\affil[*]{Department of Mathematics, University of Illinois at Urbana-Champaign}
+\date{2021}
+
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+
+\section{Poisson Distribution $Pois(\lambda)$: 单位时间发生$k$次时间的概率}
+\subsection{$\lambda$：单位时间发生该时间的平均次数}
+$$\Pr(X{=}k)= \frac{\lambda^k e^{-\lambda}}{k!},\ k=0,1,2,3...$$
+\subsection{推导}
+我们考虑一段时间(讲单位时间微分成n等分, $n \rightarrow \infty$)，每一刻(瞬间)都有一个event may occur, which follows binomial distribution $B(n,p)$. where $n \rightarrow \infty, p \rightarrow 0$; $\lambda=n\cdot p$ is the expected number of events in this period of time.\\
+现在我们考虑发生$k$次event的概率：
+\begin{equation}
+    \begin{aligned}
+        \Pr(X=k)&=\lim_{n \rightarrow\infty} \binom{n}{k} (\frac{\lambda}{n})^k(1-\frac{\lambda}{n})^{n-k}\\
+        &=\lim_{n \rightarrow\infty} \frac{n!}{(n-k)!k!} (\frac{\lambda}{n})^k(1-\frac{\lambda}{n})^{n}(1-\frac{\lambda}{n})^{-k}\\
+        &=\lim_{n \rightarrow\infty}\frac{n!}{(n-k)!k!} (\frac{\lambda}{n})^k e^{-\lambda}\\
+        &=\frac{\lambda^k e^{-\lambda}}{k!}\lim_{n \rightarrow\infty}\frac{n!}{(n-k)!n^k}\\
+        &=\frac{\lambda^k e^{-\lambda}}{k!}\lim_{n \rightarrow\infty}
+        \frac{n}{n}\frac{n-1}{n}\cdots \frac{n-k+1}{n}\\
+        &=\frac{\lambda^k e^{-\lambda}}{k!}
+    \end{aligned}
+    \nonumber
+\end{equation}
+
+
+
+
+\section{Exponential distribution $Exp(\lambda)$: 独立随机事件的发生间隔/第一次发生事件的时间}
+\subsection{$\lambda$：单位时间发生该时间的平均次数}
+随机变量$X$服从参数为$\lambda$ 或$\beta$ 的指数分布，则记作
+$${\displaystyle X\sim {\text{Exp}}(\lambda )} \text{ or } {\displaystyle X\sim {\text{Exp}}(\beta )}$$
+两者意义相同，只是$\lambda$ 与$\beta$ 互为倒数关系.
+$${f(x;{\lambda})=\left\{{\begin{matrix}{\lambda }e^{-{\lambda }x}&x\geq 0\\0&\;x<0.\end{matrix}}\right.}$$
+$${f(x;{\beta})=\left\{{\begin{matrix}{\frac{1}{\beta} }e^{-{\frac{1}{\beta} }x}&x\geq 0\\0&\;x<0.\end{matrix}}\right.}$$
+累积分布函数为：
+$${F(x;{\lambda})=\left\{{\begin{matrix}{1-}e^{-{\lambda }x}&x\geq 0\\0&\;x<0.\end{matrix}}\right.}$$
+其中$\lambda > 0$是分布的参数，即每单位时间发生该事件的次数； $\beta>0$ 为尺度参数，即该事件在每单位时间内的发生率。两者常被称为率参数（rate parameter）。指数分布的区间是$[0,\infty)$。
+
+\subsection{$\mathbb{E}(X)=\frac{1}{\lambda}$：预期事件的发生间隔； $Var(X)=\frac{1}{\lambda^2}$}
+$$\mathbb{E}(X)=\frac{1}{\lambda};\ Var(X)=\frac{1}{\lambda^2}$$
+\subsection{Memorylessness: ${\displaystyle \Pr \left(T>s+t\mid T>s\right)=\Pr(T>t)}$}
+\begin{equation}
+    \begin{aligned}
+        \Pr (T>s+t\mid T>s)&=\frac{\Pr(T>s+t\text{ and }T>s)}{\Pr(T>s)}\\
+        &=\frac{\Pr(T>s+t)}{\Pr(T>s)}\\
+        &=\frac{e^{-\lambda(s+t)}}{e^{-\lambda s}}\\
+        &=e^{-\lambda t}\\
+        &=\Pr (T>t)
+    \end{aligned}
+    \nonumber
+\end{equation}
+
+\subsection{推导}
+我们考虑一段时间(讲单位时间微分成n等分, $n \rightarrow \infty$)，每一刻(瞬间)都有一个event may occur, which follows binomial distribution $B(n,p)$. where $n \rightarrow \infty, p \rightarrow 0$; $\lambda=n\cdot p$ is the expected number of events in this period of time.\\
+现在我们考虑第一次发生event的时间是x的概率：
+\begin{equation}
+    \begin{aligned}
+        f(x;\lambda)=lim_{n \rightarrow\infty} (\frac{\lambda}{n})^k(1-\frac{\lambda}{n})^{n-k}
+    \end{aligned}
+    \nonumber
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
