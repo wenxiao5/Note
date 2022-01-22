@@ -66,9 +66,10 @@ From this we get cancellation.
     \nonumber
 \end{equation}
 
-\subsection{Divide}
+\subsection{Definition: Divide}
 Suppose $a,b\in\mathbb{Z},b\neq 0$, \underline{$b$ divides $a$} if $\exists m\in\mathbb{Z}$, so that $a=bm, b|a$. Otherwise, write $b \nmid a$.
-\subsubsection{Proposition 1.4.2: properties of integer division}
+
+\subsection{Proposition 1.4.2: properties of integer division}
 \begin{proposition}[Proposition 1.4.2]
     $\forall a,b\in\mathbb{Z}$
 \end{proposition}
@@ -78,17 +79,18 @@ Suppose $a,b\in\mathbb{Z},b\neq 0$, \underline{$b$ divides $a$} if $\exists m\in
 (iv) if $a|b\ \&\ b|c$, then $a|c$\\
 (v) if $a|b\ \&\ a|c$, then $a|(mc+nb)\forall m,n\in\mathbb{Z}$\\
 
-\subsubsection{Prime, Greatest common divisor $gcd(a,b)$}
+\subsection{Definitions: Prime, The Greatest common divisor $gcd(a,b)$}
 $p > 1, p \in \mathbb{Z}$ is called
 \underline{\textit{prime}} if the only divisors are
 $\pm 1,\pm p$.
 
-Given $a,b\in\mathbb{Z},a, b\neq 0$, the \underline{\textit{greatest common divisor}} of $a$ and $b$ is $c\in\mathbb{Z}, c>0$ s.t.\\
-(1) $c|a$ and $c|b$\\
-(2) if $d|a, d|b$, then $d|c$\\
-The $c$ is unique, we write it $gcd(a,b)$.\\
+Given $a,b\in\mathbb{Z},a, b\neq 0$, the \underline{\textit{greatest common divisor}} of $a$ and $b$ is $c\in\mathbb{Z}, c>0$ s.t.
 
-\subsubsection{Proposition 1.4.7: Euclidean Algorithm}
+(1) $c|a$ and $c|b$; (2) if $d|a, d|b$, then $d|c$
+
+The $c$ is unique, we write it $gcd(a,b)$.
+
+\subsection{Euclidean Algorithm}
 \begin{proposition}[Proposition 1.4.7(Euclidean Algorithm)]
     Given $a,b\in\mathbb{Z},b\neq 0$, then $\exists q,r\in \mathbb{Z}$ s.t. $a=qb+r, 0\leq r\leq |b|$.
 \end{proposition}
@@ -115,24 +117,55 @@ The $c$ is unique, we write it $gcd(a,b)$.\\
     \end{aligned}
     \nonumber
 \end{equation}
+\begin{equation}
+    \begin{aligned}
+        gcd(130,95)=gcd(95,35)=gcd(35,25)=gcd(25,10)=gcd(10,5)=gcd(5,0)=5
+    \end{aligned}
+    \nonumber
+\end{equation}
 
-\subsubsection{Proposition 1.4.8:$gcd(a,b)$ exists and is the smallest positive integer in the set $M=\{ma+nb|m,n\in\mathbb{Z}\}$}
-\begin{proposition}[Proposition 1.4.8]
-    $\forall a,b\in\mathbb{Z}$, not both 0, $gcd(a,b)$ exists and is the smallest positive integer in the set $M=\{ma+nb|m,n\in\mathbb{Z}\}$.
-\end{proposition}
-i.e. $\exists m_0,n_0\in\mathbb{Z}$ s.t. $gcd(a,b)=m_0a+n_0b$.
+\subsection{Proposition: $gcd(a,b)$ exists and is the smallest positive integer in the set $M=\{ma+nb|m,n\in\mathbb{Z}\}$}
+
+\begin{theorem}
+    $d = gcd(a, b)$ is of the form $sa + tb$
+\end{theorem}
 \begin{proof}
-\quad\\
-Let $c$ be the smallest positive integer in the set $M=\{ma+nb|m,n\in\mathbb{Z}\}$. $c=m_0 a+n_0 b>0$.\\
-Let $d=ma+nb\in M$, $d=qc+r$ where $0\leq r<c$ (by Euclidean Algorithm).\\
-$d-qc=r=(m-qm_0)a+(n-qn_0)b\in M$. So $r=0$. $\Rightarrow d=qc$. So $c|d$.\\
-$a=1a+0b\in M\Rightarrow c|a$, $b=0a+1b\in M\Rightarrow c|b$.\\
-If $t|a,t|b$ then $t|m_0 a+n_0 b\Rightarrow t|c$.\\
-$\Rightarrow c=gcd(a,b)$.
+
+We may assume $0\leq a\leq b$
+
+For $a=0$, $d=b=0\cdot a+1\cdot b$.
+
+For $a>0$, let $b=q\cdot a+r$ with $0\leq r<a\leq b$. Then
+\begin{equation}
+    \begin{aligned}
+        \{sa+tb:s,t\in \mathbb{Z}\}&=\{sa+t(q\cdot a+r):s,t\in \mathbb{Z}\}=\{tr+ua: t,u\in \mathbb{Z}\}\\
+        &=\dots \{x\cdot 0+y\cdot d: x,y\in \mathbb{Z}\}=\{...,-2d,-d,0,d,2d,...\}
+    \end{aligned}
+    \nonumber
+\end{equation}
 \end{proof}
 
+\begin{proposition}[第二种表示，第二种证明]
+    $\forall a,b\in\mathbb{Z}$, not both 0, $gcd(a,b)$ exists and is the smallest positive integer in the set $M=\{ma+nb|m,n\in\mathbb{Z}\}$. i.e. $\exists m_0,n_0\in\mathbb{Z}$ s.t. $gcd(a,b)=m_0a+n_0b$.
+\end{proposition}
 
-\subsubsection{Proposition 1.4.10: $b,c$ are \textit{relatively prime}, $b|ac$ $\Rightarrow$ $b|a$}
+\begin{proof}
+
+Let $c$ be the smallest positive integer in the set $M=\{ma+nb|m,n\in\mathbb{Z}\}$. $c=m_0 a+n_0 b>0$.
+
+Let $d=ma+nb\in M$, $d=qc+r$ where $0\leq r<c$ (by Euclidean Algorithm).
+$$r=d-qc=(m-qm_0)a+(n-qn_0)b\in M$$
+Since $c$ is the smallest integer in $M$ and $r\in[0,c)$, so $r=0$. $\Rightarrow d=qc$. So $c|d$.
+
+$a=1a+0b\in M\Rightarrow c|a$, $b=0a+1b\in M\Rightarrow c|b$.
+
+If $t|a,t|b$ then $t|m_0 a+n_0 b \text{ i.e. } t|c$. $\Rightarrow c=gcd(a,b)$.
+\end{proof}
+
+\subsection{Well-Ordering Principle (Least Integer Axiom)}
+There is a smallest integer in every nonempty subset $S$ of the natural numbers $\mathbb{N}=\{0,1,2,...\}$
+
+\subsection{Proposition 1.4.10: $b,c$ are \textit{relatively prime}, $b|ac$ $\Rightarrow$ $b|a$}
 \begin{proposition}[Proposition 1.4.10]
     Suppose $a,b,c\in\mathbb{Z}$. If $b,c$ are \textit{relatively prime} i.e. $gcd(b,c)=1$ and $b|ac$, then $b|a$.
 \end{proposition}
@@ -151,25 +184,39 @@ If $p|b$, done. Otherwise, $gcd(p,b)=1$. By Prop 1.4.10, $p|a$.
 \end{proof}
 \quad\\
 
-\subsubsection{Theorem 1.4.3: Any integer
-$a > 1$ has a unique prime factorization}
-\begin{lemma}[Lemma 1.4.4][Existence of Theorem 1.4.3]
-    Any integer $a > 1$ has a prime factorization
+\subsection{Fundamental Theorem of Arithmetic: Any integer
+$a \geq 2$ has a unique prime factorization}
+
+\subsubsection{Existence}
+\begin{lemma}
+    Any integer $a \geq 2$ is either a prime or a product of primes.
 \end{lemma}
-Proved by induction.
-\begin{theorem}[Theorem 1.4.3]
+\begin{proof}
+    Set $S\subset \mathbb{N}$ be the set of all $n$ without the given property.
+    
+    Assume that $S$ in nonempty and $m$ is the least element in $S$.
+
+    Since $m$ is not a prime, it can be written as $m=ab$ with $1<a,b<m$. Since $m$ is the least element in $S$, $a,b\notin S$. Then $m$ is a product of primes. Contradiction. Thus, $S=\emptyset$.
+\end{proof}
+
+\subsubsection{Uniqueness}
+\begin{theorem}[Fundamental Theorem of Arithmetic]
 \end{theorem}
 Any integer
 $a > 1$ has a unique prime factorization:
 $a=p_1^{k_1}\cdot p_2^{k_2}\cdot...p_n^{k_n}$ where $p_i > 1$ is prime, $k_i\in\mathbb{Z}_+,\forall i=1,...,n, p_i\neq p_j, \forall i\neq j$.
 \begin{proof}
-\quad\\
-Existence(Lemma 1.4.4)\\
-Uniqueness: $a=p_1^{n_1}\cdot p_2^{n_2}\cdot...p_k^{n_k}=q_1^{r_1}\cdot q_2^{r_2}\cdot...q_j^{r_j}$.\\
-$p_1>p_2>...>p_k, q_1>q_2>...>q_j, n_i,r_i\geq 1$\\
-$p_1|a\Rightarrow \exists\ q_i\ s.t.\ p_1|q_i$. Similarly, $\exists\ q_i\ s.t.\ q_1|p_{i'}$\\
-$q_1\leq p_i'\leq p_1\leq q_i\Rightarrow q_1= p_i'= p_1= q_i$\\
-We can also know $n_1=r_1$, otherwise we would have two prime factorizations of the quotient where the largest primes are different by dividing $p_1^{\min\{n_1,r_1\}}$.\\
+
+Existence: (Previous Lemma)
+
+Uniqueness: $a=p_1^{n_1}\cdot p_2^{n_2}\cdot...p_k^{n_k}=q_1^{r_1}\cdot q_2^{r_2}\cdot...q_j^{r_j}$. Where $p_1>p_2>...>p_k, q_1>q_2>...>q_j, n_i,r_i\geq 1$.
+
+$p_1|a\Rightarrow \exists\ q_i\ s.t.\ p_1|q_i$. Similarly, $\exists\ q_i\ s.t.\ q_1|p_{i'}$.
+
+$q_1\leq p_{i'}\leq p_1\leq q_i\Rightarrow q_1= p_{i'}= p_1= q_i$
+
+We can also know $n_1=r_1$, otherwise we would have two prime factorization of the quotient where the largest primes are different by dividing $p_1^{\min\{n_1,r_1\}}$.
+
 Then we can get $b=p_2^{n_2}\cdot...p_k^{n_k}=q_2^{r_2}\cdot...q_j^{r_j}$. Then prove it by induction.
 \end{proof}
 
