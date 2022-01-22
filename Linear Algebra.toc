@@ -30,3 +30,4 @@
 \contentsline {section}{\numberline {4}Algebra Computation}{10}{section.4}%
 \contentsline {subsection}{\numberline {4.1} Random Vectors}{10}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}矩阵求导}{11}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}LU Decomposition}{12}{subsection.4.3}%

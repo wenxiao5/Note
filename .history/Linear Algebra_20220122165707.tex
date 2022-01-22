@@ -583,17 +583,7 @@ $${\displaystyle {\begin{bmatrix}a_{11}&a_{12}&a_{13}\\a_{21}&a_{22}&a_{23}\\a_{
 $$A=PLU$$
 $P$ is a permutation matrix (used to swap row, only one $1$ in every row). $P$ is orthogonal, so $P^{-1}=P^T$.
 
-Solve $Ax=b$:
-\begin{equation}
-    \begin{aligned}
-        Ax&=b\\
-        PLUx&=b\\
-        \text{Let }y=Ux,&\text{ then solve PLy=b}\\
-        Ly&=P^Tb
-    \end{aligned}
-    \nonumber
-\end{equation}
-Complexity: $O(n^3)$
+
 
 
 
