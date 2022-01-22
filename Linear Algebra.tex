@@ -144,13 +144,53 @@ Given a vector space $V$ over $F$, we let $GL(V ) \subset \mathcal{L}(V , V )$ d
 
 \section{Eigenvalues Related}
 \subsection{Eigenvalues, Eigenvectors}
+\subsubsection{Definition}
 A vector $x$ is an $\textbf{eigenvector}$ of a matrix $A$ if $Ax$ is parallel to $x$, that is if $Ax = \lambda x$ for some number $\lambda\in \mathbb{R}$. The number $\lambda$ is called an $\textbf{eigenvalue}$ of $A$.
 
 i.e. the root of $(A-\lambda I_n)x=0 \Leftrightarrow det(A-\lambda I_n)=0$
 
+\subsubsection{Diagonalizable Matrix}
+A $n\times n$ matrix $A$ with $n$ linearly independent eigenvalues $u$ is said to be \textit{diagonalizable}.
+\begin{equation}
+    \begin{aligned}
+        AU&=A\begin{bmatrix}
+            |&|&\cdots&|\\
+            u_1&u_2&\cdots&u_n\\
+            |&|&\cdots&|
+        \end{bmatrix}\\
+        &=\begin{bmatrix}
+            |&|&\cdots&|\\
+            \lambda_1u_1&\lambda_2u_2&\cdots&\lambda_nu_n\\
+            |&|&\cdots&|
+        \end{bmatrix}\\
+        &=\begin{bmatrix}
+            |&|&\cdots&|\\
+            u_1&u_2&\cdots&u_n\\
+            |&|&\cdots&|
+        \end{bmatrix}\begin{bmatrix}
+            \lambda_1&&&\\
+            &\lambda_2&&\\
+            &&\ddots&\\
+            &&&\lambda_n
+        \end{bmatrix}\\
+        &=UD\\
+        \Rightarrow	A&=UDU^{-1}
+    \end{aligned}
+    \nonumber
+\end{equation}
+
 \begin{theorem}
-    If an $n\times n$ matrix $A$ has $n$ linearly independent eigenvectors $x_1,...,x_n$ corresponding to eigenvalues $\lambda_1,...,\lambda_n$, then $A = PDP^{−1}$ where $D$ is diagonal with entries $\lambda_1,...,\lambda_n$, and $P$ has columns $x_1,...,x_n$.
+    If an $n\times n$ matrix $A$ has $n$ linearly independent eigenvectors $u_1,...,u_n$ corresponding to eigenvalues $\lambda_1,...,\lambda_n$, then $A = UDU^{−1}$ where $D$ is diagonal with entries $\lambda_1,...,\lambda_n$, and $U$ has columns $u_1,...,u_n$.
 \end{theorem}
+$A$ is \textbf{similar} to $D$ ($\exists P$ s.t. $A=PDP^{-1}$).
+
+Not \textit{diagonalizable} is also called \textit{defective}.
+
+\begin{theorem}
+    An $n\times n$ matrix with $n$ distinct eigenvalues is diagonalizable.
+\end{theorem}
+(Because the $n$ associated eigenvectors are always linearly independent.)
+
 
 \subsection{Jacobian matrix}
 Suppose $\mathbf{f}: \mathbf{R}^{n} \rightarrow \mathbf{R}^{m}$ is a function such that each of its first-order partial derivatives exist on $\mathbf{R}^{n} .$ This function takes a point $\mathbf{x} \in \mathbf{R}^{n}$ as input and produces the vector $\mathbf{f}(\mathbf{x}) \in \mathbf{R}^{m}$ as output. Then the Jacobian matrix of $\mathbf{f}$ is defined to be an $m \times n$ matrix, denoted by $\mathbf{J}$, whose $(i, j)$ th entry is $\mathbf{J}_{i j}=\frac{\partial f_{i}}{\partial x_{j}}$, or explicitly
