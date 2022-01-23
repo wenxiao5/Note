@@ -654,16 +654,14 @@ For a $n\times m$ matrix $A$ with rank $r$,
             &&&&&\ddots&\\
             &&&&&&0
         \end{bmatrix}\begin{bmatrix}
-            \vline&\vline&\cdots&\vline\\
-            v_1&v_2&\cdots&v_m\\
-            \vline&\vline&\cdots&\vline
-        \end{bmatrix}^T
+            \hline&v_1^T&\hline\\
+            \vdots&\vdots&\vdots\\
+            %\cline&v_m^T&\cline
+        \end{bmatrix}
     \end{aligned}
     \nonumber
 \end{equation}
-$U,V$ are orthogonal matrixs. $u_i\in \mathbb{R}^{n\times 1}$ are left singular vectors, $v_i\in \mathbb{R}^{m\times 1}$ are right singular vectors. $s_i,i=1,...,r$ are singular values.
-
-Complexity:$O(mn^2+n^3)$
+$U,V$ are orthogonal matrixs. $u_i\in \mathbb{R}^{n\times 1}, v_i\in \mathbb{R}^{m\times 1}$.
 
 
 \subsubsection{Pseudoinverse}
@@ -685,7 +683,7 @@ The SVD may not be unique, but the pseudoinverse of $A$, $A^+$ is unique.
 \end{equation}
 If $A^{-1}$ exists, $A^{-1}=A^+$.
 
-\subsubsection{Analysis about $A^TA$ and $AA^T$}
+
 
 
 

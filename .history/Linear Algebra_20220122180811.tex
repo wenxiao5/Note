@@ -636,56 +636,24 @@ Solve $Ax=b$:
 Complexity: $O(n^3)$
 
 \subsection{SVD: Singular Value Decomposition}
-For a $n\times m$ matrix $A$ with rank $r$,
-\begin{equation}
-    \begin{aligned}
-        A_{n\times m}=&U_{n\times n}\Sigma_{n\times m}V^T_{m\times m}\\
-        &=\sum_{i=1}^rs_iu_iv_i^T\\
-        &=\begin{bmatrix}
-            \vline&\vline&\cdots&\vline\\
-            u_1&u_2&\cdots&u_n\\
-            \vline&\vline&\cdots&\vline
-        \end{bmatrix}\begin{bmatrix}
-            s_1&&&&&&\\
-            &s_2&&&&&\\
-            &&\ddots&&&&\\
-            &&&s_r&&&\\
-            &&&&0&&\\
-            &&&&&\ddots&\\
-            &&&&&&0
-        \end{bmatrix}\begin{bmatrix}
-            \vline&\vline&\cdots&\vline\\
-            v_1&v_2&\cdots&v_m\\
-            \vline&\vline&\cdots&\vline
-        \end{bmatrix}^T
-    \end{aligned}
-    \nonumber
-\end{equation}
-$U,V$ are orthogonal matrixs. $u_i\in \mathbb{R}^{n\times 1}$ are left singular vectors, $v_i\in \mathbb{R}^{m\times 1}$ are right singular vectors. $s_i,i=1,...,r$ are singular values.
-
-Complexity:$O(mn^2+n^3)$
+For a $m\times n$ matrix $A$ with rank $r$,
+$$A_{m\times n}=U_{m\times m}\Sigma_{m\times n}V^T_{n\times n}=\sum_{i=1}^rs_iu_iv_i^T$$
+$U,V$ are orthogonal matrixs. $u_i\in \mathbb{R}^{n\times 1}, v_i\in \mathbb{R}^{d\times 1}$.
 
 
 \subsubsection{Pseudoinverse}
 We can't compute the inverse matrix of a singular matrix. We can use pseudoinverse matrix.
-$$A^+_{m\times n}=\sum_{i=1}^r\frac{1}{s_i}v_iu_i^T=V\Sigma^+U^T$$
+$$A^+_{n\times m}=\sum_{i=1}^r\frac{1}{s_i}v_iu_i^T=V\Sigma^+U^T$$
 The SVD may not be unique, but the pseudoinverse of $A$, $A^+$ is unique.
 \begin{equation}
     \begin{aligned}
-        AA^+&=\sum_{i=1}^ru_iu_i^T=\begin{bmatrix}
-            I_{r\times r}&	O_{r\times n-r}\\
-            O_{n-r\times r}&	O_{n-r\times n-r}
-        \end{bmatrix}_{n\times n}\\
-        A^+A&=\sum_{i=1}^rv_iv_i^T=\begin{bmatrix}
-            I_{r\times r}&	O_{r\times m-r}\\
-            O_{m-r\times r}&	O_{m-r\times m-r}
-        \end{bmatrix}_{m\times m}
+        AA^+=\sum_{i=1}^ru_iu_i^T,\ A^+A=\sum_{i=1}^rv_iv_i^T
     \end{aligned}
     \nonumber
 \end{equation}
-If $A^{-1}$ exists, $A^{-1}=A^+$.
 
-\subsubsection{Analysis about $A^TA$ and $AA^T$}
+
+
 
 
 
