@@ -615,28 +615,7 @@ Trace (迹):
     \nonumber
 \end{equation}
 
-\subsection{Linear Regression: Least Square}
-$\textbf{Minimize}_w \mathcal{R}(w)=\|Xw-y\|^2$
-\subsubsection{Normal Equations}
-$$\nabla_w\|Xw-y\|^2=2X^T(Xw-y)=0$$
-$$\Rightarrow X^TXw=X^Ty$$
-These are called the \textbf{normal equations}.
-\begin{proposition}
-    $\hat{w}$ satisfies $\mathcal{R}(\hat{w})=\min_w\mathcal{R}(w)$ if and only if $\hat{w}$ satisfies the normal equations. (i.e. prove its is the global minimum)
-\end{proposition}
-\begin{proof}
-Consider $\boldsymbol{w}$ with $\boldsymbol{X}^{\top} \boldsymbol{X} \boldsymbol{w}=\boldsymbol{X}^{\top} \boldsymbol{y}$, and any $\boldsymbol{w}^{\prime}$; then $$\begin{aligned}\left\|\boldsymbol{X} \boldsymbol{w}^{\prime}-\boldsymbol{y}\right\|^{2} &=\left\|\boldsymbol{X} \boldsymbol{w}^{\prime}-\boldsymbol{X} \boldsymbol{w}+\boldsymbol{X} \boldsymbol{w}-\boldsymbol{y}\right\|^{2} \\ &=\left\|\boldsymbol{X} \boldsymbol{w}^{\prime}-\boldsymbol{X} \boldsymbol{w}\right\|^{2}+2\left(\boldsymbol{X} \boldsymbol{w}^{\prime}-\boldsymbol{X} \boldsymbol{w}\right)^{\top}(\boldsymbol{X} \boldsymbol{w}-\boldsymbol{y})+\|\boldsymbol{X} \boldsymbol{w}-\boldsymbol{y}\|^{2} \end{aligned}$$
-Since
-$$
-\left(\boldsymbol{X} \boldsymbol{w}^{\prime}-\boldsymbol{X} \boldsymbol{w}\right)^{\top}(\boldsymbol{X} \boldsymbol{w}-\boldsymbol{y})=\left(\boldsymbol{w}^{\prime}-\boldsymbol{w}\right)^{\top}\left(\boldsymbol{X}^{\top} \boldsymbol{X} \boldsymbol{w}-\boldsymbol{X}^{\top} \boldsymbol{y}\right)=0
-$$
-then
-$$
-\left\|\boldsymbol{X} \boldsymbol{w}^{\prime}-\boldsymbol{y}\right\|^{2}=\left\|\boldsymbol{X} \boldsymbol{w}^{\prime}-\boldsymbol{X} \boldsymbol{w}\right\|^{2}+\|\boldsymbol{X} \boldsymbol{w}-\boldsymbol{y}\|^{2} \geq\|\boldsymbol{X} \boldsymbol{w}-\boldsymbol{y}\|^{2}
-$$
-\end{proof}
-
-\subsection{LU Decomposition (Restricted to Square)}
+\subsection{LU Decomposition}
 Triangular matrix saves time when computing $Ax=b$.
 
 Let A be a square matrix. An LU factorization refers to the factorization of A, with proper row and/or column orderings or permutations, into two factors – a lower triangular matrix L and an upper triangular matrix U:
@@ -695,15 +674,6 @@ Complexity:$O(mn^2+n^3)$
 \subsubsection{Pseudoinverse}
 We can't compute the inverse matrix of a singular matrix. We can use pseudoinverse matrix.
 $$A^+_{m\times n}=\sum_{i=1}^r\frac{1}{s_i}v_iu_i^T=V\Sigma^+U^T$$
-Where $$\Sigma^+=\begin{bmatrix}
-    \frac{1}{s_1}&&&&&&\\
-    &\frac{1}{s_2}&&&&&\\
-    &&\ddots&&&&\\
-    &&&\frac{1}{s_r}&&&\\
-    &&&&0&&\\
-    &&&&&\ddots&\\
-    &&&&&&0
-\end{bmatrix}$$
 The SVD may not be unique, but the pseudoinverse of $A$, $A^+$ is unique.
 \begin{equation}
     \begin{aligned}
@@ -723,34 +693,13 @@ If $A^{-1}$ exists, $A^{-1}=A^+$.
 \subsubsection{Analysis about $A^TA$ and $AA^T$}
 \begin{equation}
     \begin{aligned}
-        A^TA&=(U\Sigma V^T)^T(U\Sigma V^T)\\
-        &=V\Sigma^TU^TU\Sigma V^T\\
-        &=V\Sigma^T\Sigma V^T\\
-        &=V\Sigma^2 V^T\\
-        \Rightarrow	V&=A^TU\Sigma^+
+        A^TA&=(U\Sigma V)^T(U\Sigma V)\\
+        &=V^T\Sigma^TU^TU\Sigma V\\
     \end{aligned}
     \nonumber
 \end{equation}
-Columns of $V$ are the eigenvators of $A^TA$.
 
-The diagonal entries of $\Sigma^2$, $s_1^2,s_2^2,...,s_r^2$ are the eigenvalues of $A^TA$.
 
-Similarily: $$AA^T=U\Sigma^2U^T$$
-$$\Rightarrow U=AV\Sigma^+$$
-Columns of $U$ are the eigenvators of $AA^T$.
-
-\textbf{Fact:} $A^TA$ is positive semidefinite.
-
-\subsubsection{Solve Normal Equations}
-Solve $X^TXw=X^Ty$, $$\hat{w}_{ols}=X^+y$$
-$$X^TX\hat{w}_{ols}=X^TXX^+y=(X^T(XX^+))y=X^Ty$$
-
-\subsubsection{Low-Rank Approximation}
-For a $n\times m$ matrix $A$ with rank $r$, $A=\sum_{i=1}^rs_iu_iv_u^T$.
-
-\textbf{Rank-$k$ approximation} for $A$ is
-$$A_k=\sum_{i=1}^ks_iu_iv_u^T$$
-Where $\sigma_1\geq \sigma_2\geq \cdots\geq 0$
 
 
 

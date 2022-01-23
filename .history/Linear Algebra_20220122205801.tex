@@ -742,15 +742,13 @@ Columns of $U$ are the eigenvators of $AA^T$.
 \textbf{Fact:} $A^TA$ is positive semidefinite.
 
 \subsubsection{Solve Normal Equations}
-Solve $X^TXw=X^Ty$, $$\hat{w}_{ols}=X^+y$$
-$$X^TX\hat{w}_{ols}=X^TXX^+y=(X^T(XX^+))y=X^Ty$$
+Solve $X^TXw=X^Ty$, $$\hat{w}_{ols}=X^+y=V\Sigma^+U^Ty$$
+\begin{equation}
+    \begin{aligned}
+    \end{aligned}
+    \nonumber
+\end{equation}
 
-\subsubsection{Low-Rank Approximation}
-For a $n\times m$ matrix $A$ with rank $r$, $A=\sum_{i=1}^rs_iu_iv_u^T$.
-
-\textbf{Rank-$k$ approximation} for $A$ is
-$$A_k=\sum_{i=1}^ks_iu_iv_u^T$$
-Where $\sigma_1\geq \sigma_2\geq \cdots\geq 0$
 
 
 
