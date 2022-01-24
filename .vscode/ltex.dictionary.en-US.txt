@@ -1,1 +1,3 @@
 Canchy
+infimum
+supremum

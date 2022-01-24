@@ -12,7 +12,6 @@
 \usepackage{amsthm}
 \usepackage{indentfirst}
 \usepackage{amssymb}
-\usepackage{enumerate}
 \setlength{\parindent}{0pt}
 \usetikzlibrary{shapes,snakes}
 \newcommand{\argmax}{\operatornamewithlimits{argmax}}
@@ -128,13 +127,15 @@ Results about Bounded sequences:
 \end{definition}
 \begin{example}[Closed and Open Sets]
 \end{example}
-\begin{enumerate}[1)]
-    \item $(1,2)=\{x \in \mathbb{R}: 1<x<2\}$ - open
-    \item $\mathbb{R}$ is both open and closed
-    \item $(-\infty, 1)=\{x \in \mathbb{R}: x<1\}$ - open
-    \item $[1, \infty)$ is closed because its complement open
-    \item $(1,2]$ is neither open nor closed
-\end{enumerate}
+1) $(1,2)=\{x \in \mathbb{R}: 1<x<2\}$ - open
+
+2) $\mathbb{R}$ is both open and closed
+
+3) $(-\infty, 1)=\{x \in \mathbb{R}: x<1\}$ - open
+
+4) $[1, \infty)$ is closed because its complement open
+
+5) $(1,2]$ is neither open nor closed
 
 \begin{definition}[Bounded Set]
     $A$ is bounded if $\exists M$ s.t. $\|x\| \leqslant M \quad \forall x \in\&$
@@ -174,10 +175,7 @@ $
 Similarly, supremum and maximum of $f$.
 
 \subsubsection{Weierstrass' Theorem(Extreme value Theorem)}
-\begin{theorem}
-    [Weierstrass' Theorem(Extreme value Theorem)]
-    \quad
-
+\begin{theorem}[Weierstrass' Theorem(Extreme value Theorem)]
     If $f$ is a \textbf{continuous} function on a \textbf{compact set}, $\& \subseteq \mathbb{R}^{n}$, then $f$ attains its min and max on $\&$ i.e.,
     $$
     \begin{aligned}
@@ -194,54 +192,88 @@ Similarly, supremum and maximum of $f$.
 
     Then $\lim _{k \rightarrow \infty} f\left(\sigma_{k}\right)=\inf_{x\in\&} f(x)$
 
-    $\mathcal{L}$ is bounded $\Rightarrow\left\{\sigma_{k}\right\}$ has it least one limit point $x$,
+    $\mathcal{L}$ is bounded $\Rightarrow\left\{z_{k}\right\}$ has it least one limit point $x$,
 
-    $\mathcal{L}$ is closed $\Rightarrow x_{1} \in \&$
-
-    $f$ is continuous $\Rightarrow f\left(x_{1}\right)=\lim _{k \rightarrow \infty} f\left(\sigma_{k}\right)=\inf _{x \in \&} f(x)$
+    $\mathcal{L}$ is closed $\Rightarrow x_{1} \in \mathcal{1}$
 \end{proof}
 
-\begin{corollary}[Corollary to WT]
-    Let $f$ be continuous on closed set $\&$ (not necessarily bounded). If $f$ is coercive on $\&$ it attains its $\min$ on $\&$.
-\end{corollary}
-\begin{proof}
-    Consider $\left\{\sigma_{k}\right\}$ as in proof of $WT$.
+\[
+\begin{array}{l}
+$$\lim _{k \rightarrow \infty} x \in \mathcal{L}$$
+\end{array}
+\]
 
-    Since $f$ is closed, $f(x)<\infty,\ \forall x\in\&$. And $f$ is coercive on $\&$, which means $f(x)\rightarrow \infty$ if $\|x\| \rightarrow\infty$. Hence, $\left\{\sigma_{k}\right\}\in\&$ is bounded. Rest of proof same as proof of $\mathrm{WT}$.
-\end{proof}
+$\mathcal{L}$ is bounded $\Rightarrow\left\{z_{k}\right\}$ has it least one limit point $x$,
 
-\begin{example}
-    $f(x)=f\left(x_{1}, x_{2}, x_{3}\right)=x_{1}^{4}+2 x_{2}^{2}+e^{-x_{3}}+e^{2 x_{3}}$
-\end{example}
+$\mathcal{L}$ is closed $\Rightarrow x_{1} \in \mathcal{1}$
 
-\begin{enumerate}[1)]
-    \item \textit{Does $f$ achieve its $\min$ and $\max$ on $\mathcal{L}_{1}=\left\{x \in \mathbb{R}^{3}: x_{1}^{2}+2 x_{2}^{2}+3 x_{3}^{2} \leqslant 6\right\}$?}
-    
-    - $\mathcal{L}_{1}$ is compact and $f$ is continuous. Both $\min$ and $\max$ are achieved (WT).
-    \item Does $f$ achieve its min and max over $\mathbb{R}^{3}$?
-    
-    - $f \rightarrow \infty$ whenever $\|x\| \rightarrow \infty \Rightarrow f$ is coercive.
+$f$ is continuous $\Rightarrow f\left(x_{1}\right)=\lim _{k \rightarrow \infty} f\left(z_{k}\right)=\inf _{x \in s} f(x)$
 
-    - $\mathbb{R}^{3}$ is closed.
+Corollary Let $f$ be continuous on closed set 1 , that is not necessarily bounded. If $f$ is coercive on 1 it attains its $\min _{(\max )}$ on s.
 
-    $\Rightarrow f$ achieves its min. on $\mathbb{R}^{3}$ by corollary to WT.
+Proof Consider $\left\{z_{k}\right\}$ as in proof of $W T$.
 
-    - $\max$ does not exist since $f \rightarrow \infty$ as $\|x\| \rightarrow \infty$.
+$f$ is coercive on $\mathcal{L} \Rightarrow\left\{z_{k}\right\}$ is bounded
 
-    \item Does $f$ achieve its min and max over $\mathcal{L}_{2}=\{x \in \mathbb{R}^{3}: x_{1}+x_{2}+x_{3}=3\}$?
-    
-    - $\mathcal{L}_{2}$ is closed, but not bounded.
+Rest of proof same as proof $\mathrm{O} \mathrm{WT}$. Example
 
-    - Since $f$ is coercive, $\min$ achieved.
+$f(x)=f\left(x_{1}, x_{2}, x_{3}\right)=x_{1}^{4}+2 x_{2}^{2}+e^{-x_{3}}+e^{2 x_{3}}$
 
-    - $\max$ does not exist since setting $x_{1}=0$ $x_{2}=3-x_{3}$ and letting $x_{3} \rightarrow \infty$ makes $f \rightarrow \infty$
-\end{enumerate}
+(a) Dos $f$ achieve its min. and max. on
 
+$$
+\mathcal{L}_{1}=\left\{x \in \mathbb{R}^{3}: x_{1}^{2}+2 x_{2}^{2}+3 x_{3}^{2} \leqslant 6\right\} \text { ? }
+$$
 
+$\mathcal{L}_{1}$ is compact and $f$ is continuows
 
+$\Rightarrow$ both min and max achieved on s, by WT
 
+(b) Does $f$ achieve its min and max over $\mathbb{R}^{3}$ ?
 
+$f \rightarrow \infty$ whenever $\|x\| \rightarrow \infty \Rightarrow f$ is coercive
 
+- $\mathbb{R}^{3}$ is closed
+
+$\Rightarrow f$ achieves its min. on $\mathbb{R}^{3}$ by corollary to WT.
+
+$\max$, dos not exist sunce $f \rightarrow \infty$ as $\|x\| \rightarrow \infty$.
+
+(c) Does $f$ achieve its min and max orer:
+
+%$$
+%\mathscr{L}_{2}=\left\{x \in \mathbb{R}^%{3}: x_{1}+x_{2}+x_{3}=3\right\} \text {. %}
+%$$
+
+- $\mathcal{L}_{2}$ is closed, but not bounded.
+
+For example, $x_{1}=0, x_{2}=3-x_{3}$ and $x_{3} \rightarrow \infty$
+
+- Since $f$ is coercive, min achiered
+
+- $\max$ does nat exist suice setting $x_{1}=0$
+
+$x_{2}=3-x_{3}$ and letting $x_{3} \rightarrow \infty$ makes $f \rightarrow \infty$ Matrices
+
+%$$
+%A_{m \times n}=\left[\begin{array}{cccc}
+%a_{11} & a_{12} & \cdots & a_{1 n} \\
+%a_{21} & a_{22} & & a_{2 n} \\
+%\vdots & a_{m 2} & a_{m n}
+%\end{array}\right] \quad \begin{array}%{ll} 
+%& a_{i j} \\
+%a_{m 1} & a_{m 2} & \equiv & A_{i j} \\
+%& \equiv & {[A]_{i j}}
+%\end{array}
+%$$
+
+$$
+\begin{aligned}
+&\text { - Square matrix: } m=n, A_{n \times n} \\
+&\text { - Symmetric: } A^{\top}=A \\
+&\text { - Upper Triongular: } a_{i j}=0 \text { whenever } i<j \text {. }
+\end{aligned}
+$$
 
 
 \end{document}
