@@ -405,10 +405,7 @@ $\|A\|=\max \left(\frac{\|A x\|}{\|x\|}\right) \Rightarrow\|A\| \geqslant \frac{
     \end{aligned}
     \nonumber
 \end{equation}
-Also written as $<x,y>$
 
-Useful fact: $$<x,y>=\cos(\theta)\|x\|_2\|y\|_2$$
-$\theta$ is the angle between $x$ and $y$.
 
 Two important results for Euchidean norm:
 
@@ -419,7 +416,7 @@ Two important results for Euchidean norm:
 
 $$
 \begin{aligned}
-&<x,y>=\left|x^{\top} y\right| \leqslant\|x\|_2\|y\|_2 \\
+&\left|x^{\top} y\right| \leqslant\|x\|\|y\| \\
 &"=" \text { iff } x=\alpha y \text { for some } \alpha \in \mathbb{R}
 \end{aligned}
 $$
@@ -690,7 +687,7 @@ For a $n\times m$ matrix $A$ with rank $r$,
     \end{aligned}
     \nonumber
 \end{equation}
-$U,V$ are orthogonal matrixs. $u_i\in \mathbb{R}^{n\times 1}$ are left singular vectors, $v_i\in \mathbb{R}^{m\times 1}$ are right singular vectors. $s_i,i=1,...,r$ are singular values (absolute values of eigenvalues of a normal matrix).
+$U,V$ are orthogonal matrixs. $u_i\in \mathbb{R}^{n\times 1}$ are left singular vectors, $v_i\in \mathbb{R}^{m\times 1}$ are right singular vectors. $s_i,i=1,...,r$ are singular values.
 
 Complexity:$O(mn^2+n^3)$
 
@@ -753,7 +750,7 @@ For a $n\times m$ matrix $A$ with rank $r$, $A=\sum_{i=1}^rs_iu_iv_u^T$.
 
 \textbf{Rank-$k$ approximation} for $A$ is
 $$A_k=\sum_{i=1}^ks_iu_iv_u^T$$
-Where $s_1\geq s_2\geq \cdots\geq 0$
+Where $\sigma_1\geq \sigma_2\geq \cdots\geq 0$
 
 
 
