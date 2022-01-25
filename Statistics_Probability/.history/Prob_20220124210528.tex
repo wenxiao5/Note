@@ -127,100 +127,22 @@ $\Rightarrow T_1\sim Expo(\lambda) \Rightarrow T_j-T_{j-1}\sim Expo(\lambda); T_
 \subsection{Theorem (Conditional counts): $N(t_1)|N(t_2)=n\sim Bin(n,\frac{t_1}{t_2})$}
 可以理解为n个点散落在$(0,t_2]$上的概率每处均等$=\frac{1}{t_2}$; 所以散落在$(0,t_1]$上的概率为$\frac{t_1}{t_2}$
 
-\section{Limit Theorems}
+\section{Limit Theorem}
 \subsection{Law of Large Numbers (LLN)}
 Describe the behavior of the sample mean of i.i.d. as the sample size grows.
 
-$x_{1}, x_{2}, \ldots, x_{n}$ i.i.d. with some distribution. $\mu<\infty,\sigma^{2}<\infty$,$\bar{x}=\frac{1}{n}\left(x_{1}+x_{2}+\cdots+x_{n}\right)$.
+$x_{1}, x_{2}, \ldots, x_{n}$ i.i.d. with some distribution. $\mu<\infty,\sigma^{2}<\infty$.
 
-\begin{theorem}[Weak Law of Large Numbers (wLLN)]
-    \quad
+$\bar{x}=\frac{1}{n}\left(x_{1}+x_{2}+\cdots+x_{n}\right)$
 
-    The weak law of large numbers (also called Khinchin's law) states that the sample average \underline{converges in probability} towards the expected value.
-    $${\displaystyle {\begin{matrix}{}\\{\overline {X}}_{n}\ {\xrightarrow {P}}\ \mu \qquad {\text{when}}\ n\to \infty .\\{}\end{matrix}}}$$
-    That is, for any positive number $\varepsilon$,
-    $${\displaystyle \lim _{n\to \infty }\Pr \!\left(\,|{\overline {X}}_{n}-\mu |<\varepsilon \,\right)=1.}$$
-\end{theorem}
-\begin{proof}
-\quad
 
-Proof: by Chebychev's inequality.
-$$
-\begin{aligned}
-&P(|\bar{x}-\mu|\geq\varepsilon) \leq \frac{\sigma^{2}}{n \varepsilon^{2}} \quad (Var\bar{x}=\frac{\sigma^{2}}{n}) \\
-&\lim_{n \rightarrow \infty}\frac{\sigma^{2}}{n \varepsilon^{2}}=0\\
-\Rightarrow&\lim_{n \rightarrow \infty}P(|\bar{x}-\mu|>\varepsilon) \text { also converges to } 0 .
-\end{aligned}
-$$
-\end{proof}
 
-\begin{theorem}[Strong Law of Large Numbers (sLLN)]
-    \quad
 
-    With probability 1 (wp1) or almost surely (as).
-    $${\displaystyle {\begin{matrix}{}\\{\overline {X}}_{n}\ {\xrightarrow {a.s.}}\ \mu \qquad {\text{when}}\ n\to \infty .\\{}\end{matrix}}}$$
 
-    That is,
-    $$\Pr \!\left(\lim _{n\to \infty }{\overline {X}}_{n}=\mu \right)=1.$$
-\end{theorem}
 
-\subsection{Differences between \underline{convergence in probability} (wLLN) and \underline{wp1(a.s.)} (sLLN)}
-\begin{enumerate}[a)]
-    \item Weak Law of Large Numbers (wLLN)
-    $$P(|\bar{x}-\mu|\geq\varepsilon)\rightarrow 0\text{ as }n \rightarrow	+\infty,\ \forall \varepsilon>0$$
-    \begin{center}\begin{figure}[htbp]
-        \centering
-        \includegraphics[scale=0.3]{wLLN.png}
-        \caption{convergence in probability}
-        \label{}
-    \end{figure}\end{center}
-    \item Strong Law of Large Numbers (sLLN)
-    $$P(|\bar{x}-\mu|\geq\varepsilon\text{ as }n \rightarrow+\infty)=0,\ \forall \varepsilon>0$$
-    \begin{center}\begin{figure}[htbp]
-        \centering
-        \includegraphics[scale=0.3]{sLLN.png}
-        \caption{wp1(a.s.)}
-        \label{}
-    \end{figure}\end{center}
-\end{enumerate}
 
-\subsection{Central Limit Theorem (CLT)}
-\begin{theorem}[Central Limit Theorem (CLT)]
-    $$Z=\frac{\overline{X}-\mu}{\frac{\sigma}{\sqrt{n}}} \xrightarrow {D} N(0,1) \text{ when}\ n\to \infty$$
-    $Z$ \underline{converges in distribution} to $N(0,1)$ as $n\to \infty$
 
-    (converges in distribution: $P(\frac{\overline{X}-\mu}{\frac{\sigma}{\sqrt{n}}}\leq a)\rightarrow \frac{1}{\sqrt{2\pi}}\int_{-\infty}^ae^{-\frac{x^2}{2}}dx$)
-\end{theorem}
-\begin{proof}
-    Prove the situation of $\mu=0,\sigma^2=1$, we can use linear transformations to get other situations.
 
-    Moment-generating function(MGF) of $X_i$: $M_0(t)=E(e^{tX_i})$. $$M_0(0)=1,M_0'(0)=EX_i=0,M_0''(0)=EX_i^2=1$$
-    Moment-generating function(MGF) of $\sqrt{n}\overline{X}$:
-    \begin{equation}
-        \begin{aligned}
-            M_1(t)&=Ee^{t\sqrt{n}\overline{X}}=Ee^{t\frac{\sum_{i=1}^nX_i}{\sqrt{n}}}\\
-            &=Ee^{t\frac{X_1}{\sqrt{n}}}\cdot Ee^{t\frac{X_2}{\sqrt{n}}}\cdots Ee^{t\frac{X_n}{\sqrt{n}}}\\
-            &=[M_0(\frac{t}{\sqrt{n}})]^n
-        \end{aligned}
-        \nonumber
-    \end{equation}
-    \begin{equation}
-        \begin{aligned}
-            \lim_{n \rightarrow	\infty}\log M_1(t)&=\lim_{n \rightarrow	\infty}n\log M_0(\frac{t}{\sqrt{n}})\\
-            &(\text{let }y=\frac{1}{\sqrt{n}})\\
-            &=\lim_{y=0}\frac{\log M_0(yt)}{y^2}\\
-            &(\text{L'Hôpital's rule})\\
-            &=\lim_{y=0}\frac{t M'_0(yt)}{2y M_0(yt)}\\
-            &(\text{L'Hôpital's rule})\\
-            &=\lim_{y=0}\frac{t^2 M''_0(yt)}{2 M_0(yt)+2ytM'(yt)}\\
-            &=\frac{t^2}{2}
-        \end{aligned}
-        \nonumber
-    \end{equation}
-    As we know the Moment-generating function(MGF) of $Z\sim N(0,1)$ is $M_Z(t)=\frac{t^2}{2}$.
-
-    Hence, $M_1(t)=M_Z(t)$ i.e. $\frac{\overline{X}-\mu}{\frac{\sigma}{\sqrt{n}}} \xrightarrow {D} N(0,1)$ as $n \rightarrow\infty$
-\end{proof}
 
 
 

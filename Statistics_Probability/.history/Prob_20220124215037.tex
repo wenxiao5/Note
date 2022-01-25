@@ -194,32 +194,7 @@ $$
 \begin{proof}
     Prove the situation of $\mu=0,\sigma^2=1$, we can use linear transformations to get other situations.
 
-    Moment-generating function(MGF) of $X_i$: $M_0(t)=E(e^{tX_i})$. $$M_0(0)=1,M_0'(0)=EX_i=0,M_0''(0)=EX_i^2=1$$
-    Moment-generating function(MGF) of $\sqrt{n}\overline{X}$:
-    \begin{equation}
-        \begin{aligned}
-            M_1(t)&=Ee^{t\sqrt{n}\overline{X}}=Ee^{t\frac{\sum_{i=1}^nX_i}{\sqrt{n}}}\\
-            &=Ee^{t\frac{X_1}{\sqrt{n}}}\cdot Ee^{t\frac{X_2}{\sqrt{n}}}\cdots Ee^{t\frac{X_n}{\sqrt{n}}}\\
-            &=[M_0(\frac{t}{\sqrt{n}})]^n
-        \end{aligned}
-        \nonumber
-    \end{equation}
-    \begin{equation}
-        \begin{aligned}
-            \lim_{n \rightarrow	\infty}\log M_1(t)&=\lim_{n \rightarrow	\infty}n\log M_0(\frac{t}{\sqrt{n}})\\
-            &(\text{let }y=\frac{1}{\sqrt{n}})\\
-            &=\lim_{y=0}\frac{\log M_0(yt)}{y^2}\\
-            &(\text{L'Hôpital's rule})\\
-            &=\lim_{y=0}\frac{t M'_0(yt)}{2y M_0(yt)}\\
-            &(\text{L'Hôpital's rule})\\
-            &=\lim_{y=0}\frac{t^2 M''_0(yt)}{2 M_0(yt)+2ytM'(yt)}\\
-            &=\frac{t^2}{2}
-        \end{aligned}
-        \nonumber
-    \end{equation}
-    As we know the Moment-generating function(MGF) of $Z\sim N(0,1)$ is $M_Z(t)=\frac{t^2}{2}$.
-
-    Hence, $M_1(t)=M_Z(t)$ i.e. $\frac{\overline{X}-\mu}{\frac{\sigma}{\sqrt{n}}} \xrightarrow {D} N(0,1)$ as $n \rightarrow\infty$
+    Moment-generating function(MGF) of $X_i$: $M(t)=E(e^{tX_i})$. $M(0)=1,M'(0)=EX_i=0,M''(0)=EX_i^2=1$.
 \end{proof}
 
 
