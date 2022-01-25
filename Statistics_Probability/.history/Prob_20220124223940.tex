@@ -42,8 +42,7 @@
 \tableofcontents
 \newpage
 
-\section{Distribution}
-\subsection{Bernoulli Distribution $\operatorname{Bernoulli}(\pi)$: 事件发生概率为$\pi$}
+\section{Bernoulli Distribution: 事件发生概率为$\pi$}
 Assume $n$ independent binary (taking values 0 or 1 ) observations arising from independent and identical trials: $y_{1}, y_{2}, \ldots, y_{n}$ such that:
 $$
 P\left(Y_{i}=1\right)=\pi \quad \text { and } \quad P\left(Y_{i}=0\right)=1-\pi
@@ -51,49 +50,24 @@ $$
 Random variables $Y_{i}$ are normally called Bernoulli trials.
 \begin{equation}
     \begin{aligned}
-        Y_{i} \sim \operatorname{Bernoulli}(\pi) \\
-        p(y)=\left\{\begin{matrix}
-            \pi&y=1\\
-            1-\pi&y=0
-        \end{matrix}\right.\\
-        E(Y_i)=\pi,Var(Y_i)=\pi(1-\pi)
     \end{aligned}
     \nonumber
 \end{equation}
+$$
+\begin{gathered}
+Y_{i} \sim \operatorname{Bernoulli}(\pi) \\
+p(y)= \begin{cases}\pi & y=1 \\
+1-\pi & y=0\end{cases} \\
+E\left(Y_{i}\right)=\pi
+\end{gathered} \quad \operatorname{var}\left(Y_{i}\right)=\pi(1-\pi)
+$$
 
-\subsection{Binomial distribution $bin(n,\pi)$: $n$次Bernoulli}
-The random variable $Y=\sum_{i=1}^{n} Y_{i}$ has the Binomial distribution with index $n$ and parameter $\pi$ denoted as $Y \sim \operatorname{bin}(n, \pi)$.
-Mass probability function for $Y$ :
-$$
-P(y)=\left(\begin{array}{l}
-n \\
-y
-\end{array}\right) \pi^{y}(1-\pi)^{n-y} \quad y=0,1,2, \ldots, n
-$$
-with $\left(\begin{array}{l}n \\ y\end{array}\right)=n ! /[y !(n-y) !]$
 
-Mean and Variance:
-$$
-E(Y)=\mu=n \pi \quad \operatorname{var}(Y)=\sigma^{2}=n \pi(1-\pi)
-$$
-Skewness:
-$$
-E(Y-\mu)^{3} / \sigma^{3}=(1-2 \pi) / \sqrt{n \pi(1-\pi)}
-$$
-If the independence assumption is violated, the Binomial distribution does not apply.
-$$
-\frac{Y-n \pi}{\sqrt{n \pi(1-\pi)}} \stackrel{d}{n \rightarrow \infty} \quad N(0,1)
-$$
-(Normal approximation)
-
-\subsection{Multinomial Distribution}
-
-\subsection{Poisson Distribution $Pois(\lambda)$: 单位时间发生$k$次事件的概率}
-$\lambda$：单位时间发生该时间的平均次数
+\section{Poisson Distribution $Pois(\lambda)$: 单位时间发生$k$次事件的概率}
+\subsection{$\lambda$：单位时间发生该时间的平均次数}
 $$\Pr(X{=}k)= \frac{\lambda^k e^{-\lambda}}{k!},\ k=0,1,2,3...$$
-$$E(X)=Var(X)=\lambda$$
-推导:
-
+\subsection{$E(X)=Var(X)=\lambda$}
+\subsection{推导}
 我们考虑一段时间(讲单位时间微分成n等分, $n \rightarrow \infty$)，每一刻(瞬间)都有一个event may occur, which follows binomial distribution $B(n,p)$. where $n \rightarrow \infty, p \rightarrow 0$; $\lambda=n\cdot p$ is the expected number of events in this period of time.\\
 现在我们考虑发生$k$次event的概率：
 \begin{equation}
@@ -112,9 +86,8 @@ $$E(X)=Var(X)=\lambda$$
 
 
 
-\subsection{Exponential distribution $Exp(\lambda)$: 独立随机事件的发生间隔/第一次发生事件的时间}
-$\lambda$：单位时间发生该时间的平均次数
-
+\section{Exponential distribution $Exp(\lambda)$: 独立随机事件的发生间隔/第一次发生事件的时间}
+\subsection{$\lambda$：单位时间发生该时间的平均次数}
 随机变量$X$服从参数为$\lambda$ 或$\beta$ 的指数分布，则记作
 $${\displaystyle X\sim {\text{Exp}}(\lambda )} \text{ or } {\displaystyle X\sim {\text{Exp}}(\beta )}$$
 两者意义相同，只是$\lambda$ 与$\beta$ 互为倒数关系.
@@ -124,9 +97,9 @@ $${f(x;{\beta})=\left\{{\begin{matrix}{\frac{1}{\beta} }e^{-{\frac{1}{\beta} }x}
 $${F(x;{\lambda})=\left\{{\begin{matrix}{1-}e^{-{\lambda }x}&x\geq 0\\0&\;x<0.\end{matrix}}\right.}$$
 其中$\lambda > 0$是分布的参数，即每单位时间发生该事件的次数； $\beta>0$ 为尺度参数，即该事件在每单位时间内的发生率。两者常被称为率参数（rate parameter）。指数分布的区间是$[0,\infty)$。
 
-$\mathbb{E}(X)=\frac{1}{\lambda}$：预期事件的发生间隔； $Var(X)=\frac{1}{\lambda^2}$
+\subsection{$\mathbb{E}(X)=\frac{1}{\lambda}$：预期事件的发生间隔； $Var(X)=\frac{1}{\lambda^2}$}
 $$\mathbb{E}(X)=\frac{1}{\lambda};\ Var(X)=\frac{1}{\lambda^2}$$
-Memorylessness: ${\displaystyle \Pr \left(T>s+t\mid T>s\right)=\Pr(T>t)}$
+\subsection{Memorylessness: ${\displaystyle \Pr \left(T>s+t\mid T>s\right)=\Pr(T>t)}$}
 \begin{equation}
     \begin{aligned}
         \Pr (T>s+t\mid T>s)&=\frac{\Pr(T>s+t\text{ and }T>s)}{\Pr(T>s)}\\
@@ -138,8 +111,7 @@ Memorylessness: ${\displaystyle \Pr \left(T>s+t\mid T>s\right)=\Pr(T>t)}$
     \nonumber
 \end{equation}
 
-推导:
-
+\subsection{推导}
 我们考虑一段时间(讲单位时间微分成n等分, $n \rightarrow \infty$)，每一刻(瞬间)都有一个event may occur, which follows binomial distribution $B(n,p)$. where $n \rightarrow \infty, p \rightarrow 0$; $\lambda=n\cdot p$ is the expected number of events in this period of time. （与Poisson设定相同）\\
 CDF: 现在我们考虑第一次发生event的时间大于x的概率：
 \begin{equation}
@@ -157,9 +129,9 @@ PDF:
     \nonumber
 \end{equation}
 
-\subsection{Poisson process: A sequence of arrivals in continuous time with rate $\lambda$}
-\subsubsection{Definition}
-$N(t)\sim Pois(\lambda t)$：Number of arrivals in length $t$ follows Poisson distribution
+\section{Poisson process: A sequence of arrivals in continuous time with rate $\lambda$}
+\subsection{Definition}
+\subsubsection{$N(t)\sim Pois(\lambda t)$：Number of arrivals in length $t$ follows Poisson distribution}
 \begin{equation}
     \begin{aligned}
         N(t)\sim Pois(\lambda t)\\
@@ -167,12 +139,12 @@ $N(t)\sim Pois(\lambda t)$：Number of arrivals in length $t$ follows Poisson di
     \end{aligned}
     \nonumber
 \end{equation}
-The number of arrivals in disjoint time invervals are independent.
-\subsubsection{$T_j$: time of $j^{th}$ arrival}
+\subsubsection{The number of arrivals in disjoint time invervals are independent}
+\subsection{$T_j$: time of $j^{th}$ arrival}
 $T_1>t$ is same as $N(t)=0$: $P(T_1>t)=P(N(t)=0)=e^{-\lambda t}$\\
 $\Rightarrow T_1\sim Expo(\lambda) \Rightarrow T_j-T_{j-1}\sim Expo(\lambda); T_j\sim Gamma(j,\lambda)$
 
-\subsubsection{Theorem (Conditional counts): $N(t_1)|N(t_2)=n\sim Bin(n,\frac{t_1}{t_2})$}
+\subsection{Theorem (Conditional counts): $N(t_1)|N(t_2)=n\sim Bin(n,\frac{t_1}{t_2})$}
 可以理解为n个点散落在$(0,t_2]$上的概率每处均等$=\frac{1}{t_2}$; 所以散落在$(0,t_1]$上的概率为$\frac{t_1}{t_2}$
 
 \section{Limit Theorems}

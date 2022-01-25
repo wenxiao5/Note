@@ -62,31 +62,10 @@ Random variables $Y_{i}$ are normally called Bernoulli trials.
 \end{equation}
 
 \subsection{Binomial distribution $bin(n,\pi)$: $n$次Bernoulli}
-The random variable $Y=\sum_{i=1}^{n} Y_{i}$ has the Binomial distribution with index $n$ and parameter $\pi$ denoted as $Y \sim \operatorname{bin}(n, \pi)$.
-Mass probability function for $Y$ :
-$$
-P(y)=\left(\begin{array}{l}
-n \\
-y
-\end{array}\right) \pi^{y}(1-\pi)^{n-y} \quad y=0,1,2, \ldots, n
-$$
-with $\left(\begin{array}{l}n \\ y\end{array}\right)=n ! /[y !(n-y) !]$
 
-Mean and Variance:
-$$
-E(Y)=\mu=n \pi \quad \operatorname{var}(Y)=\sigma^{2}=n \pi(1-\pi)
-$$
-Skewness:
-$$
-E(Y-\mu)^{3} / \sigma^{3}=(1-2 \pi) / \sqrt{n \pi(1-\pi)}
-$$
-If the independence assumption is violated, the Binomial distribution does not apply.
-$$
-\frac{Y-n \pi}{\sqrt{n \pi(1-\pi)}} \stackrel{d}{n \rightarrow \infty} \quad N(0,1)
-$$
-(Normal approximation)
 
-\subsection{Multinomial Distribution}
+
+
 
 \subsection{Poisson Distribution $Pois(\lambda)$: 单位时间发生$k$次事件的概率}
 $\lambda$：单位时间发生该时间的平均次数
