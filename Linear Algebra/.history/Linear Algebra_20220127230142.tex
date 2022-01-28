@@ -492,13 +492,7 @@ $S(A)\leq \|A\|$
 $\forall x\in \mathbb{R}^n$, decompose it by $u_i$.
 Since $u_i$ are orthonormal and linearly independent. $x=\sum_{i=1}^n\alpha_i u_i$ for some $\alpha_i\in \mathbb{R},i=1,...,n$. $\|x\|^2=\sum_{i=1}^n|\alpha_i|^2$
 
-\begin{equation}
-    \begin{aligned}
-        \|Ax\|^2&=\|\sum_{i=1}^n\alpha_i A u_i\|^2=\|\sum_{i=1}^n\alpha_i \lambda_i u_i\|^2=\sum_{i=1}^n|\alpha_i|^2|\lambda_i|^2\\
-        &\leq \sum_{i=1}^n|\alpha_i|^2S(A)^2=S(A)^2 \Rightarrow	\|A\|\leq S(A)
-    \end{aligned}
-    \nonumber
-\end{equation}
+$\|Ax\|^2=\|\sum_{i=1}^n\alpha_i A u_i\|^2=\|\sum_{i=1}^n\alpha_i \lambda_i u_i\|^2=\sum_{i=1}^n|\alpha_i|^2|\lambda_i|^2\leq \sum_{i=1}^n|\alpha_i|^2S(A)^2=S(A)^2 \Rightarrow	\|Ax\|\leq S(A)$
 
 Since we proved $S(A)\leq \|A\|$ before, $S(A)=\|A\|$.
 \end{proof}

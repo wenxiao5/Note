@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2022.1.20)  24 JAN 2022 16:48
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2022.1.20)  27 JAN 2022 23:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -956,45 +956,70 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 136.
 
-[4] [5] [6] [7] [8] [9]
-Underfull \hbox (badness 10000) in paragraph at lines 448--450
+[4]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 146.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 146.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\times' on input line 146.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 146.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 146.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 146.
+
+[5] [6] [7] [8] [9] [10] [11]
+Underfull \hbox (badness 10000) in paragraph at lines 622--624
 
  []
 
-[10]
-Overfull \hbox (0.46455pt too wide) detected at line 552
+[12] [13]
+Overfull \hbox (0.46455pt too wide) detected at line 726
 \OML/cmm/m/it/10.95 Cov\OT1/cmr/m/n/10.95 ([][]\OML/cmm/m/it/10.95 ; [][]\OT1/cmr/m/n/10.95 ) = \U/msb/m/n/10.95 E\OT1/cmr/m/n/10.95 [([][] \OMS/cmsy/m/n/10.95 ^^@ []\U/msb/m/n/10.95 E\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 X\OT1/cmr/m/n/10.95 ))([][] \OMS/cmsy/m/n/10.95 ^^@ []\U/msb/m/n/10.95 E\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 Y\OT1/cmr/m/n/10.95 ))[]] = []\U/msb/m/n/10.95 E\OT1/cmr/m/n/10.95 [([] \OMS/cmsy/m/n/10.95 ^^@ \U/msb/m/n/10.95 E\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 X\OT1/cmr/m/n/10.95 ))([] \OMS/cmsy/m/n/10.95 ^^@ \U/msb/m/n/10.95 E\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 Y\OT1/cmr/m/n/10.95 ))[]][][] = []\OML/cmm/m/it/10.95 Cov\OT1/cmr/m/n/10.95 ([]\OML/cmm/m/it/10.95 ; []\OT1/cmr/m/n/10.95 )[][]
  []
 
-[11]
+[14]
 File: vector_by_vector.png Graphic file (type bmp)
 <vector_by_vector.png>
- [12] [13] [14]
+ [15] [16] [17]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 726.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 726.
+(hyperref)                removing `math shift' on input line 900.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 726.
+(hyperref)                removing `superscript' on input line 900.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 726.
+(hyperref)                removing `math shift' on input line 900.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 726.
+(hyperref)                removing `math shift' on input line 900.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 726.
+(hyperref)                removing `superscript' on input line 900.
 
-[15] [16] (./Linear Algebra.aux)
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 900.
+
+[18] [19] (./Linear Algebra.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -1003,11 +1028,11 @@ Package rerunfilecheck Info: File `"Linear Algebra".out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  37952 strings out of 476190
- 956512 string characters out of 5809791
- 1393120 words of memory out of 5000000
+ 956507 string characters out of 5809791
+ 1393824 words of memory out of 5000000
  58017 multiletter control sequences out of 15000+600000
  483465 words of font info for 97 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  100i,15n,104p,785b,479s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Linear Algebra.pdf (16 pages).
+Output written on Linear Algebra.pdf (19 pages).

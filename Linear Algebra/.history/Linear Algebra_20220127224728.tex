@@ -475,6 +475,8 @@ Spectral Radius: for $n\times n$ matrix $A$, $$S(A)=\max_{i=1,...,n}|\lambda_i|$
 $S(A)\leq \|A\|$
 \end{proposition}
 \begin{proof}
+\quad
+
 \begin{equation}
     \begin{aligned}
         \|A\|=\max _{\|x\|=1}\|A x\|\geq \|Au\|=|\lambda|\|u\|=|\lambda|
@@ -483,25 +485,7 @@ $S(A)\leq \|A\|$
 \end{equation}
 \end{proof}
 
-\begin{proposition}
-    For symmetric $A_{n\times n}$, $S(A)= \|A\|$
-\end{proposition}
-\begin{proof}
-\quad
 
-$\forall x\in \mathbb{R}^n$, decompose it by $u_i$.
-Since $u_i$ are orthonormal and linearly independent. $x=\sum_{i=1}^n\alpha_i u_i$ for some $\alpha_i\in \mathbb{R},i=1,...,n$. $\|x\|^2=\sum_{i=1}^n|\alpha_i|^2$
-
-\begin{equation}
-    \begin{aligned}
-        \|Ax\|^2&=\|\sum_{i=1}^n\alpha_i A u_i\|^2=\|\sum_{i=1}^n\alpha_i \lambda_i u_i\|^2=\sum_{i=1}^n|\alpha_i|^2|\lambda_i|^2\\
-        &\leq \sum_{i=1}^n|\alpha_i|^2S(A)^2=S(A)^2 \Rightarrow	\|A\|\leq S(A)
-    \end{aligned}
-    \nonumber
-\end{equation}
-
-Since we proved $S(A)\leq \|A\|$ before, $S(A)=\|A\|$.
-\end{proof}
 
 
 

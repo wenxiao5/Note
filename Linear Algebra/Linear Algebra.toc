@@ -8,36 +8,43 @@
 \contentsline {subsection}{\numberline {1.7}Linear transformation}{4}{subsection.1.7}%
 \contentsline {subsection}{\numberline {1.8}一个线性变换对应一个矩阵, 线性变换矩阵相乘仍为线性变换矩阵}{4}{subsection.1.8}%
 \contentsline {subsection}{\numberline {1.9}GL(V): invertible linear transformations $V \rightarrow V$}{5}{subsection.1.9}%
-\contentsline {section}{\numberline {2}Eigenvalues Related}{5}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Eigenvalues, Eigenvectors}{5}{subsection.2.1}%
-\contentsline {subsubsection}{\numberline {2.1.1}Definition}{5}{subsubsection.2.1.1}%
-\contentsline {subsubsection}{\numberline {2.1.2}Diagonalizable Matrix}{5}{subsubsection.2.1.2}%
-\contentsline {subsection}{\numberline {2.2}Jacobian matrix}{6}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Hessian matrix}{6}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Positive Definite Matrices}{6}{subsection.2.4}%
-\contentsline {subsubsection}{\numberline {2.4.1}Definition}{6}{subsubsection.2.4.1}%
-\contentsline {subsubsection}{\numberline {2.4.2}Diagonal matrix situation}{7}{subsubsection.2.4.2}%
-\contentsline {subsubsection}{\numberline {2.4.3}Using eigenvalues}{7}{subsubsection.2.4.3}%
-\contentsline {subsubsection}{\numberline {2.4.4}Sylvester’s Criterion}{7}{subsubsection.2.4.4}%
-\contentsline {section}{\numberline {3}Euclidean geometry basics}{8}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Norm}{8}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}Vector's Norm}{8}{subsubsection.3.1.1}%
-\contentsline {subsubsection}{\numberline {3.1.2}Matrix's Norm}{9}{subsubsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.2} Euclidean distance, inner product}{9}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Isometry}{10}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4} Linear isometries i.e. orthogonal group}{10}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}Special orthogonal group}{10}{subsection.3.5}%
-\contentsline {subsection}{\numberline {3.6}translation}{10}{subsection.3.6}%
-\contentsline {subsection}{\numberline {3.7}All isometries can be represented by a composition of \textit {a translation} and \textit {an orthogonal transformation}}{11}{subsection.3.7}%
-\contentsline {section}{\numberline {4}Algebra Computation}{11}{section.4}%
-\contentsline {subsection}{\numberline {4.1} Random Vectors}{11}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2} Matrix Multiplication}{12}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}矩阵求导}{12}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Linear Regression: Least Square}{13}{subsection.4.4}%
-\contentsline {subsubsection}{\numberline {4.4.1}Normal Equations}{13}{subsubsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.5}LU Decomposition (Restricted to Square)}{14}{subsection.4.5}%
-\contentsline {subsection}{\numberline {4.6}SVD: Singular Value Decomposition}{14}{subsection.4.6}%
-\contentsline {subsubsection}{\numberline {4.6.1}Pseudoinverse}{15}{subsubsection.4.6.1}%
-\contentsline {subsubsection}{\numberline {4.6.2}Analysis about $A^TA$ and $AA^T$}{15}{subsubsection.4.6.2}%
-\contentsline {subsubsection}{\numberline {4.6.3}Solve Normal Equations}{16}{subsubsection.4.6.3}%
-\contentsline {subsubsection}{\numberline {4.6.4}Low-Rank Approximation}{16}{subsubsection.4.6.4}%
+\contentsline {section}{\numberline {2}Basic Definition}{5}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Square Matrix $A_{n\times n}$: $det(A)$, singular}{5}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Orthogonal Vectors}{5}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Orthonormal Vectors}{5}{subsection.2.3}%
+\contentsline {section}{\numberline {3}Eigenvalues Related}{5}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Eigenvalues, Eigenvectors Definition}{5}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Diagonalizable Matrix}{6}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Eigen Decomposition of Symmetric Matrices Results}{6}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Diagonalization of Real Symmetric Matrices}{7}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Trace}{7}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Jacobian matrix}{8}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.7}Hessian matrix}{8}{subsection.3.7}%
+\contentsline {subsection}{\numberline {3.8}Positive Definite Matrices}{8}{subsection.3.8}%
+\contentsline {subsubsection}{\numberline {3.8.1}Definition}{8}{subsubsection.3.8.1}%
+\contentsline {subsubsection}{\numberline {3.8.2}Diagonal matrix situation}{9}{subsubsection.3.8.2}%
+\contentsline {subsubsection}{\numberline {3.8.3}Using eigenvalues}{9}{subsubsection.3.8.3}%
+\contentsline {subsubsection}{\numberline {3.8.4}Sylvester’s Criterion}{9}{subsubsection.3.8.4}%
+\contentsline {subsection}{\numberline {3.9}Matrix Norm (Induced Norm) and Spectral Radius}{10}{subsection.3.9}%
+\contentsline {section}{\numberline {4}Euclidean geometry basics}{11}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Norm}{11}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Vector's Norm}{11}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Matrix's Norm}{12}{subsubsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.2} Euclidean distance, inner product}{12}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Isometry}{12}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4} Linear isometries i.e. orthogonal group}{13}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Special orthogonal group}{13}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}translation}{13}{subsection.4.6}%
+\contentsline {subsection}{\numberline {4.7}All isometries can be represented by a composition of \textit {a translation} and \textit {an orthogonal transformation}}{14}{subsection.4.7}%
+\contentsline {section}{\numberline {5}Algebra Computation}{14}{section.5}%
+\contentsline {subsection}{\numberline {5.1} Random Vectors}{14}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2} Matrix Multiplication}{15}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}矩阵求导}{15}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Linear Regression: Least Square}{16}{subsection.5.4}%
+\contentsline {subsubsection}{\numberline {5.4.1}Normal Equations}{16}{subsubsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.5}LU Decomposition (Restricted to Square)}{17}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}SVD: Singular Value Decomposition}{17}{subsection.5.6}%
+\contentsline {subsubsection}{\numberline {5.6.1}Pseudoinverse}{18}{subsubsection.5.6.1}%
+\contentsline {subsubsection}{\numberline {5.6.2}Analysis about $A^TA$ and $AA^T$}{18}{subsubsection.5.6.2}%
+\contentsline {subsubsection}{\numberline {5.6.3}Solve Normal Equations}{19}{subsubsection.5.6.3}%
+\contentsline {subsubsection}{\numberline {5.6.4}Low-Rank Approximation}{19}{subsubsection.5.6.4}%

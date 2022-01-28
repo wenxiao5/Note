@@ -344,17 +344,9 @@ We say that a symmetric $n \times n$ matrix $A$ is:
 
 $x^TAx$ is a function of $x$ called the quadratic form associated to $A$.
 
-$A$ is ND(NSD) $\Leftrightarrow$ $-A$ is PD(PSD)
-
 $\textbf{Note:}$ $A^TA$ is $\textbf{ positive semidefinite}$, since $x^TA^TAx=\|Ax\|^2\geq 0$.
 
-$\textbf{Note:}$ We can extend definition to non-symmetric $n\times n$
-\begin{equation}
-    \begin{aligned}
-        x^TAx=x^TA^Tx \Rightarrow x^TAx=x^T(\frac{A+A^T}{2})x
-    \end{aligned}
-    \nonumber
-\end{equation}
+
 
 
 
@@ -447,62 +439,6 @@ Then we can simplify the quadratic form for A to the quadratic form for $A^{(k)}
         
     $A$ is indeﬁnite if the ﬁrst $\Delta_k$(noozero) that breaks each pattern respectively is the wrong sign.
 \end{theorem}
-
-\begin{proposition}
-    \quad
-
-\begin{enumerate}
-    \item Symmetric matrix $A$ is PD
-
-    $\Leftrightarrow$ All eigenvalues of $A$ are $>0$
-    
-    $\Leftrightarrow$ $\Delta_i>0\ \forall i=1,...,n$
-    \item Symmetric matrix $A$ is PSD
-
-    $\Leftrightarrow$ All eigenvalues of $A$ are $\geq 0$
-    
-    $\Leftrightarrow$ $\Delta_i\geq 0\ \forall i=1,...,n$
-    \item For ND and NSD, test $-A$ instead of $A$
-\end{enumerate}
-\end{proposition}
-
-\subsection{Matrix Norm (Induced Norm) and Spectral Radius}
-$\|A\|=\max _{\|x\|=1}\|A x\|$. 即找到最大的绝对值和的“列”。
-
-Spectral Radius: for $n\times n$ matrix $A$, $$S(A)=\max_{i=1,...,n}|\lambda_i|$$
-
-\begin{proposition}
-$S(A)\leq \|A\|$
-\end{proposition}
-\begin{proof}
-\begin{equation}
-    \begin{aligned}
-        \|A\|=\max _{\|x\|=1}\|A x\|\geq \|Au\|=|\lambda|\|u\|=|\lambda|
-    \end{aligned}
-    \nonumber
-\end{equation}
-\end{proof}
-
-\begin{proposition}
-    For symmetric $A_{n\times n}$, $S(A)= \|A\|$
-\end{proposition}
-\begin{proof}
-\quad
-
-$\forall x\in \mathbb{R}^n$, decompose it by $u_i$.
-Since $u_i$ are orthonormal and linearly independent. $x=\sum_{i=1}^n\alpha_i u_i$ for some $\alpha_i\in \mathbb{R},i=1,...,n$. $\|x\|^2=\sum_{i=1}^n|\alpha_i|^2$
-
-\begin{equation}
-    \begin{aligned}
-        \|Ax\|^2&=\|\sum_{i=1}^n\alpha_i A u_i\|^2=\|\sum_{i=1}^n\alpha_i \lambda_i u_i\|^2=\sum_{i=1}^n|\alpha_i|^2|\lambda_i|^2\\
-        &\leq \sum_{i=1}^n|\alpha_i|^2S(A)^2=S(A)^2 \Rightarrow	\|A\|\leq S(A)
-    \end{aligned}
-    \nonumber
-\end{equation}
-
-Since we proved $S(A)\leq \|A\|$ before, $S(A)=\|A\|$.
-\end{proof}
-
 
 
 
