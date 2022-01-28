@@ -1,0 +1,15 @@
+\contentsline {section}{\numberline {1}Unconstrained optimization}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Global minimizer, Local minimizer}{2}{subsection.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}Theorem 1: differentiable $f$, $x^*$ is a local minimizer $\Rightarrow f'(x^*)=0$}{2}{subsubsection.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.2}Theorem 2: $f'(x^*)=0, f''(x^*)\geq 0,\ \forall x\in [a,b]\Rightarrow x^*$ is a global minimizer on $[a,b]$; $f'(x^*)=0, f''(x^*)\geq 0 \Rightarrow x^*$ is a local minimizer}{2}{subsubsection.1.1.2}%
+\contentsline {section}{\numberline {2}Critical points in $\mathbb {R}^n$}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Restrictions to a line}{3}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Lemma 1: $x^*$ is a global minimizer of $f$ $\Leftrightarrow $ $t=0$ is the global minimizer of $\phi _u (t)$}{3}{subsubsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.2}The first-derivative test in $\mathbb {R}^n$: $\phi '_u (t)=\nabla f(x+tu)\cdot u$}{3}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Theorem 4: $\nabla f$ is continuous, $x^*$ is a global minimizer of $f$ $\Rightarrow \nabla f(x^*)=0$}{3}{subsubsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.3}The second-derivative test in $\mathbb {R}^n$}{4}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Hessian matrix}{4}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Theorem 5: $Hf$ is continuous, $\nabla f(x^*)=0$, $u^T Hf(x^*) u\geq 0,\forall u$ $\Rightarrow $ $x^*$ is a global minimizer of $f$}{4}{subsubsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.4}Minimizing over other sets}{4}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Theorem 7: $\nabla f$ is continuous, $x^*$(interior of $D$) is a local minimizer of $f$ $\Rightarrow \nabla f(x^*)=0$}{4}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Theorem 8: $Hf$ is continuous, $x^*$(interior of $D$) $\nabla f(x^*)=0$, $\exists r$ s.t. $u^T Hf(x^*) u\geq 0, \forall x\in B(x^*,r),\forall u$ $\Rightarrow $ $x^*$ is a local minimizer of $f$}{5}{subsubsection.2.4.2}%
