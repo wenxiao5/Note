@@ -2,3 +2,5 @@ Canchy
 infimum
 supremum
 Optimality
+extremum
+extrema

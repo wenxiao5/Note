@@ -12,7 +12,6 @@
 \usepackage{amsthm}
 \usepackage{indentfirst}
 \usepackage{amssymb}
-\usepackage{enumerate}
 \setlength{\parindent}{0pt}
 \usetikzlibrary{shapes,snakes}
 \newcommand{\argmax}{\operatornamewithlimits{argmax}}
@@ -159,58 +158,10 @@ By Taylor series expansion,
     \end{aligned}
     \nonumber
 \end{equation}
+
+
+
 \end{proof}
-
-\subsubsection{Sufficient Conditions for Optimality}
-\begin{theorem}
-Suppose $f$ is twice continuously differentiable in a neighborhood of $x^*$ and 
-(1) $\nabla f(x^*)=0$; (2) $\nabla^2 f(x^*)>0$.
-Then $x^*$ is local minimum.
-\end{theorem}
-\begin{proof}
-\quad\\
-Consider $u\in \mathbb{R}^n$, $\alpha>0$ and let
-\begin{equation}
-    \begin{aligned}
-        g(\alpha)&=f(x^*+\alpha u)-f(x^*)\\
-        &=\frac{\alpha^2}{2}u^T\nabla^2 f(x^*) u+O(\alpha^2)\geq 0\\
-        &=\frac{\alpha^2}{2}[u^T\nabla^2 f(x^*) u+2\frac{O(\alpha^2)}{\alpha^2}]\\
-        &u^T\nabla^2 f(x^*) u>0;\ \frac{O(\alpha^2)}{\alpha^2}\rightarrow 0\\
-        &\Rightarrow g(\alpha)>0\text{ for }\alpha\text{ sufficiently small for all }u\neq 0\\
-        &\Rightarrow x^*\text{ is local minimum}.
-    \end{aligned}
-    \nonumber
-\end{equation}
-\end{proof}
-
-
-
-
-
-
-\subsubsection{Using Optimality Conditions to Find Minimum}
-\begin{enumerate}
-    \item Find all points satisfying necessary condition $\nabla f(x)=0$ (all stationary points)
-    \item Filter out points that don't satisfy $\nabla^2 f(x)\geq 0$
-    \item Points with $\nabla^2 f(x)> 0$ are strict local minimum.
-    \item Among all points with $\nabla^2 f(x)\geq 0$, declare a global minimum, one with the smallest value of $f$, assuming that global minimum exists.
-\end{enumerate}
-\begin{example}
-$f(x)=2x^2-x^4$
-\end{example}
-\begin{equation}
-    \begin{aligned}
-        f'(x)&=4x-4x^3=0\\
-        \Rightarrow& x=0,x=1,x=-1\text{ are stationary points}\\
-        f''(x)&=4-12x^2=\left\{\begin{matrix}
-            4&\text{if }x=0\\
-            -8&\text{if }x=1,-1
-        \end{matrix}\right.\\
-        \Rightarrow	&x=0\text{ is the only local min, and it is strict}
-    \end{aligned}
-    \nonumber
-\end{equation}
-But $-f(x) \rightarrow \infty$ as $|x|\rightarrow \infty \Rightarrow$ no global min, but global max exists. $f(1),f(-1)$ are strict local max and both global max.
 
 
 
