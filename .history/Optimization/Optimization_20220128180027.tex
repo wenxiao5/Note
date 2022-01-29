@@ -45,25 +45,25 @@
 \tableofcontents
 \newpage
 
-\section{Unconstrained Optimization}
-\subsection{Conditions for Optimality}
-Function: $f:\mathbb{R}^n \rightarrow	\mathbb{R}^n$, $x\in \&,\ \&\subseteq \mathbb{R}^n$.
+\section{Conditions for Optimality}
+Function: $f:\mathbb{R}^n \rightarrow	\mathbb{R}^n$
+
+$x\in \&,\ \&\subseteq \mathbb{R}^n$
 
 Terminology: $x^*$ will always be the optimal input at some function.
 
 \subsection{Global minimizer, Local minimizer}
 \begin{definition}
     \quad\\
-    Say $x^*$ is a \underline{global minimizer(minimum)} of $f$ if $f(x^*)\leq f(x), \forall x\in \&$.
+    Say $x^*$ is a \underline{global minimizer(minimum)} of $f$ if $f(x^*)\leq f(x), \forall x\in \mathbb{R}$.
 
     Say $x^*$ is a \underline{unique global minimizer(minimum)} of $f$ if $f(x^*)< f(x), \forall x\neq x^*$.
 
-    Say $x^*$ is a \underline{local minimizer(minimum)} of $f$ if $\exists r>0$ so that $f(x^*)\leq f(x)$ when $\|x-x^*\|<r$.
+    Say $x^*$ is a \underline{local minimizer(minimum)} of $f$ if $\exists r>0$ so that $f(x^*)\leq f(x)$ when $|x-x^*|<r$.
 \end{definition}
 
 A minimizer is \underline{strict} if $f(x^*)< f(x)$ for all relevant $x$.
 
-\subsection{Optimization in $\mathbb{R}$}
 \subsubsection{Theorem 1: differentiable $f$, $x^*$ is a local minimizer $\Rightarrow f'(x^*)=0$}
 
 \begin{theorem}
@@ -92,80 +92,12 @@ when $0<h<r$, $\frac{f(x+h)-f(x)}{h}\geq 0$; when $-r<h<0$, $\frac{f(x+h)-f(x)}{
 \end{proof}
 
 
-\subsection{Optimization in $\mathbb{R}^n$}
-\subsubsection{Necessary Conditions for Optimality: Local Minimum $\Rightarrow \nabla f(x^*)=0$}
-A base point $x$, we consider an arbitrary direction $u$. $\{x+tu| t\in \mathbb{R}\}$
-
-For $\alpha>0$ sufficiently small:
-\begin{enumerate}
-    \item $f(x^*)\leq f(x^*+\alpha u)$
-    \item $g(\alpha)=f(x^*+tu)-f(x^*)\geq 0$
-    \item $g(\beta)$ is continuously differentiable for $\beta\in[0,\alpha]$
-\end{enumerate}
-
-By chain rule, $$g'(\beta)=\sum_{i=1}^n \frac{\partial f}{\partial x_i}(x^*+\beta u)u_i$$
-
-By Mean Value Theorem, $$g(\alpha)=g(0)+g'(\beta)\alpha\text{ for some }\beta\in[0,\alpha]$$
-Thus $$g(\alpha)=\alpha\sum_{i=1}^n \frac{\partial f}{\partial x_i}(x^*+\beta u)u_i\geq 0$$
-$$\Rightarrow \sum_{i=1}^n \frac{\partial f}{\partial x_i}(x^*+\beta u)u_i\geq 0$$
-Letting $\alpha \rightarrow	0$ and hence $\beta \rightarrow	0$, we get $$\sum_{i=1}^n \frac{\partial f}{\partial x_i}(x^*)u_i\geq 0\text{ for all }u\in \mathbb{R}^n$$
-By choosing $u=[1,0,...,0]^T$, $u=[-1,0,...,0]^T$, we get $$\frac{\partial f(x^*)}{\partial x_1}\geq 0,\ \frac{\partial f(x^*)}{\partial x_1}\leq 0 \Rightarrow	\frac{\partial f(x^*)}{\partial x_1}= 0$$
-Similarly, we can get $$\nabla f(x^*)=[\frac{\partial f(x^*)}{\partial x_1},\frac{\partial f(x^*)}{\partial x_2},...,\frac{\partial f(x^*)}{\partial x_n}]^T=0$$
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-A base point $x$, we consider an arbitrary direction $u$. $\{x+tu| t\in \mathbb{R}\}$
-
+\section{Critical points in $\mathbb{R}^n$}
+\subsection{Restrictions to a line}
+A base point $x$, a direction $u$. $\{x+tu| t\in \mathbb{R}\}$\\
 We define \underline{the restriction of $f$ to the line through $x$ in the direction of $u$} to be the function:
 $$\phi_u (t)=f(x+tu)$$
+\subsubsection{Lemma 1: $x^*$ is a global minimizer of $f$ $\Leftrightarrow$ $t=0$ is the global minimizer of $\phi_u (t)$}
 \begin{lemma}
 $x^*$ is a global minimizer of $f$ iff for all $u$, $t=0$ is the global minimizer of $\phi_u (t)$
 \end{lemma}
@@ -176,7 +108,7 @@ $x^*$ is a global minimizer of $f$ iff for all $u$, $t=0$ is the global minimize
 \end{proof}
 
 
-\subsubsection{The first-derivative test in $\mathbb{R}^n$: $\phi'_u (t)=\nabla f(x+tu)\cdot u$}
+\subsection{The first-derivative test in $\mathbb{R}^n$: $\phi'_u (t)=\nabla f(x+tu)\cdot u$}
 First derivative of $f:\mathbb{R}^n \rightarrow \mathbb{R}$,
 Easier: $\phi'_u (t)$?\\
 Suppose $f:\mathbb{R}^n \rightarrow \mathbb{R}$ and $\mathsf{g}:\mathbb{R} \rightarrow \mathbb{R}^n$:
@@ -202,7 +134,7 @@ $\phi'_u (t)=\nabla f(x+tu)\cdot u= 54t$
 \end{theorem}
 $x^*$ is a global minimizer $\Rightarrow$ $x^*$ is a critical point, inverse may not true.
 
-\subsubsection{The second-derivative test in $\mathbb{R}^n$}
+\subsection{The second-derivative test in $\mathbb{R}^n$}
 $$\phi'_u (t)=\sum_{i=1}^n \frac{\partial f}{\partial x_i}(x+tu)u_i$$
 $$\phi^{''}_u (t)=\sum_{i=1}^n \sum_{j=1}^n u_iu_j\frac{\partial^2 f}{\partial x_i\partial x_j}(x+tu)$$
 \subsubsection{Hessian matrix}

@@ -1,3 +1,4 @@
 Canchy
 infimum
 supremum
+Optimality

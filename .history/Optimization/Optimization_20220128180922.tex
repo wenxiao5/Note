@@ -93,77 +93,8 @@ when $0<h<r$, $\frac{f(x+h)-f(x)}{h}\geq 0$; when $-r<h<0$, $\frac{f(x+h)-f(x)}{
 
 
 \subsection{Optimization in $\mathbb{R}^n$}
-\subsubsection{Necessary Conditions for Optimality: Local Minimum $\Rightarrow \nabla f(x^*)=0$}
-A base point $x$, we consider an arbitrary direction $u$. $\{x+tu| t\in \mathbb{R}\}$
-
-For $\alpha>0$ sufficiently small:
-\begin{enumerate}
-    \item $f(x^*)\leq f(x^*+\alpha u)$
-    \item $g(\alpha)=f(x^*+tu)-f(x^*)\geq 0$
-    \item $g(\beta)$ is continuously differentiable for $\beta\in[0,\alpha]$
-\end{enumerate}
-
-By chain rule, $$g'(\beta)=\sum_{i=1}^n \frac{\partial f}{\partial x_i}(x^*+\beta u)u_i$$
-
-By Mean Value Theorem, $$g(\alpha)=g(0)+g'(\beta)\alpha\text{ for some }\beta\in[0,\alpha]$$
-Thus $$g(\alpha)=\alpha\sum_{i=1}^n \frac{\partial f}{\partial x_i}(x^*+\beta u)u_i\geq 0$$
-$$\Rightarrow \sum_{i=1}^n \frac{\partial f}{\partial x_i}(x^*+\beta u)u_i\geq 0$$
-Letting $\alpha \rightarrow	0$ and hence $\beta \rightarrow	0$, we get $$\sum_{i=1}^n \frac{\partial f}{\partial x_i}(x^*)u_i\geq 0\text{ for all }u\in \mathbb{R}^n$$
-By choosing $u=[1,0,...,0]^T$, $u=[-1,0,...,0]^T$, we get $$\frac{\partial f(x^*)}{\partial x_1}\geq 0,\ \frac{\partial f(x^*)}{\partial x_1}\leq 0 \Rightarrow	\frac{\partial f(x^*)}{\partial x_1}= 0$$
-Similarly, we can get $$\nabla f(x^*)=[\frac{\partial f(x^*)}{\partial x_1},\frac{\partial f(x^*)}{\partial x_2},...,\frac{\partial f(x^*)}{\partial x_n}]^T=0$$
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-A base point $x$, we consider an arbitrary direction $u$. $\{x+tu| t\in \mathbb{R}\}$
-
+\subsubsection{Restrictions to a line}
+A base point $x$, a direction $u$. $\{x+tu| t\in \mathbb{R}\}$\\
 We define \underline{the restriction of $f$ to the line through $x$ in the direction of $u$} to be the function:
 $$\phi_u (t)=f(x+tu)$$
 \begin{lemma}
