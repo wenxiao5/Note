@@ -238,7 +238,6 @@ Similarly, supremum and maximum of $f$.
 \end{enumerate}
 
 \section{Big $\mathcal{O}$ Notation}
-\subsection{Definition}
 For two scalar functions $f(x)\in \mathbb{R}, g(x)\in \mathbb{R}_+$, where $x\in \mathbb{R}$, we write:
 \begin{enumerate}
     \item $f(x)=\mathcal{O}(g(x))$ if $\lim \sup_{x \rightarrow	\infty}\frac{|f(x)|}{g(x)}<\infty$; we say $f$ is dominated by $g$ asymptotically.
@@ -247,22 +246,8 @@ For two scalar functions $f(x)\in \mathbb{R}, g(x)\in \mathbb{R}_+$, where $x\in
     \item $f(x)=o(g(x))$ if $\lim \inf_{x \rightarrow \infty}\frac{f(x)}{g(x)}=0$.
 \end{enumerate}
 
-\begin{example}
-\begin{equation}
-    \begin{aligned}
-        n^3+n+2=\Omega(1),n^3+n+2=\Omega(n^2)\\
-        n^3+n+2=\Theta(n^3)\\
-        n^3+n+2=o(n^4)
-    \end{aligned}
-    \nonumber
-\end{equation}
-\end{example}
 
-\subsubsection{Extension}
-$f(x)=\mathcal{O}(g(x))$ as $x \rightarrow a$ if $\lim \sup_{x \rightarrow a}\frac{|f(x)|}{g(x)}<\infty$.
 
-\begin{example}
-$\varepsilon^2+\varepsilon^3=\mathcal{O}(\varepsilon^2)$ as $\varepsilon \rightarrow 0$
-\end{example}
+
 
 \end{document}

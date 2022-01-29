@@ -1,10 +1,10 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2022.1.20)  23 JAN 2022 17:45
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2022.1.20)  29 JAN 2022 16:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/yangwenxiao/Desktop/Note/Analysis
-(/Users/yangwenxiao/Desktop/Note/Analysis.tex
+**/Users/yangwenxiao/Desktop/Note/Analysis/Analysis
+(/Users/yangwenxiao/Desktop/Note/Analysis/Analysis.tex
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2022-01-12> (/usr/local/texlive/2021/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
@@ -904,17 +904,32 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
  [1
 
-] [2] [3] [4] [5] (./Analysis.aux)
-Package rerunfilecheck Info: File `Analysis.out' has not changed.
-(rerunfilecheck)             Checksum: F27B81DCC0F66C78E14D378F6EC4265D;1128.
+] [2] [3] [4]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 240.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 240.
+
+[5] (./Analysis.aux)
+
+Package rerunfilecheck Warning: File `Analysis.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Analysis.out':
+(rerunfilecheck)             Before: 42DD3836B67BE66649AD2C5EA52A5E93;1247
+(rerunfilecheck)             After:  F53CBA1134A77BE34891D8572466F672;1468.
  ) 
 Here is how much of TeX's memory you used:
- 37856 strings out of 476190
- 950649 string characters out of 5809791
- 1381091 words of memory out of 5000000
- 57940 multiletter control sequences out of 15000+600000
- 480636 words of font info for 80 fonts, out of 8000000 for 9000
+ 37872 strings out of 476190
+ 950965 string characters out of 5809791
+ 1380221 words of memory out of 5000000
+ 57953 multiletter control sequences out of 15000+600000
+ 483251 words of font info for 93 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 100i,9n,104p,753b,479s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 100i,9n,104p,762b,479s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on Analysis.pdf (5 pages).
