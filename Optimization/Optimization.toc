@@ -2,11 +2,11 @@
 \contentsline {subsection}{\numberline {1.1}Conditions for Optimality}{2}{subsection.1.1}%
 \contentsline {subsection}{\numberline {1.2}Global minimizer, Local minimizer}{2}{subsection.1.2}%
 \contentsline {subsection}{\numberline {1.3}Optimization in $\mathbb {R}$}{2}{subsection.1.3}%
-\contentsline {subsubsection}{\numberline {1.3.1}Theorem 1: differentiable $f$, $x^*$ is a local minimizer $\Rightarrow f'(x^*)=0$}{2}{subsubsection.1.3.1}%
-\contentsline {subsubsection}{\numberline {1.3.2}Theorem 2: $f'(x^*)=0, f''(x^*)\geq 0,\ \forall x\in [a,b]\Rightarrow x^*$ is a global minimizer on $[a,b]$; $f'(x^*)=0, f''(x^*)\geq 0 \Rightarrow x^*$ is a local minimizer}{2}{subsubsection.1.3.2}%
-\contentsline {subsection}{\numberline {1.4}Optimization in $\mathbb {R}^n$}{3}{subsection.1.4}%
-\contentsline {subsubsection}{\numberline {1.4.1}Necessary Conditions for Optimality: Local Extremum $\Rightarrow \nabla f(x^*)=0$}{3}{subsubsection.1.4.1}%
-\contentsline {subsubsection}{\numberline {1.4.2}Stationary Point}{3}{subsubsection.1.4.2}%
+\contentsline {subsubsection}{\numberline {1.3.1}Theorem: local minimizer $\Rightarrow f'(x^*)=0$}{2}{subsubsection.1.3.1}%
+\contentsline {subsubsection}{\numberline {1.3.2}Theorem: $f'(x^*)=0, f''(x^*)\geq 0 \Rightarrow $ local minimizer}{2}{subsubsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.4}Optimization in $\mathbb {R}^n$}{2}{subsection.1.4}%
+\contentsline {subsubsection}{\numberline {1.4.1}Necessary Conditions for Optimality: Local Extremum $\Rightarrow \nabla f(x^*)=0$}{2}{subsubsection.1.4.1}%
+\contentsline {subsubsection}{\numberline {1.4.2}Stationary Point, Saddle Point}{3}{subsubsection.1.4.2}%
 \contentsline {subsubsection}{\numberline {1.4.3}Second Order Necessary Condition}{4}{subsubsection.1.4.3}%
 \contentsline {subsubsection}{\numberline {1.4.4}Sufficient Conditions for Optimality}{4}{subsubsection.1.4.4}%
 \contentsline {subsubsection}{\numberline {1.4.5}Using Optimality Conditions to Find Minimum}{5}{subsubsection.1.4.5}%

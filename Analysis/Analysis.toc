@@ -9,3 +9,5 @@
 \contentsline {section}{\numberline {3}Big $\mathcal {O}$ Notation}{5}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Definition}{5}{subsection.3.1}%
 \contentsline {subsubsection}{\numberline {3.1.1}Extension}{5}{subsubsection.3.1.1}%
+\contentsline {section}{\numberline {4}Lipschitz Continuous}{5}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Definition}{5}{subsection.4.1}%

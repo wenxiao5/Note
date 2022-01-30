@@ -117,14 +117,12 @@ Similarly, we can get $$\nabla f(x^*)=[\frac{\partial f(x^*)}{\partial x_1},\fra
 If $f$ is continuously differentiable and $x^*$ is a local extremum. Then $\nabla f(x^*)=0$.
 \end{theorem}
 
-\subsubsection{Stationary Point, Saddle Point}
+\subsubsection{Stationary Point}
 All points $x^*$ s.t. $\nabla f(x^*)=0$ are called \underline{stationary points}.
 
 Thus, all extrema are stationary points.
 
 But not all stationary points have to be extrema.
-
-\underline{Saddle points} are the stationary points neither local minimum nor local maximum.
 
 \begin{example}
 $f(x)=x^3$, $x=0$ is a stationary point but not extrema. (saddle point)
@@ -166,7 +164,7 @@ By Taylor series expansion,
 \subsubsection{Sufficient Conditions for Optimality}
 \begin{theorem}
 Suppose $f$ is twice continuously differentiable in a neighborhood of $x^*$ and 
-(1) $\nabla f(x^*)=0$; (2) $\nabla^2 f(x^*)$ is PD ($u^T\nabla^2 f(x^*) u>0$, $\forall u\in \mathbb{R}^n$).
+(1) $\nabla f(x^*)=0$; (2) $\nabla^2 f(x^*)>0$.
 Then $x^*$ is local minimum.
 \end{theorem}
 \begin{proof}
