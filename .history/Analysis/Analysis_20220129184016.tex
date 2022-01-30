@@ -278,43 +278,21 @@ If $f$ is $\gamma$-Lipschitz continuous, then it is also $(\gamma+1)$-Lipschitz 
 
 The minimal such $\gamma$ is called a \underline{Lipschitz constant} of function $f$
 
-Remark: Here $\|\cdot\|$ can be any given norm of the space $\mathbb{R}^{n}$ and $\mathbb{R}^{m}$, such as Euclidean norm, $\ell_{1}$-norm, etc.
+2. Remark: Here $\|\cdot\|$ can be any given norm of the space $\mathbb{R}^{n}$ and $\mathbb{R}^{m}$, such as Euclidean norm, $\ell_{1}$-norm, etc.
 
 When not specified, we assume it is Euclidean norm.
 
-\subsection{Example}
-Example 1: $f(x)=2 x$ is 2-Lipschitz continuous;
+3. Example 1: $f(x)=2 x$ is 2-Lipschitz continuous;
 
 Example 2: What about $f(\mathbf{x})=\mathbf{A x}$, where $\mathbf{A}$ is a matrix? Spectral norm $\|\mathbf{A}\|_{2}$ (for Euclidean norm).
 
 Example 3: What about $f(x)=x^{2}$ ?
 Not Lipschitz continuous, or the Lipschitz constant is $\infty$.
 
-\subsection{Contraction Mapping}
-1. If the Lipschitz constant $\gamma \leq 1$, then $\mathrm{f}$ is called a \underline{non-expansive mapping}.
-
-2. If $\gamma<1$, then $f$ is called a \underline{contraction mapping}
-
-Example 1: $f(x)=2 x$ is not a contraction mapping; $f(x)=0.5 x$ is.
-
-Example 2: $f(x)=A x$ is a contraction mapping (with respect to Euclidean norm) iff $\|A\|_{2}<1$.
 
 
 
-\section{Fixed point theorem}
-1. Fixed point theorem: If $f$ is a contraction mapping that maps $\mathbb{R}^{n}$ to itself, then the following two results hold:
 
-1) There exists a unique fixed point $\mathrm{x}^{*}$ satisfying
-$$
-\mathbf{x}^{*}=f\left(\mathbf{x}^{*}\right)
-$$
-2) In addition, the iterated function sequence
-$$
-\mathbf{x}, f(\mathbf{x}), f(f(\mathbf{x})), \cdots \text {, }
-$$
-converges to this unique fixed point $\mathbf{x}^{*}$ (independent of the initial point $x$ ).
-
-2. Remark: This is a special case of "Banach fixed point theorem" (which applies to any complete metric space).
 
 
 
