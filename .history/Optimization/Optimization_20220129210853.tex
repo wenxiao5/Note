@@ -321,8 +321,6 @@ $$
 $$
 Strictly convex: when $\geq$ becomes $>$ in any of the above relations.
 
-A function $f$ is a \textbf{concave function} iff $-f$ is a convex function.
-
 \textbf{Convex set graph}:
 \begin{center}\begin{figure}[htbp]
     \centering
@@ -331,125 +329,23 @@ A function $f$ is a \textbf{concave function} iff $-f$ is a convex function.
     \label{}
 \end{figure}\end{center}
 
-\subsection{Optimal Conditions}
-\begin{proposition}
-    Let $f: X \longmapsto \mathbb{R}$ be a convex function over the convex set $X$.
-
-    (a) A local-min of $f$ over $X$ is also a global-min over $X$.
-
-    (b) If $X$ is open (e.g. $\mathbb{R}^{n}$ ), then $\nabla f\left(x^{*}\right)=0$ is a necessary and sufficient condition for $x^{*}$ to be a global minimum.
-\end{proposition}
-\begin{proof}
-\quad\\
-Proof based on a property: If $f$ is differentiable over $C$, then $f$ is convex iff
-$$
-f(z) \geq f(x)+(z-x)^{\prime} \nabla f(x), \quad \forall x, z \in C .
-$$
-\end{proof}
-
-\begin{corollary}
-    Let $f: X \longmapsto \mathbb{R}$ be a concave function over the convex set $X$.
-
-    (a) A local-max of $f$ over $X$ is also a global-max over $X$.
-
-    (b) If $X$ is open (e.g. $\mathbb{R}^{n}$ ), then $\nabla f\left(x^{*}\right)=0$ is a necessary and sufficient condition for $x^{*}$ to be a global maximum.
-\end{corollary}
 
 
-\subsection{$\mu-$strongly convexity}
-\textbf{Definition}: We say $f: C \rightarrow \mathbb{R}$ is a $\mu$-strongly convex function in a convex set $C$ if $f$ is differentiable and
-$$
-\langle\nabla f(w)-\nabla f(v), w-v\rangle \geq \mu\|w-v\|^{2}, \quad \forall w, v \in C .
-$$
-If $f$ is twice differentiable, then $f$ is $\mu$-strongly convex iff
-$$
-\nabla^{2} f(x) \succeq \mu I, \quad \forall x \in C .
-$$
-Namely, all eigenvalues of the Hessian at any point is at least $\mu$.
 
-if $f(w)$ is convex, then $f(w)+\frac{\mu}{2}\|w\|^{2}$ is $\mu$-strongly convex.
 
-- In machine learning, easy to change a convex function to a strongly convex function: just add a regularizer
 
-\subsection{Unconstrained Quadratic Optimization}
-$$\begin{array}{ll}\text { minimize } & f(\mathbf{w})=\frac{1}{2} \mathbf{w}^{T} \mathbf{Q} \mathbf{w}-\mathbf{b}^{T} \mathbf{w} \\ \text { subject to } & \mathbf{w} \in \mathbb{R}^{d}\end{array}$$
-where $\mathbf{Q}$ is a symmetric $d \times d$ matrix. (what if non-symmetric?)
 
-- Necessary condition for (local) optimality
-$$
-\mathbf{Q} \mathbf{w}=\mathbf{b}, \quad \mathbf{Q} \succeq 0
-$$
 
-Case 1: $\mathbf{Q w}=\mathbf{b}$ has no solution, i.e. $\mathbf{b} \notin R(\mathbf{Q})$. No stationary point, no lower bound ($f$ can achieve $-\infty$).
 
-Case 2: $\mathbf{Q}$ is not PSD ( $f$ is non-convex)
-No local-min, no lower bound ($f$ can achieve $-\infty$).
 
-Case 3: $\mathbf{Q} \succeq 0$ (PSD) and $\mathbf{b} \in R(\mathbf{Q})$. Convex, has global-min, 
-any stationary point is a global optimal solution.
 
-\begin{example}
-    Toy Problem 1: $\min _{x, y \in \mathbb{R}} f(x, y) \triangleq x^{2}+y^{2}+\alpha x y$.
-\end{example}
-\begin{enumerate}
-    \item Step 1: First order condition: $2 x^{*}+\alpha y^{*}=0,2 y^{*}+\alpha x^{*}=0$.
-    
-    - We get $4 x^{*}=-2 \alpha y^{*}=\alpha^{2} x^{*}$. So $\left(4-\alpha^{2}\right) x^{*}=0$.
-    
-    - Case 1: $\alpha^{2}=4$. If $x^{*}=-\alpha y^{*} / 2$, then $\left(x^{*}, y^{*}\right)$ is a stationary point.
-    
-    - Case 2: $\alpha^{2} \neq 4$. Then $x^{*}=0 ; y^{*}=-\alpha x^{*} / 2=0$. So $(0,0)$ is stat-pt.
-    \item Step 2: Check convexity. Hessian $\nabla^{2} f(x, y)=\left(\begin{array}{ll}2 & \alpha \\ \alpha & 2\end{array}\right)$.
-    
-    Eigenvalues $\lambda_{1}, \lambda_{2}$ satisfy $\left(\lambda_{i}-2\right)^{2}=\alpha^{2}, i=1,2$.
-    Thus $\lambda_{1,2}=2 \pm|\alpha|$.
 
-    - If $|\alpha| \leq 2$, then $\lambda_{i} \geq 0, \forall i$. Thus $f$ is convex. Any stat-pt is global-min.
 
-    - If $|\alpha|>2$, at least one $\lambda_{i}<0$, thus $f$ is not convex.
-    \item Step 3 (can be skipped now): For non-convex case $(|\alpha|>2)$, prove no lower bound.
-    
-    $f(x, y)=(x+\alpha y / 2)+\left(1-\alpha^{2} / 4\right) y^{2}$. Pick $y=M, x=-\alpha M / 2$, then
-    $f(x, y)=\left(1-\alpha^{2} / 4\right) M^{2} \rightarrow-\infty$ as $M \rightarrow \infty$.
-\end{enumerate}
 
-Summary:
 
-If $|\alpha|>2$, no global-min, $(0,0)$ is stat-pt;
 
-if $|\alpha|=2$, any $(-0.5 \alpha t, t), t \in \mathbb{R}$ is a stat-pt and global-min;
 
-if $|\alpha|<2,(0,0)$ is the unique stat-pt and global-min.
 
-\begin{example}
-Linear Regression
-\end{example}
-$\text{minimize } f(\mathbf{w})=\frac{1}{2}\left\|\mathbf{X}^{T} \mathbf{w}-\mathbf{y}\right\|^{2}$ subject to $ \mathbf{w} \in \mathbb{R}^{d}$
-
-$n$ data points, $d$ features
-
-- $\mathbf{X}$ may be wide (under-determined), tall (over-determined), or rank-deficient
-
-- Note that comparing with the previous case, $\mathbf{Q}=\mathbf{X X}^{T} \in \mathbb{R}^{d \times d}$, $\mathbf{b}=\mathbf{X} \mathbf{y} \in \mathbb{R}^{d \times 1}$
-
-- $\mathbf{Q} \succeq 0$; Case 2 never happens!
-
-- First order condition $\mathbf{X X}^{\top} \mathbf{w}^{*}=\mathbf{X} \mathbf{y}$.
-
-\quad - It always has a solution; Case 1 never happens!
-
-\textbf{Claim}: Linear regression problem is always convex; it has global-min.
-
-First order condition
-$$
-\mathbf{X X}^{\top} \mathbf{w}^{*}=\mathbf{X} \mathbf{y}
-$$
-which always has a solution.
-
-If $X X^{\top} \in \mathbb{R}^{d \times d}$ is invertible (only happen when $n \geq d$ ), then there is a unique stationary point $x=\left(A^{\top} A\right)^{-1} A^{\top} b$. It is also a global minimum.
-
-If $X X^{\top} \in \mathbb{R}^{d \times d}$ is not invertible, then there can be infinitely many stationary points, which are the solutions to the linear equation.
-All of them are global minima, giving the same function value.
 
 
 

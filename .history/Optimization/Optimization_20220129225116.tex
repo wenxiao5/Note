@@ -424,32 +424,16 @@ if $|\alpha|<2,(0,0)$ is the unique stat-pt and global-min.
 \begin{example}
 Linear Regression
 \end{example}
-$\text{minimize } f(\mathbf{w})=\frac{1}{2}\left\|\mathbf{X}^{T} \mathbf{w}-\mathbf{y}\right\|^{2}$ subject to $ \mathbf{w} \in \mathbb{R}^{d}$
-
+$$\text{minimize } f(\mathbf{w})=\frac{1}{2}\left\|\mathbf{X}^{T} \mathbf{w}-\mathbf{y}\right\|^{2}$ subject to $\quad \mathbf{w} \in \mathbb{R}^{d}$$
 $n$ data points, $d$ features
-
-- $\mathbf{X}$ may be wide (under-determined), tall (over-determined), or rank-deficient
-
+- X may be wide (under-determined), tall (over-determined), or rank-deficient
 - Note that comparing with the previous case, $\mathbf{Q}=\mathbf{X X}^{T} \in \mathbb{R}^{d \times d}$, $\mathbf{b}=\mathbf{X} \mathbf{y} \in \mathbb{R}^{d \times 1}$
-
 - $\mathbf{Q} \succeq 0$; Case 2 never happens!
+First order condition $\mathbf{X X}^{\top} \mathbf{w}^{*}=\mathbf{X} \mathbf{y}$.
+- It always has a solution (why?); Case 1 never happens!
+Claim: Linear regression problem is always convex; it has global-min.
 
-- First order condition $\mathbf{X X}^{\top} \mathbf{w}^{*}=\mathbf{X} \mathbf{y}$.
 
-\quad - It always has a solution; Case 1 never happens!
-
-\textbf{Claim}: Linear regression problem is always convex; it has global-min.
-
-First order condition
-$$
-\mathbf{X X}^{\top} \mathbf{w}^{*}=\mathbf{X} \mathbf{y}
-$$
-which always has a solution.
-
-If $X X^{\top} \in \mathbb{R}^{d \times d}$ is invertible (only happen when $n \geq d$ ), then there is a unique stationary point $x=\left(A^{\top} A\right)^{-1} A^{\top} b$. It is also a global minimum.
-
-If $X X^{\top} \in \mathbb{R}^{d \times d}$ is not invertible, then there can be infinitely many stationary points, which are the solutions to the linear equation.
-All of them are global minima, giving the same function value.
 
 
 

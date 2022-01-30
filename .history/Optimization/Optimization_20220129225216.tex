@@ -434,22 +434,11 @@ $n$ data points, $d$ features
 
 - $\mathbf{Q} \succeq 0$; Case 2 never happens!
 
-- First order condition $\mathbf{X X}^{\top} \mathbf{w}^{*}=\mathbf{X} \mathbf{y}$.
+First order condition $\mathbf{X X}^{\top} \mathbf{w}^{*}=\mathbf{X} \mathbf{y}$.
+- It always has a solution (why?); Case 1 never happens!
+Claim: Linear regression problem is always convex; it has global-min.
 
-\quad - It always has a solution; Case 1 never happens!
 
-\textbf{Claim}: Linear regression problem is always convex; it has global-min.
-
-First order condition
-$$
-\mathbf{X X}^{\top} \mathbf{w}^{*}=\mathbf{X} \mathbf{y}
-$$
-which always has a solution.
-
-If $X X^{\top} \in \mathbb{R}^{d \times d}$ is invertible (only happen when $n \geq d$ ), then there is a unique stationary point $x=\left(A^{\top} A\right)^{-1} A^{\top} b$. It is also a global minimum.
-
-If $X X^{\top} \in \mathbb{R}^{d \times d}$ is not invertible, then there can be infinitely many stationary points, which are the solutions to the linear equation.
-All of them are global minima, giving the same function value.
 
 
 
