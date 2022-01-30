@@ -217,16 +217,11 @@ $f(x)=2x^2-x^4$
 But $-f(x) \rightarrow \infty$ as $|x|\rightarrow \infty \Rightarrow$ no global min, but global max exists. $f(1),f(-1)$ are strict local max and both global max.
 
 \subsubsection{Fix Conditions for Global Optimality}
-\textbf{Claim 1}: Consider a differentiable function $f$. Suppose:
-
-(C1) $f$ has at least one global minimizer;
-
+Claim 1: Consider a differentiable function $f$. Suppose:
+- (C1) $f$ has at least one global minimizer;
 (C2) The set of stationary points is $S$, and $f\left(x^{*}\right) \leq f(x), \forall x \in S$.
-
 Then $x^{*}$ is a global minimizer of $f^{*}$.
-\begin{proof}
-\quad\\
-Suppose $\hat{x}$ is a global minimizer of $f$, i.e.,
+Proof: Suppose $\hat{x}$ is a global minimizer of $f$, i.e.,
 $$
 f(\hat{x}) \leq f(x), \forall x .
 $$
@@ -234,8 +229,7 @@ By the necessary optimality condition, we have $\nabla f(\hat{x})=0$, thus $\hat
 $$
 f\left(x^{*}\right) \leq f(\hat{x}) .
 $$
-Combining the two inequalities, we have $f(\hat{x}) \leq f\left(x^{*}\right) \leq f(\hat{x})$, thus $f(\hat{x})=f\left(x^{*}\right)$. Plugging into the second inequality, we have $f\left(x^{*}\right) \leq f(x), \forall x$. Thus $x^{*}$ is a global minimizer of $f^{*} .$
-\end{proof}
+Combining (2) and (3), we have $f(\hat{x}) \leq f\left(x^{*}\right) \leq f(\hat{x})$, thus $f(\hat{x})=f\left(x^{*}\right)$. Plugging into (2), we have $f\left(x^{*}\right) \leq f(x), \forall x$. Thus $x^{*}$ is a global minimizer of $f^{*} .$
 
 
 
