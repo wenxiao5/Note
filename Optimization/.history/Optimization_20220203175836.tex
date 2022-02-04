@@ -336,26 +336,8 @@ A function $f$ is a \textbf{concave function} iff $-f$ is a convex function.
 Suppose $f$ is a convex function over $\mathbb{R}^n$ and define the set $$C=\{x\in \mathbb{R}^n| f(x)\leq a\}, a\in \mathbb{R}$$ then $C$ is a convex set.
 \end{claim}
 
-\begin{claim}
-If $f_1,f_2,...,f_k$ are convex functions over convex set $\&$,
-\begin{enumerate}
-    \item $f_{sum}(x)=\sum_{i=1}^kf_i(x)$ is convex over $\&$
-    \item $f_{max}(x)=\max_{i=1,...,k}f_i(x)$ is convex over $\&$
-\end{enumerate}
-\end{claim}
-\begin{proof}
-\quad\\
-(2)
-\begin{equation}
-    \begin{aligned}
-        f_{max}(\alpha x+(1-\alpha)y)&=\max_{i=1,...,k}f_i(\alpha x+(1-\alpha)y)\\
-    &\leq \max_{i=1,...,k}[\alpha f_i(x)+(1-\alpha)f_i(y)]\\
-    &\leq \max_{i=1,...,k}\alpha f_i(x)+\max_{i=1,...,k}(1-\alpha)f_i(y)\\
-    &=\alpha f_{max}(x)+(1-\alpha)f_{max}(y)
-    \end{aligned}
-    \nonumber
-\end{equation}
-\end{proof}
+
+
 
 
 
