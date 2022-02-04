@@ -314,30 +314,7 @@ Step 3: Among all candidates, find one candidate with the minimal value. Output 
 
 \textbf{Convex function} (0-th order): $f$ is convex in a convex set $C$ iff $f(\alpha x+(1-\alpha) y) \leq \alpha f(x)+(1-\alpha) f(y), \forall x, y \in C, \forall \alpha \in[0,1] .$
 
-Property (1st order) If $f$ is differentiable, then $f$ is convex iff $f(z) \geq f(x)+(z-x)^{T} \nabla f(x), \ \forall x, z \in C .$ The inequality is strict for strict convexity.
-\begin{proof}
-\quad\\
-\begin{enumerate}[(i)]
-    \item "$\Rightarrow$" \begin{equation}
-        \begin{aligned}
-            f(x+\alpha (y-x))&\leq (1-\alpha)f(x)+\alpha f(y), \forall \alpha \in (0,1)\\
-            \Rightarrow	\frac{f(x+\alpha(y-x))-f(x)}{\alpha}&\leq f(y)-f(x)\\
-            \text{Limit as }\alpha \rightarrow 0 \Rightarrow (y-x)^{T} \nabla f(x)&\leq f(y)-f(x)
-        \end{aligned}
-        \nonumber
-    \end{equation}
-    \item "$\Leftarrow$" Let $g=\alpha x+(1-\alpha) y$
-    \begin{equation}
-        \begin{aligned}
-            f(g)+(x-g)^{T} \nabla f(g)&\leq f(x)\\
-            f(g)+(y-g)^{T} \nabla f(g)&\leq f(y)\\
-            \Rightarrow	f(g)&\leq \alpha f(x)+(1-\alpha)f(y)\\
-            f(\alpha x+(1-\alpha) y)&\leq \alpha f(x)+(1-\alpha)f(y)
-        \end{aligned}
-        \nonumber
-    \end{equation}
-\end{enumerate}
-\end{proof}
+Property (1st order) If $f$ is differentiable, then $f$ is convex iff $f(z) \geq f(x)+(z-x)^{\prime} \nabla f(x), \ \forall x, z \in C .$
 
 Property (2nd order): If $f$ is twice differentiable, then $f$ is convex iff
 $$

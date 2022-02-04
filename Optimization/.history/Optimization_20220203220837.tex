@@ -318,21 +318,9 @@ Property (1st order) If $f$ is differentiable, then $f$ is convex iff $f(z) \geq
 \begin{proof}
 \quad\\
 \begin{enumerate}[(i)]
-    \item "$\Rightarrow$" \begin{equation}
+    \item \begin{equation}
         \begin{aligned}
-            f(x+\alpha (y-x))&\leq (1-\alpha)f(x)+\alpha f(y), \forall \alpha \in (0,1)\\
-            \Rightarrow	\frac{f(x+\alpha(y-x))-f(x)}{\alpha}&\leq f(y)-f(x)\\
-            \text{Limit as }\alpha \rightarrow 0 \Rightarrow (y-x)^{T} \nabla f(x)&\leq f(y)-f(x)
-        \end{aligned}
-        \nonumber
-    \end{equation}
-    \item "$\Leftarrow$" Let $g=\alpha x+(1-\alpha) y$
-    \begin{equation}
-        \begin{aligned}
-            f(g)+(x-g)^{T} \nabla f(g)&\leq f(x)\\
-            f(g)+(y-g)^{T} \nabla f(g)&\leq f(y)\\
-            \Rightarrow	f(g)&\leq \alpha f(x)+(1-\alpha)f(y)\\
-            f(\alpha x+(1-\alpha) y)&\leq \alpha f(x)+(1-\alpha)f(y)
+            f(x+\alpha (y-x))
         \end{aligned}
         \nonumber
     \end{equation}
