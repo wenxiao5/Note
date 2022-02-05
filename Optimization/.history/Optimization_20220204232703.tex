@@ -345,11 +345,6 @@ $$
 $$
 Strictly convex: $\nabla^{2} f(x) \succ 0,\ \forall x \in C \Rightarrow	$ $f$ is strictly convex.
 
-\textbf{Note:} $f$ is strictly convex $\nRightarrow \nabla^{2} f(x) \succ 0$.
-\begin{example}
-$f(x)=x^4\text{(strictly convex)}$, $\frac{d^2f(x)}{dx^2}=12x^2(=0\text{ at }x=0)$
-\end{example}
-
 A function $f$ is a \textbf{concave function} iff $-f$ is a convex function.
 
 \textbf{Convex set graph}:
@@ -452,21 +447,6 @@ if $f(w)$ is convex, then $f(w)+\frac{\mu}{2}\|w\|^{2}$ is $\mu$-strongly convex
 \subsection{Unconstrained Quadratic Optimization}
 $$\begin{array}{ll}\text { minimize } & f(\mathbf{w})=\frac{1}{2} \mathbf{w}^{T} \mathbf{Q} \mathbf{w}-\mathbf{b}^{T} \mathbf{w} \\ \text { subject to } & \mathbf{w} \in \mathbb{R}^{d}\end{array}$$
 where $\mathbf{Q}$ is a symmetric $d \times d$ matrix. (what if non-symmetric?)
-$$\nabla f(\mathbf{w})=\mathbf{Q}\mathbf{w}-\mathbf{b},\ \nabla^2 f(\mathbf{w})=\mathbf{Q}$$
-\begin{enumerate}[(i)]
-    \item $\mathbf{Q}\succeq 0 \Leftrightarrow	f$ is convex.
-    \item $\mathbf{Q}\succ 0 \Leftrightarrow	f$ is strictly convex.
-    \item $\mathbf{Q}\preceq 0 \Leftrightarrow	f$ is concave.
-    \item $\mathbf{Q}\prec 0 \Leftrightarrow	f$ is strictly concave.
-\end{enumerate}
-
-
-
-
-
-
-
-
 
 - Necessary condition for (local) optimality
 $$

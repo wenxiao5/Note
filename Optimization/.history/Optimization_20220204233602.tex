@@ -452,13 +452,9 @@ if $f(w)$ is convex, then $f(w)+\frac{\mu}{2}\|w\|^{2}$ is $\mu$-strongly convex
 \subsection{Unconstrained Quadratic Optimization}
 $$\begin{array}{ll}\text { minimize } & f(\mathbf{w})=\frac{1}{2} \mathbf{w}^{T} \mathbf{Q} \mathbf{w}-\mathbf{b}^{T} \mathbf{w} \\ \text { subject to } & \mathbf{w} \in \mathbb{R}^{d}\end{array}$$
 where $\mathbf{Q}$ is a symmetric $d \times d$ matrix. (what if non-symmetric?)
-$$\nabla f(\mathbf{w})=\mathbf{Q}\mathbf{w}-\mathbf{b},\ \nabla^2 f(\mathbf{w})=\mathbf{Q}$$
-\begin{enumerate}[(i)]
-    \item $\mathbf{Q}\succeq 0 \Leftrightarrow	f$ is convex.
-    \item $\mathbf{Q}\succ 0 \Leftrightarrow	f$ is strictly convex.
-    \item $\mathbf{Q}\preceq 0 \Leftrightarrow	f$ is concave.
-    \item $\mathbf{Q}\prec 0 \Leftrightarrow	f$ is strictly concave.
-\end{enumerate}
+$$\nabla f(\mathbf{w})=\mathbf{Q}\mathbf{w}+\mathbf{b},\ \nabla^2 f(\mathbf{w})=\mathbf{Q}$$
+
+
 
 
 
