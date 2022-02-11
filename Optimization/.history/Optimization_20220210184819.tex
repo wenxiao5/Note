@@ -595,17 +595,9 @@ $\alpha_k$ is the step size, which need to choose carefully.
 \subsection{Armijo's Rule}
 \begin{enumerate}[(i)]
     \item Initialize $\alpha_k=\tilde{\alpha}$. Let $\sigma,\beta \in (0,1)$ be prespecified paramenters.
-    \item If $f(x_k)-f(x_k+\alpha_k d_k)\geq-\sigma \alpha_k \nabla f(x_k)^T d_k$, stop.
+    \item If $f(x_k+\alpha_k d_k)\leq f(x_k)+\sigma \alpha_k \nabla f(x_k)^T d_k$, stop.
     
-    (Which shows $f(x_k+\alpha_k d_k)$ is at least smaller than $f(x_k)$ in a degree that correlated with $\nabla f(x_k)^T d_k$)
-    \item Else, set $\alpha_k=\beta\alpha_k$ and go back to step 2. (use a smaller $\alpha_k$)
-    
-    Termination at \underline{smallest integer $m$} s.t. $$f(x_k)-f(x_k+\beta^m \tilde{\alpha} d_k)\geq-\sigma\beta^m \tilde{\alpha}\nabla f(x)^T d_k$$
-
-    In Bersekas's book: $\sigma\in[10^{-5},10^{-1}],\beta\in[\frac{1}{10},\frac{1}{2}]$.
-
-    As $\sigma,\beta$ are smaller, the algorithm may be quicker.
-
+    (Which shows $f(x_k+\alpha_k d_k)$ is at least smaller than $f(x_k)$ in a degree that correlated to $\nabla f(x_k)^T d_k$)
 \end{enumerate}
 
 

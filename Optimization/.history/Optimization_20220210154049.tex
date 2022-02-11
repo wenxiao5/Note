@@ -396,7 +396,7 @@ If $f_1,f_2,...,f_k$ are convex functions over convex set $\&$,
 
 
 
-\subsection{Convex$\Rightarrow$Stationary point is global-min}
+\subsection{Optimal Conditions}
 \begin{proposition}
     Let $f: X \longmapsto \mathbb{R}$ be a convex function over the convex set $X$.
 
@@ -543,75 +543,6 @@ If $X X^{\top} \in \mathbb{R}^{d \times d}$ is invertible (only happen when $n \
 
 If $X X^{\top} \in \mathbb{R}^{d \times d}$ is not invertible, then there can be infinitely many stationary points, which are the solutions to the linear equation.
 All of them are global minima, giving the same function value.
-
-
-
-
-\section{Gradient Methods}
-\begin{definition}[Iterative Descent]
-Start at some point $x_0$, and successively generate $x_1,x_2,..$ s.t. $$f(x_{k+1})<f(x_k)\quad k=0,1,...$$
-\end{definition}
-
-\begin{definition}[\textbf{General Gradient Descent Algorithm}]
-    Assume that $\nabla f(x_k)\neq 0$. Then
-    $$x_{k+1}=x_k+\alpha_k d_k$$
-    where $d_k$ is s.t. $d_k$ has a positive projection along $-\nabla f(x_k)$,
-    $$\nabla f(x_k)^T d_k<0 \equiv -\nabla f(x_k)^T d_k>0$$
-\end{definition}
-\begin{enumerate}[$\bullet$]
-    \item If $d_k=-\nabla f(x_k)$ we get \textbf{steepest descent}.
-    \item Often $d_k$ is constructed using matrix $D_k \succ 0$ $$d_k=-D_k\nabla f(x_k)$$
-\end{enumerate}
-
-\subsection{Steepest Descent}
-We want the $x_k$ that decreases the function most.
-\begin{proposition}
-$-\nabla f(x_k)$ is the direction deceases the function most.
-\end{proposition}
-\begin{proof}
-Suppose the direction is $v\in \mathbb{R}^n, v\neq 0$.
-$$f(x+\alpha v)=f(x)+\alpha v^T \nabla f(x)+O(\alpha)$$
-The rate of change of $f$ along direction $v$:
-$$\lim_{\alpha \rightarrow 0}\frac{f(x+\alpha v)-f(x)}{\alpha}=v^T\nabla f(x)$$
-By Cauchy-schwarz inequality,
-$$|v^T\nabla f(x)|\leq \|v\|\|\nabla f(x)\|$$
-Equation holds when $v=\beta \nabla f(x)$. Hence, $-\nabla f(x)$ is the direction decreases the function most.
-\end{proof}
-
-\begin{definition}[\textbf{Steepest Descent Algorithm}]
-$$x_{k+1}=x_k-\alpha_k \nabla f(x_k)$$
-$\alpha_k$ is the step size, which need to choose carefully.
-\end{definition}
-
-\subsection{Methods for Choosing $\alpha_k$}
-\begin{enumerate}[Method (1):]
-    \item Fixed step size: $\alpha_k=\alpha$ (can have issue with \textit{convergence})
-    \item \textbf{Optimal Line Search}: choose $\alpha_k$ to optimize the value of next iteration, i.e. solve $$\min_{\alpha\geq 0}f(x_k+\alpha d_k)$$ (may be \textit{difficult in practice})
-    \item \textbf{Armijo's Rule} (successive step size reduction):$$f(x_k+\alpha_k d_k)=f(x_k)+\alpha_k \nabla f(x_k)^T d_k+O(\alpha_k)$$
-    Since $\nabla f(x_k)^T d_k<0$, $f$ decreases when $\alpha_k$ is sufficiently small. But we also don't want $\alpha_k$ to be too small (slow).
-
-\end{enumerate}
-
-\subsection{Armijo's Rule}
-\begin{enumerate}[(i)]
-    \item Initialize $\alpha_k=\tilde{\alpha}$. Let $\sigma,\beta \in (0,1)$ be prespecified paramenters.
-    \item If $f(x_k)-f(x_k+\alpha_k d_k)\geq-\sigma \alpha_k \nabla f(x_k)^T d_k$, stop.
-    
-    (Which shows $f(x_k+\alpha_k d_k)$ is at least smaller than $f(x_k)$ in a degree that correlated with $\nabla f(x_k)^T d_k$)
-    \item Else, set $\alpha_k=\beta\alpha_k$ and go back to step 2. (use a smaller $\alpha_k$)
-    
-    Termination at \underline{smallest integer $m$} s.t. $$f(x_k)-f(x_k+\beta^m \tilde{\alpha} d_k)\geq-\sigma\beta^m \tilde{\alpha}\nabla f(x)^T d_k$$
-
-    In Bersekas's book: $\sigma\in[10^{-5},10^{-1}],\beta\in[\frac{1}{10},\frac{1}{2}]$.
-
-    As $\sigma,\beta$ are smaller, the algorithm may be quicker.
-
-\end{enumerate}
-
-
-
-
-
 
 
 

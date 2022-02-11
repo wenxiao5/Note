@@ -558,7 +558,7 @@ Start at some point $x_0$, and successively generate $x_1,x_2,..$ s.t. $$f(x_{k+
     where $d_k$ is s.t. $d_k$ has a positive projection along $-\nabla f(x_k)$,
     $$\nabla f(x_k)^T d_k<0 \equiv -\nabla f(x_k)^T d_k>0$$
 \end{definition}
-\begin{enumerate}[$\bullet$]
+\begin{enumerate}[.]
     \item If $d_k=-\nabla f(x_k)$ we get \textbf{steepest descent}.
     \item Often $d_k$ is constructed using matrix $D_k \succ 0$ $$d_k=-D_k\nabla f(x_k)$$
 \end{enumerate}
@@ -583,30 +583,9 @@ $$x_{k+1}=x_k-\alpha_k \nabla f(x_k)$$
 $\alpha_k$ is the step size, which need to choose carefully.
 \end{definition}
 
-\subsection{Methods for Choosing $\alpha_k$}
-\begin{enumerate}[Method (1):]
-    \item Fixed step size: $\alpha_k=\alpha$ (can have issue with \textit{convergence})
-    \item \textbf{Optimal Line Search}: choose $\alpha_k$ to optimize the value of next iteration, i.e. solve $$\min_{\alpha\geq 0}f(x_k+\alpha d_k)$$ (may be \textit{difficult in practice})
-    \item \textbf{Armijo's Rule} (successive step size reduction):$$f(x_k+\alpha_k d_k)=f(x_k)+\alpha_k \nabla f(x_k)^T d_k+O(\alpha_k)$$
-    Since $\nabla f(x_k)^T d_k<0$, $f$ decreases when $\alpha_k$ is sufficiently small. But we also don't want $\alpha_k$ to be too small (slow).
 
-\end{enumerate}
 
-\subsection{Armijo's Rule}
-\begin{enumerate}[(i)]
-    \item Initialize $\alpha_k=\tilde{\alpha}$. Let $\sigma,\beta \in (0,1)$ be prespecified paramenters.
-    \item If $f(x_k)-f(x_k+\alpha_k d_k)\geq-\sigma \alpha_k \nabla f(x_k)^T d_k$, stop.
-    
-    (Which shows $f(x_k+\alpha_k d_k)$ is at least smaller than $f(x_k)$ in a degree that correlated with $\nabla f(x_k)^T d_k$)
-    \item Else, set $\alpha_k=\beta\alpha_k$ and go back to step 2. (use a smaller $\alpha_k$)
-    
-    Termination at \underline{smallest integer $m$} s.t. $$f(x_k)-f(x_k+\beta^m \tilde{\alpha} d_k)\geq-\sigma\beta^m \tilde{\alpha}\nabla f(x)^T d_k$$
 
-    In Bersekas's book: $\sigma\in[10^{-5},10^{-1}],\beta\in[\frac{1}{10},\frac{1}{2}]$.
-
-    As $\sigma,\beta$ are smaller, the algorithm may be quicker.
-
-\end{enumerate}
 
 
 
