@@ -645,35 +645,6 @@ Assume that $\bar{x}$ is a limit point of $\{x_k\}$ s.t. $\nabla f(\bar{x})\neq 
 \end{proof}
 
 
-\section{Convergence of GD with Constant Stepsize}
-\begin{definition}[Lipschitz Continunity]
-A function $y: \mathbb{R}^n \rightarrow	\mathbb{R}^m$ is called Lipschitz (continuous) if $\exists L>0$ s.t.
-$$\|g(y)-g(x)\|\leq L\|y-x\|,\forall x,y\in \mathbb{R}^n$$
-$L$ is Lipschitz constant.
-\end{definition}
-
-\begin{definition}[Lipschitz Gradient]
-    $\nabla f(x)$ is Lipschitz if $\exists L>0$ s.t. $$\|\nabla f(x)-\nabla f(y)\|\leq L\|x-y\|,\forall x,y\in \mathbb{R}^n$$
-\end{definition}
-
-\begin{example}
-    \quad
-
-\begin{enumerate}
-    \item $f(x)=\|x\|^4$, $\nabla f(x)=4\|x\|^2x$
-    
-    Test $\|\nabla f(x)-\nabla f(-x)\|\leq L\|2x\|$, $8\|x\|^2\|x\|\leq 2L\|x\|$ which doesn't hold when $\|x\|^2>\frac{L}{4}$.
-    \item If $f$ is twice continuously differentiable with $\nabla^2 f(x)\succeq -MI$ and $\nabla^2 f(x)\preceq  MI$ then $\|\nabla f(x)-\nabla f(y)\|\leq M\|x-y\|,\forall x,y\in \mathbb{R}^n$. ($A\succeq B$ means $A-B\succeq 0$, $A\preceq B$ means $A-B\preceq 0$)
-\end{enumerate}
-\end{example}
-
-
-
-
-
-
-
-
 
 \section{MATH 484}
 A base point $x$, we consider an arbitrary direction $u$. $\{x+tu| t\in \mathbb{R}\}$
