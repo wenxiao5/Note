@@ -624,23 +624,7 @@ Assume that $\bar{x}$ is a limit point of $\{x_k\}$ s.t. $\nabla f(\bar{x})\neq 
 
     Since $\nabla f(\bar{x})\neq 0$, $\lim_{k \rightarrow \infty}\alpha_k=0$
 
-    $$ln\alpha_k=ln (\tilde{\alpha}\beta^{m_k})=ln\tilde{\alpha}+m_kln\beta \Rightarrow	m_k=\frac{ln\alpha_k-ln\tilde{\alpha}}{ln\beta}\Rightarrow \lim_{k \rightarrow \infty}m_k=\infty$$
-    Exist $\bar{k}$ s.t. $m_k>1,\forall k>\bar{k}$
-    $$f(x_k)-f(x_k-\frac{\alpha_k}{\beta}\nabla f(x_k))<\sigma\frac{\alpha_k}{\beta}\|\nabla f(x_k)\|^2,\forall k>\bar{k}$$
-    By Taylor's Theorem,
-    $$f(x_k-\frac{\alpha_k}{\beta}\nabla f(x_k))=f(x_k)-\nabla f(x_k-\frac{\bar{\alpha}_k}{\beta}\nabla f(x_k))^T\frac{\alpha_k}{\beta}\nabla f(x_k)$$ for some $\bar{\alpha}_k\in(0,\alpha_k)$
-
-    Hence, \begin{equation}
-        \begin{aligned}
-            \nabla f(x_k-\frac{\bar{\alpha}_k}{\beta}\nabla f(x_k))^T\frac{\alpha_k}{\beta}\nabla f(x_k)&<\sigma\frac{\alpha_k}{\beta}\|\nabla f(x_k)\|^2\\
-            \nabla f(x_k-\frac{\bar{\alpha}_k}{\beta}\nabla f(x_k))^T\nabla f(x_k)&<\sigma\|\nabla f(x_k)\|^2,
-            \forall k>\bar{k}\\
-            \text{As }\alpha_k \rightarrow 0& \Rightarrow \bar{\alpha}_k\rightarrow 0\\
-            \|\nabla f(x_k)\|^2&<\sigma\|\nabla f(x_k)\|^2
-        \end{aligned}
-        \nonumber
-    \end{equation}
-    Which contradicts to $\sigma<1$.
+    $$\lim\alpha_k=\lim (\tilde{\alpha}\beta^{m_k})=\lim\tilde{\alpha}+m_k\lim\beta$$
 \end{enumerate}
 \end{proof}
 

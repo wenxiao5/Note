@@ -610,39 +610,8 @@ $\alpha_k$ is the step size, which need to choose carefully.
 \subsection{Armijo's Rule for Steepest Descent}
 $\alpha_k=\tilde{\alpha}\beta^{m_k}$, where $m_k$ is smallest $m$ s.t. $$f(x_k)-f(x_k-\tilde{\alpha}\beta^{m} \nabla f(x_k))\geq \sigma\tilde{\alpha}\beta^{m}\|\nabla f(x)\|^2$$
 
-\begin{proposition}
-Assume $\inf_x f(x)>-\infty$. Then every limit point of $\{x_k\}$ for steepest descent with Armijo's rule is a stationary point of $f$.
-\end{proposition}
-\begin{proof}
-Assume that $\bar{x}$ is a limit point of $\{x_k\}$ s.t. $\nabla f(\bar{x})\neq 0$.
-\begin{enumerate}[$\bullet$]
-    \item Since $\{f(x_k)\}$ is monotonically non-increasing and bounded below, $\{f(x_k)\}$ converges.
-    \item $f$ is continuous $\Rightarrow$ $f(\bar{x})$ is a limit point of $\{f(x_k)\}$ $\Rightarrow$ $\lim_{k \rightarrow \infty}f(x_k)=f(\bar{x})$ $\Rightarrow$ $f(x_k)-f(x_{k+1})\rightarrow 0$
-    \item By definition of Armijo's rule: $$f(x_k)-f(x_{k+1})\geq \sigma\alpha_k\|\nabla f(x_k)\|^2$$
-    
-    Hence, $\sigma\alpha_k\|\nabla f(x_k)\|^2 \rightarrow 0$.
 
-    Since $\nabla f(\bar{x})\neq 0$, $\lim_{k \rightarrow \infty}\alpha_k=0$
 
-    $$ln\alpha_k=ln (\tilde{\alpha}\beta^{m_k})=ln\tilde{\alpha}+m_kln\beta \Rightarrow	m_k=\frac{ln\alpha_k-ln\tilde{\alpha}}{ln\beta}\Rightarrow \lim_{k \rightarrow \infty}m_k=\infty$$
-    Exist $\bar{k}$ s.t. $m_k>1,\forall k>\bar{k}$
-    $$f(x_k)-f(x_k-\frac{\alpha_k}{\beta}\nabla f(x_k))<\sigma\frac{\alpha_k}{\beta}\|\nabla f(x_k)\|^2,\forall k>\bar{k}$$
-    By Taylor's Theorem,
-    $$f(x_k-\frac{\alpha_k}{\beta}\nabla f(x_k))=f(x_k)-\nabla f(x_k-\frac{\bar{\alpha}_k}{\beta}\nabla f(x_k))^T\frac{\alpha_k}{\beta}\nabla f(x_k)$$ for some $\bar{\alpha}_k\in(0,\alpha_k)$
-
-    Hence, \begin{equation}
-        \begin{aligned}
-            \nabla f(x_k-\frac{\bar{\alpha}_k}{\beta}\nabla f(x_k))^T\frac{\alpha_k}{\beta}\nabla f(x_k)&<\sigma\frac{\alpha_k}{\beta}\|\nabla f(x_k)\|^2\\
-            \nabla f(x_k-\frac{\bar{\alpha}_k}{\beta}\nabla f(x_k))^T\nabla f(x_k)&<\sigma\|\nabla f(x_k)\|^2,
-            \forall k>\bar{k}\\
-            \text{As }\alpha_k \rightarrow 0& \Rightarrow \bar{\alpha}_k\rightarrow 0\\
-            \|\nabla f(x_k)\|^2&<\sigma\|\nabla f(x_k)\|^2
-        \end{aligned}
-        \nonumber
-    \end{equation}
-    Which contradicts to $\sigma<1$.
-\end{enumerate}
-\end{proof}
 
 
 
