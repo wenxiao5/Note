@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2022.1.31)  21 FEB 2022 18:38
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2022.1.31)  21 FEB 2022 22:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1285,139 +1285,205 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 [16]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 782.
+(hyperref)                removing `math shift' on input line 780.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 782.
+(hyperref)                removing `\nabla' on input line 780.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 782.
+(hyperref)                removing `\nabla' on input line 780.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\Rightarrow' on input line 782.
+(hyperref)                removing `superscript' on input line 780.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 782.
+(hyperref)                removing `\geq' on input line 780.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 782.
+(hyperref)                removing `\begingroup' on input line 780.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 782.
+(hyperref)                removing `\endgroup' on input line 780.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 782.
+(hyperref)                removing `\@@over' on input line 780.
 
-[17]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\|' on input line 780.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\nabla' on input line 780.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\nabla' on input line 780.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\|' on input line 780.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 780.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 780.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 831.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 831.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 831.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\Rightarrow' on input line 831.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 831.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 831.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 831.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 831.
+
+[17] [18]
 
 LaTeX Warning: The counter will not be printed.
-             The label is: $\bullet $ on input line 846.
+             The label is: $\bullet $ on input line 895.
 
 
-Overfull \hbox (22.43729pt too wide) in paragraph at lines 856--857
+Overfull \hbox (22.43729pt too wide) in paragraph at lines 905--906
 []\TU/lmr/m/n/10.95 Therefore, if $\OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 x[]\OMS/cmsy/m/n/10.95 j \OML/cmm/m/it/10.95 < \OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 x[]\OMS/cmsy/m/n/10.95 j$\TU/lmr/m/n/10.95 , then $\OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 x[]\OMS/cmsy/m/n/10.95 j \OML/cmm/m/it/10.95 < \OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 x[]\OMS/cmsy/m/n/10.95 j \OML/cmm/m/it/10.95 < []$ $\OMS/cmsy/m/n/10.95 ) j\OML/cmm/m/it/10.95 x[]\OMS/cmsy/m/n/10.95 j \OML/cmm/m/it/10.95 < \OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 x[]\OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 ; :::; \OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 x[]\OMS/cmsy/m/n/10.95 j \OML/cmm/m/it/10.95 < \OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 x[]\OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 ; \OMS/cmsy/m/n/10.95 8\OML/cmm/m/it/10.95 k \OMS/cmsy/m/n/10.95 ) fj\OML/cmm/m/it/10.95 x[]\OMS/cmsy/m/n/10.95 jg$\TU/lmr/m/n/10.95 convergences 
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 871.
+(hyperref)                removing `math shift' on input line 920.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 871.
+(hyperref)                removing `math shift' on input line 920.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 871.
+(hyperref)                removing `math shift' on input line 920.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\Rightarrow' on input line 871.
+(hyperref)                removing `\Rightarrow' on input line 920.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 871.
+(hyperref)                removing `math shift' on input line 920.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 871.
+(hyperref)                removing `math shift' on input line 920.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 871.
+(hyperref)                removing `subscript' on input line 920.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 871.
+(hyperref)                removing `math shift' on input line 920.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 871.
+(hyperref)                removing `math shift' on input line 920.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\begingroup' on input line 871.
+(hyperref)                removing `\begingroup' on input line 920.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\endgroup' on input line 871.
+(hyperref)                removing `\endgroup' on input line 920.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@@over' on input line 871.
+(hyperref)                removing `\@@over' on input line 920.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 871.
+(hyperref)                removing `math shift' on input line 920.
 
-[18] [19]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 941.
-
+[19] [20]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\Rightarrow' on input line 941.
+(hyperref)                removing `math shift' on input line 990.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 941.
+(hyperref)                removing `\Rightarrow' on input line 990.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 941.
+(hyperref)                removing `math shift' on input line 990.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 941.
+(hyperref)                removing `math shift' on input line 990.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 941.
+(hyperref)                removing `subscript' on input line 990.
 
-[20]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 990.
+
+[21]
 
 LaTeX Warning: The counter will not be printed.
-             The label is: $\bullet $ on input line 1001.
+             The label is: $\bullet $ on input line 1050.
 
-[21] [22] [23] (./Optimization.aux)
+[22] [23]
+
+LaTeX Warning: The counter will not be printed.
+             The label is: $\bullet $ on input line 1324.
+
+[24] [25]
+
+LaTeX Warning: The counter will not be printed.
+             The label is: $\bullet $ on input line 1385.
+
+[26] (./Optimization.aux)
 Package rerunfilecheck Info: File `Optimization.out' has not changed.
-(rerunfilecheck)             Checksum: BA645274CE8ADFD566C4BF8EE1DC3367;10664.
+(rerunfilecheck)             Checksum: EC8CA36C602181C9C9918C9729569ADF;11342.
  ) 
 Here is how much of TeX's memory you used:
- 37921 strings out of 476191
- 951877 string characters out of 5809814
- 1393112 words of memory out of 5000000
- 57985 multiletter control sequences out of 15000+600000
+ 37943 strings out of 476191
+ 953428 string characters out of 5809814
+ 1398807 words of memory out of 5000000
+ 58007 multiletter control sequences out of 15000+600000
  482509 words of font info for 94 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  100i,15n,104p,770b,528s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Optimization.pdf (23 pages).
+Output written on Optimization.pdf (26 pages).

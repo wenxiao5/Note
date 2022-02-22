@@ -1259,139 +1259,21 @@ Hence,
     \end{aligned}
     \nonumber
 \end{equation}
-Which can be rewritten as
-\begin{equation}
-    \begin{aligned}
-        \begin{bmatrix}
-            x-y\\
-            \nabla f(x)-\nabla f(y)
-        \end{bmatrix}^T
-        \begin{bmatrix}
-            -2mLI&	(m+L)I\\
-            (m+L)I	&-2I
-        \end{bmatrix}
-        \begin{bmatrix}
-            x-y\\
-            \nabla f(x)-\nabla f(y)
-        \end{bmatrix}\geq 0
-    \end{aligned}
-    \nonumber
-\end{equation}
-Let $y=x^*$ and $\nabla f(y)=\nabla f(x^*)=0$
-\begin{equation}
-    \begin{aligned}
-        \begin{bmatrix}
-            x-x^*\\
-            \nabla f(x)
-        \end{bmatrix}^T
-        \begin{bmatrix}
-            -2mLI&	(m+L)I\\
-            (m+L)I	&-2I
-        \end{bmatrix}
-        \begin{bmatrix}
-            x-x^*\\
-            \nabla f(x)
-        \end{bmatrix}\geq 0
-    \end{aligned}
-    \nonumber
-\end{equation}
-Set $\xi_k=x_k-x^*$ and $u_k=\nabla f(x_k)$. And $\xi_{k+1}=x_{k+1}-x^*=x_k-\alpha \nabla f(x_k)-x^*=\xi_k-\alpha u_k$
-\begin{equation}
-    \begin{aligned}
-        \begin{bmatrix}
-            \xi_k\\
-            u_k
-        \end{bmatrix}^T
-        \begin{bmatrix}
-            -2mLI&	(m+L)I\\
-            (m+L)I	&-2I
-        \end{bmatrix}
-        \begin{bmatrix}
-            \xi_k\\
-            u_k
-        \end{bmatrix}\geq 0
-    \end{aligned}
-    \nonumber
-\end{equation}
-Choose $M=\begin{bmatrix}
-    -2mLI&	(m+L)I\\
-    (m+L)I	&-2I
-\end{bmatrix}$. Then prove by previous lemma.
+
 \end{proof}
 
-Now we apply the theorem to obtain the convergence rate $\rho$ for the gradient method with various stepsize choices.
-
-\begin{enumerate}[$\bullet$]
-    \item Case 1: If we choose $\alpha=\frac{1}{L}, \rho=1-\frac{m}{L}$, and $\lambda=\frac{1}{L^{2}}$, we have
-    $$
-    \left[\begin{array}{cc}
-    1-\rho^{2} & -\alpha \\
-    -\alpha & \alpha^{2}
-    \end{array}\right]+\lambda\left[\begin{array}{cc}
-    -2 m L & m+L \\
-    m+L & -2
-    \end{array}\right]=\left[\begin{array}{cc}
-    -\frac{m^{2}}{L^{2}} & \frac{m}{L^{2}} \\
-    \frac{m^{2}}{L^{2}} & -\frac{1}{L^{2}}
-    \end{array}\right]=\frac{1}{L^{2}}\left[\begin{array}{cc}
-    -m^{2} & m \\
-    m & -1
-    \end{array}\right]
-    $$
-    The right side is clearly negative semidefinite due to the fact that $\left[\begin{array}{l}a \\ b\end{array}\right]^{\mathrm{T}}\left[\begin{array}{cc}-m^{2} & m \\ m & -1\end{array}\right]\left[\begin{array}{l}a \\ b\end{array}\right]=$ $-(m a-b)^{2} \leq 0 .$ Therefore, the gradient method with $\alpha=\frac{1}{L}$ converges as
-    $$
-    \left\|x_{k}-x^{*}\right\| \leq\left(1-\frac{m}{L}\right)^{k}\left\|x_{0}-x^{*}\right\|
-    $$
-    \item Case 2: If we choose $\alpha=\frac{2}{m+L}, \rho=\frac{L-m}{L+m}$, and $\lambda=\frac{2}{(m+L)^{2}}$, we have
-    $$
-    \left[\begin{array}{cc}
-    1-\rho^{2} & -\alpha \\
-    -\alpha & \alpha^{2}
-    \end{array}\right]+\lambda\left[\begin{array}{cc}
-    -2 m L & m+L \\
-    m+L & -2
-    \end{array}\right]=\left[\begin{array}{ll}
-    0 & 0 \\
-    0 & 0
-    \end{array}\right]
-    $$
-    The zero matrix is clearly negative semidefinite. Therefore, the gradient method with $\alpha=\frac{2}{m+L}$ converges as
-    $$
-    \left\|x_{k}-x^{*}\right\| \leq\left(\frac{L-m}{L+m}\right)^{k}\left\|x_{0}-x^{*}\right\|
-    $$
-\end{enumerate}
-Notice $L \geq m>0$ and hence $1-\frac{m}{L} \geq \frac{L-m}{L+m}$. This means the gradient method with $\alpha=\frac{2}{m+L}$ converges slightly faster than the case with $\alpha=\frac{1}{L}$. However, $m$ is typically unknown in practice. The step choice of $\alpha=\frac{1}{L}$ is also more robust. The most popular choice for $\alpha$ is still $\frac{1}{L}$.
-
-We can further express $\rho$ as a function of $\alpha$. To do this, we need to choose $\lambda$ carefully for a given $\alpha$. If we choose $\lambda$ reasonably, we can show the best value for $\rho$ that we can find is $\max \{|1-m \alpha|,|L \alpha-1|\}$.
 
 
-\subsection{From convergence rate to iteration complexity}
-The convergence rate $\rho$ naturally leads to an iteration number $T$ guaranteeing the algorithm to achieve the so-called \textbf{$\varepsilon$-optimality}, i.e. $\left\|x_{T}-x^{*}\right\| \leq \varepsilon$.
 
-To guarantee $\left\|x_{T}-x^{*}\right\| \leq \varepsilon$, we can use the bound $\left\|x_{T}-x^{*}\right\| \leq \rho^{T}\left\|x_{0}-x^{*}\right\| .$ If we choose $T$ such that $\rho^{T}\left\|x_{0}-x^{*}\right\| \leq \varepsilon$, then we guarantee $\left\|x_{T}-x^{*}\right\| \leq \varepsilon .$ Denote $c=$ $\left\|x_{0}-x^{*}\right\| .$ Then $c \rho^{k} \leq \varepsilon$ is equivalent to
-$$
-\log c+k \log \rho \leq \log (\varepsilon)
-$$
-Notice $\rho<1$ and $\log \rho<0$. The above inequality is equivalent to
-$$
-k \geq \log \left(\frac{\varepsilon}{c}\right) / \log \rho=\log \left(\frac{c}{\varepsilon}\right) /(-\log \rho)
-$$
-So if we choose $T=\log \left(\frac{c}{\varepsilon}\right) /(-\log \rho)$, we guarantee $\left\|x_{T}-x^{*}\right\| \leq \varepsilon$.
-Notice $\log \rho \leq \rho-1<0$ (this can be proved using the concavity of $\log$ function and we will talk about concavity in later lectures), so $\frac{1}{1-\rho} \geq-\frac{1}{\log \rho}$ and we can also choose $T=\log \left(\frac{c}{\varepsilon}\right) /(1-\rho) \geq \log \left(\frac{c}{\varepsilon}\right) /(-\log \rho)$ to guarantee $\left\|x_{T}-x^{*}\right\| \leq \varepsilon$.
 
-Another interpretation for $T=\log \left(\frac{c}{\varepsilon}\right) /(1-\rho)$ is that a first-order Taylor expansion of $-\log \rho$ at $\rho=1$ leads to $-\log \rho \approx 1-\rho$. So $\log \left(\frac{c}{\varepsilon}\right) /(-\log \rho)$ is roughly equal to $\log \left(\frac{c}{\varepsilon}\right) /(1-\rho)$ when $\rho$ is close to 1 .
 
-Clearly the smaller $T$ is, the more efficient the optimization method is. The iteration number $T$ describes the "$\varepsilon$-optimal iteration complexity" of the gradient method for smooth strongly-convex objective functions.
-\begin{enumerate}[$\bullet$]
-    \item For the gradient method with $\alpha=\frac{1}{L}$, we have $\rho=1-\frac{m}{L}=1-\frac{1}{\kappa}$ and hence $T=$ $\log \left(\frac{c}{\varepsilon}\right) /(1-\rho)=\kappa \log \left(\frac{c}{\varepsilon}\right)=O\left(\kappa \log \left(\frac{1}{\varepsilon}\right)\right) .2$ Here we use the big $O$ notation to highlight the dependence on $\kappa$ and $\varepsilon$ and hide the dependence on the constant $c$.
-    \item For the gradient method with $\alpha=\frac{2}{L+m}$, we have $\rho=\frac{\kappa-1}{\kappa+1}=1-\frac{2}{\kappa+1}$ and hence $T=\log \left(\frac{c}{\varepsilon}\right) /(1-\rho)=\frac{\kappa+1}{2} \log \left(\frac{c}{\varepsilon}\right) .$ Although $\frac{\kappa+1}{2} \leq \kappa$, we still have $\frac{\kappa+1}{2} \log \left(\frac{c}{\varepsilon}\right)=$ $O\left(\kappa \log \left(\frac{1}{\varepsilon}\right)\right)$. Therefore, the stepsize $\alpha=\frac{2}{m+L}$ can only improve the constant $C$ hidden in the big $O$ notation of the iteration complexity. People call this “improvement of a constant factor”.
-    \item In general, when $\rho$ has the form $\rho=1-1 /(a \kappa+b)$, the resultant iteration complexity is always $O\left(\kappa \log \left(\frac{1}{\varepsilon}\right)\right)$.
-\end{enumerate}
 
-There are algorithms which can significantly decrease the iteration complexity for unconstrained optimization problems with smooth strongly-convex objective functions. For example, Nesterov's method can decrease the iteration complexity from $O\left(\kappa \log \left(\frac{1}{\varepsilon}\right)\right)$ to $O\left(\sqrt{\kappa} \log \left(\frac{1}{\varepsilon}\right)\right)$. Momentum is used to accelerate optimization as:
-$$
-x_{k+1}=x_{k}-\alpha \nabla f\left((1+\beta) x_{k}-\beta x_{k-1}\right)+\beta\left(x_{k}-x_{k-1}\right) .
-$$
+
+
+
+
+
+
 
 
 

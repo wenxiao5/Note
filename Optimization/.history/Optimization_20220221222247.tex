@@ -1381,17 +1381,10 @@ Notice $\log \rho \leq \rho-1<0$ (this can be proved using the concavity of $\lo
 
 Another interpretation for $T=\log \left(\frac{c}{\varepsilon}\right) /(1-\rho)$ is that a first-order Taylor expansion of $-\log \rho$ at $\rho=1$ leads to $-\log \rho \approx 1-\rho$. So $\log \left(\frac{c}{\varepsilon}\right) /(-\log \rho)$ is roughly equal to $\log \left(\frac{c}{\varepsilon}\right) /(1-\rho)$ when $\rho$ is close to 1 .
 
-Clearly the smaller $T$ is, the more efficient the optimization method is. The iteration number $T$ describes the "$\varepsilon$-optimal iteration complexity" of the gradient method for smooth strongly-convex objective functions.
-\begin{enumerate}[$\bullet$]
-    \item For the gradient method with $\alpha=\frac{1}{L}$, we have $\rho=1-\frac{m}{L}=1-\frac{1}{\kappa}$ and hence $T=$ $\log \left(\frac{c}{\varepsilon}\right) /(1-\rho)=\kappa \log \left(\frac{c}{\varepsilon}\right)=O\left(\kappa \log \left(\frac{1}{\varepsilon}\right)\right) .2$ Here we use the big $O$ notation to highlight the dependence on $\kappa$ and $\varepsilon$ and hide the dependence on the constant $c$.
-    \item For the gradient method with $\alpha=\frac{2}{L+m}$, we have $\rho=\frac{\kappa-1}{\kappa+1}=1-\frac{2}{\kappa+1}$ and hence $T=\log \left(\frac{c}{\varepsilon}\right) /(1-\rho)=\frac{\kappa+1}{2} \log \left(\frac{c}{\varepsilon}\right) .$ Although $\frac{\kappa+1}{2} \leq \kappa$, we still have $\frac{\kappa+1}{2} \log \left(\frac{c}{\varepsilon}\right)=$ $O\left(\kappa \log \left(\frac{1}{\varepsilon}\right)\right)$. Therefore, the stepsize $\alpha=\frac{2}{m+L}$ can only improve the constant $C$ hidden in the big $O$ notation of the iteration complexity. People call this “improvement of a constant factor”.
-    \item In general, when $\rho$ has the form $\rho=1-1 /(a \kappa+b)$, the resultant iteration complexity is always $O\left(\kappa \log \left(\frac{1}{\varepsilon}\right)\right)$.
-\end{enumerate}
 
-There are algorithms which can significantly decrease the iteration complexity for unconstrained optimization problems with smooth strongly-convex objective functions. For example, Nesterov's method can decrease the iteration complexity from $O\left(\kappa \log \left(\frac{1}{\varepsilon}\right)\right)$ to $O\left(\sqrt{\kappa} \log \left(\frac{1}{\varepsilon}\right)\right)$. Momentum is used to accelerate optimization as:
-$$
-x_{k+1}=x_{k}-\alpha \nabla f\left((1+\beta) x_{k}-\beta x_{k-1}\right)+\beta\left(x_{k}-x_{k-1}\right) .
-$$
+
+
+
 
 
 
