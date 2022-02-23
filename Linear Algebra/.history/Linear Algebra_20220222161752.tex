@@ -257,7 +257,6 @@ Where $U=[u_1,u_2,...,u_n]$, $\Omega=diag(\lambda_1,...,\lambda_n)$
 
 Since $u_i$ are orthonormal eigenvectors, $U^TU=I \Rightarrow U^T=U^{-1}$. $U$ is an orthogonal matrix.
 
-\subsubsection{Proposition: $\lambda_{\min}\|x\|^2\leq x^TAx\leq \lambda_{\max}\|x\|^2$}
 \begin{proposition}
 For any $x\in \mathbb{R}^n$, $$\lambda_{\min}\|x\|^2\leq x^TAx\leq \lambda_{\max}\|x\|^2$$
 \end{proposition}
@@ -276,20 +275,6 @@ For any $x\in \mathbb{R}^n$, $$\lambda_{\min}\|x\|^2\leq x^TAx\leq \lambda_{\max
     The first equation holds if $x$ is the eigenvector for $\lambda_{\min}$. The second equation holds if $x$ is the eigenvector for $\lambda_{\max}$.
 \end{proof}
 
-\subsubsection{Proposition: $\lambda^2$ is the eigenvalue of $A^2$ and $A^TA$}
-\begin{proposition}
-If $\lambda$ is an eigenvalue of $A$, then $\lambda^2$ is the eigenvalue of $A^2$ and $ A^TA$, the corresponding eigenvector doesn't change.
-\end{proposition}
-\begin{proof}
-\begin{equation}
-    \begin{aligned}
-        Ax_1&=\lambda x_1\\
-        A^2x_1=A(Ax_1)=\lambda Ax_1&=\lambda^2 x_1\\
-        A^TAx_1=A^T(Ax_1)=\lambda A^Tx_1&=\lambda^2x_1
-    \end{aligned}
-    \nonumber
-\end{equation}
-\end{proof}
 
 \subsection{Trace}
 $A_{n\times n}$, $Tr(A)=\sum_{i=1}^nA_{kk}$
