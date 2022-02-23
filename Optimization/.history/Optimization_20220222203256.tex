@@ -1246,32 +1246,19 @@ According to the definition of $m$-strongly convex
     \end{aligned}
     \nonumber
 \end{equation}
-And the co-coercivity condition, if $f$ is $L-$smooth,
+And the co-coercivity condition
 \begin{equation}
     \begin{aligned}
         (\nabla f(x)-\nabla f(y))^T(x-y)\geq \frac{1}{L}\|\nabla f(x)-\nabla f(y)\|^2
     \end{aligned}
     \nonumber
 \end{equation}
-Set $g(x)=f(x)-\frac{m}{2}\|x\|^2$, $\nabla g(x)=\nabla f(x)-mx$.
-
-\begin{equation}
-    \begin{aligned}
-        \text{$f$ is $L-$smooth}&\Leftrightarrow\|\nabla f(x)-\nabla f(y)\|\leq L\|x-y\|\\
-        &\Leftrightarrow\|\nabla g(x)-\nabla g(y)\|\leq (L-m)\|x-y\|\\
-        &\Leftrightarrow\text{$g$ is $L-m$-smooth}
-    \end{aligned}
-    \nonumber
-\end{equation}
+Set $g(x)=f(x)-\frac{m}{2}\|x\|^2$
 Hence,
 \begin{equation}
     \begin{aligned}
-        (\nabla g(x)-\nabla g(y))^T(x-y)&\geq \frac{1}{L-m}\|\nabla g(x)-\nabla g(y)\|^2\\
-        (\nabla f(x)-\nabla f(y)-m(x-y))^T(x-y)&\geq \frac{1}{L-m}\|\nabla f(x)-\nabla f(y)-m(x-y)\|^2\\
-        (L-m)[(\nabla f(x)-&\nabla f(y))^T(x-y)-m\|x-y\|^2]\\
-        \geq \|\nabla f(x)-\nabla f(y)\|^2+m^2\|(x-y)\|^2&-2m(\nabla f(x)-\nabla f(y))^T(x-y)\\
-        (L+m)(\nabla f(x)-\nabla f(y))^T(x-y)&\geq mL\|x-y\|^2+\|\nabla f(x)-\nabla f(y)\|^2\\
-        \Rightarrow	(\nabla f(x)-\nabla f(y))^T(x-y)&\geq\frac{mL}{m+L}\|x-y\|^2+\frac{1}{m+L}\|\nabla f(x)-\nabla f(y)\|^2
+        (m+L)(\nabla f(x)-\nabla f(y))^T(x-y)\geq mL \|x-y\|^2+\frac{L}{L}\|\nabla f(x)-\nabla f(y)\|^2\\
+        \Rightarrow	(\nabla f(x)-\nabla f(y))^T(x-y)\geq\frac{mL}{m+L}\|x-y\|^2+\frac{1}{m+L}\|\nabla f(x)-\nabla f(y)\|^2
     \end{aligned}
     \nonumber
 \end{equation}
