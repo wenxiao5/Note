@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2022.1.31)  22 FEB 2022 21:14
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2022.1.31)  2 MAR 2022 23:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -757,7 +757,11 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 286.
 )
 \Hy@SectionHShift=\skip65
-) (./Optimization.aux)
+) (./Optimization.aux
+
+LaTeX Warning: Label `' multiply defined.
+
+)
 \openout1 = `Optimization.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 45.
@@ -1557,17 +1561,35 @@ LaTeX Warning: The counter will not be printed.
 LaTeX Warning: The counter will not be printed.
              The label is: $\bullet $ on input line 1401.
 
-[26] (./Optimization.aux)
+[26]
+
+LaTeX Warning: The counter will not be printed.
+             The label is: $\bullet $ on input line 1485.
+
+[27]
+
+LaTeX Warning: The counter will not be printed.
+             The label is: $\bullet $ on input line 1562.
+
+[28] [29] [30] [31]
+File: NN.png Graphic file (type bmp)
+<NN.png>
+File: Vector Input.png Graphic file (type bmp)
+<Vector Input.png>
+ [32] [33] (./Optimization.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `Optimization.out' has not changed.
-(rerunfilecheck)             Checksum: 4CE30E217ADEC7A12962DAE5BEE09638;11679.
+(rerunfilecheck)             Checksum: 8C07C0532D12E1177D7F8989444B360F;13671.
  ) 
 Here is how much of TeX's memory you used:
- 37943 strings out of 476191
- 953428 string characters out of 5809814
- 1397150 words of memory out of 5000000
- 58007 multiletter control sequences out of 15000+600000
- 482509 words of font info for 94 fonts, out of 8000000 for 9000
+ 38000 strings out of 476191
+ 955553 string characters out of 5809814
+ 1402367 words of memory out of 5000000
+ 58059 multiletter control sequences out of 15000+600000
+ 482517 words of font info for 95 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  100i,15n,104p,770b,528s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Optimization.pdf (26 pages).
+Output written on Optimization.pdf (33 pages).

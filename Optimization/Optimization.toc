@@ -42,3 +42,14 @@
 \contentsline {subsubsection}{\numberline {4.4.2}Example}{22}{subsubsection.4.4.2}%
 \contentsline {subsection}{\numberline {4.5}Convergence of Gradient Descent on Smooth Strongly-Convex Functions}{23}{subsection.4.5}%
 \contentsline {subsection}{\numberline {4.6}From convergence rate to iteration complexity}{25}{subsection.4.6}%
+\contentsline {section}{\numberline {5}Newton's Method}{26}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Generalization to Optimization}{27}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}A New Interpretation of Newton’s Method}{27}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Convergence of Newton's Method}{27}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Note: Cons and Pros}{29}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Modifications to ensure global convergence}{29}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}Quasi-Newton Methods}{30}{subsection.5.6}%
+\contentsline {subsubsection}{\numberline {5.6.1}BFGS Method}{30}{subsubsection.5.6.1}%
+\contentsline {subsection}{\numberline {5.7}Trust-Region Method}{32}{subsection.5.7}%
+\contentsline {subsection}{\numberline {5.8}Cubic Regularization}{32}{subsection.5.8}%
+\contentsline {section}{\numberline {6}Neural Networks}{32}{section.6}%
