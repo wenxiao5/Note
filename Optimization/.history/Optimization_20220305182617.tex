@@ -1776,62 +1776,24 @@ The output is
     \item Input to network is vector $x$; output of layer $m$ is vector $y^{(m)}$
     \begin{equation}
         \begin{aligned}
-            y_i^{(1)}=\sigma(x_i^{(1)}),&\text{ with }x_i^{(1)}=\sum_jw_{ij}^{(1)}x_j+b_i^{(1)}\\
-            y^{(1)}=\sigma(x^{(1)}),&\text{ with }x^{(1)}=W^{(1)}x+b^{(1)}\\
-            y^{(2)}=\sigma(x^{(2)}),&\text{ with }x^{(2)}=W^{(2)}y^{(1)}+b^{(2)}\\
-            \vdots&\\
-            y^{(M)}=\sigma(x^{(M)}),&\text{ with }x^{(M)}=W^{(M)}y^{(M-1)}+b^{(M)}\\
+            y_i^{(1)}=\sigma(x_i^{(1)}),\text{ with }x_i^{(1)}=\sum_jw_{ij}^{(1)}x_j+b_i^{(1)}\\
+            y^{(1)}=\sigma(x^{(1)}),\text{ with }x^{(1)}=W^{(1)}x+b^{(1)}\\
         \end{aligned}
         \nonumber
     \end{equation}
 \end{enumerate}
 
-We want to find the weights $W^{(1)},\cdots,W^{(M)},b^{(1)},\cdots,b^{(M)}$ so that the output of last layer
-\begin{equation}
-    \begin{aligned}
-        \hat{y}=y^{(M)}\approx f^*(x)=y
-    \end{aligned}
-    \nonumber
-\end{equation}
-$f^*(x)$ is the unknown thing we need to predict.
 
-We use \underline{labelled training data}, i.e.
-\begin{equation}
-    \begin{aligned}
-        (x[1],y[1]),(x[2],y[2]),\cdots (x[N],y[N])
-    \end{aligned}
-    \nonumber
-\end{equation}
-Minimize the "empirical" loss on training data.
-\begin{equation}
-    \begin{aligned}
-        J=\sum_{i=1}^N L(y[i],\hat{y}[i])
-    \end{aligned}
-    \nonumber
-\end{equation}
-where $\bar{y}[i]$ is the output of NN whose input is $x[i]$.
 
-\begin{enumerate}[$\bullet$]
-    \item $L$ is the function of $W^{(1)},\cdots,W^{(M)},b^{(1)},\cdots,b^{(M)}$ to measure the loss. e.g. the square loss $$L(y,\hat{y})=(y-\hat{y})^2$$
-    \item We wish to minimize $J$ using a \underline{gradient descent procedure}.
-    \item To compute gradient we need:
-    \begin{equation}
-        \begin{aligned}
-            \frac{\partial L}{\partial w_{ij}^{(l)}}\text{ for each }l,i,j; \quad
-            \frac{\partial L}{\partial b_i^{(l)}}\text{ for each }l,i.\\
-        \end{aligned}
-        \nonumber
-    \end{equation}
-\end{enumerate}
 
-\subsection{Back Propagation Algorithm}
-For large $M$, recall $y^{(M)}=\sigma(x^{(M)})$, $x^{(M)}=W^{(M)}y^{(M-1)}+b^{(M)}$
-\begin{equation}
-    \begin{aligned}
-        \frac{\partial L}{\partial w_{ij}^{(M)}}=\frac{\partial L}{\partial y_i^{(M)}}\cdot \frac{\partial y_i^{(M)}}{\partial w_{ij}^{(M)}}
-    \end{aligned}
-    \nonumber
-\end{equation}
+
+
+
+
+
+
+
+
 
 
 

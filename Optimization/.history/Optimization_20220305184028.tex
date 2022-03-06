@@ -1811,27 +1811,12 @@ Minimize the "empirical" loss on training data.
 \end{equation}
 where $\bar{y}[i]$ is the output of NN whose input is $x[i]$.
 
-\begin{enumerate}[$\bullet$]
-    \item $L$ is the function of $W^{(1)},\cdots,W^{(M)},b^{(1)},\cdots,b^{(M)}$ to measure the loss. e.g. the square loss $$L(y,\hat{y})=(y-\hat{y})^2$$
-    \item We wish to minimize $J$ using a \underline{gradient descent procedure}.
-    \item To compute gradient we need:
-    \begin{equation}
-        \begin{aligned}
-            \frac{\partial L}{\partial w_{ij}^{(l)}}\text{ for each }l,i,j; \quad
-            \frac{\partial L}{\partial b_i^{(l)}}\text{ for each }l,i.\\
-        \end{aligned}
-        \nonumber
-    \end{equation}
-\end{enumerate}
+$L$ is the function to measure the loss. e.g. the square loss $$L(y,\hat{y})=(y-\hat{y})^2$$
 
-\subsection{Back Propagation Algorithm}
-For large $M$, recall $y^{(M)}=\sigma(x^{(M)})$, $x^{(M)}=W^{(M)}y^{(M-1)}+b^{(M)}$
-\begin{equation}
-    \begin{aligned}
-        \frac{\partial L}{\partial w_{ij}^{(M)}}=\frac{\partial L}{\partial y_i^{(M)}}\cdot \frac{\partial y_i^{(M)}}{\partial w_{ij}^{(M)}}
-    \end{aligned}
-    \nonumber
-\end{equation}
+
+
+
+
 
 
 
