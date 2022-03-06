@@ -1889,22 +1889,10 @@ Similarly,
     \nonumber
 \end{equation}
 
-\begin{center}
-    \fcolorbox{black}{gray!10}{\parbox{.9\linewidth}{
-\textbf{Summary}
-\begin{enumerate}
-    \item Compute $\frac{\partial L}{\partial y_i^{(M)}}$.
-    \item Use $$\frac{\partial L}{\partial y_i^{(m)}}=\sum_k \frac{\partial L}{\partial y_{k}^{(m+1)}}\cdot\sigma'(x_k^{(m+1)})\cdot w_{ki}^{(m+1)}$$ compute $\frac{\partial L}{\partial y_i^{(m)}}$ for $m=1,2...,M-1$.
-    \item Compute $$\frac{\partial L}{\partial w_{ij}^{(m)}}=\frac{\partial L}{\partial y_i^{(m)}}\cdot \sigma'(x_{i}^{(m)}) \cdot y_j^{(m-1)}$$ for $m=1,2...,M$.
-    \item Compute $$\frac{\partial L}{\partial b_{i}^{(m)}}=\frac{\partial L}{\partial y_i^{(m)}}\cdot \sigma'(x_{i}^{(m)})$$ for $m=1,2...,M$.
-\end{enumerate}
-    }}
-\end{center}
 
-\subsection{Other Methods}
-Stochastic Gradient Descent (SGD)
 
-Subgradient Method
+
+
 
 
 

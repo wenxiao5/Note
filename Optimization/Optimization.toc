@@ -56,3 +56,4 @@
 \contentsline {subsection}{\numberline {6.1}Neuron}{32}{subsection.6.1}%
 \contentsline {subsection}{\numberline {6.2}Multilayer Neural Network}{33}{subsection.6.2}%
 \contentsline {subsection}{\numberline {6.3}Back Propagation Algorithm}{34}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Other Methods}{36}{subsection.6.4}%
