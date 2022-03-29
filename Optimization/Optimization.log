@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2022.1.31)  22 MAR 2022 13:04
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2022.1.31)  28 MAR 2022 01:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -764,6 +764,15 @@ LaTeX Warning: Label `' multiply defined.
 
 LaTeX Warning: Label `' multiply defined.
 
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
 )
 \openout1 = `Optimization.aux'.
 
@@ -913,7 +922,11 @@ Overfull \hbox (8.61653pt too wide) in paragraph at lines 35--35
  [][] [][]\TU/lmr/m/n/10.95 Descent Lemma: $\OMS/cmsy/m/n/10.95 r\OML/cmm/m/it/10.95 f\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x\OT1/cmr/m/n/10.95 )$ \TU/lmr/m/n/10.95 is Lipschitz with constant $\OML/cmm/m/it/10.95 L$ $\OMS/cmsy/m/n/10.95 ) \OML/cmm/m/it/10.95 f\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 y\OT1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95 ^^T \OML/cmm/m/it/10.95 f\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x\OT1/cmr/m/n/10.95 ) + \OMS/cmsy/m/n/10.95 r\OML/cmm/m/it/10.95 f\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x\OT1/cmr/m/n/10.95 )[](\OML/cmm/m/it/10.95 y \OMS/cmsy/m/n/10.95 ^^@ 
  []
 
-[2])
+[2]
+LaTeX Font Info:    Trying to load font information for U+euf on input line 66.
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/ueuf.fd
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
+))
 \tf@toc=\write5
 \openout5 = `Optimization.toc'.
 
@@ -1133,10 +1146,6 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 556.
 
-LaTeX Font Info:    Trying to load font information for U+euf on input line 564.
-(/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/ueuf.fd
-File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-)
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 572.
@@ -1595,20 +1604,46 @@ LaTeX Warning: The counter will not be printed.
 LaTeX Warning: The counter will not be printed.
              The label is: $\bullet $ on input line 1850.
 
-[36] [37] (./Optimization.aux)
+[36] [37] [38]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1977.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 1977.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1977.
+
+File: projection1.png Graphic file (type bmp)
+<projection1.png>
+File: projection2.png Graphic file (type bmp)
+<projection2.png>
+[39]
+
+Package amsmath Warning: Bracket group [\mathfrak {Z}] at formula start!
+(amsmath)                It could be a misspelled positional argument.
+(amsmath)                If it belongs to the formula add a \relax in
+(amsmath)                front to hide it on input line 2028.
+
+File: projection3.png Graphic file (type bmp)
+<projection3.png>
+[40] [41] (./Optimization.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `Optimization.out' has not changed.
-(rerunfilecheck)             Checksum: 7F8913691A5B05B7717478EA2AA79B97;14468.
+(rerunfilecheck)             Checksum: A79662CEFC1A3F4F47A4134D64808D08;15712.
  ) 
 Here is how much of TeX's memory you used:
- 38020 strings out of 476191
- 956434 string characters out of 5809814
- 1401240 words of memory out of 5000000
- 58078 multiletter control sequences out of 15000+600000
+ 38048 strings out of 476191
+ 956973 string characters out of 5809814
+ 1402581 words of memory out of 5000000
+ 58103 multiletter control sequences out of 15000+600000
  482517 words of font info for 95 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  100i,15n,104p,777b,479s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Optimization.pdf (37 pages).
+Output written on Optimization.pdf (41 pages).

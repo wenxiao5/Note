@@ -1931,7 +1931,7 @@ $x^*$ is \underline{global min of $f$ over $\&$} if $f(x^*)\leq f(x)\quad \foral
     \quad
     \begin{enumerate}[(a)]
         \item (Necessary Conditions for local-min) If $x^*$ is a local min of $f$ over $\&$, then $$\nabla f(x^*)^T(x-x^*)\geq 0\quad \forall x\in \&$$
-        \item (Sufficient and Necessary Condition for global-min of convex $f$) If $f$ is convex over $\&$, then above condition is also sufficient for $x^*$ to be a global-min.
+        \item (Sufficient Condition for global-min of convex $f$) If $f$ is convex over $\&$, then above condition is also sufficient for $x^*$ to be a global-min.
     \end{enumerate}
 \end{proposition}
 \begin{proof}
@@ -2018,7 +2018,6 @@ Finally, $y\in A \Rightarrow \|y\|^2=\|y-\mathfrak{Z}+\mathfrak{Z}\|^2\leq \|y-\
 Thus, $g(y)=\|\mathfrak{Z}-y\|^2$ is strictly convex over set $A$, which is compact.
 
 Therefore, $\min_{y\in\&}\|\&-y\|^2=\min_{y\in A}\|\&-y\|^2$ exists (Weierstrass’ Theorem) and is unique (strict convexity).
-\end{proof}
 
 \begin{proposition}
     [Necessary and Sufficient Condition for Projection]
@@ -2039,25 +2038,18 @@ Therefore, $\min_{y\in\&}\|\&-y\|^2=\min_{y\in A}\|\&-y\|^2$ exists (Weierstrass
     \begin{equation}
         \begin{aligned}
             &y^*\text{ is the unique minimizer of $g(y)$ over $\&$}\\
-            \Leftrightarrow	& \nabla g(y^*)^T(y-y^*)\geq 0\quad \forall y\in\&\\
-            \Leftrightarrow & (y^*-\mathfrak{Z})^T(y-y^*)\geq 0,\quad \forall y\in\&.\\
-            \Leftrightarrow &(\mathfrak{Z}-y^*)^T(y-y^*)\leq 0,\quad \forall y\in\&.
+            \Leftrightarrow	& \nabla g(y^*)^T(y-y^*)\geq 0\quad \forall y\in\&
         \end{aligned}
         \nonumber
     \end{equation}
 \end{proof}
-\begin{center}\begin{figure}[htbp]
-    \centering
-    \includegraphics[scale=0.3]{projection3.png}
-    \caption{Necessary and Sufficient Condition for Projection}
-    \label{}
-\end{figure}\end{center}
 
-\begin{proposition}
-    [Projection is non-expansive]
-    Let $\&$ be a \underline{closed convex} subset of $\mathbb{R}^n$. Then for $x,\mathfrak{Z}\in \mathbb{R}^n$
-    $$\|[x]^\&-[\mathfrak{Z}]^\&\|\leq \|x-\mathfrak{Z}\|\quad \forall x,\mathfrak{Z}\in \mathbb{R}^n$$
-\end{proposition}
+
+
+
+
+\end{proof}
+
 
 
 

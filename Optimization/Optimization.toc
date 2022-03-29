@@ -58,3 +58,9 @@
 \contentsline {subsection}{\numberline {6.2}Multilayer Neural Network}{35}{subsection.6.2}%
 \contentsline {subsection}{\numberline {6.3}Back Propagation Algorithm}{36}{subsection.6.3}%
 \contentsline {subsection}{\numberline {6.4}Other Methods}{37}{subsection.6.4}%
+\contentsline {section}{\numberline {7}Constrained Optimization and Gradient Projection}{38}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Constrained Optimization: Basic}{38}{subsection.7.1}%
+\contentsline {subsubsection}{\numberline {7.1.1}Optimality Conditions}{38}{subsubsection.7.1.1}%
+\contentsline {subsubsection}{\numberline {7.1.2}Interior Point}{39}{subsubsection.7.1.2}%
+\contentsline {subsection}{\numberline {7.2}Projection onto Closed Convex Set}{39}{subsection.7.2}%
+\contentsline {subsubsection}{\numberline {7.2.1}Def: Projection $[\mathfrak {Z}]^\&$}{39}{subsubsection.7.2.1}%
