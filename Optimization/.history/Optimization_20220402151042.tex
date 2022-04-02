@@ -561,8 +561,8 @@ if $f(w)$ is convex, then $f(w)+\frac{\mu}{2}\|w\|^{2}$ is $\mu$-strongly convex
 \begin{equation}
     \begin{aligned}
         \nabla^2 f(x)&\succeq mI \Rightarrow \nabla^2 f(x)-mI\succeq 0\\
-        & \Rightarrow \forall \mathfrak{Z}\neq 0\quad \mathfrak{Z}^T(\nabla^2 f(x)-mI)\mathfrak{Z}\geq 0\\
-        & \Rightarrow \mathfrak{Z}^T\nabla^2 f(x)\mathfrak{Z}\geq m\mathfrak{Z}^T\mathfrak{Z}>0
+        & \Rightarrow \forall z\neq 0\quad z^T(\nabla^2 f(x)-mI)z\geq 0\\
+        & \Rightarrow z^T\nabla^2 f(x)z\geq mz^Tz>0
     \end{aligned}
     \nonumber
 \end{equation}
@@ -579,7 +579,7 @@ $$\Rightarrow f(y)\geq f(x)+\nabla f(x)^T(y-x)+\frac{m}{2}\|y-x\|^2$$
     By Taylor's Theorem,
     \begin{equation}
         \begin{aligned}
-            f(y)&=f(x)+\nabla f(x)^T(y-x)+\frac{1}{2}(y-x)^T \nabla^T f((1-\beta)x+\beta y)(y-x),\quad \text{for some }\beta\in[0,1]\\
+            f(y)&=f(x)+\nabla f(x)^T(y-x)+\frac{1}{2}(y-x)^T \nabla^2 f((1-\beta)x+\beta y)(y-x),\quad \text{for some }\beta\in[0,1]\\
             &\geq f(x)+\nabla f(x)^T(y-x)+\frac{1}{2}(y-x)^Tm(y-x)\\
             &\geq f(x)+\nabla f(x)^T(y-x)+\frac{m}{2}\|y-x\|^2
         \end{aligned}
@@ -645,8 +645,15 @@ $\alpha_k$ is the step size, which need to choose carefully.
     \item \textbf{Optimal Line Search}: choose $\alpha_k$ to optimize the value of next iteration, i.e. solve $$\min_{\alpha\geq 0}f(x_k+\alpha d_k)$$ (may be \textit{difficult in practice})
     \item \textbf{Armijo's Rule} (successive step size reduction):$$f(x_k+\alpha_k d_k)=f(x_k)+\alpha_k \nabla f(x_k)^T d_k+O(\alpha_k)$$
     Since $\nabla f(x_k)^T d_k<0$, $f$ decreases when $\alpha_k$ is sufficiently small. But we also don't want $\alpha_k$ to be too small (slow).
-
 \end{enumerate}
+
+\subsection{Optimal(Exact) Line Search}
+\begin{example}
+    (False $\times$) The gradient descent algorithm with an exact line search always finds the minimum of a strictly convex quadratic function in exactly one iteration.
+\end{example}
+Note: the moving direction is restricted to the gradient. $x$只能朝倒数方向移动不一定能一次到大最优点。
+
+Counterexample: False. It is not necessary that the gradient at $x_{0}$ towards the exact solution. For example, let $f(x)=$ $\frac{1}{2} x^{\top} Q x+x^{\top} b$ where $Q=\left(\begin{array}{ll}2 & 0 \\ 0 & 1\end{array}\right)$ and $b=\left(\begin{array}{c}1 \\ -1\end{array}\right)$. Clearly we have $x^{*}=\left(\begin{array}{c}-1 / 2 \\ 1\end{array}\right)$. If we start with $x_{0}=\left(\begin{array}{l}1 \\ 2\end{array}\right)$, by using exact line search, the step size $\alpha=\arg \min f\left(x_{0}-\alpha \nabla f\left(x_{0}\right)\right)=10 / 19$. Hence $x_{1}=x_{0}-\alpha \nabla f\left(x_{0}\right)=\left(\begin{array}{c}-11 / 19 \\ 28 / 19\end{array}\right) \neq x^{*}$.
 
 \subsection{Armijo's Rule}
 \begin{enumerate}[(i)]
@@ -1067,9 +1074,9 @@ To make $f(x_N)-f(x^*)<\varepsilon$, we only need $N\sim O(log\frac{1}{\varepsil
 \begin{example}
     $f(x)=\frac{1}{2}x^TQx+b^Tx+c,\quad Q\succ 0$, $\nabla^2 f(x)=Q$.
 \end{example}
-Let $\lambda_{\min}$ and $\lambda_{\max}$ be the min and max eigenvalue of $Q$. Then we know $$\lambda_{\min}\|\mathfrak{Z}\|^2\leq\mathfrak{Z}^TQ\mathfrak{Z}\leq \lambda_{\max}\|\mathfrak{Z}\|^2$$
-Thus for all $\mathfrak{Z}\in \mathbb{R}^n$
-$$\mathfrak{Z}^T(Q-\lambda_{\min}I)\mathfrak{Z}\geq 0 \Rightarrow	Q\succeq \lambda_{\min}I$$
+Let $\lambda_{\min}$ and $\lambda_{\max}$ be the min and max eigenvalue of $Q$. Then we know $$\lambda_{\min}\|z\|^2\leq z^TQz\leq \lambda_{\max}\|z\|^2$$
+Thus for all $z\in \mathbb{R}^n$
+$$z^T(Q-\lambda_{\min}I)z\geq 0 \Rightarrow	Q\succeq \lambda_{\min}I$$
 Similarly, $Q\preceq \lambda_{\max}I$. Thus
 $$\lambda_{\min}I\preceq \nabla^2 f(x)\preceq \lambda_{\max}I$$
 $\lambda_{\min}I\preceq \nabla^2 f(x) \Leftrightarrow$ $f$ is $\lambda_{\min}$-strongly convex; $\nabla^2 f(x)\preceq \lambda_{\max}I$ is a sufficient condition for $f$ is $\lambda_{\max}$-smooth.
@@ -1703,20 +1710,467 @@ It will be better to compute $H_{k}^{-1}$ directly instead of $H_k$.
         \end{bmatrix}H_k^{-1}\\
         &=H_k^{-1}-[s_k\ H_k^{-1}y_k]\begin{bmatrix}
             0&s_k^Ty_k\\
-            y_k^Ts_k&y_k^T(s_k+h_k^{-1}y_k)
+            y_k^Ts_k&y_k^T(s_k+H_k^{-1}y_k)
         \end{bmatrix}^{-1}\begin{bmatrix}
             s_k^T\\
             y_k^TH_k^{-1}
         \end{bmatrix}\\
-        &\\
-        &\\
-        &=\\
+        &=H_k^{-1}-[s_k\ H_k^{-1}y_k]\begin{bmatrix}
+            -\frac{y_k^Ts_k+y^T_kH_k^{-1}y_k}{y_k^Ts_ks_k^Ty_k}&\frac{1}{y_k^Ts_k}\\
+            \frac{1}{y_k^Ts_k}&0
+        \end{bmatrix}\begin{bmatrix}
+            s_k^T\\
+            y_k^TH_k^{-1}
+        \end{bmatrix}\\
+        &=H_k^{-1}-\frac{H_k^{-1}y_ks^T_k}{y_k^Ts_K}-\frac{s_ky^T_kH_k^{-1}}{y_k^Ts_K}+\frac{s_ks_k^T}{y_k^Ts_K}+\frac{s_ky_k^TH_k^{-1}y_ks_k^T}{(y_k^Ts_k)^2}\\
         &=\left(I-\frac{s_ky_k^T}{y^T_ks_k}\right)H_k^{-1}\left(I-\frac{y_ks_k^T}{y^T_ks_k}\right)+\frac{s_ks_k^T}{y^T_ks_k}
+    \end{aligned}
+    \nonumber
+\end{equation}
+\begin{center}
+     \fcolorbox{black}{gray!10}{\parbox{.9\linewidth}{$$H_{k+1}^{-1}=\left(I-\frac{s_ky_k^T}{y^T_ks_k}\right)H_k^{-1}\left(I-\frac{y_ks_k^T}{y^T_ks_k}\right)+\frac{s_ks_k^T}{y^T_ks_k}$$  is the iteration computation $H_k^{-1}$ of BFGS method. where $s_k=x_{k+1}-x_k$ and $y_k=\nabla f(x_{k+1})-\nabla f(x_k)$.}}
+\end{center}
+
+\subsection{Trust-Region Method}
+\begin{equation}
+    \begin{aligned}
+        x_{k+1}=\argmin_{\|x-x_k\|\leq\Delta_k}\{f(x_k)+\nabla^T f(x_k)(x-x_k)+\frac{1}{2}(x-x_k)^T \nabla^2 f(x_k) (x-x_k)\}
+    \end{aligned}
+    \nonumber
+\end{equation}
+This method can escape addle points under some assumptions.
+
+\subsection{Cubic Regularization}
+Contain higher order term $\|x-x_k\|^3$ to the quadratic estimation.
+
+\section{Neural Networks}
+\subsection{Neuron}
+\underline{\textbf{Neuron}}
+Neuron is a non-linear function, which takes $\mathfrak{J}\in \mathbb{R}$ as input and produce $\sigma(\mathfrak{J})\in \mathbb{R}$ as output.
+\begin{center}\begin{figure}[htbp]
+    \centering
+    \includegraphics[scale=0.5]{NN.png}
+    \caption{Neuron Examples}
+    \label{Neuron}
+\end{figure}\end{center}
+
+\underline{\textbf{Vector Input}}
+\begin{center}\begin{figure}[htbp]
+    \centering
+    \includegraphics[scale=0.5]{Vector Input}
+    \caption{Vector Input}
+    \label{}
+\end{figure}\end{center}
+The output is
+\begin{equation}
+    \begin{aligned}
+        \sigma(\omega^Tx+b)
     \end{aligned}
     \nonumber
 \end{equation}
 
 
+\subsection{Multilayer Neural Network}
+\begin{center}\begin{figure}[htbp]
+    \centering
+    \includegraphics[scale=0.2]{MNN.png}
+    \caption{Multilayer Neural Network}
+    \label{}
+\end{figure}\end{center}
+\begin{enumerate}[$\bullet$]
+    \item Number of neurons in each layer can be different.
+    \item All weights on edge connecting layers $m-1$ and $m$ is matrix $W^{(m)}$, with $w_{ij}^{(m)}$ being the weight connecting output $j$ of layer $m-1$ with neuron $i$ of layer $m$.
+    \item Input to network is vector $x$; output of layer $m$ is vector $y^{(m)}$
+    \begin{equation}
+        \begin{aligned}
+            y_i^{(1)}=\sigma(x_i^{(1)}),&\text{ with }x_i^{(1)}=\sum_jw_{ij}^{(1)}x_j+b_i^{(1)}\\
+            y^{(1)}=\sigma(x^{(1)}),&\text{ with }x^{(1)}=W^{(1)}x+b^{(1)}\\
+            y^{(2)}=\sigma(x^{(2)}),&\text{ with }x^{(2)}=W^{(2)}y^{(1)}+b^{(2)}\\
+            \vdots&\\
+            y^{(M)}=\sigma(x^{(M)}),&\text{ with }x^{(M)}=W^{(M)}y^{(M-1)}+b^{(M)}\\
+        \end{aligned}
+        \nonumber
+    \end{equation}
+\end{enumerate}
+
+We want to find the weights $W^{(1)},\cdots,W^{(M)},b^{(1)},\cdots,b^{(M)}$ so that the output of last layer
+\begin{equation}
+    \begin{aligned}
+        \hat{y}=y^{(M)}\approx f^*(x)=y
+    \end{aligned}
+    \nonumber
+\end{equation}
+$f^*(x)$ is the unknown thing we need to predict.
+
+We use \underline{labelled training data}, i.e.
+\begin{equation}
+    \begin{aligned}
+        (x[1],y[1]),(x[2],y[2]),\cdots (x[N],y[N])
+    \end{aligned}
+    \nonumber
+\end{equation}
+Minimize the "empirical" loss on training data.
+\begin{equation}
+    \begin{aligned}
+        J=\sum_{i=1}^N L(y[i],\hat{y}[i])
+    \end{aligned}
+    \nonumber
+\end{equation}
+where $\bar{y}[i]$ is the output of NN whose input is $x[i]$.
+
+\begin{enumerate}[$\bullet$]
+    \item $L$ is the function of $W^{(1)},\cdots,W^{(M)},b^{(1)},\cdots,b^{(M)}$ to measure the loss. e.g. the square loss $$L(y,\hat{y})=(y-\hat{y})^2$$
+    \item We wish to minimize $J$ using a \underline{gradient descent procedure}.
+    \item To compute gradient we need:
+    \begin{equation}
+        \begin{aligned}
+            \frac{\partial L}{\partial w_{ij}^{(l)}}\text{ for each }l,i,j; \quad
+            \frac{\partial L}{\partial b_i^{(l)}}\text{ for each }l,i.\\
+        \end{aligned}
+        \nonumber
+    \end{equation}
+\end{enumerate}
+
+\subsection{Back Propagation Algorithm}
+Recall $y_i^{(m)}=\sigma(x_i^{(m)})$, $x_i^{(m)}=\sum_jw_{ij}^{(m)}y_j^{(m-1)}+b_i^{(m)}$
+\begin{equation}
+    \begin{aligned}
+        \frac{\partial L}{\partial w_{ij}^{(m)}}=\frac{\partial L}{\partial y_i^{(m)}}\cdot \frac{\partial y_i^{(m)}}{\partial w_{ij}^{(m)}}=\frac{\partial L}{\partial y_i^{(m)}}\cdot \frac{\partial y_i^{(m)}}{\partial x_{i}^{(m)}}\cdot \frac{\partial x_{i}^{(m)}}{\partial w_{ij}^{(m)}}
+    \end{aligned}
+    \nonumber
+\end{equation}
+\begin{equation}
+    \begin{aligned}
+        \frac{\partial L}{\partial b_{i}^{(m)}}&=\frac{\partial L}{\partial y_i^{(m)}}\cdot \frac{\partial y_i^{(m)}}{\partial x_{i}^{(m)}}\cdot \frac{\partial x_{i}^{(m)}}{\partial b_{i}^{(m)}}\\
+    \end{aligned}
+    \nonumber
+\end{equation}
+
+\textbf{\underline{For large $M$}},
+\begin{enumerate}[$\bullet$]
+    \item $\frac{\partial L}{\partial y_i^{(M)}}$ is easy to compute.
+    \item $\frac{\partial y_i^{(M)}}{\partial x_{i}^{(M)}}=\frac{\partial \sigma(x_{i}^{(M)})}{\partial x_{i}^{(M)}}=\sigma'(x_{i}^{(M)})$, (assuming $\sigma$ differentiable).
+    \item $\frac{\partial x_{i}^{(M)}}{\partial w_{ij}^{(M)}}=y_j^{(M-1)}$
+\end{enumerate}
+Thus,
+\begin{equation}
+    \begin{aligned}
+        \frac{\partial L}{\partial w_{ij}^{(M)}}=\frac{\partial L}{\partial y_i^{(M)}}\cdot \sigma'(x_{i}^{(M)}) \cdot y_j^{(M-1)}
+    \end{aligned}
+    \nonumber
+\end{equation}
+Similarly,
+\begin{equation}
+    \begin{aligned}
+        \frac{\partial L}{\partial b_{i}^{(M)}}&=\frac{\partial L}{\partial y_i^{(M)}}\cdot \frac{\partial y_i^{(M)}}{\partial x_{i}^{(M)}}\cdot \frac{\partial x_{i}^{(M)}}{\partial b_{i}^{(M)}}\\
+        &=\frac{\partial L}{\partial y_i^{(M)}}\cdot \sigma'(x_{i}^{(M)})
+    \end{aligned}
+    \nonumber
+\end{equation}
+
+\textbf{\underline{For $1\leq m< M$}}, in this situation $\frac{\partial L}{\partial y_i^{(m)}}$ is not easy to compute. Note that $x^{(m+1)}=W^{(m+1)}y^{(m)}+b^{(m+1)}$.
+\begin{equation}
+    \begin{aligned}
+    \frac{\partial L}{\partial y_i^{(m)}}&=\sum_k \frac{\partial L}{\partial x_{k}^{(m+1)}}\cdot \frac{\partial x_{k}^{(m+1)}}{\partial y_i^{(m)}}\\
+    &=\sum_k \frac{\partial L}{\partial y_{k}^{(m+1)}}\cdot\frac{\partial y_{k}^{(m+1)}}{\partial x_{k}^{(m+1)}}\cdot \frac{\partial x_{k}^{(m+1)}}{\partial y_i^{(m)}}\\
+    &=\sum_k \frac{\partial L}{\partial y_{k}^{(m+1)}}\cdot\sigma'(x_k^{(m+1)})\cdot w_{ki}^{(m+1)}\\
+    \end{aligned}
+    \nonumber
+\end{equation}
+
+Then use this form to compute,
+\begin{equation}
+    \begin{aligned}
+        \frac{\partial L}{\partial w_{ij}^{(m)}}&=\frac{\partial L}{\partial y_i^{(m)}}\cdot \frac{\partial y_i^{(m)}}{\partial x_{i}^{(m)}}\cdot \frac{\partial x_{i}^{(m)}}{\partial w_{ij}^{(m)}}\\
+        &=\frac{\partial L}{\partial y_i^{(m)}}\cdot \sigma'(x_{i}^{(m)}) \cdot y_j^{(m-1)}
+    \end{aligned}
+    \nonumber
+\end{equation}
+
+Similarly,
+\begin{equation}
+    \begin{aligned}
+        \frac{\partial L}{\partial b_{i}^{(m)}}&=\frac{\partial L}{\partial y_i^{(m)}}\cdot \frac{\partial y_i^{(m)}}{\partial x_{i}^{(m)}}\cdot \frac{\partial x_{i}^{(m)}}{\partial b_{i}^{(m)}}\\
+        &=\frac{\partial L}{\partial y_i^{(m)}}\cdot \sigma'(x_{i}^{(m)})
+    \end{aligned}
+    \nonumber
+\end{equation}
+
+\begin{center}
+    \fcolorbox{black}{gray!10}{\parbox{.9\linewidth}{
+\textbf{Summary}
+\begin{enumerate}
+    \item Compute $\frac{\partial L}{\partial y_i^{(M)}}$.
+    \item Use $$\frac{\partial L}{\partial y_i^{(m)}}=\sum_k \frac{\partial L}{\partial y_{k}^{(m+1)}}\cdot\sigma'(x_k^{(m+1)})\cdot w_{ki}^{(m+1)}$$ compute $\frac{\partial L}{\partial y_i^{(m)}}$ for $m=1,2...,M-1$.
+    \item Compute $$\frac{\partial L}{\partial w_{ij}^{(m)}}=\frac{\partial L}{\partial y_i^{(m)}}\cdot \sigma'(x_{i}^{(m)}) \cdot y_j^{(m-1)}$$ for $m=1,2...,M$.
+    \item Compute $$\frac{\partial L}{\partial b_{i}^{(m)}}=\frac{\partial L}{\partial y_i^{(m)}}\cdot \sigma'(x_{i}^{(m)})$$ for $m=1,2...,M$.
+\end{enumerate}
+    }}
+\end{center}
+
+\subsection{Other Methods}
+Stochastic Gradient Descent (SGD)
+
+Subgradient Method
+
+\section{Constrained Optimization and Gradient Projection}
+\subsection{Constrained Optimization: Basic}
+\subsubsection{Def: Optimality}
+$$\min_{x\in \&} f(x)$$
+where $\&$ is a non-empty closed and convex subset of $\mathbb{R}^n$.
+
+Assume $f$ is continuously differentaible on $\&$.
+
+\begin{definition}
+$x^*$ is a \underline{local min of $f$ over $\&$} if $\exists \varepsilon>0$ s.t. $f(x^*)\leq f(x)\quad \forall x\in \&$ with $\|x-x^*\|<\varepsilon$.
+
+$x^*$ is \underline{global min of $f$ over $\&$} if $f(x^*)\leq f(x)\quad \forall x\in \&$.
+\end{definition}
+
+
+\subsubsection{Prop: local-min$\Rightarrow\nabla f(x^*)^T(x-x^*)\geq 0,\forall x\in \&$ $\Leftrightarrow$ global-min in convex }
+\begin{proposition}[optimality conditions]
+    \quad
+    \begin{enumerate}[(a)]
+        \item (Necessary Conditions for local-min) If $x^*$ is a local min of $f$ over $\&$, then $$\nabla f(x^*)^T(x-x^*)\geq 0\quad \forall x\in \&$$
+        \item (Sufficient and Necessary Condition for global-min of convex $f$) If $f$ is convex over $\&$, then above condition is also sufficient for $x^*$ to be a global-min.
+    \end{enumerate}
+\end{proposition}
+\begin{proof}
+    \quad
+\begin{enumerate}[(a)]
+    \item Suppose $x^*$ is a local-min, and $\nabla f(x^*)^T(x-x^*)<0$ for some $x\in \&$.
+    
+    Let $g(\varepsilon)=f(x^*+\varepsilon(x-x^*))$, then $g'(\varepsilon)=\nabla f(x^*+\varepsilon(x-x^*))^T(x-x^*)$.
+    
+    By MVT(middle value theorem), $g(\varepsilon)=g(0)+\varepsilon g'(\beta\varepsilon)$ for some $\beta\in[0,1]$
+    $$\Rightarrow f(x^*+\varepsilon(x-x^*))=f(x^*)+\varepsilon\nabla f(x^*+\beta\varepsilon(x-x^*))^T(x-x^*)\quad \text{for some }\beta\in[0,1]$$
+    Since $\nabla f$ is continuous, we have that for all sufficient small $\varepsilon>0$, $\nabla f(x^*+\beta\varepsilon(x-x^*))^T(x-x^*)<0 \Rightarrow f(x^*+\varepsilon(x-x^*))=f(x^*)$
+
+    Since $x^*+\varepsilon(x-x^*)=\varepsilon x+(1-\varepsilon)x^*\in \&$, then $x^*$ can't be a local-min over $\&$ $\rightarrow$ contradiction.
+    \item Convexity of $f$ over $\&$ $\Rightarrow f(x)\geq f(x^*)+\nabla f(x^*)^T(x-x^*),\quad \forall x\in \&$.
+    
+    Thus,
+    \begin{equation}
+        \begin{aligned}
+            &\nabla f(x^*)^T(x-x^*),\quad \forall x\in \&\\
+            \Rightarrow	& f(x)\geq f(x^*)\quad \forall x\in \&\\
+            \Rightarrow	& x^*\text{ is a global min of $f$ over }\&
+        \end{aligned}
+        \nonumber
+    \end{equation}
+\end{enumerate}
+\end{proof}
+
+\subsubsection{Def: Interior Point}
+\begin{definition}
+    $y$ is an interior point of $\&$ if $\exists \varepsilon>0$ s.t. $$B_{\varepsilon}=\{x:\|y-x\|<\varepsilon\}\subset\&$$
+\end{definition}
+\underline{Remark:} If $x^*$ is an interior point of $\&$, then
+\begin{equation}
+    \begin{aligned}
+        "x^*\text{ is local min}"&\Rightarrow	"\nabla f(x^*)=0"\\
+        \text{If }f\text{ is convex, }"x^*\text{ is global min}"&\Leftrightarrow "\nabla f(x^*)=0"\\
+    \end{aligned}
+    \nonumber
+\end{equation}
+
+\subsection{Constrained Optimization Example}
+\begin{align*}
+    &\max_{x\in\&}\quad x_1^{a_1}x_2^{a_2}\cdots x_n^{a_n}\\
+    &\begin{array}{r@{\quad}r@{}l@{\quad}l}
+    &\&=\{x:\sum_{i=1}^nx_i=1,x_i\geq 0,i=1,2,...,n\} &\\
+    &a_i,i=1,2,...,n \text{ are given positive scalars}&\\
+\end{array} .
+\end{align*}
+equivalent to $$\min_{x\in\&}\quad f(x)$$ with $f(x)=-\sum a_i\ln x_i$
+\begin{equation}
+    \begin{aligned}
+        \nabla f(x)&=\left(-\frac{a_1}{x_1},-\frac{a_2}{x_2},...,-\frac{a_n}{x_n}\right)\\
+        \nabla^2 f(x)&=diag\left(\frac{a_1}{x^2_1},\frac{a_2}{x^2_2},...,\frac{a_n}{x^2_n}\right)\succ 0\\
+        &\Rightarrow f\text{ is strictly convex}.
+    \end{aligned}
+    \nonumber
+\end{equation}
+\begin{equation}
+    \begin{aligned}
+        x^*\in\&\text{ is (unique) min}&\Leftrightarrow \nabla f(x^*)^T(x-x^*)\geq 0\quad \forall x\in\&.\\
+        &\Leftrightarrow -\sum_{i=1}^n\frac{a_i}{x_i^*}(x-x^*)\geq 0\quad \forall x\in\&.\\
+        &\Leftrightarrow -\sum_{i=1}^na_i\frac{x_i}{x_i^*}+\sum_{i=1}^na_i\geq 0\quad \forall x\in\&.\\
+    \end{aligned}
+    \nonumber
+\end{equation}
+Guess: $x^*_i=\frac{a_i}{\sum_{i=1}^na_i}$. Then,
+\begin{equation}
+    \begin{aligned}
+        -\sum_{i=1}^n a_i\frac{x_i}{x_i^*}+\sum_{i=1}^na_i=0,\quad \forall x\in\&
+    \end{aligned}
+    \nonumber
+\end{equation}
+Thus $x^*=\frac{a_i}{\sum_{i=1}^na_i}$ is unique min.
+
+
+
+
+
+
+
+
+\subsection{Projection onto Closed Convex Set}
+\subsubsection{Def: Projection $[z]^\&$}
+\begin{definition}
+    Let $\&$ be a \underline{closed convex} subset of $\mathbb{R}^n$. Then, for $z\in \mathbb{R}^n$, the \underline{projection} of $z$ on $\&$ is denoted by $[z]^\&$ and is given by
+    $$[z]^\&=\arg \min_{y\in \&}\|z-y\|^2$$
+\end{definition}
+i.e. Find the min distance from $\&$ to $z$
+\begin{center}\begin{figure}[htbp]
+    \centering
+    \includegraphics[scale=0.5]{projection1.png}
+    \caption{Projection onto Closed Convex Set}
+    \label{}
+\end{figure}\end{center}
+\textbf{Note:} $[z]^\&$ exists and is unique in convex $\&$, however, when $\&$ is not convex, $[z]^\&$ may not be unique.
+\begin{center}\begin{figure}[htbp]
+    \centering
+    \includegraphics[scale=0.5]{projection2.png}
+    \caption{Projection onto Closed non-Convex Set}
+    \label{}
+\end{figure}\end{center}
+
+\subsubsection{Prop: \underline{unique} projection $[z]^\&$ on \underline{closed convex} subset of $\mathbb{R}^n$}
+\begin{proposition}
+    [Existence and Uniqueness of Projection]
+    Let $\&$ be a \underline{closed convex} subset of $\mathbb{R}^n$. Then, for every $z\in \mathbb{R}^n$, there exists a unique $[z]^\&$.
+\end{proposition}
+\begin{proof}
+Nee to show that $\min_{y\in \&}\|z-y\|^2$ exists and is unique.
+
+Let $x$ be some element of $\&$. Then
+\begin{equation}
+    \begin{aligned}
+        &\text{minimizing $\|z-y\|^2$ over all $y\in\&$}\\
+        \equiv&\text{minimizing $\|z-y\|^2$ over the set $A=\{y\in\&:\|z-y\|^2\}$}
+    \end{aligned}
+    \nonumber
+\end{equation}
+$g(y)=\|z-y\|^2$ is strictly convex on set $\&$ $\Rightarrow$ $A$ is a convex set and $g$ is convex on $A$.
+
+Also $g$ is continuous $\Rightarrow	A$ is closed.
+
+Finally, $y\in A \Rightarrow \|y\|^2=\|y-z+z\|^2\leq \|y-z\|^2+\|z\|^2\leq \|z-x\|^2+\|z\|^2 \Rightarrow A$ is bounded.
+
+Thus, $g(y)=\|z-y\|^2$ is strictly convex over set $A$, which is compact.
+
+Therefore, $\min_{y\in\&}\|\&-y\|^2=\min_{y\in A}\|\&-y\|^2$ exists (Weierstrass’ Theorem) and is unique (strict convexity).
+\end{proof}
+
+\subsubsection{Prop: $[z]^\&$ is projection on \underline{closed conex} subset of $\mathbb{R}^n$$\Leftrightarrow$ $(z-[z]^\&)^T(y-[z]^\&)\leq 0, \forall y\in\&$}
+\begin{proposition}
+    [Necessary and Sufficient Condition for Projection]
+    Let $\&$ be a \underline{closed conex} subset of $\mathbb{R}^n$. Then,
+    \begin{equation}
+        \begin{aligned}
+            [z]^\&=y^*
+            &\Leftrightarrow (y^*-z)^T(y-y^*)\geq 0,\quad \forall y\in\&.\\
+            &\Leftrightarrow (z-y^*)^T(y-y^*)\leq 0,\quad \forall y\in\&.
+        \end{aligned}
+        \nonumber
+    \end{equation}
+\end{proposition}
+\begin{proof}
+    $[z]^\& = \argmin_{y\in\&}g(y)$, with $g(y)=\|z-y\|^2$ (which is strictly convex), $\nabla g(y)=2(y-z)$.
+
+    By the optimality conditions,
+    \begin{equation}
+        \begin{aligned}
+            &y^*\text{ is the unique minimizer of $g(y)$ over $\&$}\\
+            \Leftrightarrow	& \nabla g(y^*)^T(y-y^*)\geq 0\quad \forall y\in\&\\
+            \Leftrightarrow & (y^*-z)^T(y-y^*)\geq 0,\quad \forall y\in\&.\\
+            \Leftrightarrow &(z-y^*)^T(y-y^*)\leq 0,\quad \forall y\in\&.
+        \end{aligned}
+        \nonumber
+    \end{equation}
+\end{proof}
+\begin{center}\begin{figure}[htbp]
+    \centering
+    \includegraphics[scale=0.3]{projection3.png}
+    \caption{Necessary and Sufficient Condition for Projection}
+    \label{}
+\end{figure}\end{center}
+
+\subsubsection{Prop: Projection is non-expansive $\|[x]^\&-[z]^\&\|\leq \|x-z\|,\forall x,z\in \mathbb{R}^n$}
+\begin{proposition}
+    [Projection is non-expansive]
+    Let $\&$ be a \underline{closed convex} subset of $\mathbb{R}^n$. Then for $x,z\in \mathbb{R}^n$
+    $$\|[x]^\&-[z]^\&\|\leq \|x-z\|\quad \forall x,z\in \mathbb{R}^n$$
+\end{proposition}
+\begin{proof}
+From previous theorem, we know
+\begin{equation}
+    \begin{aligned}
+        (1).\quad ([x]^\&-x)^T(y-[x]^\&)\geq 0,\quad \forall y\in\&.\\
+        (2).\quad ([z]^\&-z)^T(y-[z]^\&)\geq 0,\quad \forall y\in\&.\\
+    \end{aligned}
+    \nonumber
+\end{equation}
+set $y=[z]^\&$ in (1) and $y=[x]^\&$ in (2), and adding,
+\begin{equation}
+    \begin{aligned}
+        &([z]^\&-[x]^\&)^T([x]^\&-x+z-[z]^\&)\geq 0\\
+        \Rightarrow	& ([z]^\&-[x]^\&)^T(z-x)\geq \|[z]^\&-[x]^\&\|^2
+    \end{aligned}
+    \nonumber
+\end{equation}
+Applying Cauchy-schwary inequality,
+\begin{equation}
+    \begin{aligned}
+        \|[z]^\&-[x]^\&\|^2&\leq \|[z]^\&-[x]^\&\|\|z-x\|\\
+        \|[z]^\&-[x]^\&\|&\leq \|z-x\|
+    \end{aligned}
+    \nonumber
+\end{equation}
+\end{proof}
+
+\subsection{Projection on (Linear) Subspaces of $\mathbb{R}^n$}
+\subsubsection{Orthogonality Principle in subspaces of $\mathbb{R}^n$: $(z-y^*)^Tx= 0,\forall x\in\&$}
+Suppose $\&$ is a linear subspace of $\mathbb{R}^n$, any linear combination of points in $\&$ is also in $\&$. Note that $\&$ is \underline{closed and convex}.
+
+Then, for $z\in \mathbb{R}^n$, $[z]^\&=y^*$ satisfies:
+\begin{equation}
+    \begin{aligned}
+        (z-y^*)^T(y-y^*)\leq 0,\quad \forall y\in\&.
+    \end{aligned}
+    \nonumber
+\end{equation}
+According to the property of subsapce, we can infer that
+\begin{equation}
+    \begin{aligned}
+        (z-y^*)^Tx\leq 0,\quad \forall x\in\&.
+    \end{aligned}
+    \nonumber
+\end{equation}
+$-x$ also in $\&$, $-x\in\& \Rightarrow$
+\begin{equation}
+    \begin{aligned}
+        (z-y^*)^Tx\geq 0,\quad \forall x\in\&.
+    \end{aligned}
+    \nonumber
+\end{equation}
+Then we can infer that
+\begin{equation}
+    \begin{aligned}
+        (z-y^*)^Tx= 0,\quad \forall x\in\&.
+    \end{aligned}
+    \nonumber
+\end{equation}
+which is called \underline{orthogonality principle}.
+
+\begin{center}\begin{figure}[htbp]
+    \centering
+    \includegraphics[scale=0.5]{proj1.png}
+    \caption{Point from $\mathbb{R}^2$ to $\mathbb{R}$}
+    \label{}
+\end{figure}\end{center}
 
 
 
@@ -1728,17 +2182,55 @@ It will be better to compute $H_{k}^{-1}$ directly instead of $H_k$.
 
 
 
+\subsection{Gradient Projection Method}
+$\min_{x\in\&}f(x)$, $\&$ is convex and closed.
+$$x_{k+1}=[x_k+\alpha_k d_k]^\&$$
+\underline{Special Case}: Fixed step-size, steepest descent
+\begin{equation}
+    x_{k+1}=[x_k-\alpha \nabla f(x_k)]^\&
+\end{equation}
+\subsubsection{Def: \underline{fixed point} in fixed step-size steepest descent method, $\tilde{x}=[\tilde{x}-\alpha \nabla f(\tilde{x})]^\&$}
+\begin{definition}
+    $\tilde{x}$ is a \underline{fixed (stationary) point} of iteration in (1) if $$\tilde{x}=[\tilde{x}-\alpha \nabla f(\tilde{x})]^\&$$
+\end{definition}
 
+\subsubsection{Prop: $L-$Lipschitz gradient and $0<\alpha<\frac{2}{L}$ $\Rightarrow$ limit point is a fixed point (in fixed step-size steepest descent method)}
+\begin{proposition}
+    If $f$ has $L-$Lipschitz gradient and $0<\alpha<\frac{2}{L}$, every limit point of (1) is a fixed point of (1).
+\end{proposition}
+\begin{proof}
+By the Descent Lemma,
+\begin{equation}
+    f(x_{k+1})\leq f(x_k)+\nabla f(x_k)^T(x_{k+1}-x_k)+\frac{L}{2}\|x_{k+1}-x_k\|^2
+\end{equation}
+By the necessary and sufficient condition for projection,
+\begin{equation}
+    (x_k-\alpha \nabla f(x_k)-x_{k+1})^T(x-x_{k+1})\leq 0,\quad \forall x\in\&
+    \nonumber
+\end{equation}
+Set $x=x_k$ above
+\begin{equation}
+    \Rightarrow	\alpha \nabla f(x_k)^T(x_{k+1}-x_k)\leq -\|x_k-x_{k+1}\|^2
+\end{equation}
+According to (2) and (3), $$f(x_{k+1})-f(x_k)\leq (\frac{L}{2}-\frac{1}{\alpha})\|x_k-x_{k+1}\|^2$$ where $\frac{L}{2}-\frac{1}{\alpha}<0$
 
+If $\{x_k\}$ has limit point $\bar{x}$, $LHS \stackrel{k \rightarrow \infty}{\longrightarrow}0$ $$\|x_{k+1}-x_{k}\|\stackrel{k \rightarrow \infty}{\longrightarrow}0 \Rightarrow [\bar{x}-\alpha \nabla f(\bar{x})]^\&=\bar{x}$$
+\end{proof}
 
-
-
-
-
-
-
-
-
+\subsubsection{Prop: $x$ is minimizer in convex func $\Leftrightarrow$ fixed point (in fixed step-size steepest descent method)}
+\begin{proposition}
+    If $f$ is convex, then $x^*$ is a minimizer of $f$ over $\&$ $\Leftrightarrow$ $x^*=[x^*-\alpha \nabla f(x^*)]^\&$ (i.e., $x^*$ is a fixed point of (1))
+\end{proposition}
+\begin{proof}
+    \begin{equation}
+        \begin{aligned}
+            \text{$x^*$ is minimizer of convex $f$ over $\&$} &\Leftrightarrow \text{$\nabla f(x^*)^T(x-x^*)\geq 0,\forall x\in \&$}\\
+            &\Leftrightarrow \text{$-\alpha\nabla f(x^*)^T(x-x^*)\leq 0,\forall x\in \&$}\\
+            &\Leftrightarrow \text{$(x^*-\alpha\nabla f(x^*)-x^*)^T(x-x^*)\leq 0,\forall x\in \&$}\\
+        \end{aligned}
+        \nonumber
+    \end{equation}
+\end{proof}
 
 
 
