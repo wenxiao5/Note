@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2022.1.31)  2 APR 2022 15:45
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2022.1.31)  2 APR 2022 17:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2138,20 +2138,61 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 2236.
 
-[44] (./Optimization.aux)
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 2242.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\Rightarrow' on input line 2242.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 2242.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 2242.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 2242.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 2242.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 2242.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 2242.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 2242.
+
+
+Overfull \hbox (3.64734pt too wide) detected at line 2264
+[][][][]
+ []
+
+[44] [45] (./Optimization.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `Optimization.out' has not changed.
-(rerunfilecheck)             Checksum: 64A22536E145DFB08844FFCB9824D092;20630.
+(rerunfilecheck)             Checksum: 35005E090112444BE16AAE99D04493C6;21518.
  ) 
 Here is how much of TeX's memory you used:
- 38058 strings out of 476191
- 957090 string characters out of 5809814
- 1407573 words of memory out of 5000000
- 58112 multiletter control sequences out of 15000+600000
+ 38060 strings out of 476191
+ 957117 string characters out of 5809814
+ 1409510 words of memory out of 5000000
+ 58114 multiletter control sequences out of 15000+600000
  482517 words of font info for 95 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  100i,15n,104p,777b,479s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Optimization.pdf (44 pages).
+Output written on Optimization.pdf (45 pages).

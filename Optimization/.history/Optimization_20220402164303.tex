@@ -2247,7 +2247,6 @@ If $\{x_k\}$ has limit point $\bar{x}$, $LHS \stackrel{k \rightarrow \infty}{\lo
 $M-$smooth $\Rightarrow$ $$\|\nabla f(x)-\nabla f(y)\|\leq M\|x-y\|,\quad \forall x,y\in\&$$
 $m-$strongly convex $\Rightarrow$
 $$\nabla^2 f(x)\succeq mI,\quad \forall x\in\&$$
-$$(x-y)^T(\nabla f(x)-\nabla f(y))\geq m\|x-y\|^2\quad \forall x,y\in\&$$
 Let $x^*$ be the (unique) min of $f$ over $\&$
 \begin{equation}
     \begin{aligned}
@@ -2256,45 +2255,33 @@ Let $x^*$ be the (unique) min of $f$ over $\&$
         (\text{non-expansive})\quad \quad &\leq \|(x_k-\alpha \nabla f(x_k))-(x^*-\alpha \nabla f(x^*))\|^2\\
         &=\|(x_k-x^*)-\alpha( \nabla f(x_k)- \nabla f(x^*))\|^2\\
         &=\|x_k-x^*\|^2+\alpha^2\|\nabla f(x_k)-\nabla f(x^*)\|^2-2\alpha(x_k-x^*)^T(\nabla f(x_k)-\nabla f(x^*))\\
-        (\nabla f\text{ is M-Lipschitz})\quad \quad &\leq \|x_k-x^*\|^2+\alpha^2M^2\|x_k-x^*\|^2-2\alpha(x_k-x^*)^T(\nabla f(x_k)-\nabla f(x^*))\\
-        (m-\text{strong convexity})\quad &\leq \|x_k-x^*\|^2+\alpha^2M^2\|x_k-x^*\|^2-2\alpha m\|x_k-x^*\|^2\\
-        &=(1+\alpha^2M^2-2\alpha m)\|x_k-x^*\|^2
+        (\nabla f\text{ is M-Lipschitz})\quad \quad &\leq \|x_k-x^*\|^2+\alpha^2M^2\|x_k-x^*\|^2+2\alpha(x^*-x_k)^T\nabla f(x_k)\\
+        (\text{Strong convexity with $m$})\quad &\leq \|x_k-x^*\|^2+\alpha^2M^2\|x_k-x^*\|^2+2\alpha(f(x^*)-f(x_k)-\frac{m}{2}\|x^*-x_k\|^2)\\
+        &=(1+\alpha^2M^2-\alpha m)\|x_k-x^*\|^2+2\alpha (f(x^*)-f(x_k))
     \end{aligned}
     \nonumber
 \end{equation}
-$$\|x_{k+1}-x^*\|^2\leq (1+\alpha^2M^2-2\alpha m)\|x_k-x^*\|^2$$
-If $|1+\alpha^2M^2-2\alpha m|<1$. Then $x_N \rightarrow x^*$ \textbf{geometrically} as $N \rightarrow \infty$. (Same as unconstrained case)
+By strong convexity of $f$
+\begin{equation}
+    \begin{aligned}
+        f(x_k)&\geq f(x^*)+\nabla^T f(x^*)(x_k-x^*)+\frac{m}{2}\|x_k-x^*\|^2\\
+        &= f(x^*)+\frac{m}{2}\|x_k-x^*\|^2\\
+        \Rightarrow	f(x^*)-f(x_k)&\leq -\frac{m}{2}\|x_k-x^*\|^2
+    \end{aligned}
+    \nonumber
+\end{equation}
+Then,
+\begin{equation}
+    \begin{aligned}
+        \|x_{k+1}-x^*\|^2&\leq (1+\alpha^2M^2-\alpha m)\|x_k-x^*\|^2+2\alpha (-\frac{m}{2}\|x_k-x^*\|^2)\\
+        &\leq (1+\alpha^2M^2-2\alpha m)\|x_k-x^*\|^2\\
+        &\leq (1+\alpha^2M^2-2\alpha m)^{k+1}\|x_0-x^*\|^2\\
+        \Rightarrow	\|x_{N}-x^*\|^2&\leq (1+\alpha^2M^2-2\alpha m)^N\|x_0-x^*\|^2
+    \end{aligned}
+    \nonumber
+\end{equation}
+If $\alpha\in(0,\frac{2m}{M^2})$, $1+\alpha^2M^2-2\alpha m<1$. Then $x_N \rightarrow x^*$ \textbf{geometrically} as $N \rightarrow \infty$.
 \end{proof}
-
-
-
-\section{Optimization with Equality Constraints}
-\subsection{Basic}
-\subsubsection{Def}
-\begin{align*}
-    &\min\quad f(x)\\
-    &\begin{array}{r@{\quad}r@{}l@{\quad}l}
-    s.t.
-    &h(x)=0&\\
-\end{array} .
-\end{align*}
-where $h(x)=0$ is a combination of $\left\{\begin{matrix}
-    h_1(x)=0\\
-    h_2(x)=0\\
-    \vdots\\
-    h_m(x)=0
-\end{matrix}\right.$. $f:\mathbb{R}^n \rightarrow \mathbb{R}, h_i:\mathbb{R}^n \rightarrow \mathbb{R}, h:\mathbb{R}^n \rightarrow \mathbb{R}^m$
-
-
-
-
-
-
-
-
-
-
-
 
 
 
