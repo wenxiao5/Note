@@ -561,8 +561,8 @@ if $f(w)$ is convex, then $f(w)+\frac{\mu}{2}\|w\|^{2}$ is $\mu$-strongly convex
 \begin{equation}
     \begin{aligned}
         \nabla^2 f(x)&\succeq mI \Rightarrow \nabla^2 f(x)-mI\succeq 0\\
-        & \Rightarrow \forall z\neq 0\quad z^T(\nabla^2 f(x)-mI)z\geq 0\\
-        & \Rightarrow z^T\nabla^2 f(x)z\geq mz^Tz>0
+        & \Rightarrow \forall \mathfrak{Z}\neq 0\quad \mathfrak{Z}^T(\nabla^2 f(x)-mI)\mathfrak{Z}\geq 0\\
+        & \Rightarrow \mathfrak{Z}^T\nabla^2 f(x)\mathfrak{Z}\geq m\mathfrak{Z}^T\mathfrak{Z}>0
     \end{aligned}
     \nonumber
 \end{equation}
@@ -1074,9 +1074,9 @@ To make $f(x_N)-f(x^*)<\varepsilon$, we only need $N\sim O(log\frac{1}{\varepsil
 \begin{example}
     $f(x)=\frac{1}{2}x^TQx+b^Tx+c,\quad Q\succ 0$, $\nabla^2 f(x)=Q$.
 \end{example}
-Let $\lambda_{\min}$ and $\lambda_{\max}$ be the min and max eigenvalue of $Q$. Then we know $$\lambda_{\min}\|z\|^2\leq z^TQz\leq \lambda_{\max}\|z\|^2$$
-Thus for all $z\in \mathbb{R}^n$
-$$z^T(Q-\lambda_{\min}I)z\geq 0 \Rightarrow	Q\succeq \lambda_{\min}I$$
+Let $\lambda_{\min}$ and $\lambda_{\max}$ be the min and max eigenvalue of $Q$. Then we know $$\lambda_{\min}\|\mathfrak{Z}\|^2\leq\mathfrak{Z}^TQ\mathfrak{Z}\leq \lambda_{\max}\|\mathfrak{Z}\|^2$$
+Thus for all $\mathfrak{Z}\in \mathbb{R}^n$
+$$\mathfrak{Z}^T(Q-\lambda_{\min}I)\mathfrak{Z}\geq 0 \Rightarrow	Q\succeq \lambda_{\min}I$$
 Similarly, $Q\preceq \lambda_{\max}I$. Thus
 $$\lambda_{\min}I\preceq \nabla^2 f(x)\preceq \lambda_{\max}I$$
 $\lambda_{\min}I\preceq \nabla^2 f(x) \Leftrightarrow$ $f$ is $\lambda_{\min}$-strongly convex; $\nabla^2 f(x)\preceq \lambda_{\max}I$ is a sufficient condition for $f$ is $\lambda_{\max}$-smooth.
@@ -1915,7 +1915,7 @@ Subgradient Method
 
 \section{Constrained Optimization and Gradient Projection}
 \subsection{Constrained Optimization: Basic}
-\subsubsection{Def: Optimality}
+\subsubsection{Optimality Conditions}
 $$\min_{x\in \&} f(x)$$
 where $\&$ is a non-empty closed and convex subset of $\mathbb{R}^n$.
 
@@ -1927,8 +1927,6 @@ $x^*$ is a \underline{local min of $f$ over $\&$} if $\exists \varepsilon>0$ s.t
 $x^*$ is \underline{global min of $f$ over $\&$} if $f(x^*)\leq f(x)\quad \forall x\in \&$.
 \end{definition}
 
-
-\subsubsection{Prop: local-min$\Rightarrow\nabla f(x^*)^T(x-x^*)\geq 0,\forall x\in \&$ $\Leftrightarrow$ global-min in convex }
 \begin{proposition}[optimality conditions]
     \quad
     \begin{enumerate}[(a)]
@@ -1962,7 +1960,7 @@ $x^*$ is \underline{global min of $f$ over $\&$} if $f(x^*)\leq f(x)\quad \foral
 \end{enumerate}
 \end{proof}
 
-\subsubsection{Def: Interior Point}
+\subsubsection{Interior Point}
 \begin{definition}
     $y$ is an interior point of $\&$ if $\exists \varepsilon>0$ s.t. $$B_{\varepsilon}=\{x:\|y-x\|<\varepsilon\}\subset\&$$
 \end{definition}
@@ -2017,19 +2015,19 @@ Thus $x^*=\frac{a_i}{\sum_{i=1}^na_i}$ is unique min.
 
 
 \subsection{Projection onto Closed Convex Set}
-\subsubsection{Def: Projection $[z]^\&$}
+\subsubsection{Def: Projection $[\mathfrak{Z}]^\&$}
 \begin{definition}
-    Let $\&$ be a \underline{closed convex} subset of $\mathbb{R}^n$. Then, for $z\in \mathbb{R}^n$, the \underline{projection} of $z$ on $\&$ is denoted by $[z]^\&$ and is given by
-    $$[z]^\&=\arg \min_{y\in \&}\|z-y\|^2$$
+    Let $\&$ be a \underline{closed convex} subset of $\mathbb{R}^n$. Then, for $\mathfrak{Z}\in \mathbb{R}^n$, the \underline{projection} of $\mathfrak{Z}$ on $\&$ is denoted by $[\mathfrak{Z}]^\&$ and is given by
+    $$[\mathfrak{Z}]^\&=\arg \min_{y\in \&}\|\mathfrak{Z}-y\|^2$$
 \end{definition}
-i.e. Find the min distance from $\&$ to $z$
+i.e. Find the min distance from $\&$ to $\mathfrak{Z}$
 \begin{center}\begin{figure}[htbp]
     \centering
     \includegraphics[scale=0.5]{projection1.png}
     \caption{Projection onto Closed Convex Set}
     \label{}
 \end{figure}\end{center}
-\textbf{Note:} $[z]^\&$ exists and is unique in convex $\&$, however, when $\&$ is not convex, $[z]^\&$ may not be unique.
+\textbf{Note:} $[\mathfrak{Z}]^\&$ exists and is unique in convex $\&$, however, when $\&$ is not convex, $[\mathfrak{Z}]^\&$ may not be unique.
 \begin{center}\begin{figure}[htbp]
     \centering
     \includegraphics[scale=0.5]{projection2.png}
@@ -2037,56 +2035,54 @@ i.e. Find the min distance from $\&$ to $z$
     \label{}
 \end{figure}\end{center}
 
-\subsubsection{Prop: \underline{unique} projection $[z]^\&$ on \underline{closed convex} subset of $\mathbb{R}^n$}
 \begin{proposition}
     [Existence and Uniqueness of Projection]
-    Let $\&$ be a \underline{closed convex} subset of $\mathbb{R}^n$. Then, for every $z\in \mathbb{R}^n$, there exists a unique $[z]^\&$.
+    Let $\&$ be a \underline{closed convex} subset of $\mathbb{R}^n$. Then, for every $\mathfrak{Z}\in \mathbb{R}^n$, there exists a unique $[\mathfrak{Z}]^\&$.
 \end{proposition}
 \begin{proof}
-Nee to show that $\min_{y\in \&}\|z-y\|^2$ exists and is unique.
+Nee to show that $\min_{y\in \&}\|\mathfrak{Z}-y\|^2$ exists and is unique.
 
 Let $x$ be some element of $\&$. Then
 \begin{equation}
     \begin{aligned}
-        &\text{minimizing $\|z-y\|^2$ over all $y\in\&$}\\
-        \equiv&\text{minimizing $\|z-y\|^2$ over the set $A=\{y\in\&:\|z-y\|^2\}$}
+        &\text{minimizing $\|\mathfrak{Z}-y\|^2$ over all $y\in\&$}\\
+        \equiv&\text{minimizing $\|\mathfrak{Z}-y\|^2$ over the set $A=\{y\in\&:\|\mathfrak{Z}-y\|^2\}$}
     \end{aligned}
     \nonumber
 \end{equation}
-$g(y)=\|z-y\|^2$ is strictly convex on set $\&$ $\Rightarrow$ $A$ is a convex set and $g$ is convex on $A$.
+$g(y)=\|\mathfrak{Z}-y\|^2$ is strictly convex on set $\&$ $\Rightarrow$ $A$ is a convex set and $g$ is convex on $A$.
 
 Also $g$ is continuous $\Rightarrow	A$ is closed.
 
-Finally, $y\in A \Rightarrow \|y\|^2=\|y-z+z\|^2\leq \|y-z\|^2+\|z\|^2\leq \|z-x\|^2+\|z\|^2 \Rightarrow A$ is bounded.
+Finally, $y\in A \Rightarrow \|y\|^2=\|y-\mathfrak{Z}+\mathfrak{Z}\|^2\leq \|y-\mathfrak{Z}\|^2+\|\mathfrak{Z}\|^2\leq \|\mathfrak{Z}-x\|^2+\|\mathfrak{Z}\|^2 \Rightarrow A$ is bounded.
 
-Thus, $g(y)=\|z-y\|^2$ is strictly convex over set $A$, which is compact.
+Thus, $g(y)=\|\mathfrak{Z}-y\|^2$ is strictly convex over set $A$, which is compact.
 
 Therefore, $\min_{y\in\&}\|\&-y\|^2=\min_{y\in A}\|\&-y\|^2$ exists (Weierstrass’ Theorem) and is unique (strict convexity).
 \end{proof}
 
-\subsubsection{Prop: $[z]^\&$ is projection on \underline{closed conex} subset of $\mathbb{R}^n$$\Leftrightarrow$ $(z-[z]^\&)^T(y-[z]^\&)\leq 0, \forall y\in\&$}
 \begin{proposition}
     [Necessary and Sufficient Condition for Projection]
     Let $\&$ be a \underline{closed conex} subset of $\mathbb{R}^n$. Then,
     \begin{equation}
         \begin{aligned}
-            [z]^\&=y^*
-            &\Leftrightarrow (y^*-z)^T(y-y^*)\geq 0,\quad \forall y\in\&.\\
-            &\Leftrightarrow (z-y^*)^T(y-y^*)\leq 0,\quad \forall y\in\&.
+            [\mathfrak{Z}]^\&=y^*
+            &\Leftrightarrow (y^*-\mathfrak{Z})^T(y-y^*)\geq 0,\quad \forall y\in\&.\\
+            &\Leftrightarrow (\mathfrak{Z}-y^*)^T(y-y^*)\leq 0,\quad \forall y\in\&.
         \end{aligned}
         \nonumber
     \end{equation}
 \end{proposition}
 \begin{proof}
-    $[z]^\& = \argmin_{y\in\&}g(y)$, with $g(y)=\|z-y\|^2$ (which is strictly convex), $\nabla g(y)=2(y-z)$.
+    $[\mathfrak{Z}]^\& = \argmin_{y\in\&}g(y)$, with $g(y)=\|\mathfrak{Z}-y\|^2$ (which is strictly convex), $\nabla g(y)=2(y-\mathfrak{Z})$.
 
     By the optimality conditions,
     \begin{equation}
         \begin{aligned}
             &y^*\text{ is the unique minimizer of $g(y)$ over $\&$}\\
             \Leftrightarrow	& \nabla g(y^*)^T(y-y^*)\geq 0\quad \forall y\in\&\\
-            \Leftrightarrow & (y^*-z)^T(y-y^*)\geq 0,\quad \forall y\in\&.\\
-            \Leftrightarrow &(z-y^*)^T(y-y^*)\leq 0,\quad \forall y\in\&.
+            \Leftrightarrow & (y^*-\mathfrak{Z})^T(y-y^*)\geq 0,\quad \forall y\in\&.\\
+            \Leftrightarrow &(\mathfrak{Z}-y^*)^T(y-y^*)\leq 0,\quad \forall y\in\&.
         \end{aligned}
         \nonumber
     \end{equation}
@@ -2098,68 +2094,67 @@ Therefore, $\min_{y\in\&}\|\&-y\|^2=\min_{y\in A}\|\&-y\|^2$ exists (Weierstrass
     \label{}
 \end{figure}\end{center}
 
-\subsubsection{Prop: Projection is non-expansive $\|[x]^\&-[z]^\&\|\leq \|x-z\|,\forall x,z\in \mathbb{R}^n$}
 \begin{proposition}
     [Projection is non-expansive]
-    Let $\&$ be a \underline{closed convex} subset of $\mathbb{R}^n$. Then for $x,z\in \mathbb{R}^n$
-    $$\|[x]^\&-[z]^\&\|\leq \|x-z\|\quad \forall x,z\in \mathbb{R}^n$$
+    Let $\&$ be a \underline{closed convex} subset of $\mathbb{R}^n$. Then for $x,\mathfrak{Z}\in \mathbb{R}^n$
+    $$\|[x]^\&-[\mathfrak{Z}]^\&\|\leq \|x-\mathfrak{Z}\|\quad \forall x,\mathfrak{Z}\in \mathbb{R}^n$$
 \end{proposition}
 \begin{proof}
 From previous theorem, we know
 \begin{equation}
     \begin{aligned}
         (1).\quad ([x]^\&-x)^T(y-[x]^\&)\geq 0,\quad \forall y\in\&.\\
-        (2).\quad ([z]^\&-z)^T(y-[z]^\&)\geq 0,\quad \forall y\in\&.\\
+        (2).\quad ([\mathfrak{Z}]^\&-\mathfrak{Z})^T(y-[\mathfrak{Z}]^\&)\geq 0,\quad \forall y\in\&.\\
     \end{aligned}
     \nonumber
 \end{equation}
-set $y=[z]^\&$ in (1) and $y=[x]^\&$ in (2), and adding,
+set $y=[\mathfrak{Z}]^\&$ in (1) and $y=[x]^\&$ in (2), and adding,
 \begin{equation}
     \begin{aligned}
-        &([z]^\&-[x]^\&)^T([x]^\&-x+z-[z]^\&)\geq 0\\
-        \Rightarrow	& ([z]^\&-[x]^\&)^T(z-x)\geq \|[z]^\&-[x]^\&\|^2
+        &([\mathfrak{Z}]^\&-[x]^\&)^T([x]^\&-x+\mathfrak{Z}-[\mathfrak{Z}]^\&)\geq 0\\
+        \Rightarrow	& ([\mathfrak{Z}]^\&-[x]^\&)^T(\mathfrak{Z}-x)\geq \|[\mathfrak{Z}]^\&-[x]^\&\|^2
     \end{aligned}
     \nonumber
 \end{equation}
 Applying Cauchy-schwary inequality,
 \begin{equation}
     \begin{aligned}
-        \|[z]^\&-[x]^\&\|^2&\leq \|[z]^\&-[x]^\&\|\|z-x\|\\
-        \|[z]^\&-[x]^\&\|&\leq \|z-x\|
+        \|[\mathfrak{Z}]^\&-[x]^\&\|^2&\leq \|[\mathfrak{Z}]^\&-[x]^\&\|\|\mathfrak{Z}-x\|\\
+        \|[\mathfrak{Z}]^\&-[x]^\&\|&\leq \|\mathfrak{Z}-x\|
     \end{aligned}
     \nonumber
 \end{equation}
 \end{proof}
 
 \subsection{Projection on (Linear) Subspaces of $\mathbb{R}^n$}
-\subsubsection{Orthogonality Principle in subspaces of $\mathbb{R}^n$: $(z-y^*)^Tx= 0,\forall x\in\&$}
+\subsubsection{Orthogonality Principle in subspaces of $\mathbb{R}^n$: $(\mathfrak{Z}-y^*)^Tx= 0,\forall x\in\&$}
 Suppose $\&$ is a linear subspace of $\mathbb{R}^n$, any linear combination of points in $\&$ is also in $\&$. Note that $\&$ is \underline{closed and convex}.
 
-Then, for $z\in \mathbb{R}^n$, $[z]^\&=y^*$ satisfies:
+Then, for $\mathfrak{Z}\in \mathbb{R}^n$, $[\mathfrak{Z}]^\&=y^*$ satisfies:
 \begin{equation}
     \begin{aligned}
-        (z-y^*)^T(y-y^*)\leq 0,\quad \forall y\in\&.
+        (\mathfrak{Z}-y^*)^T(y-y^*)\leq 0,\quad \forall y\in\&.
     \end{aligned}
     \nonumber
 \end{equation}
 According to the property of subsapce, we can infer that
 \begin{equation}
     \begin{aligned}
-        (z-y^*)^Tx\leq 0,\quad \forall x\in\&.
+        (\mathfrak{Z}-y^*)^Tx\leq 0,\quad \forall x\in\&.
     \end{aligned}
     \nonumber
 \end{equation}
 $-x$ also in $\&$, $-x\in\& \Rightarrow$
 \begin{equation}
     \begin{aligned}
-        (z-y^*)^Tx\geq 0,\quad \forall x\in\&.
+        (\mathfrak{Z}-y^*)^Tx\geq 0,\quad \forall x\in\&.
     \end{aligned}
     \nonumber
 \end{equation}
 Then we can infer that
 \begin{equation}
     \begin{aligned}
-        (z-y^*)^Tx= 0,\quad \forall x\in\&.
+        (\mathfrak{Z}-y^*)^Tx= 0,\quad \forall x\in\&.
     \end{aligned}
     \nonumber
 \end{equation}
@@ -2189,38 +2184,14 @@ $$x_{k+1}=[x_k+\alpha_k d_k]^\&$$
 \begin{equation}
     x_{k+1}=[x_k-\alpha \nabla f(x_k)]^\&
 \end{equation}
-\subsubsection{Def: \underline{fixed point} in fixed step-size steepest descent method, $\tilde{x}=[\tilde{x}-\alpha \nabla f(\tilde{x})]^\&$}
 \begin{definition}
-    $\tilde{x}$ is a \underline{fixed (stationary) point} of iteration in (1) if $$\tilde{x}=[\tilde{x}-\alpha \nabla f(\tilde{x})]^\&$$
+    $\tilde{x}$ is a fixed (stationary) point of iteration in (1) if $$\tilde{x}=[\tilde{x}-\alpha \nabla f(\tilde{x})]^\&$$
 \end{definition}
 
-\subsubsection{Prop: $L-$Lipschitz gradient and $0<\alpha<\frac{2}{L}$ $\Rightarrow$ limit point is a fixed point (in fixed step-size steepest descent method)}
-\begin{proposition}
-    If $f$ has $L-$Lipschitz gradient and $0<\alpha<\frac{2}{L}$, every limit point of (1) is a fixed point of (1).
-\end{proposition}
-\begin{proof}
-By the Descent Lemma,
-\begin{equation}
-    f(x_{k+1})\leq f(x_k)+\nabla f(x_k)^T(x_{k+1}-x_k)+\frac{L}{2}\|x_{k+1}-x_k\|^2
-\end{equation}
-By the necessary and sufficient condition for projection,
-\begin{equation}
-    (x_k-\alpha \nabla f(x_k)-x_{k+1})^T(x-x_{k+1})\leq 0,\quad \forall x\in\&
-    \nonumber
-\end{equation}
-Set $x=x_k$ above
-\begin{equation}
-    \Rightarrow	\alpha \nabla f(x_k)^T(x_{k+1}-x_k)\leq -\|x_k-x_{k+1}\|^2
-\end{equation}
-According to (2) and (3), $$f(x_{k+1})-f(x_k)\leq (\frac{L}{2}-\frac{1}{\alpha})\|x_k-x_{k+1}\|^2$$ where $\frac{L}{2}-\frac{1}{\alpha}<0$
 
-If $\{x_k\}$ has limit point $\bar{x}$, $LHS \stackrel{k \rightarrow \infty}{\longrightarrow}0$ $$\|x_{k+1}-x_{k}\|\stackrel{k \rightarrow \infty}{\longrightarrow}0 \Rightarrow [\bar{x}-\alpha \nabla f(\bar{x})]^\&=\bar{x}$$
-\end{proof}
 
-\subsubsection{Prop: $x$ is minimizer in convex func $\Leftrightarrow$ fixed point (in fixed step-size steepest descent method)}
-\begin{proposition}
-    If $f$ is convex, then $x^*$ is a minimizer of $f$ over $\&$ $\Leftrightarrow$ $x^*=[x^*-\alpha \nabla f(x^*)]^\&$ (i.e., $x^*$ is a fixed point of (1))
-\end{proposition}
+
+
 
 
 
