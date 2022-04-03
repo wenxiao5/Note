@@ -2288,7 +2288,6 @@ where $h(x)=0$ is a combination of $\left\{\begin{matrix}
 \underline{Note:} we usually assume 1. $h$ is coninuous, then $H=\{x:h(x)=0\}$ is closed but may not convex; 2. $h_i$ are consistent, i.e., $H$ is non-empty.
 
 \subsubsection{Lagrange Mutiplier Theorem: First-order necessary condition}
-We say the optimal solution is \underline{regular} if $\nabla h_i(x^*),i=1,...,m$ are linearily independent.
 \begin{theorem}[Lagrange Mutiplier Theorem: First-order necessary condition]
     Let $x^*$ be a local-min of $f(x)$ subject to $h(x)=0$. Assume that $\nabla h_i(x^*),i=1,...,m$ are linearily independent. Then $\exists$ a unqiue $\lambda=(\lambda_1,\lambda_2,...,\lambda_m)$ s.t.
     \begin{equation}
@@ -2344,32 +2343,13 @@ Remark: Since $x\in \mathbb{R}^n$, $m=n$ makes the equation trivial. We only con
             0=&\nabla g^{(k)}(x^{(k)})=\nabla f(x^{(k)})+k\nabla h(x^{(k)})h(x^{(k)})+\alpha(x^{(k)}-x^*)\\
             \Rightarrow	&k\nabla h(x^{(k)})h(x^{(k)})=-(\nabla f(x^{(k)})+\alpha(x^{(k)}-x^*))\\
             \Rightarrow	&kh(x^{(k)})=-\left(\nabla h(x^{(k)})\right)^+(\nabla f(x^{(k)})+\alpha(x^{(k)}-x^*))\\
-            \Rightarrow	&\lim_{k \rightarrow \infty}kh(x^{(k)})=-\left(\nabla h(x^{*})\right)^+\nabla f(x^{*})\triangleq \lambda\\
-            &\text{(Uniqueness from uniqueness of limit)}
-        \end{aligned}
-        \nonumber
-    \end{equation}
-    Where $\left(\nabla h(x^{*})\right)^+$ is the pseudo-inverse of $\nabla h(x^{*})=(\nabla h(x^{*})^T\nabla h(x^{*}))^{-1}\nabla h(x^{*})^T$
-    Then
-    \begin{equation}
-        \begin{aligned}
-            \nabla f(x^*)+\sum_{i=1}^m\lambda_i \nabla h_i(x^*)=0
         \end{aligned}
         \nonumber
     \end{equation}
 \end{proof}
 
-\subsubsection{Lagrange Mutiplier Theorem: Second-order necessary condition}
-\begin{theorem}
-    With the unique $\lambda=(\lambda_1,\lambda_2,...,\lambda_m)$ satisfies $\nabla f(x^*)+\sum_{i=1}^m\lambda_i \nabla h_i(x^*)=0$, the second-order necessary condition is
-    \begin{equation}
-        \begin{aligned}
-            z^T\left(\nabla^2 f(x^*)+\sum_{i=1}^m\lambda_i \nabla^2 h_i(x^*)\right)z\geq 0,\quad \forall z\in V(x^*)
-        \end{aligned}
-        \nonumber
-    \end{equation}
-    where $V(x^*)=\{z:\nabla h_i(x^*)^Tz=0,i=1,...,m\}$.
-\end{theorem}
+
+
 
 
 
