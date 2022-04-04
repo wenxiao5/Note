@@ -2270,12 +2270,13 @@ If $|1+\alpha^2M^2-2\alpha m|<1$. Then $x_N \rightarrow x^*$ \textbf{geometrical
 
 \section{Optimization with Equality Constraints}
 \subsection{Basic}
+\subsubsection{Def}
 \begin{align*}
     &\min\quad f(x)\\
     &\begin{array}{r@{\quad}r@{}l@{\quad}l}
     s.t.
     &h(x)=0&\\
-\end{array}
+\end{array} .
 \end{align*}
 where $h(x)=0$ is a combination of $\left\{\begin{matrix}
     h_1(x)=0\\
@@ -2286,8 +2287,7 @@ where $h(x)=0$ is a combination of $\left\{\begin{matrix}
 
 \underline{Note:} we usually assume 1. $h$ is coninuous, then $H=\{x:h(x)=0\}$ is closed but may not convex; 2. $h_i$ are consistent, i.e., $H$ is non-empty.
 
-\subsection{Lagrange Mutiplier Theorem}
-\subsubsection{First-order necessary condition: $\exists\lambda, \nabla f(x^*)+\sum_{i=1}^m\lambda_i \nabla h_i(x^*)=0$}
+\subsubsection{Lagrange Mutiplier Theorem: First-order necessary condition $\exists\lambda, \nabla f(x^*)+\sum_{i=1}^m\lambda_i \nabla h_i(x^*)=0$}
 We say the optimal solution is \underline{regular} if $\nabla h_i(x^*),i=1,...,m$ are linearily independent.
 \begin{theorem}[Lagrange Mutiplier Theorem: First-order necessary condition]
     Let $x^*$ be a local-min of $f(x)$ subject to $h(x)=0$. Assume that $\nabla h_i(x^*),i=1,...,m$ are linearily independent. Then $\exists$ a unqiue $\lambda=(\lambda_1,\lambda_2,...,\lambda_m)$ s.t.
@@ -2359,7 +2359,7 @@ Remark: Since $x\in \mathbb{R}^n$, $m=n$ makes the equation trivial. We only con
     \end{equation}
 \end{proof}
 
-\subsubsection{Second-order necessary condition: $z^T\left(\nabla^2 f(x^*)+\sum_{i=1}^m\lambda_i \nabla^2 h_i(x^*)\right)z\geq 0,\forall z\in V(x^*)$}
+\subsubsection{Lagrange Mutiplier Theorem: Second-order necessary condition}
 \begin{theorem}
     With the unique $\lambda=(\lambda_1,\lambda_2,...,\lambda_m)$ satisfies $\nabla f(x^*)+\sum_{i=1}^m\lambda_i \nabla h_i(x^*)=0$, the second-order necessary condition is
     \begin{equation}
@@ -2371,301 +2371,9 @@ Remark: Since $x\in \mathbb{R}^n$, $m=n$ makes the equation trivial. We only con
     where $V(x^*)=\{z:\nabla h_i(x^*)^Tz=0,i=1,...,m\}$.
 \end{theorem}
 \begin{proof}
-\begin{equation}
-    \begin{aligned}
-        \nabla g^{(k)}(x)&=\nabla f(x)+k\sum_{i=1}^m h_i(x) \nabla h_i(x)+\alpha(x-x^*)\\
-        \nabla^2 g^{(k)}(x)&=\nabla^2 f(x)+k\sum_{i=1}^m \nabla h_i(x) \nabla h_i(x)^T+k\sum_{i=1}^m h_i(x) \nabla^2 h_i(x)+\alpha I\\
-    \end{aligned}
-    \nonumber
-\end{equation}
-Since $x^{(k)}$ is the optimal value of unconstrained minimization of $g^{(k)}(x)$, we have $\nabla^2 g^{(k)}(x^{(k)})\succeq 0$. Then,
-\begin{equation}
-    \nabla^2 f(x)+k\sum_{i=1}^m \nabla h_i(x) \nabla h_i(x)^T+k\sum_{i=1}^m h_i(x) \nabla^2 h_i(x)+\alpha I\succeq 0
-\end{equation}
-Consider $z\in V(x^*)=\{z:\nabla h_i(x^*)^Tz=0,i=1,...,m\}$. Let
-\begin{equation}
-    \begin{aligned}
-        z^{(k)}&=z-\nabla h(x^{(k)})\left(\nabla h(x^{(k)})^T\nabla h(x^{(k)})\right)^{-1}\nabla h(x^{(k)})^Tz\\
-        &=z-\nabla h(x^{(k)})\left(\nabla h(x^{(k)})\right)^+z
-    \end{aligned}
-    \nonumber
-\end{equation}
-Multiply $\nabla h(x^{(k)})$
-\begin{equation}
-    \begin{aligned}
-        \nabla h(x^{(k)})^Tz^{(k)}&=0
-    \end{aligned}
-    \nonumber
-\end{equation}
-$(5)$ implies that
-\begin{equation}
-    \begin{aligned}
-        &(z^{(k)})^T\left(\nabla^2 f(x^{(k)})+k\sum_{i=1}^m \nabla h_i(x^{(k)}) \nabla h_i(x^{(k)})^T+k\sum_{i=1}^m h_i(x^{(k)}) \nabla^2 h_i(x^{(k)})+\alpha I\right)z^{(k)}\\
-        =&(z^{(k)})^T\left(\nabla^2 f(x^{(k)})+k\sum_{i=1}^m h_i(x^{(k)}) \nabla^2 h_i(x^{(k)})+\alpha I\right)z^{(k)}\geq 0
-    \end{aligned}
-    \nonumber
-\end{equation}
-As $k \rightarrow \infty$, $x^{(k)} \rightarrow	x^*$, $kh(x^{(k)})\rightarrow-\left(\nabla h(x^{*})\right)^+\nabla f(x^{*})\triangleq \lambda$ (is proved in first-order necessary condition part), and $z^{(k)}\rightarrow	z$, then
-\begin{equation}
-    \begin{aligned}
-        &z^T\left(\nabla^2 f(x^*)+\sum_{i=1}^m\lambda_i \nabla^2 h_i(x^*)+\alpha I\right)z\geq 0,\quad \forall z\in V(x^*)\\
-        &\text{Taking }\alpha \rightarrow 0,\\
-        &z^T\left(\nabla^2 f(x^*)+\sum_{i=1}^m\lambda_i \nabla^2 h_i(x^*)\right)z\geq 0,\quad \forall z\in V(x^*)\\
-    \end{aligned}
-    \nonumber
-\end{equation}
+
 \end{proof}
 
-\subsubsection{Sufficient Condition: $\exists\lambda$ 1. $\nabla f(x^*)+\sum_{i=1}^m\lambda_i \nabla h_i(x^*)=0$ 2. $z^T\left(\nabla^2 f(x^*)+\sum_{i=1}^m\lambda_i \nabla^2 h_i(x^*)\right)z> 0,\forall z\in V(x^*),z\neq 0$}
-\begin{theorem}
-    \underline{Sufficient condition}: For $x^*$ that is feasible and regular, if $\exists \lambda$ s.t.
-    \begin{equation}
-        \nabla f(x^*)+\sum_{i=1}^m\lambda_i \nabla h_i(x^*)=0
-        \nonumber
-    \end{equation}
-    and
-    \begin{equation}
-        \begin{aligned}
-            z^T\left(\nabla^2 f(x^*)+\sum_{i=1}^m\lambda_i \nabla^2 h_i(x^*)\right)z> 0,\quad \forall z\in V(x^*),z\neq 0
-        \end{aligned}
-        \nonumber
-    \end{equation}
-    Then $x^*$ is a (strict) local min for \begin{align*}
-        &\min\quad f(x)\\
-        &\begin{array}{r@{\quad}r@{}l@{\quad}l}
-        s.t.
-        &h(x)=0&\\
-    \end{array}
-    \end{align*}
-\end{theorem}
-\textbf{Note:}
-\begin{enumerate}[(1)]
-    \item If $f$ is \underline{convex} and $H=\{x:h(x)=0\}$ is \underline{convex and closed}. Therefore $x^*$ is also global-min.
-    \item If $f$ is \underline{coercive} and $H=\{x:h(x)=0\}$ is \underline{closed}. Therefore $f$ can attain its global-min on $\&$, we just find the minimal local-min.
-\end{enumerate}
-
-
-\subsubsection{Lagrangian Function}
-\underline{Lagrangian Function}:
-\begin{equation}
-    \begin{aligned}
-        L(x,\lambda)\triangleq f(x)+\sum_{i=1}^m\lambda_i h_i(x)
-    \end{aligned}
-    \nonumber
-\end{equation}
-Then the \underline{necessary condition} can be rewrote to
-\begin{equation}
-    \begin{aligned}
-        &\text{First-order:} &
-        \left.\begin{matrix}
-            \nabla_x L(x^*,\lambda)&=0\\
-            h(x^*)=\nabla_\lambda L(x^*,\lambda)&=0
-        \end{matrix}\right\}&m+n\text{ equations in total}\\
-        &\text{Second-order:} &z^T \nabla_{xx}^2L(x^*,\lambda)z\geq 0,&\quad\forall z\in V(x^*)
-    \end{aligned}
-    \nonumber
-\end{equation}
-The \underline{sufficient condition} can be rewrote to
-\begin{equation}
-    \begin{aligned}
-        &\text{First-order:} &
-        \nabla_x L(x^*,\lambda)&=0\\
-        &\text{Second-order:} &z^T \nabla_{xx}^2L(x^*,\lambda)z&> 0,\quad\forall z\in V(x^*),z\neq 0
-    \end{aligned}
-    \nonumber
-\end{equation}
-
-\subsubsection{Example}
-\begin{example}
-    \begin{align*}
-        &\min\quad \frac{1}{2}(x_1^2+x_2^2+x_3^2)\\
-        &\begin{array}{r@{\quad}r@{}l@{\quad}l}
-        s.t.
-        &x_1+x_2+x_3=3&\\
-    \end{array} .
-    \end{align*}
-\end{example}
-\begin{equation}
-    \begin{aligned}
-        h(x)&=x_1+x_2+x_3-3\\
-        L(x,\lambda)&=\frac{1}{2}(x_1^2+x_2^2+x_3^2)+\lambda(x_1+x_2+x_3-3)\\
-        \nabla_x L(x,\lambda)&=\left[x_1+\lambda,x_2+\lambda,x_3+\lambda\right]^T\\
-        \nabla_{xx}^2 L(x,\lambda)&=I_{3\times 3}\\
-    \end{aligned}
-    \nonumber
-\end{equation}
-First order condition:
-\begin{equation}
-    \begin{aligned}
-        \nabla_x L(x^*,\lambda)&=\left[x^*_1+\lambda,x^*_2+\lambda,x^*_3+\lambda\right]^T=0\\
-        \Rightarrow	x^*&= [-\lambda,-\lambda,-\lambda]\\
-        h(x^*)&=x^*_1+x^*_2+x^*_3-3=0\\
-        \Rightarrow	x^*&= [1,1,1]\\
-    \end{aligned}
-    \nonumber
-\end{equation}
-And $\nabla_{xx}^2 L(x,\lambda)\succ 0$, then $x^*= [1,1,1]$ is local-min.
-
-\textbf{Note:} Since $f(x)=\frac{1}{2}(x_1^2+x_2^2+x_3^2)$ is coercive on $H=\{x:x_1+x_2+x_3=3\}$ and $H=\{x:x_1+x_2+x_3=3\}$ is closed $\Rightarrow$ $f$ achieves its global min on $H$. $x^*= [1,1,1]$ is the unique local min, so it is also \underline{global-min}.
-
-\subsubsection{Sensitivity Analysis $f(x^*(u))=f(x^*)-\lambda^Tu+O(\|u\|)$}
-As constants of constraints change, how will the optimal value change?
-\begin{align*}
-    &\min\quad f(x)\\
-    &\begin{array}{r@{\quad}r@{}l@{\quad}l}
-    s.t.
-    &h(x)=u&\\
-\end{array}
-\end{align*}
-\begin{claim}
-    $$f(x^*(u))=f(x^*)-\lambda^Tu+O(\|u\|)$$
-\end{claim}
-\begin{proof}
-    Let $p(u)=f(x^*(u))$, $p(0)=f(x^*(0))=f(x^*)$
-
-    First-order necessary condition:
-    \begin{equation}
-        \begin{aligned}
-            \nabla f(x^*(u))+\sum_{i=1}^m\lambda_i(u) \nabla h_i(x^*(u))=0\\
-            \Rightarrow	\frac{\partial f(x^*(u))}{\partial x_k}=-\sum_{i=1}^m\lambda_i(u) \frac{\partial h_i(x^*(u))}{\partial x_k}
-        \nonumber
-        \end{aligned}
-        \nonumber
-    \end{equation}
-
-    \begin{equation}
-        \begin{aligned}
-            \frac{\partial p(u)}{\partial u_j}=\frac{\partial f(x^*(u))}{\partial u_j}&=\sum_{k=1}^n\frac{\partial f(x^*(u))}{\partial x_k}\frac{\partial x_k^*(u)}{\partial u_j}\\
-            &=-\sum_{k=1}^n\sum_{i=1}^m\lambda_i(u) \frac{\partial h_i(x^*(u))}{\partial x_k}\frac{\partial x_k^*(u)}{\partial u_j}\\
-            &=-\sum_{i=1}^m\lambda_i(u) \frac{\partial h_i(x^*(u))}{\partial u_j}\\
-            (h_i=u_i)\quad &=\lambda_j(u)
-        \end{aligned}
-        \nonumber
-    \end{equation}
-Then we can conclude that
-\begin{equation}
-    \begin{aligned}
-        \nabla p(u)&=-\lambda(u)\\
-        \Rightarrow	\nabla p(0)&=-\lambda\\
-        \Rightarrow	f(x^*(u))&=f(x^*)+\nabla p(0)(u-0)+O(\|u\|)\\
-        &=f(x^*)-\lambda^Tu+O(\|u\|)\\
-    \end{aligned}
-    \nonumber
-\end{equation}
-\end{proof}
-
-\subsubsection{Linear Constraints}
-\begin{align*}
-    &\min\quad f(x)\\
-    &\begin{array}{r@{\quad}r@{}l@{\quad}l}
-    s.t.
-    &Ax=b&\\
-\end{array}
-\end{align*}
-where $A=\left[a_1,a_2,...,a_m\right]^T$, $b=[b_1,b_2,...,b_m]^T$. $h_i(x)=a_i^Tx-b_i,i=1,...,m$, $\nabla h_i(x)=a_i$.
-\begin{equation}
-    \begin{aligned}
-        L(x,\lambda)&=f(x)+\sum_{i=1}^m\lambda_i(a_i^Tx-b_i)\\
-        \nabla_x L(x,\lambda)&=\nabla f(x)+\sum_{i=1}^m\lambda_ia_i\\
-        \nabla^2_{xx} L(x,\lambda)&=\nabla^2 f(x)
-    \end{aligned}
-    \nonumber
-\end{equation}
-Then, the first order condition can be reworte to
-\begin{equation}
-    \begin{aligned}
-        &\nabla f(x^*)+\sum_{i=1}^m\lambda_i \nabla h_i(x^*)=0\\
-        \Leftrightarrow	&\sum_{i=1}^m\lambda_i a_i=-\nabla f(x^*)\\
-        \Leftrightarrow	&A^T\lambda=-\nabla f(x^*)\\
-    \end{aligned}
-    \nonumber
-\end{equation}
-Also, $Ax^*=b$. If $m=n$, there will unique $x^*=A^{-1}b$. If $m<n$,
-\begin{center}
-    \fcolorbox{black}{gray!10}{\parbox{.9\linewidth}{\begin{enumerate}[Step (1)]
-        \item We compute first-order condition:
-        \begin{equation}
-            \begin{aligned}
-                \left.\begin{matrix}
-                    A^T\lambda+\nabla f(x^*)&=0\\
-                    Ax^*&=b
-                \end{matrix}\right\}\ m+n\text{ equations}
-            \end{aligned}
-            \nonumber
-        \end{equation}
-        \item Check sufficient conditions (second-order):
-        Check: $$z^T\nabla^2 f(x)z>0$$ $\forall z\neq 0$ s.t. $a_i^Tz=0,i=1,...,m$
-    \end{enumerate}}}
-\end{center}
-
-\begin{example}
-    \begin{align*}
-        &\min\quad -(x_1x_2+x_2x_3+x_1x_3)\\
-        &\begin{array}{r@{\quad}r@{}l@{\quad}l}
-        s.t.\quad 
-        x_1+x_2&=2\\
-        x_2+x_3&=1
-    \end{array}
-    \end{align*}
-\end{example}
-$A=\begin{bmatrix}
-    1&	1&0\\
-    0&	1&1
-\end{bmatrix}$, $b=\begin{bmatrix}
-    2\\
-    1
-\end{bmatrix}$, $\nabla f(x)=-\begin{bmatrix}
-    x_2+x_3\\
-    x_1+x_3\\
-    x_1+x_2
-\end{bmatrix}$
-
-Solve $$\left\{\begin{matrix}
-    A^T\lambda+\nabla f(x^*)&=0\\
-    Ax^*&=b
-\end{matrix}\right. \Rightarrow	x_1^*=2,x_2^*=0,x_3^*=1$$
-Check second order condition for $x^*=(2,0,1)$:
-\begin{equation}
-    \begin{aligned}
-        \nabla^2_{xx} L(x,\lambda)&=\nabla^2 f(x)\\
-        &=\begin{bmatrix}
-            0&-1&-1\\
-            -1&0&-1\\
-            -1&-1&0
-        \end{bmatrix}
-    \end{aligned}
-    \nonumber
-\end{equation}
-$\nabla^2_{xx} L(x,\lambda)$ is not PD or PSD. But we only need $z^T\nabla^2 f(x)z>0$ $\forall z\neq 0$ s.t. $a_i^Tz=0,i=1,2$
-\begin{equation}
-    \begin{aligned}
-        Az=\begin{bmatrix}
-            z_1+z_2\\
-            z_2+z_3
-        \end{bmatrix}=0 \Rightarrow	\left\{\begin{matrix}
-            z_1=-z_2\\
-            z_3=-z_2
-        \end{matrix}\right.
-    \end{aligned}
-    \nonumber
-\end{equation}
-\begin{equation}
-    \begin{aligned}
-        z^T\nabla^2 f(x)z&=-2(z_1z_2+z_2z_3+z_1z_3)\\
-        &=2z_2^2>0\quad z\neq0
-    \end{aligned}
-    \nonumber
-\end{equation}
-Thus $x^*=(2,0,1)$ is a local-min.
-
-\begin{equation}
-    \begin{aligned}
-        f(x)&=-(x_1x_2+x_2x_3+x_1x_3)\\
-        \text{with }h(x)=0\quad &=x_2^2-2
-    \end{aligned}
-    \nonumber
-\end{equation}
-$f$ is coercive on $H=\{x:h(x)=0\}$ which is closed. Then $f$ achieves its global min on $H$. Hence, $x^*=(2,0,1)$ is the \underline{global min} of $f(x)$ on $H$.
 
 
 

@@ -2562,16 +2562,7 @@ Then we can conclude that
     &Ax=b&\\
 \end{array}
 \end{align*}
-where $A=\left[a_1,a_2,...,a_m\right]^T$, $b=[b_1,b_2,...,b_m]^T$. $h_i(x)=a_i^Tx-b_i,i=1,...,m$, $\nabla h_i(x)=a_i$.
-\begin{equation}
-    \begin{aligned}
-        L(x,\lambda)&=f(x)+\sum_{i=1}^m\lambda_i(a_i^Tx-b_i)\\
-        \nabla_x L(x,\lambda)&=\nabla f(x)+\sum_{i=1}^m\lambda_ia_i\\
-        \nabla^2_{xx} L(x,\lambda)&=\nabla^2 f(x)
-    \end{aligned}
-    \nonumber
-\end{equation}
-Then, the first order condition can be reworte to
+where $A=\left[a_1,a_2,...,a_m\right]^T$, $b=[b_1,b_2,...,b_m]^T$. $h_i(x)=a_i^Tx-b_i,i=1,...,m$, $\nabla h_i(x)=a_i$. Then, the first order condition can be reworte to
 \begin{equation}
     \begin{aligned}
         &\nabla f(x^*)+\sum_{i=1}^m\lambda_i \nabla h_i(x^*)=0\\
@@ -2580,92 +2571,25 @@ Then, the first order condition can be reworte to
     \end{aligned}
     \nonumber
 \end{equation}
-Also, $Ax^*=b$. If $m=n$, there will unique $x^*=A^{-1}b$. If $m<n$,
-\begin{center}
-    \fcolorbox{black}{gray!10}{\parbox{.9\linewidth}{\begin{enumerate}[Step (1)]
-        \item We compute first-order condition:
-        \begin{equation}
-            \begin{aligned}
-                \left.\begin{matrix}
-                    A^T\lambda+\nabla f(x^*)&=0\\
-                    Ax^*&=b
-                \end{matrix}\right\}\ m+n\text{ equations}
-            \end{aligned}
-            \nonumber
-        \end{equation}
-        \item Check sufficient conditions (second-order):
-        Check: $$z^T\nabla^2 f(x)z>0$$ $\forall z\neq 0$ s.t. $a_i^Tz=0,i=1,...,m$
-    \end{enumerate}}}
-\end{center}
+Also, $Ax^*=b$. If $m=n$, there will unique $x^*=A^{-1}b$. If $m<n$, we compute
+\begin{equation}
+    \begin{aligned}
+        \left.\begin{matrix}
+            A^T\lambda+\nabla f(x^*)&=0\\
+            Ax^*&=b
+        \end{matrix}\right\}\ m+n\text{ equations}
+    \end{aligned}
+    \nonumber
+\end{equation}
+Check sufficient conditions:
+\begin{equation}
+    \begin{aligned}
+        L(x,\lambda)&=f(x)+\sum_{i=1}^m\lambda_i(a_i^Tx-b_i)\\
+        \nabla_x L(x,\lambda)&=\nablaf(x)+\sum_{i=1}^m\lambda_ia_i\\
+    \end{aligned}
+    \nonumber
+\end{equation}
 
-\begin{example}
-    \begin{align*}
-        &\min\quad -(x_1x_2+x_2x_3+x_1x_3)\\
-        &\begin{array}{r@{\quad}r@{}l@{\quad}l}
-        s.t.\quad 
-        x_1+x_2&=2\\
-        x_2+x_3&=1
-    \end{array}
-    \end{align*}
-\end{example}
-$A=\begin{bmatrix}
-    1&	1&0\\
-    0&	1&1
-\end{bmatrix}$, $b=\begin{bmatrix}
-    2\\
-    1
-\end{bmatrix}$, $\nabla f(x)=-\begin{bmatrix}
-    x_2+x_3\\
-    x_1+x_3\\
-    x_1+x_2
-\end{bmatrix}$
-
-Solve $$\left\{\begin{matrix}
-    A^T\lambda+\nabla f(x^*)&=0\\
-    Ax^*&=b
-\end{matrix}\right. \Rightarrow	x_1^*=2,x_2^*=0,x_3^*=1$$
-Check second order condition for $x^*=(2,0,1)$:
-\begin{equation}
-    \begin{aligned}
-        \nabla^2_{xx} L(x,\lambda)&=\nabla^2 f(x)\\
-        &=\begin{bmatrix}
-            0&-1&-1\\
-            -1&0&-1\\
-            -1&-1&0
-        \end{bmatrix}
-    \end{aligned}
-    \nonumber
-\end{equation}
-$\nabla^2_{xx} L(x,\lambda)$ is not PD or PSD. But we only need $z^T\nabla^2 f(x)z>0$ $\forall z\neq 0$ s.t. $a_i^Tz=0,i=1,2$
-\begin{equation}
-    \begin{aligned}
-        Az=\begin{bmatrix}
-            z_1+z_2\\
-            z_2+z_3
-        \end{bmatrix}=0 \Rightarrow	\left\{\begin{matrix}
-            z_1=-z_2\\
-            z_3=-z_2
-        \end{matrix}\right.
-    \end{aligned}
-    \nonumber
-\end{equation}
-\begin{equation}
-    \begin{aligned}
-        z^T\nabla^2 f(x)z&=-2(z_1z_2+z_2z_3+z_1z_3)\\
-        &=2z_2^2>0\quad z\neq0
-    \end{aligned}
-    \nonumber
-\end{equation}
-Thus $x^*=(2,0,1)$ is a local-min.
-
-\begin{equation}
-    \begin{aligned}
-        f(x)&=-(x_1x_2+x_2x_3+x_1x_3)\\
-        \text{with }h(x)=0\quad &=x_2^2-2
-    \end{aligned}
-    \nonumber
-\end{equation}
-$f$ is coercive on $H=\{x:h(x)=0\}$ which is closed. Then $f$ achieves its global min on $H$. Hence, $x^*=(2,0,1)$ is the \underline{global min} of $f(x)$ on $H$.
 
 
 

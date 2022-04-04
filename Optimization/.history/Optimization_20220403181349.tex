@@ -2623,51 +2623,7 @@ $A=\begin{bmatrix}
 Solve $$\left\{\begin{matrix}
     A^T\lambda+\nabla f(x^*)&=0\\
     Ax^*&=b
-\end{matrix}\right. \Rightarrow	x_1^*=2,x_2^*=0,x_3^*=1$$
-Check second order condition for $x^*=(2,0,1)$:
-\begin{equation}
-    \begin{aligned}
-        \nabla^2_{xx} L(x,\lambda)&=\nabla^2 f(x)\\
-        &=\begin{bmatrix}
-            0&-1&-1\\
-            -1&0&-1\\
-            -1&-1&0
-        \end{bmatrix}
-    \end{aligned}
-    \nonumber
-\end{equation}
-$\nabla^2_{xx} L(x,\lambda)$ is not PD or PSD. But we only need $z^T\nabla^2 f(x)z>0$ $\forall z\neq 0$ s.t. $a_i^Tz=0,i=1,2$
-\begin{equation}
-    \begin{aligned}
-        Az=\begin{bmatrix}
-            z_1+z_2\\
-            z_2+z_3
-        \end{bmatrix}=0 \Rightarrow	\left\{\begin{matrix}
-            z_1=-z_2\\
-            z_3=-z_2
-        \end{matrix}\right.
-    \end{aligned}
-    \nonumber
-\end{equation}
-\begin{equation}
-    \begin{aligned}
-        z^T\nabla^2 f(x)z&=-2(z_1z_2+z_2z_3+z_1z_3)\\
-        &=2z_2^2>0\quad z\neq0
-    \end{aligned}
-    \nonumber
-\end{equation}
-Thus $x^*=(2,0,1)$ is a local-min.
-
-\begin{equation}
-    \begin{aligned}
-        f(x)&=-(x_1x_2+x_2x_3+x_1x_3)\\
-        \text{with }h(x)=0\quad &=x_2^2-2
-    \end{aligned}
-    \nonumber
-\end{equation}
-$f$ is coercive on $H=\{x:h(x)=0\}$ which is closed. Then $f$ achieves its global min on $H$. Hence, $x^*=(2,0,1)$ is the \underline{global min} of $f(x)$ on $H$.
-
-
+\end{matrix}\right.$$
 
 
 
