@@ -2,7 +2,6 @@
 \documentclass[11pt,a4paper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{ctex}
 \usepackage{authblk}
 \usepackage{tikz}
 \usepackage{pgfplots}
@@ -273,7 +272,7 @@ i.e., $x^{*}$ is the best in the intersection of a small neighborhood and $X$
 \end{corollary}
 \begin{example}
     $f(x) = x^2$.
-    Level set $\{x|x^2 \leq 1\}$ is $\{x|−1\leq x\leq 1\}$: non-empty compact. Thus there exists a global minimum.
+    Level set $\{x|x^2 \leq 1\}$ is $\{x|-1\leq x\leq 1\}$: non-empty compact. Thus there exists a global minimum.
 \end{example}
 \begin{corollary}[coercive]
     Suppose $f: \mathbb{R}^{d} \rightarrow \mathbb{R}$ is a continuous function. If $f(x) \rightarrow \infty$ as $\|x\| \rightarrow \infty$, then the global minimizer of $f$ over $\mathbb{R}^{d}$ exists.
@@ -651,7 +650,7 @@ $\alpha_k$ is the step size, which need to choose carefully.
 \begin{example}
     (False $\times$) The gradient descent algorithm with an exact line search always finds the minimum of a strictly convex quadratic function in exactly one iteration.
 \end{example}
-Note: the moving direction is restricted to the gradient. $x$只能朝倒数方向移动不一定能一次到大最优点。
+Note: the moving direction is restricted to the gradient.
 
 Counterexample: False. It is not necessary that the gradient at $x_{0}$ towards the exact solution. For example, let $f(x)=$ $\frac{1}{2} x^{\top} Q x+x^{\top} b$ where $Q=\left(\begin{array}{ll}2 & 0 \\ 0 & 1\end{array}\right)$ and $b=\left(\begin{array}{c}1 \\ -1\end{array}\right)$. Clearly we have $x^{*}=\left(\begin{array}{c}-1 / 2 \\ 1\end{array}\right)$. If we start with $x_{0}=\left(\begin{array}{l}1 \\ 2\end{array}\right)$, by using exact line search, the step size $\alpha=\arg \min f\left(x_{0}-\alpha \nabla f\left(x_{0}\right)\right)=10 / 19$. Hence $x_{1}=x_{0}-\alpha \nabla f\left(x_{0}\right)=\left(\begin{array}{c}-11 / 19 \\ 28 / 19\end{array}\right) \neq x^{*}$.
 
@@ -3480,9 +3479,16 @@ Under some conditions, equality holds, i.e.
     If (1) the primal problem is convex (2) it is strictly feasible, that is, there exists $x$ in the relative interior of $\&$ such that $g_j(x)<0,\forall j$ and $h_i(x)=0,\forall i$. Then, strong duality holds.
 \end{proposition}
 
-
-
-
+\subsubsection{Example}
+We showed that $x^*=(\frac{3}{2},\frac{1}{2})$ is the global min with $\mu^*=(1,0)$ of
+\begin{align*}
+    &\min\quad x_1^2+x_2^2-4x_1-2x_2+2\\
+    &\begin{array}{r@{\quad}r@{}l@{\quad}l}
+    s.t.
+    &x_1+x_2&\leq 2\\
+    &x_1+2x_3&\leq 3\\
+\end{array}
+\end{align*}
 
 
 
