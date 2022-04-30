@@ -101,8 +101,11 @@
 \contentsline {subsubsection}{\numberline {9.6.1}Solution using KKT conditions}{52}{subsubsection.9.6.1}%
 \contentsline {subsubsection}{\numberline {9.6.2}Solution using logarithmic barrier}{53}{subsubsection.9.6.2}%
 \contentsline {subsection}{\numberline {9.7}Penalty Method (For ECP)}{53}{subsection.9.7}%
-\contentsline {subsection}{\numberline {9.8}Duality}{54}{subsection.9.8}%
-\contentsline {subsubsection}{\numberline {9.8.1}Weak Duality Theorem: $\qopname \relax m{max}_{(\lambda ,\mu )\in G}D(\lambda ,\mu )\leq \qopname \relax m{min}_{x\in F}f(x)$}{55}{subsubsection.9.8.1}%
-\contentsline {subsubsection}{\numberline {9.8.2}Strong Duality Theorem: under some conditions, $\qopname \relax m{max}_{(\lambda ,\mu )\in G}D(\lambda ,\mu )= \qopname \relax m{min}_{x\in F}f(x)$}{55}{subsubsection.9.8.2}%
-\contentsline {subsubsection}{\numberline {9.8.3}Slater's sufficient condition for strong duality}{57}{subsubsection.9.8.3}%
-\contentsline {subsubsection}{\numberline {9.8.4}Example}{57}{subsubsection.9.8.4}%
+\contentsline {section}{\numberline {10}Duality}{54}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Weak Duality Theorem: $\qopname \relax m{max}_{(\lambda ,\mu )\in G}D(\lambda ,\mu )\leq \qopname \relax m{min}_{x\in F}f(x)$}{55}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Strong Duality Theorem: under some conditions, $\qopname \relax m{max}_{(\lambda ,\mu )\in G}D(\lambda ,\mu )= \qopname \relax m{min}_{x\in F}f(x)$}{55}{subsection.10.2}%
+\contentsline {subsubsection}{\numberline {10.2.1}Slater's sufficient condition for strong duality}{57}{subsubsection.10.2.1}%
+\contentsline {subsubsection}{\numberline {10.2.2}Example}{57}{subsubsection.10.2.2}%
+\contentsline {subsection}{\numberline {10.3}Dual of Linear Program}{57}{subsection.10.3}%
+\contentsline {section}{\numberline {11}Augmented Lagrangian Method}{58}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Motivation}{58}{subsection.11.1}%

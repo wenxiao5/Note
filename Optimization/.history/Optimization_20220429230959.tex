@@ -3543,15 +3543,14 @@ $D(\mu)=\min_{x\in \mathbb{R}^2}L(x,\mu)$
 We can compute $\mu_1^*=1$, $\mu_2^*=0$ (optimum check is omitted), $D(\mu^*)=-\frac{5}{2}=f(x^*)$.
 
 \subsection{Dual of Linear Program}
-\begin{center}
-    \fcolorbox{black}{gray!10}{\parbox{.9\linewidth}{LP in "standard" form:\begin{equation}
-        \begin{aligned}
-            &\min\ c^Tx\\
-            &s.t.\quad Ax\leq b,x\geq 0
-        \end{aligned}
-        \nonumber
-    \end{equation}}}
-\end{center}
+LP in "standard" form:
+\begin{equation}
+    \begin{aligned}
+        &\min\ c^Tx\\
+        &s.t.\quad Ax\leq b,x\geq 0
+    \end{aligned}
+    \nonumber
+\end{equation}
 \begin{equation}
     \begin{aligned}
         D(\mu_1,\mu_2)
@@ -3566,38 +3565,11 @@ We can compute $\mu_1^*=1$, $\mu_2^*=0$ (optimum check is omitted), $D(\mu^*)=-\
 \end{equation}
 Note: $c^T+\mu_1^TA-\mu_2^T=0 \Leftrightarrow A^T\mu_1+c=\mu_2$
 
-Hence, the dual probelm is:
-\begin{equation}
-    \begin{aligned}
-        &\max_{s.t.\ \mu_1\geq 0,\mu_2\geq 0, A^T\mu_1+c=\mu_2}-\mu_1^Tb\\
-        =&\min_{s.t.\ \mu_1\geq 0, A^T\mu_1+c\geq 0}\mu_1^Tb\\
-    \end{aligned}
-    \nonumber
-\end{equation}
-\begin{center}
-    \fcolorbox{black}{gray!10}{\parbox{.9\linewidth}{Hence, the dual probelm is:\begin{equation}
-        \begin{aligned}
-            &\min\ \bar{x}^Tb\\
-            &s.t.\quad -A^T\bar{x}\leq c,\bar{x}\geq 0
-        \end{aligned}
-        \nonumber
-    \end{equation}}}
-\end{center}
-It is also easy to show that the dual of dual is exactly the primal.
 
-\section{Augmented Lagrangian Method}
-\subsection{Motivation}
-In penalty method, problem becomes \textbf{ill-conditioned} and the optimization becomes super slow if $c_k$ is huge. (${c_k}$ is an increasing positive sequence s.t. $c_k \rightarrow\infty$ as $k\rightarrow\infty$)
 
-When we apply penalty method to
-\begin{equation}
-    \begin{aligned}
-        &\min\ x^TQx\\
-        &s.t.\quad Ax=b
-    \end{aligned}
-    \nonumber
-\end{equation}
-where $Q\succ 0$, $A_{m\times n},m<n$
+
+
+
 
 
 
