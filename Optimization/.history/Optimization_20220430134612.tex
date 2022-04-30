@@ -3601,13 +3601,10 @@ In penalty method, problem becomes \textbf{ill-conditioned} and the optimization
     where $Q\succ 0$, $A_{m\times n},m<n$
 \end{example}
 $$\min\ x^TQx+c_k\|Ax-b\|^2$$
-where $\|Ax-b\|^2=(Ax-b)^T(Ax-b)=x^TA^TAx-2x^TA^Tb+b^Tb$
-Note: $A^TA\succeq 0$. Since $m<N$, $rank(A^TA)\leq m<n$ $\Rightarrow$ $\lambda_{\min}(A^TA)=0$
+where $\|A_x-b\|^2=(A_x-b)^T(A_x-b)=x^TA^TAx-2x^TA^Tb+b^Tb$
 
-Consider the problem $P_k$ corresponding to $c_k$
-$$\min\ x^TQx+c_k(x^TA^TAx-2x^TA^Tb+b^Tb)$$
-i.e. $$\min\ x^T(Q+c_kA^TA)x-2c_kx^TA^Tb+c_kb^Tb$$
-Since $Q\succ 0,c_k>0,A^TA\succeq 0$, $(Q+c_kA^TA)\succ 0$
+
+
 
 
 
