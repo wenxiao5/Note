@@ -3798,25 +3798,8 @@ When $x=2$,
     \end{aligned}
     \nonumber
 \end{equation}
-\begin{enumerate}[(1)]
-    \item \underline{$y\geq 0$}: $0\geq g(y-2)$ or $0\geq (g-1)(y-2)$. If $y>2$, $g\leq 1$; If $y=2$, $\forall g$; If $0\leq y< 2$, $g\geq 0$. $\Rightarrow g\in[0,1]$
-    \item \underline{$y< 0$}: $0\geq g(y-2)$ or $-y-2\geq g(y-2)$, i.e. $g\geq 0$ or $g\leq \frac{2+y}{2-y}$ (satisifed by $g\in[0,1]$)
-\end{enumerate}
-
-\subsection{First-order necessary conditions for optimality in terms of subgradient}
-\begin{proposition}
-    For convex $f$, $f(x^*)=\min_x f(x)\Leftrightarrow 0\in \partial f(x^*)$
-\end{proposition}
-\begin{proof}
-    $x^*$ is a minimizer $\Leftrightarrow$ $f(x^*)\leq f(y),\forall y\in \mathbb{R}^n$ $\Leftrightarrow$ $f(x^*)+0^T(y-x^*)\leq f(y),\forall y\in \mathbb{R}^n$ $\Leftrightarrow$ $0\in \partial f(x^*)$
-\end{proof}
-
-\subsection{Properties of Subgradients}
-Let $f,f_1,f_2$ be convex functions.
-\begin{enumerate}[(a)]
-    \item \textbf{Scaling:} For scalar $a > 0$, $\partial(af) = a\partial f$, i.e., $g$ is a subgradient of $f$ at $x$ if and only if $ag$ is a subgradient of af at $x$.
-    \item \textbf{Addition:} If $g_1$ is a subgradient of $f_1$ at $x$, and $g_2$ is a subgradient of $f_2$ at $x$, then $g_1 + g_2$ is subgradient of $f_1 + f_2$ at $x$.
-    \item \textbf{Affine Combination:} Let $h(x) = f(Ax+b)$, with $A$ being a square, invertible matrix. Then $\partial h(x) = A^T\partial f(Ax+b)$, i.e., $g$ is a subgradient of $f$ at $Ax + b$ if and only if $A^Tg$ is a subgradient of $h$ at $x$.
+\begin{enumerate}
+    \item $y\geq 0$: $0\geq g(y-2)$ or $0\geq (g-1)(y-2)$
 \end{enumerate}
 
 
