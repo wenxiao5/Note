@@ -2,7 +2,6 @@
 \documentclass[11pt,a4paper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{ctex}
 \usepackage{authblk}
 \usepackage{tikz}
 \usepackage{pgfplots}
@@ -95,7 +94,7 @@ when $0<h<r$, $\frac{f(x+h)-f(x)}{h}\geq 0$; when $-r<h<0$, $\frac{f(x+h)-f(x)}{
 
 
 \subsection{Optimization in $\mathbb{R}^n$}
-\subsubsection{Necessary Conditions for Optimality: Local Extremum $\Rightarrow \nabla f(x^*)=0$}
+\subsubsection{First Order Necessary Condition: $\nabla f(x^*)=0$}
 A base point $x$, we consider an arbitrary direction $u$. $\{x+tu| t\in \mathbb{R}\}$
 
 For $\alpha>0$ sufficiently small:
@@ -131,7 +130,7 @@ But not all stationary points have to be extrema.
 $f(x)=x^3$, $x=0$ is a stationary point but not extrema. (saddle point)
 \end{example}
 
-\subsubsection{Second Order Necessary Condition}
+\subsubsection{Second Order Necessary Condition $\nabla^2 f(x^*)\succeq 0$}
 \begin{definition}
 The Hessian of $f$ at point $x$ is an $n\times n$ symmetric matrix denoted by $\nabla^2 f(x)$ with $[\nabla^2 f(x)]_{ij}=\frac{\partial^2 f(x)}{\partial x_i\partial x_j}$
 \end{definition}
@@ -164,7 +163,7 @@ By Taylor series expansion,
 \end{equation}
 \end{proof}
 
-\subsubsection{Sufficient Conditions for Optimality}
+\subsubsection{Sufficient Conditions for Optimality $\nabla f(x^*)=0\text{ and }\nabla^2 f(x^*)\succ 0$}
 \begin{theorem}
 Suppose $f$ is twice continuously differentiable in a neighborhood of $x^*$ and
 (1) $\nabla f(x^*)=0$; (2) $\nabla^2 f(x^*)\succ 0$ ($u^T\nabla^2 f(x^*) u>0$, $\forall u\in \mathbb{R}^n$).
@@ -273,7 +272,7 @@ i.e., $x^{*}$ is the best in the intersection of a small neighborhood and $X$
 \end{corollary}
 \begin{example}
     $f(x) = x^2$.
-    Level set $\{x|x^2 \leq 1\}$ is $\{x|−1\leq x\leq 1\}$: non-empty compact. Thus there exists a global minimum.
+    Level set $\{x|x^2 \leq 1\}$ is $\{x|-1\leq x\leq 1\}$: non-empty compact. Thus there exists a global minimum.
 \end{example}
 \begin{corollary}[coercive]
     Suppose $f: \mathbb{R}^{d} \rightarrow \mathbb{R}$ is a continuous function. If $f(x) \rightarrow \infty$ as $\|x\| \rightarrow \infty$, then the global minimizer of $f$ over $\mathbb{R}^{d}$ exists.
@@ -561,8 +560,8 @@ if $f(w)$ is convex, then $f(w)+\frac{\mu}{2}\|w\|^{2}$ is $\mu$-strongly convex
 \begin{equation}
     \begin{aligned}
         \nabla^2 f(x)&\succeq mI \Rightarrow \nabla^2 f(x)-mI\succeq 0\\
-        & \Rightarrow \forall \mathfrak{Z}\neq 0\quad \mathfrak{Z}^T(\nabla^2 f(x)-mI)\mathfrak{Z}\geq 0\\
-        & \Rightarrow \mathfrak{Z}^T\nabla^2 f(x)\mathfrak{Z}\geq m\mathfrak{Z}^T\mathfrak{Z}>0
+        & \Rightarrow \forall z\neq 0\quad z^T(\nabla^2 f(x)-mI)z\geq 0\\
+        & \Rightarrow z^T\nabla^2 f(x)z\geq mz^Tz>0
     \end{aligned}
     \nonumber
 \end{equation}
@@ -651,7 +650,7 @@ $\alpha_k$ is the step size, which need to choose carefully.
 \begin{example}
     (False $\times$) The gradient descent algorithm with an exact line search always finds the minimum of a strictly convex quadratic function in exactly one iteration.
 \end{example}
-Note: the moving direction is restricted to the gradient. $x$只能朝倒数方向移动不一定能一次到大最优点。
+Note: the moving direction is restricted to the gradient.
 
 Counterexample: False. It is not necessary that the gradient at $x_{0}$ towards the exact solution. For example, let $f(x)=$ $\frac{1}{2} x^{\top} Q x+x^{\top} b$ where $Q=\left(\begin{array}{ll}2 & 0 \\ 0 & 1\end{array}\right)$ and $b=\left(\begin{array}{c}1 \\ -1\end{array}\right)$. Clearly we have $x^{*}=\left(\begin{array}{c}-1 / 2 \\ 1\end{array}\right)$. If we start with $x_{0}=\left(\begin{array}{l}1 \\ 2\end{array}\right)$, by using exact line search, the step size $\alpha=\arg \min f\left(x_{0}-\alpha \nabla f\left(x_{0}\right)\right)=10 / 19$. Hence $x_{1}=x_{0}-\alpha \nabla f\left(x_{0}\right)=\left(\begin{array}{c}-11 / 19 \\ 28 / 19\end{array}\right) \neq x^{*}$.
 
@@ -998,7 +997,7 @@ According to the lemmas we proved before
 
 \subsubsection{Theorem: Strongly convex, Lipschitz gradient $\Rightarrow$ $\{x_k\}$ converges to global-min geometrically}
 \begin{theorem}
-    If $f$ has Lipschitz gradient with Lipschitz constant $L$ and strongly convex with parameter $m$, $\{x_k\}$ converges to $x^*$ \textbf{geometrically}.
+    If $f$ has Lipschitz gradient with Lipschitz constant $M$ and strongly convex with parameter $m$, $\{x_k\}$ converges to $x^*$ \textbf{geometrically}.
 \end{theorem}
 
 \begin{equation}
@@ -1074,9 +1073,9 @@ To make $f(x_N)-f(x^*)<\varepsilon$, we only need $N\sim O(log\frac{1}{\varepsil
 \begin{example}
     $f(x)=\frac{1}{2}x^TQx+b^Tx+c,\quad Q\succ 0$, $\nabla^2 f(x)=Q$.
 \end{example}
-Let $\lambda_{\min}$ and $\lambda_{\max}$ be the min and max eigenvalue of $Q$. Then we know $$\lambda_{\min}\|\mathfrak{Z}\|^2\leq\mathfrak{Z}^TQ\mathfrak{Z}\leq \lambda_{\max}\|\mathfrak{Z}\|^2$$
-Thus for all $\mathfrak{Z}\in \mathbb{R}^n$
-$$\mathfrak{Z}^T(Q-\lambda_{\min}I)\mathfrak{Z}\geq 0 \Rightarrow	Q\succeq \lambda_{\min}I$$
+Let $\lambda_{\min}$ and $\lambda_{\max}$ be the min and max eigenvalue of $Q$. Then we know $$\lambda_{\min}\|z\|^2\leq z^TQz\leq \lambda_{\max}\|z\|^2$$
+Thus for all $z\in \mathbb{R}^n$
+$$z^T(Q-\lambda_{\min}I)z\geq 0 \Rightarrow	Q\succeq \lambda_{\min}I$$
 Similarly, $Q\preceq \lambda_{\max}I$. Thus
 $$\lambda_{\min}I\preceq \nabla^2 f(x)\preceq \lambda_{\max}I$$
 $\lambda_{\min}I\preceq \nabla^2 f(x) \Leftrightarrow$ $f$ is $\lambda_{\min}$-strongly convex; $\nabla^2 f(x)\preceq \lambda_{\max}I$ is a sufficient condition for $f$ is $\lambda_{\max}$-smooth.
@@ -1464,7 +1463,7 @@ Let $x^*$ be s.t. $\nabla f(x^*)=0$, then
 \begin{equation}
     \begin{aligned}
         \|x_{k+1}-x^*\|&=\|x_k-x^*-(\nabla^2 f(x_k))^{-1}\nabla f(x_k)\|\\
-        &=\|x_k-x^*-(\nabla^2 f(x_k))^{-1}\nabla (f(x_k)-\nabla f(x^*))\|\\
+        &=\|x_k-x^*-(\nabla^2 f(x_k))^{-1}(\nabla f(x_k)-\nabla f(x^*))\|\\
     \end{aligned}
     \nonumber
 \end{equation}
@@ -1915,7 +1914,7 @@ Subgradient Method
 
 \section{Constrained Optimization and Gradient Projection}
 \subsection{Constrained Optimization: Basic}
-\subsubsection{Optimality Conditions}
+\subsubsection{Def: Optimality}
 $$\min_{x\in \&} f(x)$$
 where $\&$ is a non-empty closed and convex subset of $\mathbb{R}^n$.
 
@@ -1927,6 +1926,8 @@ $x^*$ is a \underline{local min of $f$ over $\&$} if $\exists \varepsilon>0$ s.t
 $x^*$ is \underline{global min of $f$ over $\&$} if $f(x^*)\leq f(x)\quad \forall x\in \&$.
 \end{definition}
 
+
+\subsubsection{Prop: local-min$\Rightarrow\nabla f(x^*)^T(x-x^*)\geq 0,\forall x\in \&$ $\Leftrightarrow$ global-min in convex }
 \begin{proposition}[optimality conditions]
     \quad
     \begin{enumerate}[(a)]
@@ -1960,7 +1961,7 @@ $x^*$ is \underline{global min of $f$ over $\&$} if $f(x^*)\leq f(x)\quad \foral
 \end{enumerate}
 \end{proof}
 
-\subsubsection{Interior Point}
+\subsubsection{Def: Interior Point}
 \begin{definition}
     $y$ is an interior point of $\&$ if $\exists \varepsilon>0$ s.t. $$B_{\varepsilon}=\{x:\|y-x\|<\varepsilon\}\subset\&$$
 \end{definition}
@@ -1973,20 +1974,61 @@ $x^*$ is \underline{global min of $f$ over $\&$} if $f(x^*)\leq f(x)\quad \foral
     \nonumber
 \end{equation}
 
+\subsection{Constrained Optimization Example}
+\begin{align*}
+    &\max_{x\in\&}\quad x_1^{a_1}x_2^{a_2}\cdots x_n^{a_n}\\
+    &\begin{array}{r@{\quad}r@{}l@{\quad}l}
+    &\&=\{x:\sum_{i=1}^nx_i=1,x_i\geq 0,i=1,2,...,n\} &\\
+    &a_i,i=1,2,...,n \text{ are given positive scalars}&\\
+\end{array} .
+\end{align*}
+equivalent to $$\min_{x\in\&}\quad f(x)$$ with $f(x)=-\sum a_i\ln x_i$
+\begin{equation}
+    \begin{aligned}
+        \nabla f(x)&=\left(-\frac{a_1}{x_1},-\frac{a_2}{x_2},...,-\frac{a_n}{x_n}\right)\\
+        \nabla^2 f(x)&=diag\left(\frac{a_1}{x^2_1},\frac{a_2}{x^2_2},...,\frac{a_n}{x^2_n}\right)\succ 0\\
+        &\Rightarrow f\text{ is strictly convex}.
+    \end{aligned}
+    \nonumber
+\end{equation}
+\begin{equation}
+    \begin{aligned}
+        x^*\in\&\text{ is (unique) min}&\Leftrightarrow \nabla f(x^*)^T(x-x^*)\geq 0\quad \forall x\in\&.\\
+        &\Leftrightarrow -\sum_{i=1}^n\frac{a_i}{x_i^*}(x-x^*)\geq 0\quad \forall x\in\&.\\
+        &\Leftrightarrow -\sum_{i=1}^na_i\frac{x_i}{x_i^*}+\sum_{i=1}^na_i\geq 0\quad \forall x\in\&.\\
+    \end{aligned}
+    \nonumber
+\end{equation}
+Guess: $x^*_i=\frac{a_i}{\sum_{i=1}^na_i}$. Then,
+\begin{equation}
+    \begin{aligned}
+        -\sum_{i=1}^n a_i\frac{x_i}{x_i^*}+\sum_{i=1}^na_i=0,\quad \forall x\in\&
+    \end{aligned}
+    \nonumber
+\end{equation}
+Thus $x^*=\frac{a_i}{\sum_{i=1}^na_i}$ is unique min.
+
+
+
+
+
+
+
+
 \subsection{Projection onto Closed Convex Set}
-\subsubsection{Def: Projection $[\mathfrak{Z}]^\&$}
+\subsubsection{Def: Projection $[z]^\&$}
 \begin{definition}
-    Let $\&$ be a \underline{closed convex} subset of $\mathbb{R}^n$. Then, for $\mathfrak{Z}\in \mathbb{R}^n$, the \underline{projection} of $\mathfrak{Z}$ on $\&$ is denoted by $[\mathfrak{Z}]^\&$ and is given by
-    $$[\mathfrak{Z}]^\&=\arg \min_{y\in \&}\|\mathfrak{Z}-y\|^2$$
+    Let $\&$ be a \underline{closed convex} subset of $\mathbb{R}^n$. Then, for $z\in \mathbb{R}^n$, the \underline{projection} of $z$ on $\&$ is denoted by $[z]^\&$ and is given by
+    $$[z]^\&=\arg \min_{y\in \&}\|z-y\|^2$$
 \end{definition}
-i.e. Find the min distance from $\&$ to $\mathfrak{Z}$
+i.e. Find the min distance from $\&$ to $z$
 \begin{center}\begin{figure}[htbp]
     \centering
     \includegraphics[scale=0.5]{projection1.png}
     \caption{Projection onto Closed Convex Set}
     \label{}
 \end{figure}\end{center}
-\textbf{Note:} $[\mathfrak{Z}]^\&$ exists and is unique in convex $\&$, however, when $\&$ is not convex, $[\mathfrak{Z}]^\&$ may not be unique.
+\textbf{Note:} $[z]^\&$ exists and is unique in convex $\&$, however, when $\&$ is not convex, $[z]^\&$ may not be unique.
 \begin{center}\begin{figure}[htbp]
     \centering
     \includegraphics[scale=0.5]{projection2.png}
@@ -1994,54 +2036,56 @@ i.e. Find the min distance from $\&$ to $\mathfrak{Z}$
     \label{}
 \end{figure}\end{center}
 
+\subsubsection{Prop: \underline{unique} projection $[z]^\&$ on \underline{closed convex} subset of $\mathbb{R}^n$}
 \begin{proposition}
     [Existence and Uniqueness of Projection]
-    Let $\&$ be a \underline{closed convex} subset of $\mathbb{R}^n$. Then, for every $\mathfrak{Z}\in \mathbb{R}^n$, there exists a unique $[\mathfrak{Z}]^\&$.
+    Let $\&$ be a \underline{closed convex} subset of $\mathbb{R}^n$. Then, for every $z\in \mathbb{R}^n$, there exists a unique $[z]^\&$.
 \end{proposition}
 \begin{proof}
-Nee to show that $\min_{y\in \&}\|\mathfrak{Z}-y\|^2$ exists and is unique.
+Nee to show that $\min_{y\in \&}\|z-y\|^2$ exists and is unique.
 
 Let $x$ be some element of $\&$. Then
 \begin{equation}
     \begin{aligned}
-        &\text{minimizing $\|\mathfrak{Z}-y\|^2$ over all $y\in\&$}\\
-        \equiv&\text{minimizing $\|\mathfrak{Z}-y\|^2$ over the set $A=\{y\in\&:\|\mathfrak{Z}-y\|^2\}$}
+        &\text{minimizing $\|z-y\|^2$ over all $y\in\&$}\\
+        \equiv&\text{minimizing $\|z-y\|^2$ over the set $A=\{y\in\&:\|z-y\|^2\}$}
     \end{aligned}
     \nonumber
 \end{equation}
-$g(y)=\|\mathfrak{Z}-y\|^2$ is strictly convex on set $\&$ $\Rightarrow$ $A$ is a convex set and $g$ is convex on $A$.
+$g(y)=\|z-y\|^2$ is strictly convex on set $\&$ $\Rightarrow$ $A$ is a convex set and $g$ is convex on $A$.
 
 Also $g$ is continuous $\Rightarrow	A$ is closed.
 
-Finally, $y\in A \Rightarrow \|y\|^2=\|y-\mathfrak{Z}+\mathfrak{Z}\|^2\leq \|y-\mathfrak{Z}\|^2+\|\mathfrak{Z}\|^2\leq \|\mathfrak{Z}-x\|^2+\|\mathfrak{Z}\|^2 \Rightarrow A$ is bounded.
+Finally, $y\in A \Rightarrow \|y\|^2=\|y-z+z\|^2\leq \|y-z\|^2+\|z\|^2\leq \|z-x\|^2+\|z\|^2 \Rightarrow A$ is bounded.
 
-Thus, $g(y)=\|\mathfrak{Z}-y\|^2$ is strictly convex over set $A$, which is compact.
+Thus, $g(y)=\|z-y\|^2$ is strictly convex over set $A$, which is compact.
 
 Therefore, $\min_{y\in\&}\|\&-y\|^2=\min_{y\in A}\|\&-y\|^2$ exists (Weierstrass’ Theorem) and is unique (strict convexity).
 \end{proof}
 
+\subsubsection{Projection Theorem: $x=[z]^\&$ is projection on \underline{closed conex} subset of $\mathbb{R}^n$$\Leftrightarrow$ $(z-x)^T(y-x)\leq 0, \forall y\in\&$}
 \begin{proposition}
     [Necessary and Sufficient Condition for Projection]
     Let $\&$ be a \underline{closed conex} subset of $\mathbb{R}^n$. Then,
     \begin{equation}
         \begin{aligned}
-            [\mathfrak{Z}]^\&=y^*
-            &\Leftrightarrow (y^*-\mathfrak{Z})^T(y-y^*)\geq 0,\quad \forall y\in\&.\\
-            &\Leftrightarrow (\mathfrak{Z}-y^*)^T(y-y^*)\leq 0,\quad \forall y\in\&.
+            [z]^\&=y^*
+            &\Leftrightarrow (y^*-z)^T(y-y^*)\geq 0,\quad \forall y\in\&.\\
+            &\Leftrightarrow (z-y^*)^T(y-y^*)\leq 0,\quad \forall y\in\&.
         \end{aligned}
         \nonumber
     \end{equation}
 \end{proposition}
 \begin{proof}
-    $[\mathfrak{Z}]^\& = \argmin_{y\in\&}g(y)$, with $g(y)=\|\mathfrak{Z}-y\|^2$ (which is strictly convex), $\nabla g(y)=2(y-\mathfrak{Z})$.
+    $[z]^\& = \argmin_{y\in\&}g(y)$, with $g(y)=\|z-y\|^2$ (which is strictly convex), $\nabla g(y)=2(y-z)$.
 
     By the optimality conditions,
     \begin{equation}
         \begin{aligned}
             &y^*\text{ is the unique minimizer of $g(y)$ over $\&$}\\
             \Leftrightarrow	& \nabla g(y^*)^T(y-y^*)\geq 0\quad \forall y\in\&\\
-            \Leftrightarrow & (y^*-\mathfrak{Z})^T(y-y^*)\geq 0,\quad \forall y\in\&.\\
-            \Leftrightarrow &(\mathfrak{Z}-y^*)^T(y-y^*)\leq 0,\quad \forall y\in\&.
+            \Leftrightarrow & (y^*-z)^T(y-y^*)\geq 0,\quad \forall y\in\&.\\
+            \Leftrightarrow &(z-y^*)^T(y-y^*)\leq 0,\quad \forall y\in\&.
         \end{aligned}
         \nonumber
     \end{equation}
@@ -2053,37 +2097,1540 @@ Therefore, $\min_{y\in\&}\|\&-y\|^2=\min_{y\in A}\|\&-y\|^2$ exists (Weierstrass
     \label{}
 \end{figure}\end{center}
 
+\subsubsection{Prop: Projection is non-expansive $\|[x]^\&-[z]^\&\|\leq \|x-z\|,\forall x,z\in \mathbb{R}^n$}
 \begin{proposition}
     [Projection is non-expansive]
-    Let $\&$ be a \underline{closed convex} subset of $\mathbb{R}^n$. Then for $x,\mathfrak{Z}\in \mathbb{R}^n$
-    $$\|[x]^\&-[\mathfrak{Z}]^\&\|\leq \|x-\mathfrak{Z}\|\quad \forall x,\mathfrak{Z}\in \mathbb{R}^n$$
+    Let $\&$ be a \underline{closed convex} subset of $\mathbb{R}^n$. Then for $x,z\in \mathbb{R}^n$
+    $$\|[x]^\&-[z]^\&\|\leq \|x-z\|\quad \forall x,z\in \mathbb{R}^n$$
 \end{proposition}
 \begin{proof}
 From previous theorem, we know
 \begin{equation}
     \begin{aligned}
         (1).\quad ([x]^\&-x)^T(y-[x]^\&)\geq 0,\quad \forall y\in\&.\\
-        (2).\quad ([\mathfrak{Z}]^\&-\mathfrak{Z})^T(y-[\mathfrak{Z}]^\&)\geq 0,\quad \forall y\in\&.\\
+        (2).\quad ([z]^\&-z)^T(y-[z]^\&)\geq 0,\quad \forall y\in\&.\\
     \end{aligned}
     \nonumber
 \end{equation}
-set $y=[\mathfrak{Z}]^\&$ in (1) and $y=[x]^\&$ in (2), and adding,
+set $y=[z]^\&$ in (1) and $y=[x]^\&$ in (2), and adding,
 \begin{equation}
     \begin{aligned}
-        &([\mathfrak{Z}]^\&-[x]^\&)^T([x]^\&-x+\mathfrak{Z}-[\mathfrak{Z}]^\&)\geq 0\\
-        \Rightarrow	& ([\mathfrak{Z}]^\&-[x]^\&)^T(\mathfrak{Z}-x)\geq \|[\mathfrak{Z}]^\&-[x]^\&\|^2
+        &([z]^\&-[x]^\&)^T([x]^\&-x+z-[z]^\&)\geq 0\\
+        \Rightarrow	& ([z]^\&-[x]^\&)^T(z-x)\geq \|[z]^\&-[x]^\&\|^2
     \end{aligned}
     \nonumber
 \end{equation}
 Applying Cauchy-schwary inequality,
 \begin{equation}
     \begin{aligned}
-        \|[\mathfrak{Z}]^\&-[x]^\&\|^2&\leq \|[\mathfrak{Z}]^\&-[x]^\&\|\|\mathfrak{Z}-x\|\\
-        \|[\mathfrak{Z}]^\&-[x]^\&\|&\leq \|\mathfrak{Z}-x\|
+        \|[z]^\&-[x]^\&\|^2&\leq \|[z]^\&-[x]^\&\|\|z-x\|\\
+        \|[z]^\&-[x]^\&\|&\leq \|z-x\|
     \end{aligned}
     \nonumber
 \end{equation}
 \end{proof}
+
+\subsection{Projection on (Linear) Subspaces of $\mathbb{R}^n$}
+\subsubsection{Orthogonality Principle in subspaces of $\mathbb{R}^n$: $(z-y^*)^Tx= 0,\forall x\in\&$}
+Suppose $\&$ is a linear subspace of $\mathbb{R}^n$, any linear combination of points in $\&$ is also in $\&$. Note that $\&$ is \underline{closed and convex}.
+
+Then, for $z\in \mathbb{R}^n$, $[z]^\&=y^*$ satisfies:
+\begin{equation}
+    \begin{aligned}
+        (z-y^*)^T(y-y^*)\leq 0,\quad \forall y\in\&.
+    \end{aligned}
+    \nonumber
+\end{equation}
+According to the property of subsapce, we can infer that
+\begin{equation}
+    \begin{aligned}
+        (z-y^*)^Tx\leq 0,\quad \forall x\in\&.
+    \end{aligned}
+    \nonumber
+\end{equation}
+$-x$ also in $\&$, $-x\in\& \Rightarrow$
+\begin{equation}
+    \begin{aligned}
+        (z-y^*)^Tx\geq 0,\quad \forall x\in\&.
+    \end{aligned}
+    \nonumber
+\end{equation}
+Then we can infer that
+\begin{equation}
+    \begin{aligned}
+        (z-y^*)^Tx= 0,\quad \forall x\in\&.
+    \end{aligned}
+    \nonumber
+\end{equation}
+which is called \underline{orthogonality principle}.
+
+\begin{center}\begin{figure}[htbp]
+    \centering
+    \includegraphics[scale=0.5]{proj1.png}
+    \caption{Point from $\mathbb{R}^2$ to $\mathbb{R}$}
+    \label{}
+\end{figure}\end{center}
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Gradient Projection Method}
+$\min_{x\in\&}f(x)$, $\&$ is convex and closed.
+$$x_{k+1}=[x_k+\alpha_k d_k]^\&$$
+\underline{Special Case}: Fixed step-size, steepest descent
+\begin{equation}
+    x_{k+1}=[x_k-\alpha \nabla f(x_k)]^\&
+\end{equation}
+\subsubsection{Def: \underline{fixed point} in fixed step-size steepest descent method, $\tilde{x}=[\tilde{x}-\alpha \nabla f(\tilde{x})]^\&$}
+\begin{definition}
+    $\tilde{x}$ is a \underline{fixed (stationary) point} of iteration in (1) if $$\tilde{x}=[\tilde{x}-\alpha \nabla f(\tilde{x})]^\&$$
+\end{definition}
+
+\subsubsection{Prop: $L-$smooth, $0<\alpha<\frac{2}{L}$ $\Rightarrow$ limit point is a fixed point (in fixed step-size steepest descent method)}
+\begin{proposition}
+    If $f$ has $L-$Lipschitz gradient and $0<\alpha<\frac{2}{L}$, every limit point of (1) is a fixed point of (1).
+\end{proposition}
+\begin{proof}
+By the Descent Lemma,
+\begin{equation}
+    f(x_{k+1})\leq f(x_k)+\nabla f(x_k)^T(x_{k+1}-x_k)+\frac{L}{2}\|x_{k+1}-x_k\|^2
+\end{equation}
+By the necessary and sufficient condition for projection,
+\begin{equation}
+    (x_k-\alpha \nabla f(x_k)-x_{k+1})^T(x-x_{k+1})\leq 0,\quad \forall x\in\&
+    \nonumber
+\end{equation}
+Set $x=x_k$ above
+\begin{equation}
+    \Rightarrow	\alpha \nabla f(x_k)^T(x_{k+1}-x_k)\leq -\|x_k-x_{k+1}\|^2
+\end{equation}
+According to (2) and (3), $$f(x_{k+1})-f(x_k)\leq (\frac{L}{2}-\frac{1}{\alpha})\|x_k-x_{k+1}\|^2$$ where $\frac{L}{2}-\frac{1}{\alpha}<0$
+
+If $\{x_k\}$ has limit point $\bar{x}$, $LHS \stackrel{k \rightarrow \infty}{\longrightarrow}0$ $$\|x_{k+1}-x_{k}\|\stackrel{k \rightarrow \infty}{\longrightarrow}0 \Rightarrow [\bar{x}-\alpha \nabla f(\bar{x})]^\&=\bar{x}$$
+\end{proof}
+
+\subsubsection{Prop: $x$ is minimizer in convex func $\Leftrightarrow$ fixed point (in fixed step-size steepest descent method)}
+\begin{proposition}
+    If $f$ is convex, then $x^*$ is a minimizer of $f$ over $\&$ $\Leftrightarrow$ $x^*=[x^*-\alpha \nabla f(x^*)]^\&$ (i.e., $x^*$ is a fixed point of (1))
+\end{proposition}
+\begin{proof}
+    \begin{equation}
+        \begin{aligned}
+            \text{$x^*$ is minimizer of convex $f$ over $\&$} &\Leftrightarrow \nabla f(x^*)^T(x-x^*)\geq 0,\forall x\in \&\\
+            &\Leftrightarrow -\alpha\nabla f(x^*)^T(x-x^*)\leq 0,\forall x\in \&\\
+            &\Leftrightarrow (x^*-\alpha\nabla f(x^*)-x^*)^T(x-x^*)\leq 0,\forall x\in \&\\
+            \text{(By Projection Theorem)}&\Leftrightarrow [x^*-\alpha\nabla f(x^*)]^\&=x^*\\
+        \end{aligned}
+        \nonumber
+    \end{equation}
+\end{proof}
+
+\subsubsection{Thm: Convergence of Gradient Projection: Convex, $L-$smooth, $0<\alpha<\frac{2}{L}$ $\Rightarrow$ $f(x_k)\rightarrow f(x^*)$ at rate $\frac{1}{k}$}
+\begin{theorem}
+    If $f$ is convex and $L-$Lipschitz gradient, it can be shown that for $0<\alpha<\frac{2}{L}$
+    $$f(x_k)\rightarrow f(x^*)\text{ at rate }\frac{1}{k}\text{(same as unconstrainted)}$$
+\end{theorem}
+
+\subsubsection{Thm: Strongly convex, Lipschitz gradient $\Rightarrow$ $\{x_k\}$ converges to $x^*$ geometrically}
+\begin{theorem}
+    If $f$ has Lipschitz gradient with Lipschitz constant $M$ and strongly convex with parameter $m$, $\{x_k\}$ converges to $x^*$ \textbf{geometrically}.
+\end{theorem}
+\begin{proof}
+$M-$smooth $\Rightarrow$ $$\|\nabla f(x)-\nabla f(y)\|\leq M\|x-y\|,\quad \forall x,y\in\&$$
+$m-$strongly convex $\Rightarrow$
+$$\nabla^2 f(x)\succeq mI,\quad \forall x\in\&$$
+$$(x-y)^T(\nabla f(x)-\nabla f(y))\geq m\|x-y\|^2\quad \forall x,y\in\&$$
+Let $x^*$ be the (unique) min of $f$ over $\&$
+\begin{equation}
+    \begin{aligned}
+        \|x_{k+1}-x^*\|^2&=\|[x_k-\alpha \nabla f(x_k)]^\&-x^*\|^2\\
+        (x^*\text{ is fixed point})\quad \quad &=\|[x_k-\alpha \nabla f(x_k)]^\&-[x^*-\alpha \nabla f(x^*)]^\&\|^2\\
+        (\text{non-expansive})\quad \quad &\leq \|(x_k-\alpha \nabla f(x_k))-(x^*-\alpha \nabla f(x^*))\|^2\\
+        &=\|(x_k-x^*)-\alpha( \nabla f(x_k)- \nabla f(x^*))\|^2\\
+        &=\|x_k-x^*\|^2+\alpha^2\|\nabla f(x_k)-\nabla f(x^*)\|^2-2\alpha(x_k-x^*)^T(\nabla f(x_k)-\nabla f(x^*))\\
+        (\nabla f\text{ is M-Lipschitz})\quad \quad &\leq \|x_k-x^*\|^2+\alpha^2M^2\|x_k-x^*\|^2-2\alpha(x_k-x^*)^T(\nabla f(x_k)-\nabla f(x^*))\\
+        (m-\text{strong convexity})\quad &\leq \|x_k-x^*\|^2+\alpha^2M^2\|x_k-x^*\|^2-2\alpha m\|x_k-x^*\|^2\\
+        &=(1+\alpha^2M^2-2\alpha m)\|x_k-x^*\|^2
+    \end{aligned}
+    \nonumber
+\end{equation}
+$$\|x_{k+1}-x^*\|^2\leq (1+\alpha^2M^2-2\alpha m)\|x_k-x^*\|^2$$
+If $|1+\alpha^2M^2-2\alpha m|<1$. Then $x_N \rightarrow x^*$ \textbf{geometrically} as $N \rightarrow \infty$. (Same as unconstrained case)
+\end{proof}
+
+
+
+\section{Optimization with Equality Constraints}
+\subsection{Basic}
+\begin{align*}
+    &\min\quad f(x)\\
+    &\begin{array}{r@{\quad}r@{}l@{\quad}l}
+    s.t.
+    &h(x)=0&\\
+\end{array}
+\end{align*}
+where $h(x)=0$ is a combination of $\left\{\begin{matrix}
+    h_1(x)=0\\
+    h_2(x)=0\\
+    \vdots\\
+    h_m(x)=0
+\end{matrix}\right.$. $f:\mathbb{R}^n \rightarrow \mathbb{R}, h_i:\mathbb{R}^n \rightarrow \mathbb{R}, h:\mathbb{R}^n \rightarrow \mathbb{R}^m$
+
+\underline{Note:} we usually assume 1. $h$ is coninuous, then $H=\{x:h(x)=0\}$ is closed but may not convex; 2. $h_i$ are consistent, i.e., $H$ is non-empty.
+
+\subsection{Lagrange Mutiplier Theorem}
+\subsubsection{First-order necessary condition: $\exists\lambda, \nabla f(x^*)+\sum_{i=1}^m\lambda_i \nabla h_i(x^*)=0$}
+We say the optimal solution is \underline{regular} if $\nabla h_i(x^*),i=1,...,m$ are linearily independent.
+\begin{theorem}[Lagrange Mutiplier Theorem: First-order necessary condition]
+    Let $x^*$ be a local-min of $f(x)$ subject to $h(x)=0$. Assume that $\nabla h_i(x^*),i=1,...,m$ are linearily independent. Then $\exists$ a unqiue $\lambda=(\lambda_1,\lambda_2,...,\lambda_m)$ s.t.
+    \begin{equation}
+        \nabla f(x^*)+\sum_{i=1}^m\lambda_i \nabla h_i(x^*)=0
+    \end{equation}
+\end{theorem}
+Remark: Since $x\in \mathbb{R}^n$, $m=n$ makes the equation trivial. We only consider $m<n$.
+\begin{proof}
+    Consider sequence of functions:
+    \begin{equation}
+        \begin{aligned}
+            g^{(k)}(x)=f(x)+\frac{k}{2}\|h(x)\|^2+\frac{\alpha}{2}\|x-x^*\|^2,\quad k=1,2,...
+        \end{aligned}
+        \nonumber
+    \end{equation}
+    $x^*$ local min of $f(x)$ over $H=\{x:h(x)=0\}$ $\Rightarrow$ $\exists\varepsilon>0$ s.t. $f(x^*)\leq f(x)$ for all $x\in H\cap \&$, where $\&=\{x:\|x-x^*\|\leq \varepsilon\}$.
+
+    According to the Weierstrass's Theorem, $\&\Rightarrow$ Optimal solution to $\min_{x\in\&}g^{(k)}(x)$ exists, we denote the optimal solution to be $x^{(k)}$.
+    \begin{lemma}
+        $x^{(k)}\rightarrow	x^*$ as $k \rightarrow \infty$
+    \end{lemma}
+    \begin{proof}
+        \begin{equation}
+            \begin{aligned}
+                g^{(k)}(x^{(k)})&=f(x^{(k)})+\frac{k}{2}\|h(x^{(k)})\|^2+\frac{\alpha}{2}\|x^{(k)}-x^*\|^2,\quad k=1,2,...\\
+                &\leq g^{(k)}(x^*)=f(x^*)
+            \end{aligned}
+            \nonumber
+        \end{equation}
+    Now since $f(x^{(k)})$ is bounded over $\&$, $\forall k$, we must have $\lim_{k \rightarrow	\infty}\|h(x^{(k)})\|=0$. Thus, every limit point of $x^{(k)}$, $\bar{x}$ must satisfy $h(\bar{x})=0$, i.e., $\bar{x}\in H$.
+    \begin{equation}
+        \begin{aligned}
+            &\Rightarrow	f(\bar{x})+\frac{\alpha}{2}\|\bar{x}-x^*\|^2\leq f(x^*)\\
+            (x^*\text{ is local-min, i.e., }f(x^*)\leq f(\bar{x}))\quad &\Rightarrow \bar{x}=x^*
+        \end{aligned}
+        \nonumber
+    \end{equation}
+    Thus $\lim_{k \rightarrow\infty}x^{(k)}=x^*$.
+    \end{proof}
+    According to the lemma, $x^{(k)}$ is an interior point of $\&$ for $k$ sufficiently large.
+
+    $\Rightarrow \nabla g^{(k)}(x^{(k)})=0$ for $k$ sufficiently large.
+    \begin{equation}
+        \begin{aligned}
+            g^{(k)}(x)&=f(x)+\frac{k}{2}\|h(x)\|^2+\frac{\alpha}{2}\|x-x^*\|^2\\
+            \nabla g^{(k)}(x)&=\nabla f(x)+k\sum_{i=1}^m h_i(x) \nabla h_i(x)+\alpha(x-x^*)\\
+        \end{aligned}
+        \nonumber
+    \end{equation}
+    Let $\nabla h(x)$ denote the combination of $\nabla h_i(x),i=1,...,m$
+    \begin{equation}
+        \begin{aligned}
+            0=&\nabla g^{(k)}(x^{(k)})=\nabla f(x^{(k)})+k\nabla h(x^{(k)})h(x^{(k)})+\alpha(x^{(k)}-x^*)\\
+            \Rightarrow	&k\nabla h(x^{(k)})h(x^{(k)})=-(\nabla f(x^{(k)})+\alpha(x^{(k)}-x^*))\\
+            \Rightarrow	&kh(x^{(k)})=-\left(\nabla h(x^{(k)})\right)^+(\nabla f(x^{(k)})+\alpha(x^{(k)}-x^*))\\
+            \Rightarrow	&\lim_{k \rightarrow \infty}kh(x^{(k)})=-\left(\nabla h(x^{*})\right)^+\nabla f(x^{*})\triangleq \lambda\\
+            &\text{(Uniqueness from uniqueness of limit)}
+        \end{aligned}
+        \nonumber
+    \end{equation}
+    Where $\left(\nabla h(x^{*})\right)^+$ is the pseudo-inverse of $\nabla h(x^{*})=(\nabla h(x^{*})^T\nabla h(x^{*}))^{-1}\nabla h(x^{*})^T$
+    Then
+    \begin{equation}
+        \begin{aligned}
+            \nabla f(x^*)+\sum_{i=1}^m\lambda_i \nabla h_i(x^*)=0
+        \end{aligned}
+        \nonumber
+    \end{equation}
+\end{proof}
+
+\subsubsection{Second-order necessary condition: $z^T\left(\nabla^2 f(x^*)+\sum_{i=1}^m\lambda_i \nabla^2 h_i(x^*)\right)z\geq 0,\forall z\in V(x^*)$}
+\begin{theorem}
+    With the unique $\lambda=(\lambda_1,\lambda_2,...,\lambda_m)$ satisfies $\nabla f(x^*)+\sum_{i=1}^m\lambda_i \nabla h_i(x^*)=0$, the second-order necessary condition is
+    \begin{equation}
+        \begin{aligned}
+            z^T\left(\nabla^2 f(x^*)+\sum_{i=1}^m\lambda_i \nabla^2 h_i(x^*)\right)z\geq 0,\quad \forall z\in V(x^*)
+        \end{aligned}
+        \nonumber
+    \end{equation}
+    where $V(x^*)=\{z:\nabla h_i(x^*)^Tz=0,i=1,...,m\}$.
+\end{theorem}
+\begin{proof}
+\begin{equation}
+    \begin{aligned}
+        \nabla g^{(k)}(x)&=\nabla f(x)+k\sum_{i=1}^m h_i(x) \nabla h_i(x)+\alpha(x-x^*)\\
+        \nabla^2 g^{(k)}(x)&=\nabla^2 f(x)+k\sum_{i=1}^m \nabla h_i(x) \nabla h_i(x)^T+k\sum_{i=1}^m h_i(x) \nabla^2 h_i(x)+\alpha I\\
+    \end{aligned}
+    \nonumber
+\end{equation}
+Since $x^{(k)}$ is the optimal value of unconstrained minimization of $g^{(k)}(x)$, we have $\nabla^2 g^{(k)}(x^{(k)})\succeq 0$. Then,
+\begin{equation}
+    \nabla^2 f(x)+k\sum_{i=1}^m \nabla h_i(x) \nabla h_i(x)^T+k\sum_{i=1}^m h_i(x) \nabla^2 h_i(x)+\alpha I\succeq 0
+\end{equation}
+Consider $z\in V(x^*)=\{z:\nabla h_i(x^*)^Tz=0,i=1,...,m\}$. Let
+\begin{equation}
+    \begin{aligned}
+        z^{(k)}&=z-\nabla h(x^{(k)})\left(\nabla h(x^{(k)})^T\nabla h(x^{(k)})\right)^{-1}\nabla h(x^{(k)})^Tz\\
+        &=z-\nabla h(x^{(k)})\left(\nabla h(x^{(k)})\right)^+z
+    \end{aligned}
+    \nonumber
+\end{equation}
+Multiply $\nabla h(x^{(k)})$
+\begin{equation}
+    \begin{aligned}
+        \nabla h(x^{(k)})^Tz^{(k)}&=0
+    \end{aligned}
+    \nonumber
+\end{equation}
+$(5)$ implies that
+\begin{equation}
+    \begin{aligned}
+        &(z^{(k)})^T\left(\nabla^2 f(x^{(k)})+k\sum_{i=1}^m \nabla h_i(x^{(k)}) \nabla h_i(x^{(k)})^T+k\sum_{i=1}^m h_i(x^{(k)}) \nabla^2 h_i(x^{(k)})+\alpha I\right)z^{(k)}\\
+        =&(z^{(k)})^T\left(\nabla^2 f(x^{(k)})+k\sum_{i=1}^m h_i(x^{(k)}) \nabla^2 h_i(x^{(k)})+\alpha I\right)z^{(k)}\geq 0
+    \end{aligned}
+    \nonumber
+\end{equation}
+As $k \rightarrow \infty$, $x^{(k)} \rightarrow	x^*$, $kh(x^{(k)})\rightarrow-\left(\nabla h(x^{*})\right)^+\nabla f(x^{*})\triangleq \lambda$ (is proved in first-order necessary condition part), and $z^{(k)}\rightarrow	z$, then
+\begin{equation}
+    \begin{aligned}
+        &z^T\left(\nabla^2 f(x^*)+\sum_{i=1}^m\lambda_i \nabla^2 h_i(x^*)+\alpha I\right)z\geq 0,\quad \forall z\in V(x^*)\\
+        &\text{Taking }\alpha \rightarrow 0,\\
+        &z^T\left(\nabla^2 f(x^*)+\sum_{i=1}^m\lambda_i \nabla^2 h_i(x^*)\right)z\geq 0,\quad \forall z\in V(x^*)\\
+    \end{aligned}
+    \nonumber
+\end{equation}
+\end{proof}
+
+\subsubsection{Sufficient Condition: $\exists\lambda$ 1. $\nabla f(x^*)+\sum_{i=1}^m\lambda_i \nabla h_i(x^*)=0$ 2. $z^T\left(\nabla^2 f(x^*)+\sum_{i=1}^m\lambda_i \nabla^2 h_i(x^*)\right)z> 0,\forall z\in V(x^*),z\neq 0$}
+\begin{theorem}
+    \underline{Sufficient condition}: For $x^*$ that is feasible and regular, if $\exists \lambda$ s.t.
+    \begin{equation}
+        \nabla f(x^*)+\sum_{i=1}^m\lambda_i \nabla h_i(x^*)=0
+        \nonumber
+    \end{equation}
+    and
+    \begin{equation}
+        \begin{aligned}
+            z^T\left(\nabla^2 f(x^*)+\sum_{i=1}^m\lambda_i \nabla^2 h_i(x^*)\right)z> 0,\quad \forall z\in V(x^*),z\neq 0
+        \end{aligned}
+        \nonumber
+    \end{equation}
+    Then $x^*$ is a (strict) local min for \begin{align*}
+        &\min\quad f(x)\\
+        &\begin{array}{r@{\quad}r@{}l@{\quad}l}
+        s.t.
+        &h(x)=0&\\
+    \end{array}
+    \end{align*}
+\end{theorem}
+\textbf{Note:}
+\begin{enumerate}[(1)]
+    \item If $f$ is \underline{convex} and $H=\{x:h(x)=0\}$ is \underline{convex and closed}. Therefore $x^*$ is also global-min.
+    \item If $f$ is \underline{coercive} and $H=\{x:h(x)=0\}$ is \underline{closed}. Therefore $f$ can attain its global-min on $\&$, we just find the minimal local-min.
+\end{enumerate}
+
+
+\subsubsection{Lagrangian Function}
+\underline{Lagrangian Function}:
+\begin{equation}
+    \begin{aligned}
+        L(x,\lambda)\triangleq f(x)+\sum_{i=1}^m\lambda_i h_i(x)
+    \end{aligned}
+    \nonumber
+\end{equation}
+Then the \underline{necessary condition} can be rewrote to
+\begin{equation}
+    \begin{aligned}
+        &\text{First-order:} &
+        \left.\begin{matrix}
+            \nabla_x L(x^*,\lambda)&=0\\
+            h(x^*)=\nabla_\lambda L(x^*,\lambda)&=0
+        \end{matrix}\right\}&m+n\text{ equations in total}\\
+        &\text{Second-order:} &z^T \nabla_{xx}^2L(x^*,\lambda)z\geq 0,&\quad\forall z\in V(x^*)
+    \end{aligned}
+    \nonumber
+\end{equation}
+The \underline{sufficient condition} can be rewrote to
+\begin{equation}
+    \begin{aligned}
+        &\text{First-order:} &
+        \nabla_x L(x^*,\lambda)&=0\\
+        &\text{Second-order:} &z^T \nabla_{xx}^2L(x^*,\lambda)z&> 0,\quad\forall z\in V(x^*),z\neq 0
+    \end{aligned}
+    \nonumber
+\end{equation}
+
+\subsubsection{Example}
+\begin{example}
+    \begin{align*}
+        &\min\quad \frac{1}{2}(x_1^2+x_2^2+x_3^2)\\
+        &\begin{array}{r@{\quad}r@{}l@{\quad}l}
+        s.t.
+        &x_1+x_2+x_3=3&\\
+    \end{array} .
+    \end{align*}
+\end{example}
+\begin{equation}
+    \begin{aligned}
+        h(x)&=x_1+x_2+x_3-3\\
+        L(x,\lambda)&=\frac{1}{2}(x_1^2+x_2^2+x_3^2)+\lambda(x_1+x_2+x_3-3)\\
+        \nabla_x L(x,\lambda)&=\left[x_1+\lambda,x_2+\lambda,x_3+\lambda\right]^T\\
+        \nabla_{xx}^2 L(x,\lambda)&=I_{3\times 3}\\
+    \end{aligned}
+    \nonumber
+\end{equation}
+First order condition:
+\begin{equation}
+    \begin{aligned}
+        \nabla_x L(x^*,\lambda)&=\left[x^*_1+\lambda,x^*_2+\lambda,x^*_3+\lambda\right]^T=0\\
+        \Rightarrow	x^*&= [-\lambda,-\lambda,-\lambda]\\
+        h(x^*)&=x^*_1+x^*_2+x^*_3-3=0\\
+        \Rightarrow	x^*&= [1,1,1]\\
+    \end{aligned}
+    \nonumber
+\end{equation}
+And $\nabla_{xx}^2 L(x,\lambda)\succ 0$, then $x^*= [1,1,1]$ is local-min.
+
+\textbf{Note:} Since $f(x)=\frac{1}{2}(x_1^2+x_2^2+x_3^2)$ is coercive on $H=\{x:x_1+x_2+x_3=3\}$ and $H=\{x:x_1+x_2+x_3=3\}$ is closed $\Rightarrow$ $f$ achieves its global min on $H$. $x^*= [1,1,1]$ is the unique local min, so it is also \underline{global-min}.
+
+\subsubsection{Sensitivity Analysis $f(x^*(u))=f(x^*)-\lambda^Tu+O(\|u\|)$}
+As constants of constraints change, how will the optimal value change?
+\begin{align*}
+    &\min\quad f(x)\\
+    &\begin{array}{r@{\quad}r@{}l@{\quad}l}
+    s.t.
+    &h(x)=u&\\
+\end{array}
+\end{align*}
+\begin{claim}
+    $$f(x^*(u))=f(x^*)-\lambda^Tu+O(\|u\|)$$
+\end{claim}
+\begin{proof}
+    Let $p(u)=f(x^*(u))$, $p(0)=f(x^*(0))=f(x^*)$
+
+    First-order necessary condition:
+    \begin{equation}
+        \begin{aligned}
+            \nabla f(x^*(u))+\sum_{i=1}^m\lambda_i(u) \nabla h_i(x^*(u))=0\\
+            \Rightarrow	\frac{\partial f(x^*(u))}{\partial x_k}=-\sum_{i=1}^m\lambda_i(u) \frac{\partial h_i(x^*(u))}{\partial x_k}
+        \nonumber
+        \end{aligned}
+        \nonumber
+    \end{equation}
+
+    \begin{equation}
+        \begin{aligned}
+            \frac{\partial p(u)}{\partial u_j}=\frac{\partial f(x^*(u))}{\partial u_j}&=\sum_{k=1}^n\frac{\partial f(x^*(u))}{\partial x_k}\frac{\partial x_k^*(u)}{\partial u_j}\\
+            &=-\sum_{k=1}^n\sum_{i=1}^m\lambda_i(u) \frac{\partial h_i(x^*(u))}{\partial x_k}\frac{\partial x_k^*(u)}{\partial u_j}\\
+            &=-\sum_{i=1}^m\lambda_i(u) \frac{\partial h_i(x^*(u))}{\partial u_j}\\
+            (h_i=u_i)\quad &=\lambda_j(u)
+        \end{aligned}
+        \nonumber
+    \end{equation}
+Then we can conclude that
+\begin{equation}
+    \begin{aligned}
+        \nabla p(u)&=-\lambda(u)\\
+        \Rightarrow	\nabla p(0)&=-\lambda\\
+        \Rightarrow	f(x^*(u))&=f(x^*)+\nabla p(0)(u-0)+O(\|u\|)\\
+        &=f(x^*)-\lambda^Tu+O(\|u\|)\\
+    \end{aligned}
+    \nonumber
+\end{equation}
+\end{proof}
+
+\subsubsection{Linear Constraints}
+\begin{align*}
+    &\min\quad f(x)\\
+    &\begin{array}{r@{\quad}r@{}l@{\quad}l}
+    s.t.
+    &Ax=b&\\
+\end{array}
+\end{align*}
+where $A=\left[a_1,a_2,...,a_m\right]^T$, $b=[b_1,b_2,...,b_m]^T$. $h_i(x)=a_i^Tx-b_i,i=1,...,m$, $\nabla h_i(x)=a_i$.
+\begin{equation}
+    \begin{aligned}
+        L(x,\lambda)&=f(x)+\sum_{i=1}^m\lambda_i(a_i^Tx-b_i)\\
+        \nabla_x L(x,\lambda)&=\nabla f(x)+\sum_{i=1}^m\lambda_ia_i\\
+        \nabla^2_{xx} L(x,\lambda)&=\nabla^2 f(x)
+    \end{aligned}
+    \nonumber
+\end{equation}
+Then, the first order condition can be reworte to
+\begin{equation}
+    \begin{aligned}
+        &\nabla f(x^*)+\sum_{i=1}^m\lambda_i \nabla h_i(x^*)=0\\
+        \Leftrightarrow	&\sum_{i=1}^m\lambda_i a_i=-\nabla f(x^*)\\
+        \Leftrightarrow	&A^T\lambda=-\nabla f(x^*)\\
+    \end{aligned}
+    \nonumber
+\end{equation}
+Also, $Ax^*=b$. If $m=n$, there will unique $x^*=A^{-1}b$. If $m<n$,
+\begin{center}
+    \fcolorbox{black}{gray!10}{\parbox{.9\linewidth}{\begin{enumerate}[Step (1)]
+        \item We compute first-order condition:
+        \begin{equation}
+            \begin{aligned}
+                \left.\begin{matrix}
+                    A^T\lambda+\nabla f(x^*)&=0\\
+                    Ax^*&=b
+                \end{matrix}\right\}\ m+n\text{ equations}
+            \end{aligned}
+            \nonumber
+        \end{equation}
+        \item Check sufficient conditions (second-order):
+        Check: $$z^T\nabla^2 f(x)z>0$$ $\forall z\neq 0$ s.t. $a_i^Tz=0,i=1,...,m$
+    \end{enumerate}}}
+\end{center}
+
+\begin{example}
+    \begin{align*}
+        &\min\quad -(x_1x_2+x_2x_3+x_1x_3)\\
+        &\begin{array}{r@{\quad}r@{}l@{\quad}l}
+        s.t.\quad 
+        x_1+x_2&=2\\
+        x_2+x_3&=1
+    \end{array}
+    \end{align*}
+\end{example}
+$A=\begin{bmatrix}
+    1&	1&0\\
+    0&	1&1
+\end{bmatrix}$, $b=\begin{bmatrix}
+    2\\
+    1
+\end{bmatrix}$, $\nabla f(x)=-\begin{bmatrix}
+    x_2+x_3\\
+    x_1+x_3\\
+    x_1+x_2
+\end{bmatrix}$
+
+Solve $$\left\{\begin{matrix}
+    A^T\lambda+\nabla f(x^*)&=0\\
+    Ax^*&=b
+\end{matrix}\right. \Rightarrow	x_1^*=2,x_2^*=0,x_3^*=1$$
+Check second order condition for $x^*=(2,0,1)$:
+\begin{equation}
+    \begin{aligned}
+        \nabla^2_{xx} L(x,\lambda)&=\nabla^2 f(x)\\
+        &=\begin{bmatrix}
+            0&-1&-1\\
+            -1&0&-1\\
+            -1&-1&0
+        \end{bmatrix}
+    \end{aligned}
+    \nonumber
+\end{equation}
+$\nabla^2_{xx} L(x,\lambda)$ is not PD or PSD. But we only need $z^T\nabla^2 f(x)z>0$ $\forall z\neq 0$ s.t. $a_i^Tz=0,i=1,2$
+\begin{equation}
+    \begin{aligned}
+        Az=\begin{bmatrix}
+            z_1+z_2\\
+            z_2+z_3
+        \end{bmatrix}=0 \Rightarrow	\left\{\begin{matrix}
+            z_1=-z_2\\
+            z_3=-z_2
+        \end{matrix}\right.
+    \end{aligned}
+    \nonumber
+\end{equation}
+\begin{equation}
+    \begin{aligned}
+        z^T\nabla^2 f(x)z&=-2(z_1z_2+z_2z_3+z_1z_3)\\
+        &=2z_2^2>0\quad z\neq0
+    \end{aligned}
+    \nonumber
+\end{equation}
+Thus $x^*=(2,0,1)$ is a local-min.
+
+\begin{equation}
+    \begin{aligned}
+        f(x)&=-(x_1x_2+x_2x_3+x_1x_3)\\
+        \text{with }h(x)=0\quad &=x_2^2-2
+    \end{aligned}
+    \nonumber
+\end{equation}
+$f$ is coercive on $H=\{x:h(x)=0\}$ which is closed. Then $f$ achieves its global min on $H$. Hence, $x^*=(2,0,1)$ is the \underline{global min} of $f(x)$ on $H$.
+
+\section{Optimization with Inequality Constraints}
+\subsection{Basic}
+Inequality Constraints Problem (ICP)
+\begin{align*}
+    &\min\quad f(x)\\
+    &\begin{array}{r@{\quad}r@{}l@{\quad}l}
+    s.t.
+    &h(x)=0&\\
+    &g(x)\leq 0&\\
+\end{array}
+\end{align*}
+where $h(x)=0$ is a combination of $h_i(x)=0,i=1,...,m$ and $g(x)\leq 0$ is a combination of $g_j(x)\leq 0,j=1,...,r$. $f:\mathbb{R}^n \rightarrow \mathbb{R}, h:\mathbb{R}^n \rightarrow \mathbb{R}^m, g:\mathbb{R}^n \rightarrow \mathbb{R}^r$
+
+\subsubsection{Active vs. Inactive Inequality Constraints}
+The constraint $g_j(x)\leq 0$ is said to be \underline{active} at $x$ if $g_j(x)=0$, and \underline{inactive} if $g_j(x)<0$. We set the set of active inequality constraints $A(x)=\{j\in\{1,...,r\}:g_j(x)=0\}$
+
+\subsubsection{ICP $\rightarrow$ ECP}
+\underline{Claim}: If $x^*$ is a local min for ICP, then $x^*$ is also a local min for ECP:
+\begin{align*}
+    &\min\quad f(x)\\
+    &\begin{array}{r@{\quad}r@{}l@{\quad}l}
+    s.t.
+    &h_i(x)=0\quad&i=1,...,m\\
+    &g_j(x)= 0\quad&j\in A(x^*)\\
+\end{array}
+\end{align*}
+
+If $x^*$ is regular for the ECP, i.e., if $\nabla h_i(x^*),i=1,...,m$ and $\nabla g_j(x^*),j=1,...,r$ are linearly independent, then $\exists$ $\lambda_i,i=1,...,m$, $\mu_j,j\in A(x^*)$ s.t.
+\begin{equation}
+    \begin{aligned}
+        \nabla f(x^*)+\sum_{i=1}^m\lambda_i \nabla h_i(x^*)+\sum_{j\in A(x^*)}\mu_j \nabla g_j(x^*)=0
+    \end{aligned}
+    \nonumber
+\end{equation}
+
+\subsubsection{Intuition $\mu_j\geq 0, \forall j\in A(x^*)$}
+Consider $g_j(x)\leq 0$ is changed to $g_j(x)\leq u_j$. Then $f(x^*(u_j))\leq f(x^*)$ because of the larger set.
+
+Then, if $j\in A(x^*)$, then $g(x^*)=0$,
+\begin{equation}
+    \begin{aligned}
+        &f(x^*(u_j))=f(x^*)-\mu_ju_j+O(u_j)\\
+        \Rightarrow	& -\mu_j u_j+O(u_j)=f(x^*(u_j))-f(x^*)\leq 0
+    \end{aligned}
+    \nonumber
+\end{equation}
+Dividing by $u_j$ and letting $u_j \rightarrow 0 \Rightarrow \mu_j\geq 0$
+
+\subsubsection{Complementary Slackness}
+\begin{equation}
+    \begin{aligned}
+        &\mu_j=0\quad \forall j\notin A(x^*)\\
+        \Leftrightarrow & \mu_j=0\quad \text{whenever }g_j(x^*)<0, j=1,...,r\\
+        \Leftrightarrow & \mu_jg_j(x^*)=0,\quad j=1,...,r
+    \end{aligned}
+    \nonumber
+\end{equation}
+
+\subsection{Karush–Kuhn–Tucker (KKT) Necessary Conditions}
+Largrangian Function for ICP:
+\begin{equation}
+    \begin{aligned}
+        L(x,\lambda,\mu)=f(x)+\sum_{i=1}^m\lambda_i h_i(x)+\sum_{j=1}^r\mu_j g_j(x)
+    \end{aligned}
+    \nonumber
+\end{equation}
+\begin{proposition}[KKT]
+    Let $x^*$ be a \underline{local min of (ICP)} and assume that $x^*$ is regular for (ECP). Then $\exists$ unique largrange multipliers $\lambda=(\lambda_1,...,\lambda_m)$ and $\mu=(\mu_1,...,\mu_r)$ s.t.
+    \begin{equation}
+        \begin{aligned}
+            \nabla_xL(x^*,\lambda,\mu)=0\\
+            \mu_j\geq 0,\ j=1,...,r\\
+            \mu_j=0,\ \forall j\notin A(x^*)
+        \end{aligned}
+        \nonumber
+    \end{equation}
+If $f,h_i,g_j$ are twice continuously differentiable, then $$y^T \nabla^2_{xx}L(x^*,\lambda,\mu)y\geq 0$$
+$\forall y\in \mathbb{R}^n$, $\nabla h_i(x^*)^Ty=0,i=1,...,m$, $\nabla g_j(x^*)^Ty=0,\forall j\in A(x^*)$
+\end{proposition}
+
+\begin{proof}
+Convert (ICP) to:
+\begin{align*}
+    &\min\quad f(x)\\
+    &\begin{array}{r@{\quad}r@{}l@{\quad}l}
+    s.t.
+    &h_i(x)=0\quad&i=1,...,m\\
+    &g_j(x)+z_j^2=0\quad&j=1,...,r\\
+\end{array}
+\end{align*}
+Auxilliary valiables $z=(z_1,...,z_r),z_j\geq 0$.
+
+Let $x^*$ be a local min. For (ICP), then $(x^*,z^*)$ is a local min. $$z_j^*=(-g_j(x^*))^\frac{1}{2},\quad j=1,...,r$$
+
+We can consider the optimization problem over $x$ and $z=(z_1,...,z_r)$. Define Lagrangian:
+\begin{equation}
+    \begin{aligned}
+        L(x,z,\lambda,\mu)=f(x)+\sum_{i=1}^m\lambda_i h_i(x)+\sum_{j=1}^r\mu_j g_j(x)+\sum_{j=1}^r\mu_j z_j^2
+    \end{aligned}
+    \nonumber
+\end{equation}
+\begin{enumerate}[(1)]
+    \item \underline{First-order necessary condition}
+    
+    From first-order necessary condition of optimization over $x$ and $z$: assuming $(x^*,z^*)$ is regular,
+    \begin{equation}
+        \begin{aligned}
+            &\nabla L(x^*,z^*,\lambda,\mu)=0\quad \text{Note: $\nabla$ r.t. both $x$ and $z$}\\
+            \Rightarrow	&
+            \left\{\begin{matrix}
+                &\nabla_x f(x^*)+\sum_{i=1}^m \lambda_i \nabla_x h_i(x^*)+\sum_{j=1}^r \mu_j \nabla_x g_j(x^*)=0\\
+                &\sum_{j=1}^r \mu_j \nabla_z (z_j^2)|_{z=z^*}=0
+            \end{matrix}\right.\\
+            \Rightarrow	&
+            \left\{\begin{matrix}
+                &\nabla_x L(x^*,\lambda,\mu)=0\\
+                &\mu_jz_j^*=0,\quad j=1,..,r
+            \end{matrix}\right.
+        \end{aligned}
+        \nonumber
+    \end{equation}
+    Since $z_j^*=(-g_j(x^*))^{\frac{1}{2}}>0,\forall j\notin A(x^*)$ $\Rightarrow \mu_j=0$ for $j\notin A(x^*)$
+    \item \underline{Second-order necessary condition}
+    $$\begin{bmatrix}
+        y\\
+        \omega
+    \end{bmatrix}^T \nabla^2L(x^*,z^*,\lambda,\mu)\begin{bmatrix}
+        y\\
+        \omega
+    \end{bmatrix}\geq 0$$
+    $\forall y\in \mathbb{R}^n$, $\nabla_x h_i(x^*)^Ty=0,i=1,...,m$, $\nabla_x g_j(x^*)^Ty+2z_j^*\omega_j=0,j=1,...,r$
+    \begin{equation}
+        \begin{aligned}
+            \nabla^2 L(x,z,\lambda,\mu)=\begin{bmatrix}
+                \nabla^2_{xx} L(x,\lambda,\mu)&0&0&\cdots&0\\
+                0&2\mu_1&0&\cdots&0\\
+                0&0&2\mu_2&\cdots&0\\
+                \vdots&\ddots&\ddots&\ddots&\vdots\\
+                0&\cdots&\cdots&0&2\mu_r
+            \end{bmatrix}_{(n+r)\times(n+r)}
+        \end{aligned}
+        \nonumber
+    \end{equation}
+    For every $j\in A(x^*)$ select $(y,\omega)$ with $y=0,\omega_j\neq 0$ and $\omega_k=0,\forall k\neq j$.
+    
+    Then $(y,\omega)$ satisfies $\nabla h_i(x^*)^Ty=0,i=1,...,m$ and $\nabla g_k(x^*)^Ty+2z^*_k\omega_k=0,\forall k\neq j$ and $\nabla g_j(x^*)^Ty+2z_j^*\omega_j=0$ (since $z_j^*=0,\forall j\in A(x^*)$)
+    Thus, for the choice of $(y,\omega)$
+    \begin{equation}
+        \begin{aligned}
+            \begin{bmatrix}
+                y\\
+                \omega
+            \end{bmatrix}^T \nabla^2L(x^*,z^*,\lambda,\mu)\begin{bmatrix}
+                y\\
+                \omega
+            \end{bmatrix}=2\mu_j\omega_j^2\geq 0 \Rightarrow \mu_j\geq 0
+        \end{aligned}
+        \nonumber
+    \end{equation}
+    Similarly we can show $\mu_j\geq 0,\forall j\in A(x^*)$
+
+    Now choose $y\in \mathbb{R}^n$ s.t. $$\nabla_x h_i(x^*)^T y=0,\quad i=1,...,m,\quad \nabla_x g_j(x^*)^T y=0,\forall j\in A(x^*)$$
+    and $\omega$ s.t.
+    \begin{equation}
+        \begin{aligned}
+            \omega_j=\left\{\begin{matrix}
+                0&\text{ if }j\in A(x^*)\\
+                -\frac{\nabla_x g_j(x^*)^T y}{2z_j^*}&\text{ if }j\notin A(x^*)
+            \end{matrix}\right.
+        \end{aligned}
+        \nonumber
+    \end{equation}
+    Thus $\nabla_x g_j(x^*)^T y+2z_j^*\omega_j=0\quad \forall j=1,...,r$.
+    
+    Since $\omega_j=0,\forall j\in A(x^*)$ and $\mu_j=0,\forall j\notin A(x^*)$ $\Rightarrow \mu_j\omega_j=0,\forall j=1,...,r$.
+
+    Then, for the above choive of $(y,\omega)$:
+    \begin{equation}
+        \begin{aligned}
+            \begin{bmatrix}
+                y\\
+                \omega
+            \end{bmatrix}^T \nabla^2L(x^*,z^*,\lambda,\mu)\begin{bmatrix}
+                y\\
+                \omega
+            \end{bmatrix}\geq 0\\
+            \Rightarrow	 y^T \nabla^2_{xx}L(x^*,\lambda,\mu)y\geq 0
+        \end{aligned}
+        \nonumber
+    \end{equation}
+\end{enumerate}
+
+\end{proof}
+
+\subsection{Karush–Kuhn–Tucker (KKT) Sufficient Conditions}
+\begin{proposition}[KKT]
+    Suppose $x^*,\lambda,\mu$ satify the first order necessary condition i.e., $\exists$ unique largrange multipliers $\lambda=(\lambda_1,...,\lambda_m)$ and $\mu=(\mu_1,...,\mu_r)$ s.t.
+    \begin{equation}
+        \begin{aligned}
+            \nabla_xL(x^*,\lambda,\mu)=0\\
+            \mu_j\geq 0,\ j=1,...,r\\
+            \mu_j=0,\ \forall j\notin A(x^*)
+        \end{aligned}
+        \nonumber
+    \end{equation}
+    and in addition $$\mu_j {\color{red} >0},\quad \forall j\in A(x^*)$$
+    and $$y^T \nabla^2_{xx}L(x^*,\lambda,\mu)y{\color{red} >0}$$
+    $\forall y\neq 0$, $\nabla h_i(x^*)^Ty=0,i=1,...,m$, $\nabla g_j(x^*)^Ty=0,\forall j\in A(x^*)$
+
+    Then $x^*$ is a (strict) local min of (ICP).
+\end{proposition}
+\begin{example}
+    \begin{align*}
+        &\min\quad 2x_1^2+2x_1x_2+x_2^2-10x_1-10x_2\\
+        &\begin{array}{r@{\quad}r@{}l@{\quad}l}
+        s.t.
+        &x_1^2+x_2^2&\leq 5\\
+        &3x_1+x_2&\leq 6\\
+    \end{array}
+    \end{align*}
+\end{example}
+\begin{equation}
+    \begin{aligned}
+        f(x)&=2x_1^2+2x_1x_2+x_2^2-10x_1-10x_2\\
+        g_1(x)&=x_1^2+x_2^2-5,\quad g_2(x)=3x_1+x_2-6
+    \end{aligned}
+    \nonumber
+\end{equation}
+
+\begin{equation}
+    \begin{aligned}
+        \nabla f(x)=\begin{bmatrix}
+            4x_1+2x_2-10\\
+            2x_1+2x_2-10
+        \end{bmatrix}
+    \end{aligned},
+    \begin{aligned}
+        \nabla g_1(x)=\begin{bmatrix}
+            2x_1\\
+            2x_2
+        \end{bmatrix}
+    \end{aligned},
+    \begin{aligned}
+        \nabla g_2(x)=\begin{bmatrix}
+            3\\
+            1
+        \end{bmatrix}
+    \end{aligned}
+    \nonumber
+\end{equation}
+\begin{enumerate}[$\bullet$]
+    \item \underline{KKT First-order Necessary Condition}: $g_1(x^*)\leq 0$, $g_2(x^*)\leq 0$, assuming $x^*$ regular,
+    \begin{equation}
+        \begin{aligned}
+            \nabla L(x^*,\mu)=\nabla f(x^*)+\mu_1 \nabla g_1(x^*)+\mu_2 \nabla g_2(x^*)=0\\
+            \begin{aligned}
+                \begin{bmatrix}
+                    (4+2\mu_1)x^*_1+2x^*_2+3\mu_2-10\\
+                    2x^*_1+(2+2\mu_1)x^*_2+\mu_2-10
+                \end{bmatrix}
+            \end{aligned}=0\\
+            \mu_1\geq 0,\quad \mu_2\geq 0\\
+            \mu_1g_1(x^*)=0,\quad \mu_2g_2(x^*)=0\\
+            \mu_1((x_1^*)^2+(x_2^*)^2-5)=\mu_2(3x^*_1+x^*_2-6)=0
+        \end{aligned}
+        \nonumber
+    \end{equation}
+    We don't know which constraints are active. We \textit{check all possibilities}.
+    \begin{enumerate}[(1)]
+        \item (1 is inactive, 2 is inactive): $\mu_1=\mu_2=0$ (no need to check for regularity)
+        \begin{equation}
+            \begin{aligned}
+                \nabla f(x)=0 \Rightarrow x_1=0,x_2=5
+            \end{aligned}
+            \nonumber
+        \end{equation}
+        which contradicts to $x_1^2+x_2^2\leq 5$.
+        \item (1 is inactive, 2 is active), i.e., $\mu_1=0$
+        \begin{equation}
+            \begin{aligned}
+                \begin{aligned}
+                    \nabla g_2(x)=\begin{bmatrix}
+                        3\\
+                        1
+                    \end{bmatrix}
+                \end{aligned}
+            \end{aligned}\Rightarrow \text{ all feasible $x$ are regular}
+            \nonumber
+        \end{equation}
+        \begin{equation}
+            \begin{aligned}
+                \nabla L(x,\mu)&=\nabla f(x)+\mu_2 \nabla g_2(x)=0\\
+                &\Rightarrow \left.\begin{matrix}
+                   4x_1+2x_2+3\mu_2-10&=0\\
+                   2x_1+2x_2+\mu_2-10&=0\\
+                   g_2(x)=0 \Rightarrow 3x_1+x_2-6&=0
+                \end{matrix}\right\}\Rightarrow	\left\{\begin{matrix}
+                    x_1&=\frac{2}{5}\\
+                    x_2&=\frac{24}{5}\\
+                    \mu_2&=-\frac{2}{5}
+                \end{matrix}\right.
+            \end{aligned}
+            \nonumber
+        \end{equation}
+        But $\mu_2<0$ not allowed $\Rightarrow$ solution invalid.
+        \item (1 is active, 2 is inactive): $\mu_2=0$
+        \begin{equation}
+            \begin{aligned}
+                \begin{aligned}
+                    \nabla g_1(x)=\begin{bmatrix}
+                        2x_1\\
+                        2x_2
+                    \end{bmatrix}
+                \end{aligned}
+            \end{aligned}\Rightarrow \text{ all $x\neq 0$ are regular}
+            \nonumber
+        \end{equation}
+        \begin{equation}
+            \begin{aligned}
+                \nabla L(x,\mu)&=\nabla f(x)+\mu_1 \nabla g_1(x)=0\\
+                &\Rightarrow \left.\begin{matrix}
+                   (4+2\mu_1)x_1+2x_2-10&=0\\
+                   2x_1+(2+2\mu_1)x_2-10&=0\\
+                   g_1(x)=0 \Rightarrow x_1^2+x_2^2-5&=0
+                \end{matrix}\right\}\Rightarrow	\left\{\begin{matrix}
+                    x_1&=1\\
+                    x_2&=2\\
+                  \mu_1&=1
+                \end{matrix}\right.
+            \end{aligned}
+            \nonumber
+        \end{equation}
+        \underline{check}: $x^*=(1,2)$ is regular (since $\neq 0$)
+        \begin{equation}
+            \begin{aligned}
+                g_1(x^*)=1+4-5=0\\
+                g_2(x^*)=3+2-6=-1<0
+            \end{aligned}
+            \nonumber
+        \end{equation}
+        Hence, $x^*=(1,2)$, $\mu=(1,0)$ satisfy $1^{st}$ order KKT.
+        \item (1 is active, 2 is active)
+        
+        $\begin{aligned}
+            \nabla g_1(x)=\begin{bmatrix}
+                2x_1\\
+                2x_2
+            \end{bmatrix}
+        \end{aligned}$ and $\begin{aligned}
+            \nabla g_2(x)=\begin{bmatrix}
+                3\\
+                1
+            \end{bmatrix}
+        \end{aligned}$ are linearly independent if as $x\neq 0,\ x_1\neq 3x_2$. But $x=0$ doesn't satisfy $g$ But $x=0$ doesn't satisfy either $g_1(x)=0$ or $g_2(x)=0$, and $x_1=3x_2$ can't satisfy $g_1(x)=0,g_2(x)=0$ at the same time. Hence, all feasible $x$ in this case are regular.
+        \begin{equation}
+            \begin{aligned}
+                \nabla L(x,\mu)&=\nabla f(x)+\mu_1 \nabla g_1(x)+\mu_2 \nabla g_2(x)=0\\
+                &\Rightarrow \left.\begin{matrix}
+                   (4+2\mu_1)x_1+2x_2+3\mu_2-10&=0\\
+                   2x_1+(2+2\mu_1)x_2+\mu_2-10&=0\\
+                   g_1(x)=0 \Rightarrow x_1^2+x_2^2-5&=0\\
+                   g_2(x)=0 \Rightarrow 3x_1+x_2-6&=0
+                \end{matrix}\right\}\Rightarrow	\left\{\begin{matrix}
+                    x_1&=2.2\\
+                    x_2&=-0.5\\
+                  \mu_1&=-2.4\\
+                  \mu_2&=4.2
+                \end{matrix}\right.\text{ or }\left\{\begin{matrix}
+                    x_1&=1.4\\
+                    x_2&=1.7\\
+                  \mu_1&=1.4\\
+                  \mu_2&=-1.0
+                \end{matrix}\right.
+            \end{aligned}
+            \nonumber
+        \end{equation}
+        both not valid since $\mu_1,\mu_2$ are required to be greater than $0$.
+    \end{enumerate}
+    Hence, the only candidate that satisfies the first order condition is $x^*=(1,2)$, $\mu=(1,0)$
+    \item \underline{KKT Second-order Sufficient Condition}:
+    $x^*=(1,2)$, $\mu=(1,0)$
+    \begin{equation}
+        \begin{aligned}
+            \nabla^2 L(x^*,\mu)=\begin{bmatrix}
+                6&	2\\
+                2&	4
+            \end{bmatrix}\succ 0
+        \end{aligned}
+        \nonumber
+    \end{equation}
+    $\mu_1>0$.
+
+    $\Rightarrow$ $x^*$ is a local min by sufficient condition.
+    \item Constraint set: $\&=\{x:g_1(x)\leq 0,g_2\leq 0\}=\{x:x_1^2+x_2^2\leq 5\}\cap \{x:3x_1+x_2\leq 6\}$ which is compact. So, by WT \underline{global minimum} exists which is $x^*=(1,2)$.
+\end{enumerate}
+
+\subsection{General Sufficiency Condition}
+With possible additional constraints
+\begin{align*}
+    &\min\quad f(x)\\
+    &\begin{array}{r@{\quad}r@{}l@{\quad}l}
+    s.t.
+    &x\in\&&\leftarrow \text{possible additional constraints}\\
+    &h(x)=0&\\
+    &g(x)\leq 0&\\
+\end{array}
+\end{align*}
+
+\begin{theorem}
+    Let $L(x,\lambda,\mu)=f(x)+\sum_{i=1}^m\lambda_i h_i(x)+\sum_{j=1}^r\mu_j g_j(x)$.
+
+    Suppose $(x^*,\lambda,\mu)$ satisfy:
+    \begin{equation}
+        \begin{aligned}
+            h_i(x^*)&=0,i=1,...,m\\
+            g_j(x^*)&\leq 0,j=1,...,r\\
+            \mu_j&\geq 0,j=1,...,r\\
+            \mu_jg_j(x^*)&=0,j=1,...,r
+        \end{aligned}
+        \nonumber
+    \end{equation}
+    and $$L(x^*,\lambda,\mu)=\min_{x\in\&}L(x,\lambda,\mu)$$
+    Then, $x^*$ is a \underline{global min} of this ICP.
+
+    \textbf{Note:} If $\&$ is a \underline{convex} set, and $f$ is \underline{convex}, $h_i$ are affine (linear + constant), $g_j$ are convex over $\&$, then $L(x,\lambda,\mu)$ is convex $\Rightarrow$ $\nabla L(x^*,\lambda,\mu)=0$ is sufficient for $x^*$ to be global min for this ICP.
+\end{theorem}
+
+
+
+\begin{example}
+Application of General Sufficiency Condition of former example:
+    \begin{align*}
+        &\min_{x\in \mathbb{R}^2}\quad 2x_1^2+2x_1x_2+x_2^2-10x_1-10x_2\\
+        &\begin{array}{r@{\quad}r@{}l@{\quad}l}
+        s.t.
+        &x_1^2+x_2^2&\leq 5\\
+        &3x_1+x_2&\leq 6\\
+    \end{array}
+    \end{align*}
+\end{example}
+\begin{equation}
+    \begin{aligned}
+        f(x)&=2x_1^2+2x_1x_2+x_2^2-10x_1-10x_2\\
+        g_1(x)&=x_1^2+x_2^2-5,\quad g_2(x)=3x_1+x_2-6
+    \end{aligned}
+    \nonumber
+\end{equation}
+For $x^*=(1,2)$ and $\mu=(1,0)$, $L(x,\mu)=f(x)+g_1(x)$ is convex and $\nabla L(x^*,\mu)=0$
+$$\Rightarrow L(x^*,\mu)=\min_{x\in \mathbb{R}^2}L(x,\mu)$$
+Then, by genral sufficiency condition, $x^*$ is global min.
+
+
+\subsection{Barrier Method}
+Computationed method to solve inequality constrained problems.
+\begin{align*}
+    &\min\quad f(x)\\
+    &\begin{array}{r@{\quad}r@{}l@{\quad}l}
+    s.t.
+    &x\in\&&\\
+    &g(x)\leq 0&\\
+\end{array}
+\end{align*}
+where $\&$ is closed set.
+\subsubsection*{Barrier Function}
+$B(x)$ is a function that is continuous and $\rightarrow \infty$ as any $g_j(x) \rightarrow	0$
+\begin{example}
+
+    \begin{equation}
+        \begin{aligned}
+            B(x)&=-\sum_{j=1}^r\ln(-g_j(x))\\
+            B(x)&=-\sum_{j=1}^r\frac{1}{g_j(x)}
+        \end{aligned}
+        \nonumber
+    \end{equation}
+
+\end{example}
+\textbf{Note:} that if $g_j(x)$ is \underline{convex} for all $j$, then both of these barrier functions are \underline{convex}.
+
+In Barrier Method, choose sequence $\{\varepsilon_k\}$ s.t.
+\begin{equation}
+    \begin{aligned}
+        0<\varepsilon_{k+1}<\varepsilon_k,\quad k=0,1,...
+    \end{aligned}
+    \nonumber
+\end{equation}
+and $\varepsilon_k \rightarrow 0$ as $k \rightarrow	\infty$.
+
+Define feasible set $F=\&\cap\{g_j(x)\leq 0,\forall j\}$. Note $F$ is a closed set since $\&$ and $\{g_j(x)\leq 0,\forall j\}$ are closed.
+
+Let $x^{(k)}$ be a solution to
+\begin{equation}
+    \begin{aligned}
+        \min_{x\in F\cap \text{dom}(B)}f(x)+\varepsilon_k B(x)
+    \end{aligned}
+    \nonumber
+\end{equation}
+Since $B(x) \rightarrow	\infty$ as one $g_j(x) \rightarrow	0$ which is on the boundary of $F$.
+
+$x^{(k)}$ must be an interior point of $F$
+$$\Rightarrow \nabla f(x^{(k)})+\varepsilon_k \nabla B(x^{(k)})=0$$
+Therefore, if we have a initial point in the interior of $F$, we can choose step size of any unconstrained GD method to stay in interior of $F$ for all iterations and solve the ICP. (Because barrier function $B(x)$ will prevent us from reaching boundary)
+
+As $k \rightarrow \infty$, $\varepsilon_k \rightarrow 0$, and barrier $\varepsilon_k B(x)$ becomes inconsequential, and we expect $x^{(k)}$ to approcah minimum of original problem.
+
+\begin{proposition}
+    Every limit point $\bar{x}$ of $\{x^{(k)}\}$ is a global min of the ICP.
+\end{proposition}
+\begin{proof}
+Let $\bar{x}=\lim_{k \rightarrow \infty, k\in \mathcal{K}}x^{(k)}$, since $x^{(k)}\in F$ forall $k$, and $F$ is closed, $\bar{x}\in F$.
+
+Suppose $x^*$ is a global min of ICP and $x^*$ is in interior of $F$, and $f(x^*)<f(\bar{x})$, i.e., $\bar{x}$ is not global min for ICP.
+
+Then, by definition of $x^{(k)}$, $f(x^{(k)})+\varepsilon_k B(x^{(k)})\leq f(x^*)+\varepsilon_k B(x^*)$
+
+Taking limit as $k \rightarrow \infty$, $k\in \mathcal{K}$,
+\begin{equation}
+    \begin{aligned}
+        f(\bar{x})+\lim_{k \rightarrow \infty, k\in \mathcal{K}}\varepsilon_k B(\bar{x})\leq f(x^*)+\lim_{k \rightarrow \infty, k\in \mathcal{K}}\varepsilon_k B(x^*)=f(x^*)\\
+        (\text{Since }|B(x^*)|<\infty,\varepsilon_k \rightarrow	0\text{ as }k \rightarrow \infty)
+    \end{aligned}
+    \nonumber
+\end{equation}
+If $\bar{x}$ is in interior of $F$, then $|B(\bar{x})|<\infty$ $\Rightarrow \lim_{k \rightarrow \infty, k\in \mathcal{K}}\varepsilon_k B(x^{(k)})=0$
+
+If $\bar{x}$ is on boundary of $F$, then $|B(\bar{x})| \rightarrow \infty$ $\Rightarrow \lim_{k \rightarrow \infty, k\in \mathcal{K}}\varepsilon_k B(x^{(k)})\geq 0$
+
+Therefore, $f(\bar{x})<f(x^*)$ is contradiced.
+
+If $x^*$ is not in interior of $F$, we can assume that $\exists$ an interior point $\bar{x}$ which can be made arbitrarily close to $x^*$.
+\end{proof}
+
+
+\subsection{An Exmaple Using KKT or Barrier}
+\begin{example}
+\begin{equation}
+    \begin{aligned}
+        \min\quad&f(x)=\frac{1}{2}(x_1^2+x_2^2)\\
+        s.t.\ & x_1\geq 2
+    \end{aligned}
+    \nonumber
+\end{equation}
+\end{example}
+\subsubsection{Solution using KKT conditions}
+\begin{equation}
+    \begin{aligned}
+        g(x)&=-x_1+2\\
+        \nabla g(x)&=(-1,0)\quad \text{All feasible $x$ are regular}\\
+        \nabla f(x)&=(x_1,x_2)\\
+        L(x,\mu)&=f(x)+\mu g(x)\\
+        \nabla L(x,\mu)&=\nabla f(x)+\mu \nabla g(x)=(x_1-\mu,x_2)\\
+    \end{aligned}
+    \nonumber
+\end{equation}
+\begin{enumerate}[\underline{Case} $1$:]
+    \item constraint inactive, i.e., $\mu=0$
+    $$\nabla L(x,\mu)=0 \Rightarrow	x=(0,0)$$
+    Doesn't satisfy $x_1\geq 2$. This case is infeasible.
+    \item constraint active,
+    \begin{equation}
+        \begin{aligned}
+            \nabla L(x,\mu)=0 \Rightarrow x_1-\mu=0,x_2=0\\
+            g(x)=0 \Rightarrow x_1=2\\
+            \Rightarrow	x^*=(2,0), \mu=2
+        \end{aligned}
+        \nonumber
+    \end{equation}
+    It satisfies the first-order KKT condition.
+\end{enumerate}
+Since $L(x,\mu)$ is strictly convex on $\mathbb{R}^2$, $x^*=(2,0)$ is the global-min.
+
+\subsubsection{Solution using logarithmic barrier}
+$B(x)=-\ln(-g(x))=-\ln(x_1-2)$
+\begin{equation}
+    \begin{aligned}
+        \text{Set }G^{(k)}(x)&=f(x)+\varepsilon_kB(x)\\
+        &=\frac{1}{2}(x_1^2+x_2^2)-\varepsilon_k\ln(x_1-2)\\
+        (G^{(k)}(x)&\text{ is convex in $x$ over }\{x:x>2\})\\
+        \nabla G^{(k)}(x)=0 &\Rightarrow\ x_1-\frac{\varepsilon_k}{x_1-2}=0,\ x_2=0\\
+        &\Rightarrow\ x^{(k)}=(1+\sqrt{1+\varepsilon_k},0)\\
+        \text{as }k \rightarrow	\infty,\varepsilon_k \rightarrow 0&\text{ and }x^{(k)} \rightarrow (2,0)=x^*
+    \end{aligned}
+    \nonumber
+\end{equation}
+
+\subsection{Penalty Method (For ECP)}
+Computational method for \underline{equality constraints}.
+\begin{equation}
+    \begin{aligned}
+        \min\quad &f(x)\\
+        s.t.\ &x\in \&\\
+        &h_i(x)=0,\quad i=1,...,m
+    \end{aligned}
+    \nonumber
+\end{equation}
+\subsubsection*{\underline{Algorithm}}
+\begin{enumerate}[(1)]
+    \item Choose an increasing positive sequence $\{c_k\}$ s.t. $c_k \rightarrow \infty$ as $k \rightarrow \infty$.
+    \item Solve for $x^{(k)}$ to:
+    \begin{equation}
+        \begin{aligned}
+            \min_{x\in \&}\quad &f(x)+c_k\|h(x)\|^2\\
+            \text{Note: } &\|h(x)\|^2=\sum_{i=1}^m(h_i(x))^2
+        \end{aligned}
+        \nonumber
+    \end{equation}
+\end{enumerate}
+\begin{proposition}
+    Every limit point $\bar{x}$ of $\{x^{(k)}\}$ is a global min of the ECP if $\&$ is closed.
+\end{proposition}
+\begin{proof}
+    Let $\bar{x}=\lim_{k \rightarrow \infty, k\in \mathcal{K}}x^{(k)}$
+    \begin{equation}
+        \begin{aligned}
+            f^*&=\min_{x\in\&,h(x)=0}f(x)=\min_{x\in\&,h(x)=0}f(x)+c_k\|h(x)\|^2\\
+            &\geq \min_{x\in\&}f(x)+c_k\|h(x)\|^2\\
+            &=f(x^{(k)})+c_k\|h(x^{(k)})\|^2\\
+            \Rightarrow	c_k\|h(x^{(k)})\|^2&\leq f^*-f(x^{(k)})
+        \end{aligned}
+        \nonumber
+    \end{equation}
+    By continunity of $f$, $\lim_{k \rightarrow \infty, k\in \mathcal{K}}f(x^{(k)})=f(\bar{x})$.
+
+    Thus, as $k \rightarrow	\infty$, $k \rightarrow	\mathcal{K}$, $f^*-f(x^{(k)})=f^*-f(\bar{x})$ which is \underline{finite}.
+
+    Since $c_k \rightarrow \infty$ as $k \rightarrow	\infty$, $k \rightarrow	\mathcal{K}$, $$\lim_{k \rightarrow \infty, k\in \mathcal{K}}\|h(x^{(k)})\|^2=0$$
+
+    By continunity of $h$,
+    $$\lim_{k \rightarrow \infty, k\in \mathcal{K}}\|h(x^{(k)})\|^2=\|h(\bar{x})\|^2=0 \Rightarrow	h(\bar{x})=0$$
+
+    Now, since $\&$ is closed, and $x^{(k)}\in \&$ for all $k$, $\bar{x}\in\&$ as well.
+
+    \begin{equation}
+        \begin{aligned}
+            &f^*-f(x^{(k)})\geq c_k\|h(x^{(k)})\|^2\geq 0\\
+            \Rightarrow	& f(\bar{x})=\lim_{k \rightarrow \infty, k\in \mathcal{K}}f(x^{(k)})\leq f^*
+        \end{aligned}
+        \nonumber
+    \end{equation}
+    Since $\bar{x}$ is feasible ($\bar{x}\in\&$ and $h(\bar{x})=0$) and $f(\bar{x})\leq f^*$, $\Rightarrow$ $\bar{x}$ is a global min of the ECP.
+\end{proof}
+
+\section{Duality}
+\begin{align*}
+    &\min\quad f(x)\\
+    &\begin{array}{r@{\quad}r@{}l@{\quad}l}
+    s.t.
+    &x\in\&&\\
+    &h(x)=0&\\
+    &g(x)\leq 0&\\
+\end{array}
+\end{align*}
+\begin{equation}
+    \begin{aligned}
+        L(x,\lambda,\mu)&=f(x)+\sum_{i=1}^m\lambda_i h_i(x)+\sum_{j=1}^r\mu_j g_j(x)\\
+        &=f(x)+\lambda^T h(x)+\mu^T g(x)
+    \end{aligned}
+    \nonumber
+\end{equation}
+\subsubsection*{\underline{Dual Function}}
+$D(\lambda,\mu)=\min_{x\in\&}L(x,\lambda,\mu)$ on convex set $G=\{(\lambda,\mu):\lambda\in \mathbb{R}^m,\mu_j\geq 0,j=1,...,r\}$
+\begin{proposition}
+    $D(\lambda,\mu)$ is concave on $G$
+\end{proposition}
+\begin{proof}
+    Let $(\lambda,\mu)$ and $(\tilde{\lambda},\tilde{\mu})\in G$.
+
+    For $\alpha\in[0,1]$,
+    \begin{equation}
+        \begin{aligned}
+            &D(\alpha\lambda+(1-\alpha)\tilde{\lambda},\alpha\mu+(1-\alpha)\tilde{\mu})\\
+            =&\min_{x\in\&}f(x)+(\alpha\lambda+(1-\alpha)\tilde{\lambda})^Th(x)+(\alpha\mu+(1-\alpha)\tilde{\mu})^Tg(x)\\
+            =&\min_{x\in\&}\alpha [f(x)+\lambda^Th(x)+\mu^Tg(x)]+(1-\alpha)[f(x)+\tilde{\lambda}^Th(x)+\tilde{\mu}^Tg(x)]\\
+            \geq& \min_{x\in \&}\alpha [f(x)+\lambda^Th(x)+\mu^Tg(x)]+\min_{x\in \&}(1-\alpha)[f(x)+\tilde{\lambda}^Th(x)+\tilde{\mu}^Tg(x)]\\
+            =&\alpha D(\lambda,\mu)+(1-\alpha)D(\tilde{\lambda},\tilde{\mu})
+        \end{aligned}
+        \nonumber
+    \end{equation}
+\end{proof}
+
+\subsection{Weak Duality Theorem: $\max_{(\lambda,\mu)\in G}D(\lambda,\mu)\leq \min_{x\in F}f(x)$}
+Define the feasibility set $F=\{x:x\in\&,h(x)=0,g(x)\leq 0\}$
+\begin{proposition}
+    $$\max_{(\lambda,\mu)\in G}D(\lambda,\mu)\leq \min_{x\in F}f(x)$$
+\end{proposition}
+\begin{proof}
+    For $(\lambda,\mu)\in G$, $x\in F$
+    $$L(x,\lambda,\mu)=f(x)+\lambda^T h(x)+\mu^T g(x)\leq f(x)$$
+    \begin{equation}
+        \begin{aligned}
+            \Rightarrow	\min_{x\in F}L(x,\lambda,\mu)&\leq f(x),\quad \forall x\in F\\
+            \min_{x\in F}L(x,\lambda,\mu)&\leq \min_{x\in F}f(x)=f^*
+        \end{aligned}
+        \nonumber
+    \end{equation}
+    Since $F\subseteq \&$,
+    \begin{equation}
+        \begin{aligned}
+            \min_{x\in \&}L(x,\lambda,\mu)&\leq f^*\\
+            \text{i.e. }\quad D(\lambda,\mu)&\leq f^*,\quad \forall (\lambda,\mu)\in G\\
+            \Rightarrow	\ \max_{(\lambda,\mu)\in G}D(\lambda,\mu)&\leq f^*
+        \end{aligned}
+        \nonumber
+    \end{equation}
+\end{proof}
+
+
+\subsection{Strong Duality Theorem: under some conditions, $\max_{(\lambda,\mu)\in G}D(\lambda,\mu)= \min_{x\in F}f(x)$}
+Under some conditions, equality holds, i.e.
+\begin{equation}
+    \begin{aligned}
+        \underbrace{\max_{(\lambda,\mu)\in G}D(\lambda,\mu)}_{\text{dual problem}}=\underbrace{\min_{x\in F}f(x)}_{\text{primal problem}}
+    \end{aligned}
+    \nonumber
+\end{equation}
+\begin{proposition}
+    Suppose $f$ is \underline{convex}, $h_i$ are \underline{affine}, $g_j$ are \underline{convex}, and \underline{$\&=\mathbb{R}^n$}. If $x^*$ is an optimal solution for primal problem, $x^*$ is regular, and $(\lambda^*,\mu^*)$ are corresponding Largrange multipliers, then strong duality holds and $(\lambda^*,\mu^*)$ maximize $D(\lambda,\mu)$. $$\max_{(\lambda,\mu)\in G}D(\lambda,\mu)=D(\lambda^*,\mu^*)=f(x^*)=\min_{x\in F}f(x)$$
+\end{proposition}
+\begin{proof}
+    Under regularity assumption, using first-order KKT necessary conditions,
+    \begin{equation}
+        \begin{aligned}
+            \nabla_x L(x^*,\lambda^*,\mu^*)&=0\\
+            {\mu^*}^Tg(x^*)&=0
+        \end{aligned}
+        \nonumber
+    \end{equation}
+    Since $f$ is \underline{convex}, $h_i$ are \underline{affine}, $g_j$ are \underline{convex},\\
+    $L(x^*,\lambda^*,\mu^*)$ is convex in $x$. Thus,
+    \begin{equation}
+        \begin{aligned}
+            L(x^*,\lambda^*,\mu^*)&=\min_{x\in \mathbb{R}^n}L(x,\lambda^*,\mu^*)\\
+            &\leq \max_{(\lambda,\mu)\in G}\min_{x\in \mathbb{R}^n}L(x,\lambda,\mu)
+        \end{aligned}
+        \nonumber
+    \end{equation}
+    Furthermore,
+    \begin{equation}
+        \begin{aligned}
+            L(x^*,\lambda^*,\mu^*)&=f(x^*)+{\lambda^*}^T \underbrace{h(x^*)}_{=0}+\underbrace{{\mu^*}^T g(x^*)}_{=0}\\
+            &=f(x^*)\\
+            &\geq f(x^*)+\lambda^Th(x^*)+\mu^Tg(x^*)\quad \forall (\lambda,\mu)\in G\\
+            &=L(x^*,\lambda,\mu)\quad \forall (\lambda,\mu)\in G\\
+            \Rightarrow	\ L(x^*,\lambda^*,\mu^*)&\geq \max_{(\lambda,\mu)\in G}L(x^*,\lambda,\mu)\\
+            &\geq \min_{x\in \mathbb{R}^n}\max_{(\lambda,\mu)\in G}L(x,\lambda,\mu)
+        \end{aligned}
+        \nonumber
+    \end{equation}
+    Hence,
+    \begin{equation}
+        \begin{aligned}
+            \min_{x\in \mathbb{R}^n}\max_{(\lambda,\mu)\in G}L(x,\lambda,\mu)\leq L(x^*,\lambda^*,\mu^*)\leq \max_{(\lambda,\mu)\in G}\min_{x\in \mathbb{R}^n}L(x,\lambda,\mu)
+        \end{aligned}
+        \nonumber
+    \end{equation}
+    \begin{lemma}
+        Consider function $g(y,z)$, $y\in \mathbb{Y}$, $z\in \mathbb{Z}$.
+        $$\max_{z\in \mathbb{Z}}\min_{y\in \mathbb{Y}}g(y,z)\leq\min_{y\in \mathbb{Y}}\max_{z\in \mathbb{Z}}g(y,z)$$
+    \end{lemma}
+    \begin{proof}
+        Set $f(z)=\min_{y\in \mathbb{Y}}g(y,z)$
+        \begin{equation}
+            \begin{aligned}
+                f(x)&\leq g(y,z)\quad \forall y\in \mathbb{Y}\\
+                \Rightarrow \max_{z\in \mathbb{Z}}f(x)&\leq \max_{z\in \mathbb{Z}}g(y,z)\quad \forall y\in \mathbb{Y}\\
+                \Rightarrow \max_{z\in \mathbb{Z}}f(x)&\leq \min_{y\in \mathbb{Y}}\max_{z\in \mathbb{Z}}g(y,z)\\
+                \Rightarrow	\max_{z\in \mathbb{Z}}\min_{y\in \mathbb{Y}}g(y,z)&\leq\min_{y\in \mathbb{Y}}\max_{z\in \mathbb{Z}}g(y,z)
+            \end{aligned}
+            \nonumber
+        \end{equation}
+    \end{proof}
+    By the lemma,
+    \begin{equation}
+        \begin{aligned}
+            \min_{x\in \mathbb{R}^n}\max_{(\lambda,\mu)\in G}L(x,\lambda,\mu)= \max_{(\lambda,\mu)\in G}\min_{x\in \mathbb{R}^n}L(x,\lambda,\mu)= L(x^*,\lambda^*,\mu^*)
+        \end{aligned}
+        \nonumber
+    \end{equation}
+    \begin{equation}
+        \begin{aligned}
+            \max_{(\lambda,\mu)\in G}L(x,\lambda,\mu)&=\max_{(\lambda,\mu)\in G} f(x)+\lambda^T h(x)+\mu^T g(x)\\
+            &=\left\{\begin{matrix}
+                \infty&\text{ if }x\notin F\\
+                f(x)&\text{ if }x\in F
+            \end{matrix}\right.\\
+            \Rightarrow	\min_{x\in \mathbb{R}^n}\max_{(\lambda,\mu)\in G}L(x,\lambda,\mu)&=\min_{x\in F}f(x)
+        \end{aligned}
+        \nonumber
+    \end{equation}
+    Also,
+    $$\max_{(\lambda,\mu)\in G}\min_{x\in \mathbb{R}^n}L(x,\lambda,\mu)=\max_{(\lambda,\mu)\in G}D(\lambda,\mu)$$
+    Hence,
+    $$\max_{(\lambda,\mu)\in G}D(\lambda,\mu)=\min_{x\in F}f(x)$$
+    Furthermore,
+    \begin{equation}
+        \begin{aligned}
+            \max_{(\lambda,\mu)\in G}D(\lambda,\mu)=L(x^*,\lambda^*,\mu^*)=D(\lambda^*,\mu^*)
+        \end{aligned}
+        \nonumber
+    \end{equation}
+    i.e., $(\lambda^*,\mu^*)$ maximize $D(\lambda,\mu)$
+\end{proof}
+
+\begin{center}
+    \fcolorbox{black}{gray!10}{\parbox{.9\linewidth}{\textbf{Note:} If the optimization problem is a \underline{linear program} and its is feasible, then strong duality holds (always)
+
+    Two ways to prove: 1) Simplex method; 2) Farkas Lemma.}}
+\end{center}
+
+\subsubsection{Slater's sufficient condition for strong duality}
+\begin{proposition}[Slater's condition]
+    If (1) the primal problem is convex (2) it is strictly feasible, that is, there exists $x$ in the relative interior of $\&$ such that $g_j(x)<0,\forall j$ and $h_i(x)=0,\forall i$. Then, strong duality holds.
+\end{proposition}
+
+\subsubsection{Example}
+We showed that $x^*=(\frac{3}{2},\frac{1}{2})$ is the global min with $\mu^*=(1,0)$ of
+\begin{align*}
+    &\min\quad x_1^2+x_2^2-4x_1-2x_2+2\\
+    &\begin{array}{r@{\quad}r@{}l@{\quad}l}
+    s.t.
+    &x_1+x_2&\leq 2\\
+    &x_1+2x_3&\leq 3\\
+\end{array}
+\end{align*}
+The optimal value $f(x^*)=-\frac{5}{2}$.
+What is the dual of the convex program?
+\begin{equation}
+    \begin{aligned}
+        L(x,\mu)&=x_1^2+x_2^2-4x_1-2x_2+2+\mu_1(x_1+x_2-2)+\mu_2(x_1+2x_2-3)\\
+        &=x_1^2+x_2^2+(\mu_1+\mu_2-4)x_1+(\mu_1+2\mu_2-2)x_2+2-2\mu_1-3\mu_2
+    \end{aligned}
+    \nonumber
+\end{equation}
+$D(\mu)=\min_{x\in \mathbb{R}^2}L(x,\mu)$
+\begin{equation}
+    \begin{aligned}
+        \nabla_x L(x,\mu)=0 \Rightarrow
+        \left\{\begin{matrix}
+            2x_1+(\mu_1+\mu_2-4)=0\\
+            2x_2+(\mu_1+2\mu_2-2)=0
+        \end{matrix}\right. \Rightarrow
+        \left\{\begin{matrix}
+            x_1&=\frac{-(\mu_1+\mu_2-4)}{2}\\
+            x_2&=\frac{-(\mu_1+2\mu_2-2)}{2}
+        \end{matrix}\right.
+    \end{aligned}
+    \nonumber
+\end{equation}
+\begin{equation}
+    \begin{aligned}
+        D(\mu)=-\left(\frac{\mu_1+\mu_2-4}{2}\right)^2-\left(\frac{\mu_1+2\mu_2-2}{2}\right)^2+2-2\mu_1-3\mu_2
+    \end{aligned}
+    \nonumber
+\end{equation}
+
+\underline{Dual Problem}
+\begin{equation}
+    \begin{aligned}
+        \max_{\mu_1\geq 0,\mu_2\geq 0}\quad D(\mu)
+    \end{aligned}
+    \nonumber
+\end{equation}
+\begin{equation}
+    \begin{aligned}
+        \nabla D(\mu)=\begin{bmatrix}
+            -\mu_1-\frac{3}{2}\mu_2+1\\
+            -\frac{3}{2}\mu_1-\frac{5}{2}\mu_2+1
+        \end{bmatrix},
+        \nabla^2 D(\mu)=\begin{bmatrix}
+            -1&-\frac{3}{2}\\
+            -\frac{3}{2}&-\frac{5}{2}
+        \end{bmatrix}\prec 0 \Rightarrow D(\mu)\text{ is strictly concave.}
+    \end{aligned}
+    \nonumber
+\end{equation}
+We can compute $\mu_1^*=1$, $\mu_2^*=0$ (optimum check is omitted), $D(\mu^*)=-\frac{5}{2}=f(x^*)$.
+
+\subsection{Dual of Linear Program}
+\begin{center}
+    \fcolorbox{black}{gray!10}{\parbox{.9\linewidth}{LP in "standard" form:\begin{equation}
+        \begin{aligned}
+            &\min\ c^Tx\\
+            &s.t.\quad Ax\leq b,x\geq 0
+        \end{aligned}
+        \nonumber
+    \end{equation}}}
+\end{center}
+\begin{equation}
+    \begin{aligned}
+        D(\mu_1,\mu_2)
+        &=\min_{x\in \mathbb{R}^n}c^Tx+\mu_1^T(Ax-b)-\mu_2^Tx\\
+        &=\min_{x\in \mathbb{R}^n}(c^T+\mu_1^TA-\mu_2^T)x-\mu_1^Tb\\
+        &=\left\{\begin{matrix}
+            -\infty&\text{ if }c^T+\mu_1^TA-\mu_2^T\neq 0\\
+            -\mu_1^Tb&\text{ if }c^T+\mu_1^TA-\mu_2^T=0
+        \end{matrix}\right.
+    \end{aligned}
+    \nonumber
+\end{equation}
+Note: $c^T+\mu_1^TA-\mu_2^T=0 \Leftrightarrow A^T\mu_1+c=\mu_2$
+
+Hence, the dual probelm is:
+\begin{equation}
+    \begin{aligned}
+        &\max_{s.t.\ \mu_1\geq 0,\mu_2\geq 0, A^T\mu_1+c=\mu_2}-\mu_1^Tb\\
+        =&\min_{s.t.\ \mu_1\geq 0, A^T\mu_1+c\geq 0}\mu_1^Tb\\
+    \end{aligned}
+    \nonumber
+\end{equation}
+\begin{center}
+    \fcolorbox{black}{gray!10}{\parbox{.9\linewidth}{Hence, the dual probelm is:\begin{equation}
+        \begin{aligned}
+            &\min\ \bar{x}^Tb\\
+            &s.t.\quad -A^T\bar{x}\leq c,\bar{x}\geq 0
+        \end{aligned}
+        \nonumber
+    \end{equation}}}
+\end{center}
+It is also easy to show that the dual of dual is exactly the primal.
+
+\section{Augmented Lagrangian Method (adjusted penalty method)}
+\subsection{Motivation}
+In penalty method, problem becomes \textbf{ill-conditioned} and the optimization becomes super slow if $c_k$ is huge. (${c_k}$ is an increasing positive sequence s.t. $c_k \rightarrow\infty$ as $k\rightarrow\infty$)
+
+\begin{example}
+    When we apply penalty method to
+    \begin{equation}
+        \begin{aligned}
+            &\min\ x^TQx\\
+            &s.t.\quad Ax=b
+        \end{aligned}
+        \nonumber
+    \end{equation}
+    where $Q\succ 0$, $A_{m\times n},m<n$
+\end{example}
+$$\min\ x^TQx+c_k\|Ax-b\|^2$$
+where $\|Ax-b\|^2=(Ax-b)^T(Ax-b)=x^TA^TAx-2x^TA^Tb+b^Tb$
+Note: $A^TA\succeq 0$. Since $m<N$, $rank(A^TA)\leq m<n$ $\Rightarrow$ $\lambda_{\min}(A^TA)=0$
+
+Consider the problem $(P_k)$ corresponding to $c_k$
+$$\min\ x^TQx+c_k(x^TA^TAx-2x^TA^Tb+b^Tb)$$
+i.e. $$\min\ x^T(Q+c_kA^TA)x-2c_kx^TA^Tb+c_kb^Tb$$
+Since $Q\succ 0,c_k>0,A^TA\succeq 0$, $(Q+c_kA^TA)\succ 0$. Hence, $(P_k)$ is stricetly convex optimization problem $\Rightarrow$
+\begin{equation}
+    \begin{aligned}
+        x^{(k)}=\left(\frac{Q}{c_k}+A^TA\right)^{-1}A^Tb
+    \end{aligned}
+    \nonumber
+\end{equation}
+If we use gradient descent to solve $(P_k)$, the rate of convergence depends on $$\textbf{condition number} =\frac{\lambda_{\max}\left(\frac{Q}{c_k}+A^TA\right)}{\lambda_{\min}\left(\frac{Q}{c_k}+A^TA\right)}$$
+As $c_k \rightarrow \infty$,
+\begin{equation}
+    \begin{aligned}
+        \lambda_{\min}\left(\frac{Q}{c_k}+A^TA\right)\approx \lambda_{\min}\left(A^TA\right)=0
+    \end{aligned}
+    \nonumber
+\end{equation}
+i.e. optimization probelm $(P_k)$ becomes ill-conditioned as $k \rightarrow	\infty$
+
+\subsection{Augemented Lagrangian Method}
+$$L_c(x,\lambda)=f(x)+\lambda^Th(x)+c\|h(x)\|^2$$
+with $\lambda\in \mathbb{R}^n$
+
+
+
+
 
 
 

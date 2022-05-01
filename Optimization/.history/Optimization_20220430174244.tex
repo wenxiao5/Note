@@ -3585,7 +3585,7 @@ Hence, the dual probelm is:
 \end{center}
 It is also easy to show that the dual of dual is exactly the primal.
 
-\section{Augmented Lagrangian Method (adjusted penalty method)}
+\section{Augmented Lagrangian Method}
 \subsection{Motivation}
 In penalty method, problem becomes \textbf{ill-conditioned} and the optimization becomes super slow if $c_k$ is huge. (${c_k}$ is an increasing positive sequence s.t. $c_k \rightarrow\infty$ as $k\rightarrow\infty$)
 
@@ -3614,28 +3614,8 @@ Since $Q\succ 0,c_k>0,A^TA\succeq 0$, $(Q+c_kA^TA)\succ 0$. Hence, $(P_k)$ is st
     \end{aligned}
     \nonumber
 \end{equation}
-If we use gradient descent to solve $(P_k)$, the rate of convergence depends on $$\textbf{condition number} =\frac{\lambda_{\max}\left(\frac{Q}{c_k}+A^TA\right)}{\lambda_{\min}\left(\frac{Q}{c_k}+A^TA\right)}$$
-As $c_k \rightarrow \infty$,
-\begin{equation}
-    \begin{aligned}
-        \lambda_{\min}\left(\frac{Q}{c_k}+A^TA\right)\approx \lambda_{\min}\left(A^TA\right)=0
-    \end{aligned}
-    \nonumber
-\end{equation}
-i.e. optimization probelm $(P_k)$ becomes ill-conditioned as $k \rightarrow	\infty$
 
-\subsection{Augemented Lagrangian Method}
-$$L_c(x,\lambda)=f(x)+\lambda^Th(x)+c\|h(x)\|^2$$
-with $\lambda\in \mathbb{R}^n$, $c_k \rightarrow \infty$ as $k \rightarrow\infty$.
 
-If $x^{(k)}\in \argmin_x L_{c_k}(x,\lambda)$, then every limit point $\bar{x}$ of $\{x^{(k)}\}$ is a global min for the $(P)$.
-
-\subsubsection*{What is the advantage of adding $\lambda^Th(x)$?}
-If $x^*,\lambda^*$ satisfy the second-order sufficiency condition (for $x^*$ being a strict local min for $(P)$), then $\exists \bar{c}>0$ s.t. \underline{$x^*$ is a local min of $L_c(x,\lambda^*)$} if $c\geq \bar{c}$.
-
-(i.e. for some $\gamma>0$ and $\varepsilon>0$, $L_c(x,\lambda^*)\geq L_c(x^*,\lambda^*)+\frac{\gamma}{2}\|x-x^*\|^2$ for all $x$ s.t. $\|x-x^*\|<\varepsilon$)
-
-Therefore, we don't need to discuss the situation that $c \rightarrow \infty$.
 
 
 
