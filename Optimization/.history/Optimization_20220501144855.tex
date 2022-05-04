@@ -3428,9 +3428,9 @@ Under some conditions, equality holds, i.e.
         Set $f(z)=\min_{y\in \mathbb{Y}}g(y,z)$
         \begin{equation}
             \begin{aligned}
-                f(z)&\leq g(y,z)\quad \forall y\in \mathbb{Y}\\
-                \Rightarrow \max_{z\in \mathbb{Z}}f(z)&\leq \max_{z\in \mathbb{Z}}g(y,z)\quad \forall y\in \mathbb{Y}\\
-                \Rightarrow \max_{z\in \mathbb{Z}}f(z)&\leq \min_{y\in \mathbb{Y}}\max_{z\in \mathbb{Z}}g(y,z)\\
+                f(x)&\leq g(y,z)\quad \forall y\in \mathbb{Y}\\
+                \Rightarrow \max_{z\in \mathbb{Z}}f(x)&\leq \max_{z\in \mathbb{Z}}g(y,z)\quad \forall y\in \mathbb{Y}\\
+                \Rightarrow \max_{z\in \mathbb{Z}}f(x)&\leq \min_{y\in \mathbb{Y}}\max_{z\in \mathbb{Z}}g(y,z)\\
                 \Rightarrow	\max_{z\in \mathbb{Z}}\min_{y\in \mathbb{Y}}g(y,z)&\leq\min_{y\in \mathbb{Y}}\max_{z\in \mathbb{Z}}g(y,z)
             \end{aligned}
             \nonumber
@@ -3845,7 +3845,6 @@ If $x_1<x_2$, $|x_1-x_2|=x_2-x_1$, and $\nabla f$ exists and $(-1,1)$
         \nonumber
     \end{equation}
     Since $|a|<1$, this inequality holds $\forall y\in \mathbb{R}^2$
-    
     To show the converse,
     \begin{enumerate}
         \item Suppose $a\neq -b$.
@@ -3855,10 +3854,7 @@ If $x_1<x_2$, $|x_1-x_2|=x_2-x_1$, and $\nabla f$ exists and $(-1,1)$
         If $c(a+b)>0$, setting $y_1=y_2=2c$. $\Rightarrow |y_1-y_2|=0$, and $ay_1+by_2-c(a+b)=c(a+b)>0=|y_1-y_2|$, above inequality fails to hold.
 
         If $c=0$, setting $y_1=y_2=(a+b)$. $\Rightarrow |y_1-y_2|=0$, and $ay_1+by_2-c(a+b)=(a+b)^2>0=|y_1-y_2|$, above inequality fails to hold.
-        \item Suppose $a=-b$ with $|a|>1$.
-        
-        If $a>1$, setting $y_1=y_2+1$; If $a<-1$, setting $y_1=y_2-1$.
-
+        \item 
     \end{enumerate}
 \end{proof}
 

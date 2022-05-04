@@ -114,5 +114,7 @@
 \contentsline {section}{\numberline {12}Sub-gradient Methods}{61}{section.12}%
 \contentsline {subsection}{\numberline {12.1}Sub-gradient}{62}{subsection.12.1}%
 \contentsline {subsection}{\numberline {12.2}Sub-differential}{62}{subsection.12.2}%
-\contentsline {subsection}{\numberline {12.3}First-order necessary conditions for optimality in terms of subgradient}{62}{subsection.12.3}%
-\contentsline {subsection}{\numberline {12.4}Properties of Subgradients}{63}{subsection.12.4}%
+\contentsline {subsection}{\numberline {12.3}More examples}{63}{subsection.12.3}%
+\contentsline {subsection}{\numberline {12.4}First-order necessary conditions for optimality in terms of subgradient}{64}{subsection.12.4}%
+\contentsline {subsection}{\numberline {12.5}Properties of Subgradients}{64}{subsection.12.5}%
+\contentsline {subsection}{\numberline {12.6}Sub-gradient Descent for Unconstrained Optimization}{64}{subsection.12.6}%

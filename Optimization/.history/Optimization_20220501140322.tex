@@ -3428,9 +3428,9 @@ Under some conditions, equality holds, i.e.
         Set $f(z)=\min_{y\in \mathbb{Y}}g(y,z)$
         \begin{equation}
             \begin{aligned}
-                f(z)&\leq g(y,z)\quad \forall y\in \mathbb{Y}\\
-                \Rightarrow \max_{z\in \mathbb{Z}}f(z)&\leq \max_{z\in \mathbb{Z}}g(y,z)\quad \forall y\in \mathbb{Y}\\
-                \Rightarrow \max_{z\in \mathbb{Z}}f(z)&\leq \min_{y\in \mathbb{Y}}\max_{z\in \mathbb{Z}}g(y,z)\\
+                f(x)&\leq g(y,z)\quad \forall y\in \mathbb{Y}\\
+                \Rightarrow \max_{z\in \mathbb{Z}}f(x)&\leq \max_{z\in \mathbb{Z}}g(y,z)\quad \forall y\in \mathbb{Y}\\
+                \Rightarrow \max_{z\in \mathbb{Z}}f(x)&\leq \min_{y\in \mathbb{Y}}\max_{z\in \mathbb{Z}}g(y,z)\\
                 \Rightarrow	\max_{z\in \mathbb{Z}}\min_{y\in \mathbb{Y}}g(y,z)&\leq\min_{y\in \mathbb{Y}}\max_{z\in \mathbb{Z}}g(y,z)
             \end{aligned}
             \nonumber
@@ -3812,55 +3812,6 @@ When $x=2$,
     \item For $x\neq 0$, $\nabla f(x)$ exists and $$\partial f(x)= \nabla f(x) =\frac{1}{2\sqrt{x^Tx}}\cdot 2x=\frac{x}{\|x\|}$$
     \item If $x=0$, $\nabla f(x)$ doesn't exist.
 \end{enumerate}
-\begin{claim}
-    $\partial f(0)=\{g\in \mathbb{R}^n:\|g\|\leq 1\}$
-\end{claim}
-\begin{proof}
-    Need to show that for $\|g\|\leq 1$ and $\forall y\in \mathbb{R}^n$, $$f(y)=\|y\|\geq f(0)+g^T(y-0)=g^T y$$
-    But by Cauchy-Schwarz inequality, for $\|g\|\leq 1$, $$g^Ty\leq \|g\|\|y\|\leq \|y\|,\forall y\in \mathbb{R}^n$$
-    To estabilish the converse, suppose $\|g\|>1$.
-
-    Then, setting $y=\frac{g}{\|g\|}$ $\Rightarrow$ $\|y\|=1$ but $g^Ty=\|g\|>1=\|y\|$
-\end{proof}
-
-\begin{example}
-    $f(x)=|x_1-x_2|\leftarrow$ convex
-\end{example}
-If $x_1>x_2$, $|x_1-x_2|=x_1-x_2$, and $\nabla f$ exists and $(1,-1)$
-
-If $x_1<x_2$, $|x_1-x_2|=x_2-x_1$, and $\nabla f$ exists and $(-1,1)$
-
-\begin{claim}
-    If $x_1=x_2$, $\partial f(x)=\{(a,b):a=-b,|a|\leq 1\}$
-\end{claim}
-\begin{proof}
-    Suppose $x_1=x_2=c$. Then we need to show $\forall y\in \mathbb{R}^2$, $(a,b)$ s.t. $a=-b$, $|a|\leq 1$
-    \begin{equation}
-        \begin{aligned}
-            |y_1-y_2|\geq f(c,c)+[a\ b]\begin{bmatrix}
-                y_1-c\\
-                y_2-c
-            \end{bmatrix}=ay_1+by_2-c(a+b)=a(y_1-y_2)
-        \end{aligned}
-        \nonumber
-    \end{equation}
-    Since $|a|<1$, this inequality holds $\forall y\in \mathbb{R}^2$
-    
-    To show the converse,
-    \begin{enumerate}
-        \item Suppose $a\neq -b$.
-        
-        If $c(a+b)<0$, setting $y_1=y_2=0$. $\Rightarrow |y_1-y_2|=0$, and $ay_1+by_2-c(a+b)=-c(a+b)>0=|y_1-y_2|$, above inequality fails to hold.
-
-        If $c(a+b)>0$, setting $y_1=y_2=2c$. $\Rightarrow |y_1-y_2|=0$, and $ay_1+by_2-c(a+b)=c(a+b)>0=|y_1-y_2|$, above inequality fails to hold.
-
-        If $c=0$, setting $y_1=y_2=(a+b)$. $\Rightarrow |y_1-y_2|=0$, and $ay_1+by_2-c(a+b)=(a+b)^2>0=|y_1-y_2|$, above inequality fails to hold.
-        \item Suppose $a=-b$ with $|a|>1$.
-        
-        If $a>1$, setting $y_1=y_2+1$; If $a<-1$, setting $y_1=y_2-1$.
-
-    \end{enumerate}
-\end{proof}
 
 \subsection{First-order necessary conditions for optimality in terms of subgradient}
 \begin{proposition}
