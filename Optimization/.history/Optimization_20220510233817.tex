@@ -3598,20 +3598,22 @@ It is also easy to show that the dual of dual is exactly the primal.
 \begin{equation}
     \begin{aligned}
         D(\mu_1,\mu_2)
-        &=\min_{x\in \mathbb{R}^n}c^Tx+\mu^T(Ax-b)\\
-        &=\min_{x\in \mathbb{R}^n}(c^T+\mu^TA)x-\mu^Tb\\
+        &=\min_{x\in \mathbb{R}^n}c^Tx+\mu_1^T(Ax-b)-\mu_2^Tx\\
+        &=\min_{x\in \mathbb{R}^n}(c^T+\mu_1^TA-\mu_2^T)x-\mu_1^Tb\\
         &=\left\{\begin{matrix}
-            -\infty&\text{ if }c^T+\mu^TA\neq 0\\
-            -\mu^Tb&\text{ if }c^T+\mu^TA=0
+            -\infty&\text{ if }c^T+\mu_1^TA-\mu_2^T\neq 0\\
+            -\mu_1^Tb&\text{ if }c^T+\mu_1^TA-\mu_2^T=0
         \end{matrix}\right.
     \end{aligned}
     \nonumber
 \end{equation}
+Note: $c^T+\mu_1^TA-\mu_2^T=0 \Leftrightarrow A^T\mu_1+c=\mu_2$
 
 Hence, the dual probelm is:
 \begin{equation}
     \begin{aligned}
-        &\max_{s.t.\ \mu\geq 0, A^T\mu+c=0}-\mu_1^Tb
+        &\max_{s.t.\ \mu_1\geq 0,\mu_2\geq 0, A^T\mu_1+c=\mu_2}-\mu_1^Tb\\
+        =&\min_{s.t.\ \mu_1\geq 0, A^T\mu_1+c\geq 0}\mu_1^Tb\\
     \end{aligned}
     \nonumber
 \end{equation}
@@ -3619,7 +3621,7 @@ Hence, the dual probelm is:
     \fcolorbox{black}{gray!10}{\parbox{.9\linewidth}{Hence, the dual probelm is:\begin{equation}
         \begin{aligned}
             &\min\ \bar{x}^Tb\\
-            &s.t.\quad -A^T\bar{x}= c,\bar{x}\geq 0
+            &s.t.\quad -A^T\bar{x}\leq c,\bar{x}\geq 0
         \end{aligned}
         \nonumber
     \end{equation}}}

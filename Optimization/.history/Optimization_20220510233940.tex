@@ -3611,7 +3611,8 @@ It is also easy to show that the dual of dual is exactly the primal.
 Hence, the dual probelm is:
 \begin{equation}
     \begin{aligned}
-        &\max_{s.t.\ \mu\geq 0, A^T\mu+c=0}-\mu_1^Tb
+        &\max_{s.t.\ \mu\geq 0, A^T\mu+c=0}-\mu_1^Tb\\
+        =&\min_{s.t.\ \mu_1\geq 0, A^T\mu_1+c\geq 0}\mu_1^Tb\\
     \end{aligned}
     \nonumber
 \end{equation}
@@ -3619,7 +3620,7 @@ Hence, the dual probelm is:
     \fcolorbox{black}{gray!10}{\parbox{.9\linewidth}{Hence, the dual probelm is:\begin{equation}
         \begin{aligned}
             &\min\ \bar{x}^Tb\\
-            &s.t.\quad -A^T\bar{x}= c,\bar{x}\geq 0
+            &s.t.\quad -A^T\bar{x}\leq c,\bar{x}\geq 0
         \end{aligned}
         \nonumber
     \end{equation}}}

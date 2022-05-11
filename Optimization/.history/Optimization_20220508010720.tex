@@ -3585,46 +3585,6 @@ Hence, the dual probelm is:
 \end{center}
 It is also easy to show that the dual of dual is exactly the primal.
 
-\textbf{\underline{Note:} when $x$ is not restricted to be positive in primal problem.}
-\begin{center}
-    \fcolorbox{black}{gray!10}{\parbox{.9\linewidth}{LP in "standard" form:\begin{equation}
-        \begin{aligned}
-            &\min\ c^Tx\\
-            &s.t.\quad Ax\leq b
-        \end{aligned}
-        \nonumber
-    \end{equation}}}
-\end{center}
-\begin{equation}
-    \begin{aligned}
-        D(\mu_1,\mu_2)
-        &=\min_{x\in \mathbb{R}^n}c^Tx+\mu^T(Ax-b)\\
-        &=\min_{x\in \mathbb{R}^n}(c^T+\mu^TA)x-\mu^Tb\\
-        &=\left\{\begin{matrix}
-            -\infty&\text{ if }c^T+\mu^TA\neq 0\\
-            -\mu^Tb&\text{ if }c^T+\mu^TA=0
-        \end{matrix}\right.
-    \end{aligned}
-    \nonumber
-\end{equation}
-
-Hence, the dual probelm is:
-\begin{equation}
-    \begin{aligned}
-        &\max_{s.t.\ \mu\geq 0, A^T\mu+c=0}-\mu_1^Tb
-    \end{aligned}
-    \nonumber
-\end{equation}
-\begin{center}
-    \fcolorbox{black}{gray!10}{\parbox{.9\linewidth}{Hence, the dual probelm is:\begin{equation}
-        \begin{aligned}
-            &\min\ \bar{x}^Tb\\
-            &s.t.\quad -A^T\bar{x}= c,\bar{x}\geq 0
-        \end{aligned}
-        \nonumber
-    \end{equation}}}
-\end{center}
-
 \section{Augmented Lagrangian Method (adjusted penalty method)}
 \subsection{Motivation}
 In penalty method, problem becomes \textbf{ill-conditioned} and the optimization becomes super slow if $c_k$ is huge. (${c_k}$ is an increasing positive sequence s.t. $c_k \rightarrow\infty$ as $k\rightarrow\infty$)
@@ -4015,7 +3975,7 @@ Subgradient Descent with constant step-size:
     \begin{aligned}
         \|x_{k+1}-x^*\|^2&=\|x_k-\alpha_k g_k-x^*\|^2\\
         &=\|x_k-x^*\|^2+\alpha_k^2\|g_k\|^2-2\alpha_k g_k^T(x_k-x^*)\\
-        &\leq \|x_k-x^*\|^2+\alpha_k^2a^2-2\alpha_k g_k^T(x_k-x^*)
+        &\leq \|x_k-x^*\|^2+\alpha^2a^2-2\alpha g_k^T(x_k-x^*)
     \end{aligned}
     \nonumber
 \end{equation}
@@ -4028,51 +3988,31 @@ By the definition of $g_k$,
 \end{equation}
 \begin{equation}
     \begin{aligned}
-        \Rightarrow  \|x_{k+1}-x^*\|^2&\leq \|x_k-x^*\|^2+\alpha_k^2a^2+2\alpha_k (f^*-f(x_k))\\
-        &\leq \left(\|x_{k-1}-x^*\|^2+\alpha_{k-1}^2a^2+2\alpha_{k-1}(f^*-f(x_{k-1}))\right)+\alpha_k^2a^2+2\alpha_k (f^*-f(x_k))\\
-        &\dots\\
-        \Rightarrow  \|x_{N}-x^*\|^2&\leq \|x_{0}-x^*\|^2+a^2\sum_{k=0}^{N-1}\alpha_{k}^2+2\sum_{k=0}^{N-1}\alpha_k(f^*-f(x_{k}))
+        \Rightarrow  \|x_{k+1}-x^*\|^2&\leq \|x_k-x^*\|^2+\alpha^2a^2+2\alpha (f^*-f(x_k))\\
+        f(x_k)-f^*&\leq \frac{\|x_k-x^*\|^2-\|x_{k+1}-x^*\|^2+\alpha^2a^2}{2\alpha}
     \end{aligned}
     \nonumber
 \end{equation}
 Define $f_N^*=\min\{f(x_0),f(x_1),...,f(x_{N-1})\}$
 \begin{equation}
     \begin{aligned}
-        \|x_{N}-x^*\|^2&\leq \|x_{0}-x^*\|^2+a^2\sum_{k=0}^{N-1}\alpha_{k}^2+2(f^*-f_N^*)\sum_{k=0}^{N-1}\alpha_k
+        \sum_{k=0}^{N-1}(f(x_k)-f^*)\geq \sum_{k=0}^{N-1}(f_N^*-f^*)=N(f_N^*-f^*)
     \end{aligned}
     \nonumber
 \end{equation}
 Then,
 \begin{equation}
     \begin{aligned}
-        f_N^*-f^*&\leq \frac{\|x_0-x^*\|^2-\|x_{N}-x^*\|^2+a^2\sum_{k=0}^{N-1}\alpha_k^2}{2\sum_{k=0}^{N-1}\alpha_k}\\
-        &\leq \frac{\|x_0-x^*\|^2+a^2\sum_{k=0}^{N-1}\alpha_k^2}{2\sum_{k=0}^{N-1}\alpha_k}
+        N(f_N^*-f^*)&\leq \sum_{k=0}^{N-1}\frac{\|x_k-x^*\|^2-\|x_{k+1}-x^*\|^2+\alpha^2a^2}{2\alpha}\\
+        &=\frac{\|x_0-x^*\|^2-\|x_{N}-x^*\|^2+N\alpha^2a^2}{2\alpha}\\
+        \Rightarrow\quad f_N^*&\leq f^*+\frac{1}{2\alpha N}\|x_0-x^*\|^2+\frac{\alpha a^2}{2}\\
+        \lim_{N \rightarrow	\infty} f_N^*&\leq f^*+\frac{\alpha a^2}{2}
     \end{aligned}
     \nonumber
 \end{equation}
-Suppse $\{\alpha_k\}$ is such that $\lim_{N \rightarrow	\infty}\frac{\sum_{k=0}^{N-1}\alpha_k^2}{\sum_{k=0}^{N-1}\alpha_k}=0$, then $\lim_{N \rightarrow \infty} f_N^*=f^*$
+For $\alpha$ samll enough and $N$ large enough $f^*_N$ can be made as close to $f^*$ as desired.
 
-\subsubsection*{Example of $\{\alpha_k\}$ and convergence rate}
-\begin{enumerate}[1)]
-    \item $\alpha_k=\frac{1}{k+1},k=0,1,...$
-    \begin{equation}
-        \begin{aligned}
-            &\sum_{k=0}^{N-1}\alpha_k^2=\sum_{k=1}^{N}\frac{1}{k^2}\rightarrow \frac{\pi^2}{6}\\
-            &\sum_{k=0}^{N-1}\alpha_k=\sum_{k=1}^{N}\frac{1}{k}>\log N\\
-            \Rightarrow&(f^*_N-f^*)\sim O(\frac{1}{\log N})
-        \end{aligned}
-        \nonumber
-    \end{equation}
-    \item $\alpha_k=\frac{1}{\sqrt{k+1}},k=0,1,...$
-    \begin{equation}
-        \begin{aligned}
-            &\sum_{k=0}^{N-1}\alpha_k^2=\sum_{k=1}^{N}\frac{1}{k}<\log N+1\\
-            &\sum_{k=0}^{N-1}\alpha_k=\sum_{k=1}^{N}\frac{1}{\sqrt{k}}>2\sqrt{N}-2\\
-            \Rightarrow&(f^*_N-f^*)\sim O(\frac{\log N}{\sqrt{N}})
-        \end{aligned}
-        \nonumber
-    \end{equation}
-\end{enumerate}
-Both worse than gradient descent (GD) $O(\frac{1}{N})$.
+
+
 
 \end{document}

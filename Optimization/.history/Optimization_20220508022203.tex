@@ -3585,46 +3585,6 @@ Hence, the dual probelm is:
 \end{center}
 It is also easy to show that the dual of dual is exactly the primal.
 
-\textbf{\underline{Note:} when $x$ is not restricted to be positive in primal problem.}
-\begin{center}
-    \fcolorbox{black}{gray!10}{\parbox{.9\linewidth}{LP in "standard" form:\begin{equation}
-        \begin{aligned}
-            &\min\ c^Tx\\
-            &s.t.\quad Ax\leq b
-        \end{aligned}
-        \nonumber
-    \end{equation}}}
-\end{center}
-\begin{equation}
-    \begin{aligned}
-        D(\mu_1,\mu_2)
-        &=\min_{x\in \mathbb{R}^n}c^Tx+\mu^T(Ax-b)\\
-        &=\min_{x\in \mathbb{R}^n}(c^T+\mu^TA)x-\mu^Tb\\
-        &=\left\{\begin{matrix}
-            -\infty&\text{ if }c^T+\mu^TA\neq 0\\
-            -\mu^Tb&\text{ if }c^T+\mu^TA=0
-        \end{matrix}\right.
-    \end{aligned}
-    \nonumber
-\end{equation}
-
-Hence, the dual probelm is:
-\begin{equation}
-    \begin{aligned}
-        &\max_{s.t.\ \mu\geq 0, A^T\mu+c=0}-\mu_1^Tb
-    \end{aligned}
-    \nonumber
-\end{equation}
-\begin{center}
-    \fcolorbox{black}{gray!10}{\parbox{.9\linewidth}{Hence, the dual probelm is:\begin{equation}
-        \begin{aligned}
-            &\min\ \bar{x}^Tb\\
-            &s.t.\quad -A^T\bar{x}= c,\bar{x}\geq 0
-        \end{aligned}
-        \nonumber
-    \end{equation}}}
-\end{center}
-
 \section{Augmented Lagrangian Method (adjusted penalty method)}
 \subsection{Motivation}
 In penalty method, problem becomes \textbf{ill-conditioned} and the optimization becomes super slow if $c_k$ is huge. (${c_k}$ is an increasing positive sequence s.t. $c_k \rightarrow\infty$ as $k\rightarrow\infty$)
@@ -4066,9 +4026,9 @@ Suppse $\{\alpha_k\}$ is such that $\lim_{N \rightarrow	\infty}\frac{\sum_{k=0}^
     \item $\alpha_k=\frac{1}{\sqrt{k+1}},k=0,1,...$
     \begin{equation}
         \begin{aligned}
-            &\sum_{k=0}^{N-1}\alpha_k^2=\sum_{k=1}^{N}\frac{1}{k}<\log N+1\\
-            &\sum_{k=0}^{N-1}\alpha_k=\sum_{k=1}^{N}\frac{1}{\sqrt{k}}>2\sqrt{N}-2\\
-            \Rightarrow&(f^*_N-f^*)\sim O(\frac{\log N}{\sqrt{N}})
+            &\sum_{k=0}^{N-1}\alpha_k^2=\sum_{k=1}^{N}\frac{1}{k^2}\rightarrow \frac{\pi^2}{6}\\
+            &\sum_{k=0}^{N-1}\alpha_k=\sum_{k=1}^{N}\frac{1}{k}>\log N\\
+            \Rightarrow&(f^*_N-f^*)\sim O(\frac{1}{\log N})
         \end{aligned}
         \nonumber
     \end{equation}

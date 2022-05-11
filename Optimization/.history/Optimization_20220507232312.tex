@@ -3585,46 +3585,6 @@ Hence, the dual probelm is:
 \end{center}
 It is also easy to show that the dual of dual is exactly the primal.
 
-\textbf{\underline{Note:} when $x$ is not restricted to be positive in primal problem.}
-\begin{center}
-    \fcolorbox{black}{gray!10}{\parbox{.9\linewidth}{LP in "standard" form:\begin{equation}
-        \begin{aligned}
-            &\min\ c^Tx\\
-            &s.t.\quad Ax\leq b
-        \end{aligned}
-        \nonumber
-    \end{equation}}}
-\end{center}
-\begin{equation}
-    \begin{aligned}
-        D(\mu_1,\mu_2)
-        &=\min_{x\in \mathbb{R}^n}c^Tx+\mu^T(Ax-b)\\
-        &=\min_{x\in \mathbb{R}^n}(c^T+\mu^TA)x-\mu^Tb\\
-        &=\left\{\begin{matrix}
-            -\infty&\text{ if }c^T+\mu^TA\neq 0\\
-            -\mu^Tb&\text{ if }c^T+\mu^TA=0
-        \end{matrix}\right.
-    \end{aligned}
-    \nonumber
-\end{equation}
-
-Hence, the dual probelm is:
-\begin{equation}
-    \begin{aligned}
-        &\max_{s.t.\ \mu\geq 0, A^T\mu+c=0}-\mu_1^Tb
-    \end{aligned}
-    \nonumber
-\end{equation}
-\begin{center}
-    \fcolorbox{black}{gray!10}{\parbox{.9\linewidth}{Hence, the dual probelm is:\begin{equation}
-        \begin{aligned}
-            &\min\ \bar{x}^Tb\\
-            &s.t.\quad -A^T\bar{x}= c,\bar{x}\geq 0
-        \end{aligned}
-        \nonumber
-    \end{equation}}}
-\end{center}
-
 \section{Augmented Lagrangian Method (adjusted penalty method)}
 \subsection{Motivation}
 In penalty method, problem becomes \textbf{ill-conditioned} and the optimization becomes super slow if $c_k$ is huge. (${c_k}$ is an increasing positive sequence s.t. $c_k \rightarrow\infty$ as $k\rightarrow\infty$)
@@ -3974,7 +3934,7 @@ Then,
 \end{equation}
 For $\alpha$ samll enough and $N$ large enough $f^*_N$ can be made as close to $f^*$ as desired.
 
-\subsubsection*{Note: $-$subgradient is not necessarily a descent direction}
+\subsubsection*{Note: subgradient is not necessarily a descent direction}
 i.e., if $g_k$ is a subgradient of $f$ at $x_k$. Then $$f(x_k-\alpha g_k)\text{ may be }\geq f(x_k),\quad \forall \alpha>0$$
 for some $g_k$.
 
@@ -3992,87 +3952,12 @@ Consider $g_k=(-1,1)\in\partial f(0,1)$
 \end{equation}
 i.e., $-g_k$ is not a descent direction.
 
-\begin{center}
-    \fcolorbox{black}{gray!10}{\parbox{.9\linewidth}{If $f$ is convex, there is some $g_k\in\partial f(x_k)$ for which $-g_k$ is a descent direction (usually the one with \textbf{the smallest norm}), but finding such $g_k$ may be difficult in high-dimentional settings.\\ This means we cannot use back-tracking algorithms (Armijo's Rule) for adopting step-size.}}
-\end{center}
 
-\subsection{(Revised) Sub-gradient "descent" with diminishing stepsize}
-\textbf{\underline{Assumptions:}}
-\begin{enumerate}[(i)]
-    \item $f$ is convex on $\mathbb{R}^n$.
-    \item $f^*=\inf_{x\in \mathbb{R}^n}f(x)$ exists and there exists an $x^*$ s.t. $f(x^*)=f^*$.
-    \item For all $x\in \mathbb{R}^n$ and for all $g\in \partial f(x)$, $\|g\|\leq a$.
-\end{enumerate}
-Subgradient Descent with constant step-size:
-\begin{equation}
-    \begin{aligned}
-        x_{k+1}=x_k-\alpha_k g_k,\quad g_k\in \partial f(x_k)
-    \end{aligned}
-    \nonumber
-\end{equation}
-\textbf{\underline{Analysis:}}
-\begin{equation}
-    \begin{aligned}
-        \|x_{k+1}-x^*\|^2&=\|x_k-\alpha_k g_k-x^*\|^2\\
-        &=\|x_k-x^*\|^2+\alpha_k^2\|g_k\|^2-2\alpha_k g_k^T(x_k-x^*)\\
-        &\leq \|x_k-x^*\|^2+\alpha_k^2a^2-2\alpha_k g_k^T(x_k-x^*)
-    \end{aligned}
-    \nonumber
-\end{equation}
-By the definition of $g_k$,
-\begin{equation}
-    \begin{aligned}
-        &f(x_k)+g_k^T(x^*-x_k)\leq f(x^*)=f^*
-    \end{aligned}
-    \nonumber
-\end{equation}
-\begin{equation}
-    \begin{aligned}
-        \Rightarrow  \|x_{k+1}-x^*\|^2&\leq \|x_k-x^*\|^2+\alpha_k^2a^2+2\alpha_k (f^*-f(x_k))\\
-        &\leq \left(\|x_{k-1}-x^*\|^2+\alpha_{k-1}^2a^2+2\alpha_{k-1}(f^*-f(x_{k-1}))\right)+\alpha_k^2a^2+2\alpha_k (f^*-f(x_k))\\
-        &\dots\\
-        \Rightarrow  \|x_{N}-x^*\|^2&\leq \|x_{0}-x^*\|^2+a^2\sum_{k=0}^{N-1}\alpha_{k}^2+2\sum_{k=0}^{N-1}\alpha_k(f^*-f(x_{k}))
-    \end{aligned}
-    \nonumber
-\end{equation}
-Define $f_N^*=\min\{f(x_0),f(x_1),...,f(x_{N-1})\}$
-\begin{equation}
-    \begin{aligned}
-        \|x_{N}-x^*\|^2&\leq \|x_{0}-x^*\|^2+a^2\sum_{k=0}^{N-1}\alpha_{k}^2+2(f^*-f_N^*)\sum_{k=0}^{N-1}\alpha_k
-    \end{aligned}
-    \nonumber
-\end{equation}
-Then,
-\begin{equation}
-    \begin{aligned}
-        f_N^*-f^*&\leq \frac{\|x_0-x^*\|^2-\|x_{N}-x^*\|^2+a^2\sum_{k=0}^{N-1}\alpha_k^2}{2\sum_{k=0}^{N-1}\alpha_k}\\
-        &\leq \frac{\|x_0-x^*\|^2+a^2\sum_{k=0}^{N-1}\alpha_k^2}{2\sum_{k=0}^{N-1}\alpha_k}
-    \end{aligned}
-    \nonumber
-\end{equation}
-Suppse $\{\alpha_k\}$ is such that $\lim_{N \rightarrow	\infty}\frac{\sum_{k=0}^{N-1}\alpha_k^2}{\sum_{k=0}^{N-1}\alpha_k}=0$, then $\lim_{N \rightarrow \infty} f_N^*=f^*$
 
-\subsubsection*{Example of $\{\alpha_k\}$ and convergence rate}
-\begin{enumerate}[1)]
-    \item $\alpha_k=\frac{1}{k+1},k=0,1,...$
-    \begin{equation}
-        \begin{aligned}
-            &\sum_{k=0}^{N-1}\alpha_k^2=\sum_{k=1}^{N}\frac{1}{k^2}\rightarrow \frac{\pi^2}{6}\\
-            &\sum_{k=0}^{N-1}\alpha_k=\sum_{k=1}^{N}\frac{1}{k}>\log N\\
-            \Rightarrow&(f^*_N-f^*)\sim O(\frac{1}{\log N})
-        \end{aligned}
-        \nonumber
-    \end{equation}
-    \item $\alpha_k=\frac{1}{\sqrt{k+1}},k=0,1,...$
-    \begin{equation}
-        \begin{aligned}
-            &\sum_{k=0}^{N-1}\alpha_k^2=\sum_{k=1}^{N}\frac{1}{k}<\log N+1\\
-            &\sum_{k=0}^{N-1}\alpha_k=\sum_{k=1}^{N}\frac{1}{\sqrt{k}}>2\sqrt{N}-2\\
-            \Rightarrow&(f^*_N-f^*)\sim O(\frac{\log N}{\sqrt{N}})
-        \end{aligned}
-        \nonumber
-    \end{equation}
-\end{enumerate}
-Both worse than gradient descent (GD) $O(\frac{1}{N})$.
+
+
+
+
+
 
 \end{document}
