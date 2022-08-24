@@ -34,7 +34,7 @@
 \usepackage{hyperref}
 \newcommand{\code}{	exttt}
 \geometry{a4paper,scale=0.8}
-\title{MATH 417}
+\title{Abstract Algebra}
 \author[*]{Wenxiao Yang}
 \affil[*]{Department of Mathematics, University of Illinois at Urbana-Champaign}
 \date{2021}
@@ -212,11 +212,13 @@ $*$ has \underline{identity element $e\in S$} if $a*e=e*a=a$ for all $s\in S$.
 \subsection{Equivalence relations (rational equivalence in micro)}
 \textbf{rational equivalence in micro} Satisfy: (1)Reflexive, (2)Symmetric, (3)Transitive.
 Given a set $X$, a relation on X is a subset of $R\subset X\times X$. We write $a\sim b$.\\
-A relation $\sim$ is said to be\\
-1. \textit{Reflexive} if $\forall x\in X$, we have $x\sim x$.\\
-2. \textit{Symmetric} if $\forall x,y\in X$, $x\sim y\Rightarrow y\sim x$.\\
-3. \textit{Transitive} if $\forall x,y,z\in X$, $x\sim y, y\sim z\Rightarrow x\sim z$.\\
-The $sim$ is called \textbf{equivalence relation} if it is \textit{reflexive, Symmetric} and \textit{Transitive}.
+A relation $\sim$ is said to be
+\begin{enumerate}
+    \item \textit{Reflexive} if $\forall x\in X$, we have $x\sim x$
+    \item \textit{Symmetric} if $\forall x,y\in X$, $x\sim y\Rightarrow y\sim x$
+    \item \textit{Transitive} if $\forall x,y,z\in X$, $x\sim y, y\sim z\Rightarrow x\sim z$
+\end{enumerate}
+The $\sim$ is called \textbf{equivalence relation} if it is \textit{reflexive, Symmetric} and \textit{Transitive}.
 
 \begin{example}
     Set $X=\{(a,b)\in \mathbb{Z}^2|b\neq 0 \}$, satisfies $(a,b)\sim(c,d)$ if $ad=bc$.
