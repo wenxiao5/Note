@@ -1,1 +1,9 @@
 minimer
+softmax
+Softmax
+nonconcave
+nondecreasing
+optimality
+nonnegativity
+maxent
+maxent

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.26)  27 JUL 2022 16:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.9.21)  28 OCT 2022 12:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -6,7 +6,7 @@ entering extended mode
 **"/Users/yangwenxiao/Desktop/Note/Statistics_Regression/STAT 425 Note_sum"
 (/Users/yangwenxiao/Desktop/Note/Statistics_Regression/STAT 425 Note_sum.tex
 LaTeX2e <2022-06-01> patch level 5
-L3 programming layer <2022-07-15> (/usr/local/texlive/2022/texmf-dist/tex/latex/base/article.cls
+L3 programming layer <2022-08-30> (/usr/local/texlive/2022/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
 (/usr/local/texlive/2022/texmf-dist/tex/latex/base/size11.clo
 File: size11.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
@@ -603,7 +603,7 @@ File: listings.cfg 2020/03/24 1.8d listings configuration
 ))
 Package: listings 2020/03/24 1.8d (Carsten Heinz)
  (/usr/local/texlive/2022/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2022-07-01 L3 backend support: PDF output (pdfTeX)
+File: l3backend-pdftex.def 2022-08-30 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count335
 \l__pdf_internal_box=\box87
 ) (./STAT 425 Note_sum.aux
@@ -728,7 +728,7 @@ Package pgfplots Warning: running in backwards compatibility mode (unsuitable ti
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=11.0pt
-* \footskip=30.0pt
+* \footskip=20.0pt
 * \marginparwidth=50.0pt
 * \marginparsep=10.0pt
 * \columnsep=10.0pt
@@ -757,11 +757,11 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 49.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (./STAT 425 Note_sum.toc [1
 
-{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5])
+{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5] [6] [7] [8])
 \tf@toc=\write5
 \openout5 = `"STAT 425 Note_sum.toc"'.
 
- [6]
+ [9]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 62.
@@ -779,7 +779,7 @@ Overfull \hbox (23.73286pt too wide) detected at line 77
 \OML/cmm/m/it/10.95 Cov\OT1/cmr/m/n/10.95 (\OT1/cmr/bx/n/10.95 AX\OML/cmm/m/it/10.95 ; \OT1/cmr/bx/n/10.95 BY\OT1/cmr/m/n/10.95 ) = \U/msb/m/n/10.95 E\OT1/cmr/m/n/10.95 [(\OT1/cmr/bx/n/10.95 AX \OMS/cmsy/m/n/10.95 ^^@ \OT1/cmr/bx/n/10.95 A\U/msb/m/n/10.95 E\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 X\OT1/cmr/m/n/10.95 ))(\OT1/cmr/bx/n/10.95 BY \OMS/cmsy/m/n/10.95 ^^@ \OT1/cmr/bx/n/10.95 B\U/msb/m/n/10.95 E\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 Y\OT1/cmr/m/n/10.95 ))[]] = \OT1/cmr/bx/n/10.95 A\U/msb/m/n/10.95 E\OT1/cmr/m/n/10.95 [(\OT1/cmr/bx/n/10.95 X \OMS/cmsy/m/n/10.95 ^^@ \U/msb/m/n/10.95 E\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 X\OT1/cmr/m/n/10.95 ))(\OT1/cmr/bx/n/10.95 Y \OMS/cmsy/m/n/10.95 ^^@ \U/msb/m/n/10.95 E\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 Y\OT1/cmr/m/n/10.95 ))[]]\OT1/cmr/bx/n/10.95 B[] \OT1/cmr/m/n/10.95 = \OT1/cmr/bx/n/10.95 A\OML/cmm/m/it/10.95 Cov\OT1/cmr/m/n/10.95 (\OT1/cmr/bx/n/10.95 X\OML/cmm/m/it/10.95 ; \OT1/cmr/bx/n/10.95 Y\OT1/cmr/m/n/10.95 )\OT1/cmr/bx/n/10.95 B[]
  []
 
-[7]
+[10]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 128.
@@ -805,6 +805,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 141.
 
+[11]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 146.
@@ -842,7 +843,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 147--149
 
  []
 
-[8] [9]
+[12] [13]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 207.
@@ -888,7 +889,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.2.1})
 <to be read again> 
                    \relax 
 l.225 \begin{equation}
-                       [10]
+                       [14]
 Underfull \hbox (badness 10000) in paragraph at lines 236--237
 
  []
@@ -995,7 +996,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.2.1})
 <to be read again> 
                    \relax 
 l.260 \begin{equation}
-                       [11]
+                       [15]
 Underfull \hbox (badness 10000) in paragraph at lines 271--275
 
  []
@@ -1173,7 +1174,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 300.
 
-
+[16]
 pdfTeX warning (ext4): destination with the same identifier (name{equation.2.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -1218,13 +1219,13 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.2.1})
 <to be read again> 
                    \relax 
 l.313 \begin{equation}
-                       [12] [13]
-<rendered_image.png, id=1334, 357.0138pt x 129.1224pt>
+                       [17] [18]
+<rendered_image.png, id=1354, 357.0138pt x 129.1224pt>
 File: rendered_image.png Graphic file (type png)
 <use rendered_image.png>
 Package pdftex.def Info: rendered_image.png  used on input line 388.
 (pdftex.def)             Requested size: 357.01291pt x 129.12209pt.
- [14 <./rendered_image.png>]
+
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 409.
@@ -1257,6 +1258,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 409.
 
+[19 <./rendered_image.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 428.
@@ -1269,12 +1271,12 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 428.
 
-[15] [16]
+[20] [21]
 Underfull \hbox (badness 10000) in paragraph at lines 512--517
 
  []
 
-[17]
+[22] [23]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 572.
@@ -1308,7 +1310,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 580--582
 
  []
 
-[18]
+[24]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 591.
@@ -1801,12 +1803,11 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 623.
 
-
+[25]
 Underfull \hbox (badness 10000) in paragraph at lines 627--629
 
  []
 
-[19]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 629.
@@ -1883,17 +1884,17 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 647.
 
-<截屏2021-09-05 22.22.04.png, id=1366, 623.32875pt x 444.66125pt>
+<截屏2021-09-05 22.22.04.png, id=1391, 623.32875pt x 444.66125pt>
 File: 截屏2021-09-05 22.22.04.png Graphic file (type png)
 <use 截屏2021-09-05 22.22.04.png>
 Package pdftex.def Info: 截屏2021-09-05 22.22.04.png  used on input line 653.
 (pdftex.def)             Requested size: 311.6636pt x 222.33008pt.
-
+[26]
 Underfull \hbox (badness 10000) in paragraph at lines 658--661
 
  []
 
-[20]
+[27 <./截屏2021-09-05 22.22.04.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 670.
@@ -1958,7 +1959,6 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 689.
 
-[21 <./截屏2021-09-05 22.22.04.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 694.
@@ -1996,27 +1996,6 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 694.
 
 
-pdfTeX warning (ext4): destination with the same identifier (name{equation.3.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.695 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.3.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.695 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.3.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.695 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.3.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.695 \begin{equation}
-                      
-
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 702.
 
@@ -2052,27 +2031,12 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 702.
 
-
+[28
 pdfTeX warning (ext4): destination with the same identifier (name{equation.3.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.703 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.3.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.703 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.3.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.703 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.3.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.703 \begin{equation}
-                      
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.709 \end{equation}
+                    ]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 710.
@@ -2093,7 +2057,6 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 710.
 
-[22]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 729.
@@ -2130,6 +2093,12 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 729.
 
+[29
+pdfTeX warning (ext4): destination with the same identifier (name{equation.3.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.733 $$
+        ]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 742.
@@ -2554,6 +2523,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 764.
 
+[30]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 768.
@@ -2582,7 +2552,6 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 768.
 
-[23]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 795.
@@ -2591,20 +2560,22 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 795.
 
-<Lec0601.png, id=1389, 421.575pt x 236.885pt>
+[31]
+<Lec0601.png, id=1423, 421.575pt x 236.885pt>
 File: Lec0601.png Graphic file (type png)
 <use Lec0601.png>
 Package pdftex.def Info: Lec0601.png  used on input line 814.
 (pdftex.def)             Requested size: 337.26045pt x 189.50824pt.
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 818.
-
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 818.
 
-[24] [25 <./Lec0601.png>]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 818.
+
+[32 <./Lec0601.png>] [33]
 Underfull \hbox (badness 10000) in paragraph at lines 871--873
 
  []
@@ -2665,8 +2636,8 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 887.
 
-[26]
-<Lec0701.png, id=1405, 612.2875pt x 382.42876pt>
+[34]
+<Lec0701.png, id=1438, 612.2875pt x 382.42876pt>
 File: Lec0701.png Graphic file (type png)
 <use Lec0701.png>
 Package pdftex.def Info: Lec0701.png  used on input line 897.
@@ -2749,7 +2720,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 919.
 
-[27 <./Lec0701.png>]
+[35 <./Lec0701.png>]
 pdfTeX warning (ext4): destination with the same identifier (name{equation.3.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -2789,7 +2760,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.3.1})
 <to be read again> 
                    \relax 
 l.952 \begin{equation}
-                       [28]
+                       [36]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 988.
@@ -2826,6 +2797,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 988.
 
+[37]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1012.
@@ -2859,7 +2831,6 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1012.
 
-[29]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1030.
@@ -2905,6 +2876,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1031--1032
 
  []
 
+[38]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1044.
@@ -2998,7 +2970,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1065.
 
-[30]
+[39]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1076.
@@ -3075,12 +3047,11 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1094.
 
-
+[40]
 Underfull \hbox (badness 10000) in paragraph at lines 1104--1108
 
  []
 
-[31]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1114.
@@ -3194,6 +3165,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1126.
 
+[41]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1136.
@@ -3210,7 +3182,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1137.
 
-<check1.png, id=1431, 487.8225pt x 240.9pt>
+<check1.png, id=1472, 487.8225pt x 240.9pt>
 File: check1.png Graphic file (type png)
 <use check1.png>
 Package pdftex.def Info: check1.png  used on input line 1141.
@@ -3220,12 +3192,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 1145--1147
 
  []
 
-<check5.png, id=1432, 512.91624pt x 356.33125pt>
+[42 <./check1.png>]
+<check5.png, id=1479, 512.91624pt x 356.33125pt>
 File: check5.png Graphic file (type png)
 <use check5.png>
 Package pdftex.def Info: check5.png  used on input line 1149.
 (pdftex.def)             Requested size: 256.45749pt x 178.16518pt.
-[32] [33 <./check1.png> <./check5.png>]
+ [43 <./check5.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1182.
@@ -3292,12 +3265,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 1197--1199
 
  []
 
-[34]
+
 Underfull \hbox (badness 10000) in paragraph at lines 1209--1210
 
  []
 
-
+[44]
 Underfull \hbox (badness 10000) in paragraph at lines 1220--1221
 
  []
@@ -3323,7 +3296,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1232.
 
-<check2.png, id=1449, 500.87125pt x 137.51375pt>
+<check2.png, id=1492, 500.87125pt x 137.51375pt>
 File: check2.png Graphic file (type png)
 <use check2.png>
 Package pdftex.def Info: check2.png  used on input line 1235.
@@ -3336,12 +3309,13 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1244.
 
-<check7.png, id=1450, 507.8975pt x 369.38pt>
+[45 <./check2.png>]
+<check7.png, id=1499, 507.8975pt x 369.38pt>
 File: check7.png Graphic file (type png)
 <use check7.png>
 Package pdftex.def Info: check7.png  used on input line 1254.
 (pdftex.def)             Requested size: 355.52583pt x 258.56422pt.
-[35 <./check2.png>]
+
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1259.
@@ -3362,6 +3336,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1264.
 
+[46 <./check7.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1270.
@@ -3370,7 +3345,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1270.
 
-[36 <./check7.png>]
+
 Underfull \hbox (badness 10000) in paragraph at lines 1288--1290
 
  []
@@ -3380,11 +3355,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 1291--1292
 
  []
 
-<check8.png, id=1463, 584.1825pt x 348.30125pt>
+<check8.png, id=1506, 584.1825pt x 348.30125pt>
 File: check8.png Graphic file (type png)
 <use check8.png>
 Package pdftex.def Info: check8.png  used on input line 1294.
 (pdftex.def)             Requested size: 292.09053pt x 174.15019pt.
+[47]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1320.
@@ -3401,7 +3377,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1321.
 
-<check3.png, id=1464, 509.905pt x 259.97125pt>
+<check3.png, id=1511, 509.905pt x 259.97125pt>
 File: check3.png Graphic file (type png)
 <use check3.png>
 Package pdftex.def Info: check3.png  used on input line 1324.
@@ -3411,8 +3387,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1330--1331
 
  []
 
-[37 <./check8.png>]
-<check4.png, id=1472, 458.71375pt x 114.4275pt>
+<check4.png, id=1512, 458.71375pt x 114.4275pt>
 File: check4.png Graphic file (type png)
 <use check4.png>
 Package pdftex.def Info: check4.png  used on input line 1335.
@@ -3422,6 +3397,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1340--1341
 
  []
 
+[48 <./check8.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1344.
@@ -3430,7 +3406,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1344.
 
-[38 <./check3.png> <./check4.png>]
+[49 <./check3.png> <./check4.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1370.
@@ -3439,6 +3415,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1370.
 
+[50]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1390.
@@ -3491,7 +3468,6 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1390.
 
-[39]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1408.
@@ -3504,6 +3480,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1408.
 
+[51]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1425.
@@ -3600,7 +3577,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1425.
 
-[40]
+
 Underfull \hbox (badness 10000) in paragraph at lines 1436--1438
 
  []
@@ -3610,7 +3587,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1451--1453
 
  []
 
-[41]
+[52] [53]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1515.
@@ -3656,11 +3633,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 1519--1521
 
  []
 
-[42]
+[54]
 Underfull \hbox (badness 10000) in paragraph at lines 1538--1542
 
  []
 
+[55]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1572.
@@ -3677,7 +3655,6 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1572.
 
-[43]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1594.
@@ -3704,6 +3681,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1596--1602
 
  []
 
+[56]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1603.
@@ -3740,7 +3718,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1618.
 
-[44]
+[57]
 Underfull \hbox (badness 10000) in paragraph at lines 1634--1636
 
  []
@@ -3763,7 +3741,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 1656--1657
 
  []
 
-
+[58
+pdfTeX warning (ext4): destination with the same identifier (name{equation.9.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1658 I
+        nstead we will consider \textbf{piece-wise polynomials}:]
 Underfull \hbox (badness 10000) in paragraph at lines 1668--1671
 
  []
@@ -3773,16 +3756,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 1673--1675
 
  []
 
-[45
-pdfTeX warning (ext4): destination with the same identifier (name{equation.9.1}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1675 
-       ]
+
 Underfull \hbox (badness 10000) in paragraph at lines 1687--1689
 
  []
 
+[59]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1690.
@@ -3791,7 +3770,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1690.
 
-[46]
+[60]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1739.
@@ -3805,7 +3784,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1763--1764
 
  []
 
-[47]
+[61]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1801.
@@ -3814,62 +3793,37 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1801.
 
-[48
-pdfTeX warning (ext4): destination with the same identifier (name{equation.10.1}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1868 \end{equation}
-                     
-pdfTeX warning (ext4): destination with the same identifier (name{equation.10.1}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1868 \end{equation}
-                     ]
-pdfTeX warning (ext4): destination with the same identifier (name{equation.10.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1870 \begin{equation}
-                       
-pdfTeX warning (ext4): destination with the same identifier (name{equation.10.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1870 \begin{equation}
-                       
-pdfTeX warning (ext4): destination with the same identifier (name{equation.10.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1870 \begin{equation}
-                       
-pdfTeX warning (ext4): destination with the same identifier (name{equation.10.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1870 \begin{equation}
-                       
+[62]
 Underfull \hbox (badness 10000) in paragraph at lines 1875--1879
 
  []
 
-
+[63
 pdfTeX warning (ext4): destination with the same identifier (name{equation.10.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1882 \begin{equation}
-                       
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1887 \end{equation}
+                     
 pdfTeX warning (ext4): destination with the same identifier (name{equation.10.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1882 \begin{equation}
-                       
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1887 \end{equation}
+                     
 pdfTeX warning (ext4): destination with the same identifier (name{equation.10.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1882 \begin{equation}
-                       
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1887 \end{equation}
+                     
 pdfTeX warning (ext4): destination with the same identifier (name{equation.10.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1882 \begin{equation}
-                       
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1887 \end{equation}
+                     
+pdfTeX warning (ext4): destination with the same identifier (name{equation.10.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1887 \end{equation}
+                     ]
 pdfTeX warning (ext4): destination with the same identifier (name{equation.10.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -3899,32 +3853,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 1914--1919
 
  []
 
-[49
+[64
 pdfTeX warning (ext4): destination with the same identifier (name{equation.10.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1922 \begin{center}
-                     
-pdfTeX warning (ext4): destination with the same identifier (name{equation.10.1}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1922 \begin{center}
-                     ]
+l.1919 
+       ] [65]
 Underfull \hbox (badness 10000) in paragraph at lines 1970--1972
 
  []
 
-[50]
+[66]
 Underfull \hbox (badness 10000) in paragraph at lines 2003--2015
 
  []
 
-[51]
+
 Underfull \hbox (badness 10000) in paragraph at lines 2016--2020
 
  []
 
-
+[67]
 Underfull \hbox (badness 10000) in paragraph at lines 2028--2030
 
  []
@@ -3939,7 +3888,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2054--2056
 
  []
 
-[52]
+[68] [69]
 Underfull \hbox (badness 10000) in paragraph at lines 2093--2097
 
  []
@@ -3949,17 +3898,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 2099--2103
 
  []
 
-[53]
+
 Underfull \hbox (badness 10000) in paragraph at lines 2108--2114
 
  []
 
-<elbow.png, id=1552, 477.785pt x 389.455pt>
+[70]
+<elbow.png, id=1623, 477.785pt x 389.455pt>
 File: elbow.png Graphic file (type png)
 <use elbow.png>
 Package pdftex.def Info: elbow.png  used on input line 2117.
 (pdftex.def)             Requested size: 238.8919pt x 194.72702pt.
-[54 <./elbow.png>]
+ [71 <./elbow.png>]
 pdfTeX warning (ext4): destination with the same identifier (name{equation.12.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -4009,12 +3959,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 2165--2169
 
  []
 
-<compare.png, id=1559, 862.22125pt x 472.76625pt>
+[72]
+<compare.png, id=1634, 862.22125pt x 472.76625pt>
 File: compare.png Graphic file (type png)
 <use compare.png>
 Package pdftex.def Info: compare.png  used on input line 2178.
 (pdftex.def)             Requested size: 258.66837pt x 141.83096pt.
-[55] [56 <./compare.png>] [57] [58]
+ [73 <./compare.png>] [74] [75] [76]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 2326.
@@ -4031,7 +3982,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 2326.
 
-[59]
+[77] [78]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 2415.
@@ -4056,13 +4007,13 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 2415.
 
-[60] [61]
-<IP.png, id=1594, 530.98375pt x 393.47pt>
+[79] [80]
+<IP.png, id=1674, 530.98375pt x 393.47pt>
 File: IP.png Graphic file (type png)
 <use IP.png>
 Package pdftex.def Info: IP.png  used on input line 2506.
 (pdftex.def)             Requested size: 265.49121pt x 196.73451pt.
- [62 <./IP.png>]
+ [81] [82 <./IP.png>]
 pdfTeX warning (ext4): destination with the same identifier (name{equation.14.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -4082,7 +4033,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.14.1}
 <to be read again> 
                    \relax 
 l.2538 \begin{equation}
-                        [63] [64]
+                        [83] [84]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 2615.
@@ -4099,7 +4050,8 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 2626.
 
-<type3.png, id=1610, 1429.34pt x 560.0925pt>
+[85]
+<type3.png, id=1699, 1429.34pt x 560.0925pt>
 File: type3.png Graphic file (type png)
 <use type3.png>
 Package pdftex.def Info: type3.png  used on input line 2637.
@@ -4117,12 +4069,12 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 2660.
 
-[65]
+[86 <./type3.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 2706--2710
 
  []
 
-[66 <./type3.png>]
+[87]
 Underfull \hbox (badness 10000) in paragraph at lines 2711--2714
 
  []
@@ -4142,12 +4094,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 2729--2730
 
  []
 
-<CRBD_example.png, id=1624, 683.55376pt x 482.80376pt>
+<CRBD_example.png, id=1712, 683.55376pt x 482.80376pt>
 File: CRBD_example.png Graphic file (type png)
 <use CRBD_example.png>
 Package pdftex.def Info: CRBD_example.png  used on input line 2732.
 (pdftex.def)             Requested size: 341.77605pt x 241.40129pt.
-
+[88]
 Underfull \hbox (badness 10000) in paragraph at lines 2740--2747
 
  []
@@ -4157,7 +4109,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2748--2752
 
  []
 
-[67]
+[89 <./CRBD_example.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 2770--2773
 
  []
@@ -4167,7 +4119,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2787--2791
 
  []
 
-[68 <./CRBD_example.png>]
+
 Underfull \hbox (badness 10000) in paragraph at lines 2792--2796
 
  []
@@ -4177,7 +4129,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2797--2802
 
  []
 
-
+[90]
 Underfull \hbox (badness 10000) in paragraph at lines 2804--2809
 
  []
@@ -4187,12 +4139,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 2813--2821
 
  []
 
-
+[91]
 Underfull \hbox (badness 10000) in paragraph at lines 2838--2842
 
  []
 
-[69]
+
 Underfull \hbox (badness 10000) in paragraph at lines 2843--2849
 
  []
@@ -4207,7 +4159,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2858--2860
 
  []
 
-
+[92]
 Underfull \hbox (badness 10000) in paragraph at lines 2890--2894
 
  []
@@ -4217,7 +4169,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2895--2899
 
  []
 
-[70]
+[93]
 Underfull \hbox (badness 10000) in paragraph at lines 2902--2907
 
  []
@@ -4237,37 +4189,38 @@ Underfull \hbox (badness 10000) in paragraph at lines 2930--2932
 
  []
 
-
+[94]
 Underfull \hbox (badness 10000) in paragraph at lines 2936--2940
 
  []
 
-[71]
+
 Underfull \hbox (badness 10000) in paragraph at lines 2963--2965
 
  []
 
-<REML.png, id=1650, 773.89125pt x 302.12875pt>
+[95]
+<REML.png, id=1751, 773.89125pt x 302.12875pt>
 File: REML.png Graphic file (type png)
 <use REML.png>
 Package pdftex.def Info: REML.png  used on input line 2975.
 (pdftex.def)             Requested size: 309.55101pt x 120.84935pt.
-<REML2.png, id=1651, 595.22375pt x 459.7175pt>
+<REML2.png, id=1752, 595.22375pt x 459.7175pt>
 File: REML2.png Graphic file (type png)
 <use REML2.png>
 Package pdftex.def Info: REML2.png  used on input line 2981.
 (pdftex.def)             Requested size: 238.08528pt x 183.88373pt.
-[72 <./REML.png>]
+ [96 <./REML.png> <./REML2.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 2990--2993
 
  []
 
-<ML Est1.png, id=1658, 767.86874pt x 92.345pt>
+<ML Est1.png, id=1761, 767.86874pt x 92.345pt>
 File: ML Est1.png Graphic file (type png)
 <use ML Est1.png>
 Package pdftex.def Info: ML Est1.png  used on input line 2998.
 (pdftex.def)             Requested size: 307.14206pt x 36.93733pt.
-<ML Est2.png, id=1659, 639.38875pt x 475.7775pt>
+<ML Est2.png, id=1762, 639.38875pt x 475.7775pt>
 File: ML Est2.png Graphic file (type png)
 <use ML Est2.png>
 Package pdftex.def Info: ML Est2.png  used on input line 3004.
@@ -4277,12 +4230,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 3011--3015
 
  []
 
-
+[97 <./ML Est1.png> <./ML Est2.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 3017--3021
 
  []
 
-[73 <./REML2.png> <./ML Est1.png>]
+
 Underfull \hbox (badness 10000) in paragraph at lines 3023--3028
 
  []
@@ -4292,7 +4245,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 3033--3040
 
  []
 
-[74 <./ML Est2.png>] (./STAT 425 Note_sum.aux)
+[98] [99] (./STAT 425 Note_sum.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -4300,18 +4253,18 @@ Package rerunfilecheck Info: File `"STAT 425 Note_sum".out' has not changed.
 (rerunfilecheck)             Checksum: F5B565C37C56A2341E97DBDEB4FDB018;55131.
  ) 
 Here is how much of TeX's memory you used:
- 34975 strings out of 478023
- 818745 string characters out of 5838669
- 1210217 words of memory out of 5000000
- 52479 multiletter control sequences out of 15000+600000
+ 35002 strings out of 475075
+ 818974 string characters out of 5779003
+ 1249396 words of memory out of 5000000
+ 55426 multiletter control sequences out of 15000+600000
  490481 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  100i,15n,104p,1074b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbi1095.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbi1200.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb>
-Output written on "STAT 425 Note_sum.pdf" (74 pages, 4460401 bytes).
+Output written on "STAT 425 Note_sum.pdf" (99 pages, 4473070 bytes).
 PDF statistics:
- 1885 PDF objects out of 2073 (max. 8388607)
- 1690 compressed objects within 17 object streams
- 359 named destinations out of 1000 (max. 500000)
+ 1995 PDF objects out of 2073 (max. 8388607)
+ 1774 compressed objects within 18 object streams
+ 384 named destinations out of 1000 (max. 500000)
  2089 words of extra memory for PDF output out of 10000 (max. 10000000)
 
