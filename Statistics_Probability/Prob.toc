@@ -85,3 +85,9 @@
 \contentsline {subsection}{\numberline {7.1}Strong Law of Large Numbers for Markov Chains}{39}{subsection.7.1}%
 \contentsline {subsection}{\numberline {7.2}Example of Designing MC}{39}{subsection.7.2}%
 \contentsline {subsection}{\numberline {7.3}Metropolis Hastings Algorithm}{40}{subsection.7.3}%
+\contentsline {subsubsection}{\numberline {7.3.1}Example of generate standard normal distribution with uniform}{40}{subsubsection.7.3.1}%
+\contentsline {subsubsection}{\numberline {7.3.2}Without MCMC: Box Muller Transform}{41}{subsubsection.7.3.2}%
+\contentsline {subsection}{\numberline {7.4}Gibbs Sampling}{41}{subsection.7.4}%
+\contentsline {subsubsection}{\numberline {7.4.1} Systematic scan Gibbs sampler}{41}{subsubsection.7.4.1}%
+\contentsline {subsubsection}{\numberline {7.4.2} Random Scan Gibbs sampler}{42}{subsubsection.7.4.2}%
+\contentsline {subsubsection}{\numberline {7.4.3}Example: Bivariate Normal Distribution}{43}{subsubsection.7.4.3}%
