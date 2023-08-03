@@ -294,12 +294,13 @@ Given a vector space $V$ over $F$, we let $GL(V) \subset L(V, V)$ denote the sub
 \end{equation}
 
 
-\section{Isomorphisms}
+\section{Isomorphism}
 \subsection{Isomorphic: $\exists$ invertible $T \in L(X, Y)$}
 \begin{definition}[Isomorphisms]
     \normalfont
     Two vector spaces $X, Y$ over a field $F$ are \textbf{isomorphic} if there is an invertible $T \in L(X, Y)$.
 \end{definition}
+We use notation $\cong$ to denote isomorphism.
 
 \subsection{Theorem: Isomorphic $\Leftrightarrow$ $\dim X = \dim Y$}
 \begin{theorem}[Isomorphic $\Leftrightarrow$ $\dim X = \dim Y$]
@@ -308,6 +309,7 @@ Given a vector space $V$ over $F$, we let $GL(V) \subset L(V, V)$ denote the sub
 
 
 \section{Quotient Vector Spaces}
+\subsection{Quotient Vector Space: $X/W$}
 Given a vector space $(X,\mathbb{F},+,\times)$ over $\mathbb{F}$ and a vector subspace $W\subseteq X$. Define an equivalence relation: $$x\sim y \Leftrightarrow \exists w\in W \textnormal{ s.t. }x=y+w$$
 (or $x\sim y \Leftrightarrow x-y\in W$). The equivalence class of $x\in X$ with respect to $\sim$ is $$[x]=\{x+w:w\in W\}$$
 We define a set, which is read "X mod W", by $$X/W=\{[x]:x\in X\}=\{x+W:x\in X\}$$
@@ -317,12 +319,19 @@ Define operations $+,\cdot$ in $X/W$ by $\alpha[x]+\beta[y]=[\alpha x +\beta y],
     $X/W$ forms a vector space over $\mathbb{F}$ with $+,\cdot$.
 \end{definition}
 
+\subsection{Theorem: $\dim(X/W)=\dim X - \dim W$}
+\begin{theorem}[$\dim(X/W)=\dim X - \dim W$]
+    If $X$ is a vector space with $\dim X = n$ for some $n \in \mathbb{N}$ and $W$ is a vector subspace of $X$, then $$\dim(X/W)=\dim X - \dim W$$
+\end{theorem}
+\begin{proof}
+    Given a basis for $W$, $\{w_1,...,w_c\}$, and a basis for $X/W$, $\{[x_1],...,[x_k]\}$. Show that $\{w_1,...,w_c\}\cup\{x_1,...,x_k\}$ is a basis for $X$.
+\end{proof}
 
 
-
-
-
-
+\subsection{Theorem: $T$ is isomorphic to $X/\textnormal{ker }T$}
+\begin{theorem}[$\textnormal{Im }T$ is isomorphic to $X/\textnormal{ker }T$]
+    Let $X$ and $Y$ be vector spaces over the same field $F$ and $T \in L(X, Y)$. Then $\textnormal{Im }T=T(X)$ is isomorphic to $X/\textnormal{ker }T$, where $\textnormal{ker }T=\{x\in X:T(x)=0\}$.
+\end{theorem}
 
 
 
