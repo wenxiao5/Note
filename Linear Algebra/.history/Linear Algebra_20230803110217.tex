@@ -194,6 +194,39 @@ Let $L(X, Y)$ denote the \textbf{set of all linear transformations} from $X$ to 
 \end{proposition}
 Any $v\in V$, $\exists (a_1,...,a_n)$ s.t. $v=a_1 v_1+...+a_n v_n$. Then $T(v)=T(a_1 v_1+...+a_n v_n)=a_1T(v_1)+...+a_nT(v_n)$
 
+
+
+\subsection{A Linear Transformation Correponds to a Matrix}
+\begin{corollary}[Corollary 2.4.16.]
+    If $v_1,...,v_n$ is a basis for a vector space $V$ and $w_1,...,w_n$ is a basis for a vector space $W$ (both over $\mathbb{F}$), then any linear transformation $T : V \rightarrow W$ determines (and is determined by) the $m\times n$ matrix:
+    \begin{equation}
+        \begin{aligned}
+            A=A(T)=\begin{bmatrix}
+                A_{11}&	A_{12}&... &A_{1n}\\
+                A_{21}&	A_{22}&... &A_{2n}\\
+                \vdots&	\vdots&... &\vdots\\
+                A_{m1}&	A_{m2}&... &A_{mn}
+            \end{bmatrix}
+        \end{aligned}
+        \nonumber
+    \end{equation}
+\end{corollary}
+\begin{equation}
+    \begin{aligned}
+        &\begin{bmatrix}
+            w_1&\cdots	&w_m
+        \end{bmatrix}^T=A
+        &\begin{bmatrix}
+                v_1&\cdots	&v_n
+        \end{bmatrix}^T
+    \end{aligned}
+    \nonumber
+\end{equation}
+$L(V,M)$ denotes the set of all linear transformations from $V$ to $W$; $M_{m\times n}(\mathbb{F})$ the set of $m\times n$ matrix with entries in $\mathbb{F}$. $T\rightarrow A(T)$ defines a \textit{bijection} $L(V,M)\rightarrow M_{m\times n}(\mathbb{F})$. \textbf{$A(T)$ represents the linear transformation $T$}.
+
+
+
+
 \subsection{Image, Kernel, Rank}
 \begin{definition}[Image, Kernel, Rank]
     \normalfont
@@ -337,8 +370,6 @@ $\textnormal{crd}_V$ is an isomorphism from $X$ to $\mathbb{R}^n$.
 
 
 \section{Matrix Representation of a Linear Transformation}
-
-\subsection{Definition: matrix corresponds to a linear transformation}
 Suppose $T \in L(X, Y), \operatorname{dim} X=n$ and $\operatorname{dim} Y=m$. Fix bases
 $$
 \begin{aligned}
@@ -350,7 +381,7 @@ $T\left(v_j\right) \in Y$, so
 $$
 T\left(v_j\right)=\sum_{i=1}^m \alpha_{i j} w_i
 $$
-Define a matrix corresponds to $T$ by
+Define
 $$
 \textnormal{Mtx}_{W, V}(T)=\left(\begin{array}{ccc}
 \alpha_{11} & \cdots & \alpha_{1 n} \\
@@ -379,27 +410,14 @@ $$
 so
 $$
 \begin{aligned}
-    &\textnormal{Mtx}_{W, V}(T) \cdot \textnormal{crd}_V\left(v_j\right)  =\textnormal{crd}_W\left(T\left(v_j\right)\right) \\
-    \Rightarrow &\textnormal{Mtx}_{W, V}(T) \cdot \textnormal{crd}_V(x)  =\textnormal{crd}_W(T(x)) \quad \forall x \in X
+    \textnormal{Mtx}_{W, V}(T) \cdot \textnormal{crd}_V\left(v_j\right) & =\textnormal{crd}_W\left(T\left(v_j\right)\right) \\
+    \textnormal{Mtx}_{W, V}(T) \cdot \textnormal{crd}_V(x) & =\textnormal{crd}_W(T(x)) \quad \forall x \in X
 \end{aligned}
 $$
 
-Multiplying a vector by a matrix does two things: 1. Computes the action of $T$; 2. Accounts for the change in basis.
 
 
-\subsection{Theorem: Matrix Space $\cong$ Linear Transformation Space}
-\begin{theorem}[Matrix Space $\cong$ Linear Transformation Space]
-    Let $X$ and $Y$ be vector spaces over the same field $F$, with $\dim X = n$, $\dim Y = m$. Then $L(X, Y)$, the space of linear transformations from $X$ to $Y$, is isomorphic to $F_{m\times n}$, the vector space of $m\times n$ matrices over F. If $V = \{v_1, . . . , v_n\}$ is a basis for $X$ and $W = \{w_1, . . . , w_m\}$ is a basis for $Y$, then
-    $$\textnormal{Mtx}_{W,V}(T)\in L(L(X,Y),F_{m\times n})$$
-    and $\textnormal{Mtx}_{W,V}$ is an isomorphism from $L(X, Y)$ to $F_{m\times n}$.
-\end{theorem}
 
-\subsection{Theorem: $\textnormal{Mtx}_{W,V}(T)\cdot \textnormal{Mtx}_{V,U}(S)=\textnormal{Mtx}_{W,U}(T\circ S)$}
-\begin{theorem}[$\textnormal{Mtx}_{W,V}(T)\cdot \textnormal{Mtx}_{V,U}(S)=\textnormal{Mtx}_{W,U}(T\circ S)$]
-    Let $X, Y, Z$ be finite-dimensional vector spaces over the same field $F$ with bases $U, V, W$ respectively. Let $S \in L(X, Y)$ and $T \in L(Y, Z)$. Then
-    $$\textnormal{Mtx}_{W,V}(T)\cdot \textnormal{Mtx}_{V,U}(S)=\textnormal{Mtx}_{W,U}(T\circ S)$$
-    i.e. matrix multiplication corresponds via the matrix representation isomorphism to compo-sition of linear transformations.
-\end{theorem}
 
 
 
@@ -1057,7 +1075,7 @@ $1=det(I)=det(A^tA)=det(A^t)det(A)=det(A)^2 \Rightarrow	det(A)=1$ or $det(A)=-1$
     \nonumber
 \end{equation}
 
-\section{Translation}
+\section{translation}
 Define a \textit{translation} by $v\in \mathbb{R}^n$,
 \begin{equation}
     \begin{aligned}

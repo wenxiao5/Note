@@ -384,22 +384,9 @@ $$
 \end{aligned}
 $$
 
-Multiplying a vector by a matrix does two things: 1. Computes the action of $T$; 2. Accounts for the change in basis.
 
 
-\subsection{Theorem: Matrix Space $\cong$ Linear Transformation Space}
-\begin{theorem}[Matrix Space $\cong$ Linear Transformation Space]
-    Let $X$ and $Y$ be vector spaces over the same field $F$, with $\dim X = n$, $\dim Y = m$. Then $L(X, Y)$, the space of linear transformations from $X$ to $Y$, is isomorphic to $F_{m\times n}$, the vector space of $m\times n$ matrices over F. If $V = \{v_1, . . . , v_n\}$ is a basis for $X$ and $W = \{w_1, . . . , w_m\}$ is a basis for $Y$, then
-    $$\textnormal{Mtx}_{W,V}(T)\in L(L(X,Y),F_{m\times n})$$
-    and $\textnormal{Mtx}_{W,V}$ is an isomorphism from $L(X, Y)$ to $F_{m\times n}$.
-\end{theorem}
 
-\subsection{Theorem: $\textnormal{Mtx}_{W,V}(T)\cdot \textnormal{Mtx}_{V,U}(S)=\textnormal{Mtx}_{W,U}(T\circ S)$}
-\begin{theorem}[$\textnormal{Mtx}_{W,V}(T)\cdot \textnormal{Mtx}_{V,U}(S)=\textnormal{Mtx}_{W,U}(T\circ S)$]
-    Let $X, Y, Z$ be finite-dimensional vector spaces over the same field $F$ with bases $U, V, W$ respectively. Let $S \in L(X, Y)$ and $T \in L(Y, Z)$. Then
-    $$\textnormal{Mtx}_{W,V}(T)\cdot \textnormal{Mtx}_{V,U}(S)=\textnormal{Mtx}_{W,U}(T\circ S)$$
-    i.e. matrix multiplication corresponds via the matrix representation isomorphism to compo-sition of linear transformations.
-\end{theorem}
 
 
 
@@ -1057,7 +1044,7 @@ $1=det(I)=det(A^tA)=det(A^t)det(A)=det(A)^2 \Rightarrow	det(A)=1$ or $det(A)=-1$
     \nonumber
 \end{equation}
 
-\section{Translation}
+\section{translation}
 Define a \textit{translation} by $v\in \mathbb{R}^n$,
 \begin{equation}
     \begin{aligned}
