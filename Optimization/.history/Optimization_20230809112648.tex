@@ -1925,12 +1925,12 @@ Applying Cauchy-schwary inequality,
 \end{equation}
 \end{proof}
 
-\section{The Separation Theorem}
+\section{Separating Hyperplane Theorem}
 \begin{theorem}[Separation Theorem]
     If $C\subseteq \mathbb{R}^n$ is a closed convex set and $\vec{y}\notin C$, then there is a linear inequality separating $\vec{y}$ from $C$: we can choose $\vec{a}\in \mathbb{R}^n, b\in \mathbb{R}$ such that
     \begin{enumerate}[$\bullet$]
-        \item $\vec{a}\cdot \vec{x}\leq b$ for all $\vec{x}\in C$, but
-        \item $\vec{a}\cdot \vec{y}> b$
+        \item $\vec{a}\cdot \vec{x}\leq b$ for all $\vec{x}\in C$, but $\vec{a}\cdot \vec{y}> b$
+        \item (Equivalent:) $\vec{a}\cdot \vec{x}< \vec{a}\cdot \vec{y},\ \forall \vec{x}\in C$
     \end{enumerate}
 \end{theorem}
 \begin{proof}[Prove by obtuse angle criterion]
@@ -2221,7 +2221,7 @@ The textbook states it for all convex programs satisfying the Slater condition: 
 
 \subsection{KKT Theorem: Gradient Form}
 \begin{theorem}[Karush-Kuhn-Tucker theorem, gradient form]
-        Let P be any nonlinear program where $f$ and $g_1,...,g_m$ have continuous first partial derivatives. Suppose that $\vec{x}^* \in int (S)$ is an optimal solution of $P$, and $\vec{\lambda}^* \geq 0$ is a sensitivity vector. Then:
+        Let P be any nonlinear program where $f$ and $g_1,...,g_m$ have continuous first partial derivatives. Suppose that $\vec{x}^* \in int (S)$ is an optimal solution of $P$, and $\vec{\lambda}^* \geq 0$ is a sensitivity vector. Then:$\Rightarrow$
         \begin{enumerate}[(1)]
             \item $\nabla_{\vec{x}} L(\vec{x}^*,\vec{\lambda}^*)=\vec{0}$. That is, $\nabla f(\vec{x}^*)+\sum_{i=1}^m\lambda_i^* \nabla g_i(\vec{x}^*)=\vec{0}$
             \item For each $1\leq i\leq m$, $g_i(\vec{x}^*)\leq 0$.

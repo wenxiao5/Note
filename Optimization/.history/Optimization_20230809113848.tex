@@ -1925,12 +1925,12 @@ Applying Cauchy-schwary inequality,
 \end{equation}
 \end{proof}
 
-\section{The Separation Theorem}
+\section{Separating Hyperplane Theorem \small{(Lec 13 @ Econ 204)}}
 \begin{theorem}[Separation Theorem]
-    If $C\subseteq \mathbb{R}^n$ is a closed convex set and $\vec{y}\notin C$, then there is a linear inequality separating $\vec{y}$ from $C$: we can choose $\vec{a}\in \mathbb{R}^n, b\in \mathbb{R}$ such that
+    If $C\subseteq \mathbb{R}^n$ is a closed convex set and $\vec{y}\notin C$, then there is a linear inequality separating $\vec{y}$ from $C$:
     \begin{enumerate}[$\bullet$]
-        \item $\vec{a}\cdot \vec{x}\leq b$ for all $\vec{x}\in C$, but
-        \item $\vec{a}\cdot \vec{y}> b$
+        \item $\exists$ $\vec{a}\in \mathbb{R}^n, b\in \mathbb{R}$ s.t. $\vec{a}\cdot \vec{x}\leq b$ for all $\vec{x}\in C$, but $\vec{a}\cdot \vec{y}> b$
+        \item (Equivalent:) $\exists$ $\vec{a}\in \mathbb{R}^n$ s.t. $\vec{a}\cdot \vec{x}< \vec{a}\cdot \vec{y},\ \forall \vec{x}\in C$
     \end{enumerate}
 \end{theorem}
 \begin{proof}[Prove by obtuse angle criterion]
@@ -1956,6 +1956,26 @@ Applying Cauchy-schwary inequality,
     \caption{separation theorem}
     \label{}
 \end{figure}\end{center}
+
+\begin{theorem}[Separating Hyperplane Theorem]
+    Let $X, Y \subseteq \mathbb{R}^n$ be nonempty, disjoint convex sets. Then there exists a nonzero vector $\vec{p}\in \mathbb{R}^n$ such that
+    \begin{equation}
+        \begin{aligned}
+            \vec{p}\cdot \vec{x}\leq \vec{p}\cdot \vec{y},\ \forall \vec{x}\in X,\vec{y}\in Y
+        \end{aligned}
+        \nonumber
+    \end{equation}
+\end{theorem}
+
+\begin{theorem}[Strict Separating Hyperplane Theorem]
+    Let $X, Y \subseteq \mathbb{R}^n$ be nonempty, disjoint, convex sets with $X$ closed and $Y$ compact. Then there exists a nonzero vector $\vec{p}\in \mathbb{R}^n$ such that
+    \begin{equation}
+        \begin{aligned}
+            \vec{p}\cdot \vec{x}< \vec{p}\cdot \vec{y},\ \forall \vec{x}\in X, \vec{y}\in Y
+        \end{aligned}
+        \nonumber
+    \end{equation}
+\end{theorem}
 
 \section{Bolzano-Weierstrass theorem}
 \subsection{Sequence Convergence}

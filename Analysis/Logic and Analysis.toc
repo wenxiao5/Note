@@ -138,6 +138,9 @@
 \contentsline {section}{\numberline {5.3}Brouwer's Fixed Point Theorem \small {(@ Lec 13 of ECON 204)}}{48}{section.5.3}%
 \contentsline {subsection}{\numberline {5.3.1}Simple One: One-dimension}{48}{subsection.5.3.1}%
 \contentsline {subsection}{\numberline {5.3.2}Brouwer's Fixed Point Theorem}{49}{subsection.5.3.2}%
+\contentsline {section}{\numberline {5.4}Fixed Points for Correspondences \small {(@ Lec 13 of ECON 204)}}{49}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Definition}{49}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Kakutani's Fixed Point Theorem}{49}{subsection.5.4.2}%
 \contentsline {chapter}{\numberline {6}Big $\mathcal {O}$ and Small $o$ Notation}{50}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Definition}{50}{section.6.1}%
 \contentsline {subsection}{\numberline {6.1.1}Extension}{50}{subsection.6.1.1}%

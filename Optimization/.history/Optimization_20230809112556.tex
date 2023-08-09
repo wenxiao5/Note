@@ -1929,8 +1929,8 @@ Applying Cauchy-schwary inequality,
 \begin{theorem}[Separation Theorem]
     If $C\subseteq \mathbb{R}^n$ is a closed convex set and $\vec{y}\notin C$, then there is a linear inequality separating $\vec{y}$ from $C$: we can choose $\vec{a}\in \mathbb{R}^n, b\in \mathbb{R}$ such that
     \begin{enumerate}[$\bullet$]
-        \item $\vec{a}\cdot \vec{x}\leq b$ for all $\vec{x}\in C$, but
-        \item $\vec{a}\cdot \vec{y}> b$
+        \item $\vec{a}\cdot \vec{x}\leq b$ for all $\vec{x}\in C$, but $\vec{a}\cdot \vec{y}> b$
+        \item (Equivalent:) $\vec{a}\cdot \vec{x}< \vec{a}\cdot \vec{y},\ \forall \vec{x}\in C$
     \end{enumerate}
 \end{theorem}
 \begin{proof}[Prove by obtuse angle criterion]
@@ -2221,7 +2221,7 @@ The textbook states it for all convex programs satisfying the Slater condition: 
 
 \subsection{KKT Theorem: Gradient Form}
 \begin{theorem}[Karush-Kuhn-Tucker theorem, gradient form]
-        Let P be any nonlinear program where $f$ and $g_1,...,g_m$ have continuous first partial derivatives. Suppose that $\vec{x}^* \in int (S)$ is an optimal solution of $P$, and $\vec{\lambda}^* \geq 0$ is a sensitivity vector. Then:
+        Let P be any nonlinear program where $f$ and $g_1,...,g_m$ have continuous first partial derivatives. Suppose that $\vec{x}^* \in int (S)$ is an optimal solution of $P$, and $\vec{\lambda}^* \geq 0$ is a sensitivity vector. Then:$\Rightarrow$
         \begin{enumerate}[(1)]
             \item $\nabla_{\vec{x}} L(\vec{x}^*,\vec{\lambda}^*)=\vec{0}$. That is, $\nabla f(\vec{x}^*)+\sum_{i=1}^m\lambda_i^* \nabla g_i(\vec{x}^*)=\vec{0}$
             \item For each $1\leq i\leq m$, $g_i(\vec{x}^*)\leq 0$.
@@ -2399,7 +2399,7 @@ This theorem shows that $h(\vec{\lambda})$ provides a lower bound for the value 
 \end{definition}
 We have $MP\geq MD$. If $MP\neq MD$, we say there is a duality gap.
 
-\section{With Equality Constraints}
+\section{Equality Constraints}
 Consider
 \begin{equation}
     \begin{aligned}(P)\quad
@@ -2459,7 +2459,7 @@ Then the saddle-point version KKT can be written as:
 \end{theorem}
 The change of gradient form of KKT is similarly updated.
 
-\subsection{Equality constraints in the penalty method}
+\subsection{Penalty method with equality constraints}
 \begin{equation}
     \begin{aligned}(P')\quad
         \left\{\begin{matrix}
@@ -2487,7 +2487,7 @@ In general:
 
 
 
-\subsection{More general super-consistent}
+\subsection{Super-consistent with equality constraintes}
 \begin{definition}[Super-consistent with equality constraintes]
 Suppose $P$ is convex: $S$ is a convex set; the functions $f,g_1,...,g_m$ are all convex; and the functions $h_1,...,h_l$ are all linear (potential with constant terms). Then $P$ is super-consistent if there exists $\vec{x}\in S$ with $g_i(\vec{x})<0$ for all $i=1,...,m$.
 \end{definition}
@@ -2692,7 +2692,7 @@ Once the optimal dual solution $\vec{\delta}^*$ is found, we can use it to find 
         \end{equation}
         \item Terms appearing in \textbf{active constraints.} Every primal constraint whose \underline{dual variables are positive} is an active constraint: the value of the left-hand side is not just at most 1 but equal to 1. For all such constraints, we have
         $$
-        \operatorname{Term}_{n_i+1}\left(\vec{t}^*\right)=\frac{\delta_{n_i+1}^*}{\delta_{n_i+1} *+\cdots+\delta_{n_{i+1}}^*}, \quad \ldots, \quad \operatorname{Term}_{n_{i+1}}\left(\vec{t}^*\right)=\frac{\delta_{n_{i+1}}^*}{\delta_{n_i+1} *+\cdots+\delta_{n_{i+1}}^*} .
+        \operatorname{Term}_{n_i+1}\left(\vec{t}^*\right)=\frac{\delta_{n_i+1}^*}{\delta_{n_i+1}^*+\cdots+\delta_{n_{i+1}}^*}, \quad \ldots, \quad \operatorname{Term}_{n_{i+1}}\left(\vec{t}^*\right)=\frac{\delta_{n_{i+1}}^*}{\delta_{n_i+1}^*+\cdots+\delta_{n_{i+1}}^*} .
         $$
     \end{enumerate}
 \end{proposition}
@@ -2741,6 +2741,28 @@ $(x,y,z)=(\frac{2}{3},\frac{1}{3},\frac{2}{3})$ is the optimal solution.
 \end{example}
 
 \section{Equality constraints in geometric programming}
+We can replace one equation by two inequalities.
+\begin{example}
+    One more trick that can make our geometric programs more flexible,
+    \begin{equation}
+        \begin{aligned}
+            \min_{x,y\in \mathbb{R}}\quad& \sqrt{x^2+y^2}+xy\\
+            s.t.\quad &\frac{1}{x}+\frac{1}{y}\leq 1\\
+            &x,y>0
+        \end{aligned}
+        \nonumber
+    \end{equation}
+    We can replace $\sqrt{x^2+y^2}$ by $z$. We can ask $z\geq \sqrt{x^2+y^2}$ because $z$ will achieve its lower bound when minimizing.
+    \begin{equation}
+        \begin{aligned}
+            \min_{x,y\in \mathbb{R}}\quad& z+xy\\
+            s.t.\quad &\frac{1}{x}+\frac{1}{y}\leq 1\\
+            &\frac{x^2}{z^2}+\frac{y^2}{z^2}\leq 1\\
+            &x,y,z>0
+        \end{aligned}
+        \nonumber
+    \end{equation}
+\end{example}
 
 
 
