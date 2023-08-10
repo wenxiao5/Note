@@ -1660,14 +1660,29 @@ $df_x$ has \textbf{full rank} if $\textnormal{Rank} df_x=\min\{m,n\}$, that is, 
     Notice that if $y \notin f(X)$, so $f^{-1}(y) = \emptyset$, then $y$ is automatically a regular value of $f$.
 \end{note}
 
+\begin{example}
+    Suppose $f(x,y)=(\sin x,\cos y)$, $Df(x,y)=\begin{bmatrix}
+        \cos x&	0\\
+        0&	-\sin y
+    \end{bmatrix}$. Critical point: $\{(\frac{k\pi}{2}, \mathbb{R}): k\in 2\mathbb{Z}+1\}\cup\{(\mathbb{R},k\pi): k\in \mathbb{Z}\}$; Critical values: $\{(x,y): x=1\textnormal{ or }x=-1 \textnormal{ or }y=1\textnormal{ or }y=-1\}$
+\end{example}
+
 
 \section{Inverse and Implicit Function Theorem}
+Using Taylor's theorem to approximate
+\begin{equation}
+    \begin{aligned}
+        f(x)=f(x_0)+Df(x_0)(x-x_0)+o(x-x_0)
+    \end{aligned}
+    \nonumber
+\end{equation}
+The requirement of "regular point" is necessary for the $Df(x_0)$ being invertible.
 \begin{theorem}[Inverse Function Theorem]
     Suppose $X \subseteq \mathbb{R}^n$ is open. Suppose $f : X \rightarrow \mathbb{R}^n$ is $C^1$ on $X$, and $x_0\in X$. If $\det Df(x_0)\neq 0$ (i.e., $x_0$ is a regular point of $f$), then there are open neighborhoods $U$ of $x_0$ and $V$ of $f(x_0)$ s.t.
     \begin{equation}
         \begin{aligned}
             f:U &\rightarrow V \textnormal{ is bijective (on-to-on and onto)}\\
-            f^{-1}:V &\rightarrow U \textnormal{ is }C^1\\
+            \exists\ f^{-1}:V &\rightarrow U \textnormal{ is }C^1\\
             Df^{-1}(f(x_0))&=[Df(x_0)]^{-1}
         \end{aligned}
         \nonumber
@@ -1675,12 +1690,29 @@ $df_x$ has \textbf{full rank} if $\textnormal{Rank} df_x=\min\{m,n\}$, that is, 
     If in addition $f \in C^k$, then $f^{-1} \in C^k$.
 \end{theorem}
 
+Using Taylor's theorem to approximate
+\begin{equation}
+    \begin{aligned}
+        f(x,a)=f(x_0,a_0)+Df(x_0,a_0)(x-x_0)+Df(x_0,a_0)(a-a_0)+\textnormal{remainder}
+    \end{aligned}
+    \nonumber
+\end{equation}
+The requirement of "regular point" is necessary for the $Df(x_0,a_0)$ being invertible.
+
+We want to know how the function $x^*(a)$ changes with keeping $f(x^*,a)=0$.
 \begin{theorem}[Implicit Function Theorem]
     Suppose $X \subseteq \mathbb{R}^n$ and $A \subseteq \mathbb{R}^p$ are open and $f : X \times A \rightarrow \mathbb{R}^n$ is $C^1$. Suppose $f(x_0, a_0) = 0$ and $\det(D_x f(x_0, a_0)) \neq 0$, i.e. $x_0$ is a regular point of $f(\cdot, a_0)$. Then there are open neighborhoods $U$ of $x_0$ ($U \subseteq X$) and $W$ of $a_0$ such that
     $$\forall a\in W,\ \exists ! x\in U \textnormal{ s.t. }f(x,a)=0$$
-    For each $a \in W$ let $g(a)$ be that unique $x$. Then $g : W \rightarrow X$ is $C^1$ and $$D_g(a_0)=-[D_x f(x_0, a_0)]^{-1}[D_a f(x_0, a_0)]$$
+    For each $a \in W$ let $g(a)$ be that unique $x$. Then $g : W \rightarrow X$ is $C^1$ and $$Dg(a_0)=-[D_x f(x_0, a_0)]^{-1}[D_a f(x_0, a_0)]$$
     If in addition $f \in C^k$, then $g \in C^k$.
 \end{theorem}
+\begin{example}
+    $f: \mathbb{R}^3 \rightarrow \mathbb{R}^2$, $f((3,-1,2))=(0,0)$, $Df(3,-1,2)=\begin{bmatrix}
+        1&2&1\\
+        1&-1&1
+    \end{bmatrix}$. Then,
+    let $(x_0,a_0)=(3,-1,2)$, where $x_0=3$ and $a_0=(-1,2)$. Or, we can let $(x_0,a_0)=(3,-1,2)$, where $x_0=(3,-1)$ and $a_0=2$.
+\end{example}
 
 \begin{corollary}
     Suppose $X \subseteq \mathbb{R}^n$ and $A \subseteq \mathbb{R}^p$ are open and $f : X \times A \rightarrow \mathbb{R}^n$ is $C^1$. If $0$ is a regular value of $f(\cdot, a_0)$, then the correspondence $$a \rightarrow \{x\in X: f(x,a)=0\}$$
@@ -1726,8 +1758,15 @@ $df_x$ has \textbf{full rank} if $\textnormal{Rank} df_x=\min\{m,n\}$, that is, 
 
 \subsection{Transversality Theorem}
 \begin{theorem}[Transversality Theorem]
-    Let $X \subseteq \mathbb{R}^n$ and $A \subseteq \mathbb{R}^p$ be open, and $f : X \times A \rightarrow \mathbb{R}^m$ be $C^r$ with $r \geq 1 + max\{0, n - m\}$. Suppose that $0$ is a regular value of f. Then there is a set $A_0 \subseteq A$ such that $A \backslash A_0$ has Lebesgue measure zero and for all $a \in A_0$, $0$ is a regular value of $f_a = f(\cdot, a)$.
+    Let $X \subseteq \mathbb{R}^n$ and $A \subseteq \mathbb{R}^p$ be open, and $f : X \times A \rightarrow \mathbb{R}^m$ be $C^r$ with $r \geq 1 + max\{0, n - m\}$. Suppose that $0$ is a regular value of $f$ (that is all $(x,a)$ such that $f(x,a)=0$ are regular points). Then,
+    \begin{enumerate}
+        \item $\exists A_0 \subseteq A$ such that $A \backslash A_0$ has Lebesgue measure zero.
+        \item $\forall a \in A_0$, $0$ is a regular value of $f_a = f(\cdot, a)$.
+    \end{enumerate}
 \end{theorem}
+\begin{example}
+    $f: \mathbb{R}^4 \rightarrow \mathbb{R}^3$ s.t. $f(x,y,z,w)=(g(x)+y,z^3+1,w+x+y^2)$
+\end{example}
 
 
 \chapter{Fixed Point Theorem}
@@ -1922,6 +1961,45 @@ Note that the theorem asserts both the \textbf{existence} and \textbf{uniqueness
     Let $X \subseteq \mathbb{R}^n$ be a non-empty, \textbf{compact}, \textbf{convex} set and $\psi : X \rightarrow 2^X$ be an \textbf{upper hemi-continuous} correspondence with non-empty, \textbf{compact}, \textbf{convex} values. Then $\psi$ has a fixed point in $X$.
 \end{theorem}
 
+
+\chapter{Differential Equations \small{(@ Lec 14 of ECON 204)}}
+\section{Existence and Uniqueness of Solutions}
+\subsection{Initial Value Problem}
+\begin{definition}[Differential Equation]
+    \normalfont
+    A \textbf{differential equation} is an equation of the form $y'(t)=F(y(t), t)$.
+\end{definition}
+where $F : U \rightarrow \mathbb{R}^n$ and $U$ is an open subset of $\mathbb{R}^n\times \mathbb{R}$.
+
+\begin{definition}[Initial Value Problem]
+    \normalfont
+    \begin{enumerate}
+        \item An initial value problem is a differential equation combined with an initial condition $$y(t_0)=y_0$$
+        where $(y_0,t_0)\in U$
+        \item A solution of the initial value problem is a differentiable function $y : (a, b) \rightarrow \mathbb{R}^n$ such that $t_0 \in (a, b)$, $y(t_0) = y_0$ and, for all $t \in (a, b)$, $y'(t)=F(y(t), t)$.
+        \item The general solution of the differential equation is the family of all solutions for all initial values $(y_0, t_0) \in U$.
+    \end{enumerate}
+\end{definition}
+
+\subsection{Theorem: Initial Value Problem, Continuous $\rightarrow$ Existence; Lipschitz $\rightarrow$ Uniqueness}
+\begin{theorem}[Initial Value Problem, Continuous $\rightarrow$ Existence; Lipschitz $\rightarrow$ Uniqueness]
+    Consider the initial value problem $$y'(t)=F(y(t), t),\ y(t_0)=y_0$$
+    $U$ is an open subset of $\mathbb{R}^n\times \mathbb{R}$ containing $(y_0,t_0)$.
+    \begin{enumerate}
+        \item Suppose $F : U \rightarrow \mathbb{R}^n$ is continuous. Then the initial value problem has a solution.
+        \item If, in addition, F is Lipschitz in $y$ on $U$
+        
+        (i.e. there is a constant K such that for all $(y,t),(\hat{y},t)\in U$, $|F(y,t)-F(\hat{y},t)|\leq K|y-\hat{y}|$),
+        
+        then there is an interval $(a, b)$ containing $t_0$ such that the solution is unique on $(a, b)$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{example}
+    Consider the initial value problem $y'(t) = 1 + y^2(t), y(0) = 0$.
+
+    Here, we have $F(y, t) = 1 + y^2$ which is Lipschitz in $y$ over $U = V \times \mathbb{R}$, provided that $V$ is bounded, but not over all of $\mathbb{R} \times \mathbb{R}$. The theorem tells us that the initial value problem has a unique solution over some interval of $t$, $(a, b)$, with $0 \in (a, b)$.
+\end{example}
 
 
 
