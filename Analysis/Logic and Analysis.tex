@@ -1332,6 +1332,10 @@ $$
 $$
 Recall that the limit considers $h$ near zero, but not $h=0$.
 
+\begin{proposition}
+    $f$ is \textbf{differentiable} $\Rightarrow$ $f$ is \textbf{continuous}.
+\end{proposition}
+
 \subsection{General Definition of Differentiable}
 \begin{definition}
     \normalfont
@@ -1546,7 +1550,7 @@ $$
 \subsection{Taylor's Theorem with $C^k$}
 \subsubsection*{Linear Terms}
 \begin{theorem}
-    Suppose $X \subseteq \mathbf{R}^n$ is open and $x \in X$. If $f: X \rightarrow \mathbf{R}^m$ is differentiable, then
+    Suppose $X \subseteq \mathbb{R}^n$ is open and $x \in X$. If $f: X \rightarrow \mathbb{R}^m$ is differentiable, then
     $$
     f(x+h)=f(x)+D f(x) h+o(h) \text { as } h \rightarrow 0
     $$
@@ -1554,14 +1558,14 @@ $$
 The previous theorem is essentially a restatement of the definition of differentiability.
 
 \begin{theorem}
-    Suppose $X \subseteq \mathbf{R}^n$ is open and $x \in X$. If $f: X \rightarrow \mathbf{R}^m$ is $C^2$, then
+    Suppose $X \subseteq \mathbb{R}^n$ is open and $x \in X$. If $f: X \rightarrow \mathbb{R}^m$ is $C^2$, then
     $$
     f(x+h)=f(x)+D f(x) h+O\left(|h|^2\right) \text { as } h \rightarrow 0
     $$
 \end{theorem}
 
 \subsubsection*{Quadratic Terms}
-We treat each component of the function separately, so consider $f: X \rightarrow \mathbf{R}, X \subseteq \mathbf{R}^n$ an open set. Let
+We treat each component of the function separately, so consider $f: X \rightarrow \mathbb{R}, X \subseteq \mathbb{R}^n$ an open set. Let
 $$
 \begin{aligned}
 D^2 f(x) & =\left(\begin{array}{cccc}
@@ -1577,7 +1581,7 @@ f \in C^2 & \Rightarrow \frac{\partial^2 f}{\partial x_i \partial x_j}(x)=\frac{
 $$
 
 \begin{theorem}[Stronger Version of Taylor's Theorem]
-    Suppose $X \subseteq \mathbf{R}^n$ is open and $x \in X$. If $f: X \rightarrow \mathbf{R}$ is $C^2$, then
+    Suppose $X \subseteq \mathbb{R}^n$ is open and $x \in X$. If $f: X \rightarrow \mathbb{R}$ is $C^2$, then
     $$
     f(x+h)=f(x)+D f(x) h +\frac{1}{2}h^T(D^2f(x))h+O\left(|h|^2\right) \text { as } h \rightarrow 0
     $$
@@ -1593,7 +1597,7 @@ $$
 \end{definition}
 
 \begin{corollary}
-    Suppose $X \subseteq \mathbf{R}^n$ is open and $x \in X$. If $f: X \rightarrow \mathbf{R}$ is $C^2$, then there is an orthonormal basis $\left\{v_1, \ldots, v_n\right\}$ and corresponding eigenvalues $\lambda_1, \ldots, \lambda_n \in \mathbf{R}$ of $D^2 f(x)$ such that
+    Suppose $X \subseteq \mathbb{R}^n$ is open and $x \in X$. If $f: X \rightarrow \mathbb{R}$ is $C^2$, then there is an orthonormal basis $\left\{v_1, \ldots, v_n\right\}$ and corresponding eigenvalues $\lambda_1, \ldots, \lambda_n \in \mathbb{R}$ of $D^2 f(x)$ such that
     $$
     \begin{aligned}
     f(x+h) & =f\left(x+\gamma_1 v_1+\cdots+\gamma_n v_n\right) \\
@@ -1962,8 +1966,8 @@ Note that the theorem asserts both the \textbf{existence} and \textbf{uniqueness
 \end{theorem}
 
 
-\chapter{Differential Equations \small{(@ Lec 14 of ECON 204)}}
-\section{Existence and Uniqueness of Solutions}
+\chapter{Differential Equations \small{(@ Lec 14/15 of ECON 204)}}
+\section{Initial Value Problem}
 \subsection{Initial Value Problem}
 \begin{definition}[Differential Equation]
     \normalfont
@@ -1996,11 +2000,351 @@ where $F : U \rightarrow \mathbb{R}^n$ and $U$ is an open subset of $\mathbb{R}^
 \end{theorem}
 
 \begin{example}
-    Consider the initial value problem $y'(t) = 1 + y^2(t), y(0) = 0$.
-
-    Here, we have $F(y, t) = 1 + y^2$ which is Lipschitz in $y$ over $U = V \times \mathbb{R}$, provided that $V$ is bounded, but not over all of $\mathbb{R} \times \mathbb{R}$. The theorem tells us that the initial value problem has a unique solution over some interval of $t$, $(a, b)$, with $0 \in (a, b)$.
+    Consider the initial value problem $$y'(t) = 1 + y^2(t), y(0) = 0$$
+    Here, we have $F(y, t) = 1 + y^2$ which is Lipschitz in $y$ over $U = V \times \mathbb{R}$, provided that $V$ is bounded, but not over all of $\mathbb{R} \times \mathbb{R}$. The theorem tells us that the initial value problem has a unique solution over some interval of $t$, $(a, b)$, with $0 \in (a, b)$.\\
+    We can find $y(t)=\tan t$ is a unique solution in $(a,b)\subsetneq (-\frac{\pi}{2},\frac{\pi}{2})$ with $a<0,b>0$.
 \end{example}
 
+\begin{example}
+    Consider the initial value problem $$y'(t) = 2\sqrt{|y|}, y(0) = 0$$
+    As $F(y)=2\sqrt{|y|}$ is not locally Lipschitz in $y$ at $y = 0$, we can find for all $\alpha\geq 0$, $$y_\alpha(t)=\left\{\begin{matrix}
+        0,&t\leq \alpha\\
+        (t-\alpha)^2,&t\geq \alpha
+    \end{matrix}\right.$$ is a solution of the initial value problem, which is not unique.
+\end{example}
+
+\section{Autonomous Differential Equation}
+\subsection{Autonomous Differential Equation}
+\begin{definition}[Autonomous Differential Equation]
+    \normalfont
+    An \textbf{autonomous differential equation} is a differential equation of the form $y'(t) = F(y(t))$
+    where $F : \mathbb{R}^n \rightarrow \mathbb{R}^n$ depends on t only through the value of $y(t)$.
+
+    A \textbf{stationary point} of an autonomous differential equation is a point $y_s \in \mathbb{R}^n$ such that $F(y_s) = 0$.
+\end{definition}
+
+We study the qualitative properties of autonomous differential equations by looking for stationary points. The constant function
+$$
+y(t)=y_s
+$$
+is a solution (and the unique solution when $F$ is Lipschitz) of the initial value problem
+$$
+y^{\prime}=F(y), y\left(t_0\right)=y_s
+$$
+If $F$ is $C^2$, then Taylor's Theorem implies that near a stationary point $y_s$,
+$$
+\begin{aligned}
+F\left(y_s+h\right) & =F\left(y_s\right)+D F\left(y_s\right) h+O\left(|h|^2\right) \\
+& =D F\left(y_s\right) h+O\left(|h|^2\right)
+\end{aligned}
+$$
+Thus, when we are sufficiently close to the stationary point, the solutions of the autonomous differential equation are closely approximated by the solutions of the linear differential equation
+$$
+y^{\prime}=\left(y-y_s\right)^{\prime}=D F\left(y_s\right)\left(y-y_s\right)
+$$
+Thus, we study solutions of linear differential equations, using linear algebra. For this we first recall the formulation of complex exponentials, which are central in the general solution of linear differential equations.
+
+\subsection{Complex Exponentials}
+By the Taylor series, $e^x=\sum_{k=0}^\infty\frac{x^k}{k!}$. If $x=a+ib\in \mathbb{C}$, $a,b\in \mathbb{R}$, we have
+\begin{equation}
+    \begin{aligned}
+        e^{x}&=e^{a+ib}=e^a e^{ib}\\
+        &=e^a\left(\sum_{k=0}^\infty(-1)^k\frac{b^{2k}}{(2k)!}+i\sum_{k=0}^\infty(-1)^k\frac{b^{2k+1}}{(2k+1)!}\right)\\
+        &=e^a(\cos b + i\sin b)
+    \end{aligned}
+    \nonumber
+\end{equation}
+Hence,
+\begin{enumerate}
+    \item If $a < 0$, then $e^{tx} \rightarrow  0$ as $t \rightarrow \infty$.
+    \item If $a > 0$, then $|e^{tx}| \rightarrow  \infty$ as $t \rightarrow \infty$.
+    \item If $a = 0$, then $|e^{tx}| \rightarrow  1$ for all $t\in \mathbb{R}$.
+\end{enumerate}
+
+\subsection{Solutions of Simple Case: $y'(t)=ay(t)$}
+\begin{proposition}[Simple Case]
+    Given $y'(t)=ay(t)$, we have
+    \begin{equation}
+        \begin{aligned}
+            y(t)=c e^{at}, c\in \mathbb{R}^*
+        \end{aligned}
+        \nonumber
+    \end{equation}
+\end{proposition}
+\begin{proof}
+    \begin{equation}
+        \begin{aligned}
+            y'(t)=\frac{dy}{dt}&=a y\\
+            \frac{dy}{y}&=a dt\\
+            \int \frac{1}{y} dy &= \int a dt\\
+            \ln y &= at +c',\ c'\in \mathbb{R}\\
+            y(t)&=e^{c'} e^{at}=c e^{at},\ c\in \mathbb{R}^*
+        \end{aligned}
+        \nonumber
+    \end{equation}
+\end{proof}
+\begin{proposition}[Simple Case with Initial Value]\label{proposition:Simple Case with Initial Value}
+    Given initial value $(t_0,y_0)$, $y'(t)=a y(t)$, we have
+    \begin{equation}
+        \begin{aligned}
+            y(t)=y_0 e^{a(t-t_0)}
+        \end{aligned}
+        \nonumber
+    \end{equation}
+\end{proposition}
+
+\subsection{Solutions of Special Case: Linear Differential Equations with Constant Coefficients}
+Let $M \in \mathbb{R}^{n\times n}$. The linear differential equation $$
+y^{\prime}=\left(y-y_s\right)^{\prime}=M\left(y-y_s\right)
+$$
+has a complete solution in closed form.
+
+The matrix representation $$M=D F\left(y_s\right)$$
+need not be symmetric, hence may not be diagonalizable. If $M$ is diagonalizable over $\mathbb{C}$, the complete solution takes the following simple form:
+
+\begin{theorem}[Solutions of Linear Differential Equations with Constant Coefficients]\label{theorem:Solutions of Linear Differential Equations with Constant Coefficients}
+    Consider the linear differential equation $$
+    y^{\prime}=\left(y-y_s\right)^{\prime}=M\left(y-y_s\right)
+    $$
+    where M is a real $n\times n$ matrix. Suppose that M can be diagonalized over the complex field $\mathbb{C}$. Let $U$ be the standard basis of $\mathbb{R}^n$ and $V = \{v_1, . . . , v_n\}$ be a basis of (complex) eigenvectors corresponding to the eigenvalues $\lambda_1, . . . , \lambda_n \in \mathbb{C}$ of $M$. Then the solution of the initial value problem is given by
+    \begin{equation}
+        \begin{aligned}
+            y(t)=y_s+P^{-1}\begin{bmatrix}
+                e^{\lambda_1(t-t_0)}&0&0&0\\
+                0&e^{\lambda_2(t-t_0)}&0&0\\
+                \vdots&\vdots&\ddots&\vdots\\
+                0&0&0&e^{\lambda_n(t-t_0)}
+            \end{bmatrix} P(y(t_0)-y_s)
+        \end{aligned}
+        \label{Constant Coefficients}
+    \end{equation}
+    where $P = \textnormal{Mtx}_{V,U}(id)$, and the general complex solution is obtained by allowing $y(t_0)$ to vary over $\mathbb{C}^n$; it has $n$ complex degrees of freedom. The general real solution is obtained by allowing $y(t_0)$ to vary over $\mathbb{R}^n$; it has $n$ real degrees of freedom. Every real solution is a linear combination of the real and imaginary parts of a complex solution. In particular,
+    \begin{enumerate}
+        \item If the real part of each eigenvalue is less than zero, all solutions converge to $y_s$.
+        \item If the real part of each eigenvalue is greater than zero, all solutions diverge from $y_s$ and tend to infinity.
+        \item If the real parts of some eigenvalues are less than zero and the real parts of other eigenvalues are greater than zero, solutions follow roughly hyperbolic paths.
+        \item If the real parts of all eigenvalues are zero, all solutions follow closed cycles around $y_s$.
+    \end{enumerate}
+\end{theorem}
+\begin{note}
+    If one or more of the eigenvalues are complex, each of the three matrices in Equation \ref{Constant Coefficients} will contain complex entries, but the product of the three matrices is real. Thus, if the initial condition $y_0$ is real, Equation \ref{Constant Coefficients} gives us a real solution; indeed, it gives us the unique solution of the initial value problem.
+\end{note}
+
+\begin{note}
+    Given a fixed time $t_0$, the general real solution is obtained by varying the initial values of $y(t_0)$ over $\mathbb{R}^n$, which provides $n$ real degrees of freedom. You might think that varying $t_0$ provides one additional degree of freedom, but it doesn't. Given any solution satisfying the initial condition $y(t_0) = y_0$, the solution is defined on some interval $(t_0-\delta, t_0+ \delta)$; given $t_1 \in (t_0-\delta, t_0 +\delta)$, let $y_1 = y(t_1)$; then the solution with initial condition $y_1 = y(t_1)$ is the same as the solution with initial condition $y_0 = y(t_0)$. The same holds true for the general complex solution.
+\end{note}
+
+\begin{proof}
+    Let $P=\textnormal{Mtx}_{V,U}(id)$. Rewrite the differential equation in terms of a new variable $$z=Py$$
+    Let $z_s=Py_s$, then we have
+    \begin{equation}
+        \begin{aligned}
+            z-z_s&=P(y-y_s)\\
+            (z-z_s)'=z'&=P y'\\
+            &=PM(y-y_s)\\
+            &=PMP^{-1}(z-z_s)\\
+            &=B(z-z_s)
+        \end{aligned}
+        \nonumber
+    \end{equation}
+    where $B=\textnormal{diag}(\lambda_1,...,\lambda_n)$.
+
+    Thus, the $i^{th}$ component of $(z(t)-z_s)$ satisfies
+    \begin{equation}
+        \begin{aligned}
+            (z(t)-z_s)'_i&=\lambda_i(z(t)-z_s)_i\\
+        \end{aligned}
+        \nonumber
+    \end{equation}
+    by the proposition \ref{proposition:Simple Case with Initial Value}, we have
+    \begin{equation}
+        \begin{aligned}
+            (z(t)-z_s)_i=e^{\lambda_i(t-t_0)}(z(t_0)-z_s)_i
+        \end{aligned}
+        \nonumber
+    \end{equation}
+    so,
+    \begin{equation}
+        \begin{aligned}
+            z(t)-z_s&=\begin{bmatrix}
+                e^{\lambda_1(t-t_0)}&0&0&0\\
+                0&e^{\lambda_2(t-t_0)}&0&0\\
+                \vdots&\vdots&\ddots&\vdots\\
+                0&0&0&e^{\lambda_n(t-t_0)}
+            \end{bmatrix} (z(t_0)-z_s)
+        \end{aligned}
+        \nonumber
+    \end{equation}
+    \begin{equation}
+        \begin{aligned}
+            y(t)-y_s&=P^{-1}\begin{bmatrix}
+                e^{\lambda_1(t-t_0)}&0&0&0\\
+                0&e^{\lambda_2(t-t_0)}&0&0\\
+                \vdots&\vdots&\ddots&\vdots\\
+                0&0&0&e^{\lambda_n(t-t_0)}
+            \end{bmatrix} (z(t_0)-z_s)\\
+            &=P^{-1}\begin{bmatrix}
+                e^{\lambda_1(t-t_0)}&0&0&0\\
+                0&e^{\lambda_2(t-t_0)}&0&0\\
+                \vdots&\vdots&\ddots&\vdots\\
+                0&0&0&e^{\lambda_n(t-t_0)}
+            \end{bmatrix} P(y(t_0)-y_s)\\
+        \end{aligned}
+        \nonumber
+    \end{equation}
+\end{proof}
+
+
+\subsection{The Form of Real Solutions}
+We can determine the form of the real solutions once we know the eigenvalues. In an important special case, we can solve for the solution of the initial value problem without calculating the diagonalization, as in Equation \ref{Constant Coefficients}.
+\begin{theorem}
+    Consider the differential equation
+    $$
+    y^{\prime}=\left(y-y_s\right)^{\prime}=M\left(y-y_s\right)
+    $$
+    Suppose that the matrix $M$ can be diagonalized over $\mathbb{C}$. Let the eigenvalues of $M$ with the correct multiplicity be
+    $$
+    a_1+i b_1, a_1-i b_1, \ldots, a_m+i b_m, a_m-i b_m, a_{m+1}, \ldots, a_{n-m}
+    $$
+    Then for each fixed $i=1, \ldots, n$, every real solution is of the form
+    $$
+    \left(y(t)-y_s\right)_i=\sum_{j=1}^m e^{a_j\left(t-t_0\right)}\left(C_{i j} \cos b_j\left(t-t_0\right)+D_{i j} \sin b_j\left(t-t_0\right)\right)+\sum_{j=m+1}^{n-m} C_{i j} e^{a_j\left(t-t_0\right)}
+    $$
+    The $n^2$ parameters
+    $$
+    \left\{C_{i j}: i=1, \ldots, n ; j=1, \ldots, n-m\right\} \cup\left\{D_{i j}: i=1, \ldots, n ; j=1, \ldots, m\right\}
+    $$
+    have $n$ real degrees of freedom. The parameters are uniquely determined from the $n$ real initial conditions of an initial value problem.
+\end{theorem}
+
+
+\section{Higher Order Differential Equations}
+When we consider a differential equation of order $n$ is an equation of the form
+\begin{equation}
+    \begin{aligned}
+        y^{(n)}(t)=F\left(y(t),y'(t),...,y^{n-1}(t),t\right)
+    \end{aligned}
+    \nonumber
+\end{equation}
+We can always rewrite
+\begin{equation}
+    \begin{aligned}
+        \bar{y}(t)=\begin{bmatrix}
+            y(t)\\y'(t)\\
+            \vdots\\y^{n-1}(t)
+        \end{bmatrix}
+    \end{aligned}
+    \nonumber
+\end{equation}
+
+\subsection{Second Order Linear Differential Equations}
+Consider the second order differential equation $y'' = cy + by'$ with $b, c \in \mathbb{R}$.
+
+Rewrite $\bar{y}(t)=\begin{bmatrix}
+    y(t)\\ y'(t)
+\end{bmatrix}$, then
+\begin{equation}
+    \begin{aligned}
+        \bar{y}'(t)=\begin{bmatrix}
+            y'(t)\\ y''(t)
+        \end{bmatrix}=\begin{bmatrix}
+            0&1\\
+            c&b
+        \end{bmatrix}\begin{bmatrix}
+            y(t)\\ y'(t)
+        \end{bmatrix}=\begin{bmatrix}
+            0&1\\
+            c&b
+        \end{bmatrix}\bar{y}
+    \end{aligned}
+    \nonumber
+\end{equation}
+By the Theorem \ref{theorem:Solutions of Linear Differential Equations with Constant Coefficients}, we can now solve it. Specifically, the eigenvalues of $\begin{bmatrix}
+    0&1\\
+    c&b
+\end{bmatrix}$ are $\frac{b\pm\sqrt{b^2+4c}}{2}$.
+
+\begin{example}
+    Consider the second order linear differential equation $y''=2y+y'$, we can solve the eigenvalues $\lambda_1=2,\lambda_2=-1$ and eigenvectors $v_1=(1,2), v_2=(1,-1)$. The general solution of $\bar{y}(t)=\begin{bmatrix}
+        y(t)\\ y'(t)
+    \end{bmatrix}$ can be solved by the Theorem \ref{theorem:Solutions of Linear Differential Equations with Constant Coefficients}.
+\end{example}
+
+\section{Inhomogeneous Linear Differential Equations with Nonconstant Coefficients}
+Consider the inhomogeneous linear differential equation
+\begin{equation}
+    \begin{aligned}
+        y'=M(t)y+H(t)
+    \end{aligned}
+    \tag{1}
+    \label{Equation 1}
+\end{equation}
+where $M$ is continuous function from $t$ to the set of $n \times n$ matrices; and $H$ is continuous
+function from $t$ to $\mathbb{R}^n$.
+
+\subsection{Theorem: General Solution of Inhomo $=$ General Solution of Homo $+$ Particular Solution of Inhomo}
+There is a close relationship between solutions of the \textit{inhomogeneous} linear differential equation \ref{Equation 1} and the associated \textit{homogeneous} linear differential equation
+\begin{equation}
+    \begin{aligned}
+        y'=M(t)y
+    \end{aligned}
+    \tag{2}
+    \label{Equation 2}
+\end{equation}
+
+\begin{theorem}[General Solution of Inhomo$=$General Solution of Homo$+$Particular Solution of Inhomo]
+    The general solution of the inhomogeneous linear differential equation \ref{Equation 1} is $$y_h+y_p$$
+    where $y_h$ is the general solution of the homogeneous linear differential equation \ref{Equation 2} and $y_p$ is any particular solution of the inhomogeneous linear differential equation \ref{Equation 1}.
+\end{theorem}
+Hence, to find general solution of inhomogeneous equation:
+\begin{enumerate}
+    \item Find general solution of homogeneous equation;
+    \item Find a particular solution of inhomogeneous equation;
+    \item Add these to get general solution of inhomogeneous equation
+\end{enumerate}
+
+\subsection{Theorem: Particular Solution of Inhomogeneous Linear Differential Equations with Constant Coefficients (Matrix)}
+\begin{theorem}[Particular  Solution with Constant Coefficients (Matrix)]
+    Consider the inhomogeneous linear differential equation \ref{Equation 1}, and suppose that $M(t)$ is a constant matrix $M$, independent of $t$. A particular solution of the inhomogeneous linear differential equation \ref{Equation 1}, satisfying the initial condition $y_p(t_0) = y_0$, is given by
+    \begin{equation}
+        \begin{aligned}
+            y_p(t_0)&=e^{(t-t_0)M}y_0+\int_{t_0}^t e^{(t-s)M} H(s) ds
+        \end{aligned}
+        \tag{3}
+        \label{Equation 3}
+    \end{equation}
+\end{theorem}
+
+\subsection{Matrix Exponentials Notations}
+In analogy with how we define $e^x$ for $x \in \mathbb{R}$, for an $n \times n$ matrix $M$ we define
+$$
+e^M=\sum_{k=0}^{\infty} \frac{M^k}{k !}=I+M+\frac{M^2}{2}+\cdots
+$$
+and
+$$
+e^{t M}=\sum_{k=0}^{\infty} \frac{t^k M^k}{k !}
+$$
+The matrix exponential satisfies many properties analogous to the exponential function in $\mathbb{R}$ and $\mathbb{C}$. Here are a few of the most important properties, which can be established fairly directly from the definitions above.
+\begin{enumerate}[-]
+    \item If $D$ is a diagonal matrix with diagonal $d_1, \ldots, d_n$,
+    $$
+    e^D=\left(\begin{array}{cccc}
+    e^{d_1} & 0 & \cdots & 0 \\
+    0 & e^{d_2} & \cdots & 0 \\
+    \vdots & \vdots & \ddots & \vdots \\
+    0 & 0 & \cdots & e^{d_n}
+    \end{array}\right)
+    $$
+    \item $e^{A+B}=e^A e^B$ if $A B=B A$ (this is not necessarily valid for matrices $A$ and $B$ that do not commute)
+    \item $e^{P^{-1} A P}=P^{-1} e^A P$\\
+    Then, if $M$ is diagonalizable, so $M = P^{-1}DP$ for a diagonal matrix $D$, then $$e^M=P^{-1} e^D P=P^{-1} \left(\begin{array}{cccc}
+        e^{d_1} & 0 & \cdots & 0 \\
+        0 & e^{d_2} & \cdots & 0 \\
+        \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & \cdots & e^{d_n}
+        \end{array}\right) P$$
+    \item $g(t)=e^{t M}$ is differentiable (in fact $C^{\infty}$) and $g^{\prime}(t)=M e^{t M}$
+\end{enumerate}
 
 
 \chapter{Big $\mathcal{O}$ and Small $o$ Notation}
