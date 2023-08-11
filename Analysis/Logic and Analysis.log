@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.27)  11 AUG 2023 10:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.27)  11 AUG 2023 11:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2555,80 +2555,74 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.6.3.2
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.2293 \end{equation}
-                     ]
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.4.2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2309     \begin{equation}
-                           
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.4.2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2309     \begin{equation}
-                           
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.4.2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2309     \begin{equation}
-                           
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.4.2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2309     \begin{equation}
-                            [58
+                     ] [58
 pdfTeX warning (ext4): destination with the same identifier (name{equation.6.4.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.2329     \item I
-                  f $D$ is a diagonal matrix with diagonal $d_1, \ldots, d_n$,] [59]
+l.2336         \end{array}\right) P$$
+                                     ]
+pdfTeX warning (ext4): destination with the same identifier (name{equation.6.4.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2344     \begin{equation}
+                           
+pdfTeX warning (ext4): destination with the same identifier (name{equation.6.4.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2344     \begin{equation}
+                           
+pdfTeX warning (ext4): destination with the same identifier (name{equation.6.4.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2344     \begin{equation}
+                           
+pdfTeX warning (ext4): destination with the same identifier (name{equation.6.4.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2344     \begin{equation}
+                            [59]
 Chapter 7.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2350.
+(hyperref)                removing `math shift' on input line 2354.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2350.
+(hyperref)                removing `math shift' on input line 2354.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2350.
+(hyperref)                removing `math shift' on input line 2354.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2350.
+(hyperref)                removing `math shift' on input line 2354.
 
 [60
 
-] (./Logic and Analysis.aux)
+] [61] (./Logic and Analysis.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
-
-Package rerunfilecheck Warning: File `"Logic and Analysis".out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `"Logic and Analysis".out':
-(rerunfilecheck)             Before: EFC1D6C74E1FE37092CB4EF0B6AEAD61;49642
-(rerunfilecheck)             After:  CE56700D954CE8CD606178423EB00689;49657.
+Package rerunfilecheck Info: File `"Logic and Analysis".out' has not changed.
+(rerunfilecheck)             Checksum: D6EA6D425D7AD8A4E93FED0452E329D1;49657.
 Package logreq Info: Writing requests to '"Logic and Analysis".run.xml'.
 \openout1 = `"Logic and Analysis.run.xml"'.
 
  ) 
 Here is how much of TeX's memory you used:
- 43018 strings out of 476038
- 844621 string characters out of 5790170
+ 43023 strings out of 476038
+ 844693 string characters out of 5790170
  1898785 words of memory out of 5000000
- 62144 multiletter control sequences out of 15000+600000
+ 62146 multiletter control sequences out of 15000+600000
  554160 words of font info for 138 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 102i,18n,136p,1339b,1471s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 102i,18n,136p,1339b,1465s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/hoekwater/manfnt-font/manfnt.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/ztmbi.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on "Logic and Analysis.pdf" (67 pages, 5228320 bytes).
+Output written on "Logic and Analysis.pdf" (68 pages, 5230530 bytes).
 PDF statistics:
- 1905 PDF objects out of 2073 (max. 8388607)
- 1753 compressed objects within 18 object streams
- 576 named destinations out of 1000 (max. 500000)
+ 1913 PDF objects out of 2073 (max. 8388607)
+ 1760 compressed objects within 18 object streams
+ 579 named destinations out of 1000 (max. 500000)
  1430 words of extra memory for PDF output out of 10000 (max. 10000000)
 

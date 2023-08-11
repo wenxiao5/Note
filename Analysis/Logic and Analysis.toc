@@ -155,8 +155,8 @@
 \contentsline {subsection}{\numberline {6.3.1}Second Order Linear Differential Equations}{57}{subsection.6.3.1}%
 \contentsline {section}{\numberline {6.4}Inhomogeneous Linear Differential Equations with Nonconstant Coefficients}{57}{section.6.4}%
 \contentsline {subsection}{\numberline {6.4.1}Theorem: General Solution of Inhomo $=$ General Solution of Homo $+$ Particular Solution of Inhomo}{58}{subsection.6.4.1}%
-\contentsline {subsection}{\numberline {6.4.2}Theorem: Particular Solution of Inhomogeneous Linear Differential Equations with Constant Coefficients (Matrix)}{58}{subsection.6.4.2}%
-\contentsline {subsection}{\numberline {6.4.3}Matrix Exponentials Notations}{58}{subsection.6.4.3}%
+\contentsline {subsection}{\numberline {6.4.2}Matrix Exponentials Notations}{58}{subsection.6.4.2}%
+\contentsline {subsection}{\numberline {6.4.3}Theorem: Particular Solution of Inhomogeneous Linear Differential Equations with Constant Coefficients (Matrix)}{59}{subsection.6.4.3}%
 \contentsline {chapter}{\numberline {7}Big $\mathcal {O}$ and Small $o$ Notation}{60}{chapter.7}%
 \contentsline {section}{\numberline {7.1}Definition}{60}{section.7.1}%
-\contentsline {subsection}{\numberline {7.1.1}Extension}{60}{subsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.1.1}Extension}{61}{subsection.7.1.1}%
