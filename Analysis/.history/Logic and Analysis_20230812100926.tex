@@ -1236,29 +1236,24 @@ $\Psi$ is the demand correspondence associated with the utility function $u$; ty
 \end{example}
 
 \subsection{Continuity of Correspondences}
-Let $X\subseteq \mathbb{E}^n$, $Y\subseteq \mathbb{E}^m$, and $\Psi: X \rightarrow 2^Y$.
-\begin{definition}[Upper Hemicontinuous]
+\begin{definition}[Upper/Lower Hemicontinuous]
     \normalfont
-    $\Psi$ is \textbf{upper hemicontinuous} (uhc) at $x_0 \in X$ if, for every open set $V$ with $\Psi(x_0)\subseteq V$, there is an \underline{open set} $U$ with $x_0 \in U$ s.t.
-    $$x\in U \Rightarrow \Psi(x)\subseteq V$$
+    Let $X\subseteq \mathbb{E}^n$, $Y\subseteq \mathbb{E}^m$, and $\Psi: X \rightarrow 2^Y$.
+    \begin{enumerate}
+        \item $\Psi$ is \textbf{upper hemicontinuous} (uhc) at $x_0 \in X$ if, for every open set $V$ with $\Psi(x_0)\subseteq V$, there is an \underline{open set} $U$ with $x_0 \in U$ (which requires elements around $x_0$ all satisfy) such that
+        \begin{center}
+            $\Psi(x) \subseteq V$ for every $x \in U \cap X$
+        \end{center}
+        Upper hemicontinuity reflects the requirement that $\Psi$ doesn't “jump down/implode in the limit” at $x_0$. \textit{(A set to “jump down” at the limit $x_0$: It should mean the set suddenly gets smaller -- it “implodes in the limit” -- that is, there is a sequence $x_n \rightarrow x_0$ and points $y_n \in \Psi(x_n)$ that are far from every point of $\Psi(x_0)$ as $n \rightarrow \infty$.)}
+        \item $\Psi$ is \textbf{lower hemicontinuous} (lhc) at $x_0 \in X$ if, for every open set $V$ such that $\Psi(x_0)\cap V \neq \emptyset$, there is an \underline{open set} $U$ with $x_0 \in U$ such that
+        \begin{center}
+            $\Psi(x) \cap V\neq \emptyset$ for every $x \in U \cap X$
+        \end{center}
+        Lower hemicontinuity reflects the requirement that $\Psi$ doesn't “jump up/explode in the limit” at $x_0$. \textit{(A set to “jump up” at the limit $x_0$: It should mean that the set suddenly gets bigger -- it “explodes in the limit” -- that is, there is a sequence $x_n \rightarrow x_0$ and a point $y_0\in\Psi(x_0)$ that is far from every point of $\Psi(x_n)$ as $n \rightarrow \infty$.)}
+        \item $\Psi$ is \textbf{continuous} at $x_0 \in X$ if it is both \textbf{uhc} and \textbf{lhc} at $x_0$.
+        \item $\Psi$ is upper hemicontinuous (respectively lower hemicontinuous, continuous) if it is uhc (respectively lhc, continuous) at every $x \in X$.
+    \end{enumerate}
 \end{definition}
-Upper hemicontinuity reflects the requirement that $\Psi$ doesn't “jump down/implode in the limit” at $x_0$. \textit{(A set to “jump down” at the limit $x_0$: It should mean the set suddenly gets smaller -- it “implodes in the limit” -- that is, there is a sequence $x_n \rightarrow x_0$ and points $y_n \in \Psi(x_n)$ that are far from every point of $\Psi(x_0)$ as $n \rightarrow \infty$.)}
-\begin{definition}[Lower Hemicontinuous]
-    \normalfont
-    $\Psi$ is \textbf{lower hemicontinuous} (lhc) at $x_0 \in X$ if, for every open set $V$ with $\Psi(x_0)\cap V \neq \emptyset$, there is an \underline{open set} $U$ with $x_0 \in U$ s.t.
-    $$x\in U \Rightarrow \Psi(x)\cap V\neq \emptyset$$
-\end{definition}
-Lower hemicontinuity reflects the requirement that $\Psi$ doesn't “jump up/explode in the limit” at $x_0$. \textit{(A set to “jump up” at the limit $x_0$: It should mean that the set suddenly gets bigger -- it “explodes in the limit” -- that is, there is a sequence $x_n \rightarrow x_0$ and a point $y_0\in\Psi(x_0)$ that is far from every point of $\Psi(x_n)$ as $n \rightarrow \infty$.)}
-
-\begin{definition}[Continuous Correspondence]
-    \normalfont
-    $\Psi$ is \textbf{continuous} at $x_0 \in X$ if it is both \textbf{uhc} and \textbf{lhc} at $x_0$.
-\end{definition}
-
-\begin{proposition}
-    $\Psi$ is upper hemicontinuous (respectively lower hemicontinuous, continuous) if it is uhc (respectively lhc, continuous) at every $x \in X$.
-\end{proposition}
-
 \begin{center}\begin{figure}[htbp]
     \centering
     \includegraphics[scale=0.2]{uhc.png}
