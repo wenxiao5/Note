@@ -262,18 +262,19 @@ $$
     A set $S$ is \textbf{well defined} if an object $a$ is either $a\in S$ or $a\notin S$.
 \end{definition}
 
-\subsection{Numerically Equivalent \small{(@ Lec 01 of ECON 204)}}
+\subsection{Numerically Equivalent: $\exists$ bijection \small{(@ Lec 01 of ECON 204)}}
 \begin{definition}
 \normalfont
     Two sets $A, B$ are \textbf{numerically equivalent} (or have the same cardinality) if there is a bijection $f : A \rightarrow B$, that is, 1-1 ($a \neq a' \Rightarrow f(a) \neq f(a')$), and onto ($\forall b\in B, \exists a\in A$ s.t. $f(a)=b$).
 \end{definition}
 
-\subsection{Finite, Countable Set \small{(@ Lec 01 of ECON 204)}}
+\subsection{Finite \small{(@ Lec 01 of ECON 204)}}
 \begin{definition}[Finite Set]
 \normalfont
     A set is either \textbf{finite} or \textbf{infinite}. A set is \textbf{finite} if it is \underline{numerically equivalent to} $\{1,...,n\}$ for some $n$. A set that is not finite is infinite.
 \end{definition}
 
+\subsection{Countable Set: numerically equivalent to $\mathbb{N}$ \small{(@ Lec 01 of ECON 204)}}
 We give a more precise definition to classify infinite set:
 \begin{definition}[Countable Set]
 \normalfont
@@ -419,7 +420,7 @@ Equivalent: $\exists \beta>0$ and $s\in S$ such that $S\subseteq B_\beta(s)$.
     Any set in a metric space $(X, d)$ can be written as the intersection of open sets.
 \end{proposition}
 
-\subsection{Theorem: Union of open sets is open, Intersection of finite open sets is open}
+\subsection{$\bigstar$ Theorem: Union of open sets is open, Intersection of finite open sets is open}
 \begin{theorem}[Union of open sets is open, Intersection of finite open sets is open]
     In any metric space $(X, d)$,
     \begin{enumerate}
@@ -427,6 +428,15 @@ Equivalent: $\exists \beta>0$ and $s\in S$ such that $S\subseteq B_\beta(s)$.
         \item The intersection of a finite collection of open sets is open.
     \end{enumerate}
 \end{theorem}
+
+\subsection{$\bigstar$ Corollary: Intersection of closed sets is closed, Union of finite closed sets is closed}
+\begin{corollary}[Intersection of closed sets is closed, Union of finite closed sets is closed]
+    In any metric space $(X, d)$,
+    \begin{enumerate}
+        \item The intersection of an arbitrary collection of closed sets is closed.
+        \item The union of a finite collection of closed sets is closed.
+    \end{enumerate}
+\end{corollary}
 
 \subsection{Interior, Exterior, Boundary, Closure \small{(@ Lec 04 of ECON 204)}}
 Given a set $S\subseteq X$, the \textbf{point} of $X$ can be classified into three types relative to $S$:
@@ -706,8 +716,8 @@ A Cauchy sequence is trying really hard to converge, but there may not be anythi
     Then $C(X)$ is a Banach space.
 \end{theorem}
 
-\subsection{Theorem: Subset of Complete Metric Space is Complete $\Leftrightarrow$ Subset is Closed}
-\begin{theorem}[Subset of Complete Metric Space is Complete $\Leftrightarrow$ Subset is Closed]\label{complete_equal_closed}
+\subsection{$\bigstar$ Theorem: Subset of Complete Metric Space "is Complete" $\Leftrightarrow$ "is Closed"}
+\begin{theorem}[Subset of Complete Metric Space "is Complete" $\Leftrightarrow$ "is Closed"]\label{complete_equal_closed}
     Suppose $(X, d)$ is a complete metric space and $Y \subseteq X$. Then $(Y, d) = (Y, d\mid_Y)$ is complete \underline{if and only if} $Y$ is a \textit{closed subset} of $X$. (where $d: \mathbb{X}\times \mathbb{X}\rightarrow \mathbb{R}_+$; $d\mid_Y: \mathbb{Y}\times \mathbb{Y}\rightarrow \mathbb{R}_+$)
 \end{theorem}
 
@@ -795,7 +805,7 @@ A Cauchy sequence is trying really hard to converge, but there may not be anythi
     A set $A$ in a metric space $(X, d)$ is \textbf{compact} \underline{if and only if} it is \textbf{sequentially compact}.
 \end{theorem}
 
-\subsection{Definition of Totally Bounded}
+\subsection{Definition of Totally Bounded: $\forall \varepsilon>0: \exists x_1,...,x_n\in A \textnormal{ s.t. }A\subseteq \cup_{i=1}^n B_{\varepsilon}(x_i).$}
 \begin{definition}[Totally Bounded]
     \normalfont
     A set $A$ in a metric space $(X, d)$ is \textbf{totally bounded} if, for every $\varepsilon > 0$, $$\exists x_1,...,x_n\in A \textnormal{ s.t. }A\subseteq \cup_{i=1}^n B_{\varepsilon}(x_i).$$
@@ -814,7 +824,7 @@ A Cauchy sequence is trying really hard to converge, but there may not be anythi
     \end{enumerate}
 \end{example}
 
-\subsection{Theroem: Compact $\Leftrightarrow$ Complete/Closed and Totally Bounded}
+\subsection{$\bigstar$ Theroem: Compact $\Leftrightarrow$ Complete/Closed and Totally Bounded}
 \begin{theorem}[Subset is Compact $\Leftrightarrow$ Complete and Totally Bounded]\label{compact_equal_complete_and_totally_bounded}
     Let $A$ be a subset of a metric space $(X, d)$. Then $A$ is \textbf{compact} \underline{if and only if} $A$ is \textbf{complete} and \textbf{totally bounded}.
 \end{theorem}
@@ -830,7 +840,7 @@ A Cauchy sequence is trying really hard to converge, but there may not be anythi
     Directly by theorem \ref{complete_equal_closed} and theorem \ref{compact_equal_complete_and_totally_bounded}.
 \end{proof}
 
-\subsection{Heine-Borel Theorem: With Euclidean Metric, Compact $\Leftrightarrow$ Closed and Bounded}
+\subsection{$\bigstar$ Heine-Borel Theorem: With Euclidean Metric, Compact $\Leftrightarrow$ Closed and Bounded}
 \begin{claim}[With Euclidean Metric, Compact $\Leftrightarrow$ Closed and Bounded]
     If $A \subseteq \mathbb{E}^n$, then $A$ is \textbf{totally bounded} \underline{if and only if} $A$ is \textbf{bounded}.
 \end{claim}
@@ -839,7 +849,7 @@ A Cauchy sequence is trying really hard to converge, but there may not be anythi
     If $A \subseteq \mathbb{E}^n$, then $A$ is \textbf{compact} \underline{if and only if} $A$ is \textbf{closed} and \textbf{bounded}.
 \end{theorem}
 
-\subsection{Theorem: Continuous Images of Compact Set is Compact}
+\subsection{$\bigstar$ Theorem: Continuous Images of Compact Set is Compact}
 \begin{theorem}[Continuous Images of Compact Set is Compact]\label{con_compact_is_compact}
     Let $(X, d)$ and $(Y, \rho)$ be metric spaces. If $f : X \rightarrow Y$ is continuous and $C$ is a compact subset of $(X, d)$, then $f(C)$ is compact in $(Y, \rho)$.
 \end{theorem}
@@ -1214,107 +1224,6 @@ Similarly, supremum and maximum of $f$.
 \begin{theorem}
     Let $a, b \in \mathbb{R}$ with $a < b$, and let $f : (a, b) \rightarrow \mathbb{R}$ be monotonically increasing. Then $D=\{t\in(a,b): f \textnormal{ is discontinuous at }t\}$ is finite (possibly empty) or countable.
 \end{theorem}
-
-
-\section{Correspondence \small{(@ Lec 07 of ECON 204)}}
-\subsection{Definition of Correspondence}
-\begin{definition}[Correspondence]
-    \normalfont
-    A \textbf{correspondence} $\Psi : X \rightarrow 2^Y$ from $X$ to $Y$ is a function from $X$ to $2^Y$, that is, $\Psi(x) \subseteq Y$ for every $x \in X$. ($2^Y$ is the set of all subsets of $Y$)
-\end{definition}
-\begin{example}
-Let $u : \mathbb{R}_+^n \rightarrow \mathbb{R}$ be a continuous utility function, $y > 0$ and $p \in \mathbb{R}_{++}^n$, that is, $p_i > 0$ for each $i$. Define $\Psi : \mathbb{R}_{++}^n \times \mathbb{R}_{++} \rightarrow 2^{\mathbb{R}_{+}^n}$ by
-\begin{equation}
-    \begin{aligned}
-        \Psi(p,y)=&\argmax u(x)\\
-        \textnormal{s.t. }&x\geq 0\\
-        &p\cdot x\leq y
-    \end{aligned}
-    \nonumber
-\end{equation}
-$\Psi$ is the demand correspondence associated with the utility function $u$; typically $\Psi(p, y)$ is multi-valued.
-\end{example}
-
-\subsection{Continuity of Correspondences}
-Let $X\subseteq \mathbb{E}^n$, $Y\subseteq \mathbb{E}^m$, and $\Psi: X \rightarrow 2^Y$.
-\begin{definition}[Upper Hemicontinuous]
-    \normalfont
-    $\Psi$ is \textbf{upper hemicontinuous} (uhc) at $x_0 \in X$ if, for every open set $V$ with $\Psi(x_0)\subseteq V$, there is an \underline{open set} $U$ with $x_0 \in U$ s.t.
-    $$x\in U \Rightarrow \Psi(x)\subseteq V$$
-\end{definition}
-Upper hemicontinuity reflects the requirement that $\Psi$ doesn't “jump down/implode in the limit” at $x_0$. \textit{(A set to “jump down” at the limit $x_0$: It should mean the set suddenly gets smaller -- it “implodes in the limit” -- that is, there is a sequence $x_n \rightarrow x_0$ and points $y_n \in \Psi(x_n)$ that are far from every point of $\Psi(x_0)$ as $n \rightarrow \infty$.)}
-\begin{definition}[Lower Hemicontinuous]
-    \normalfont
-    $\Psi$ is \textbf{lower hemicontinuous} (lhc) at $x_0 \in X$ if, for every open set $V$ with $\Psi(x_0)\cap V \neq \emptyset$, there is an \underline{open set} $U$ with $x_0 \in U$ s.t.
-    $$x\in U \Rightarrow \Psi(x)\cap V\neq \emptyset$$
-\end{definition}
-Lower hemicontinuity reflects the requirement that $\Psi$ doesn't “jump up/explode in the limit” at $x_0$. \textit{(A set to “jump up” at the limit $x_0$: It should mean that the set suddenly gets bigger -- it “explodes in the limit” -- that is, there is a sequence $x_n \rightarrow x_0$ and a point $y_0\in\Psi(x_0)$ that is far from every point of $\Psi(x_n)$ as $n \rightarrow \infty$.)}
-
-\begin{definition}[Continuous Correspondence]
-    \normalfont
-    $\Psi$ is \textbf{continuous} at $x_0 \in X$ if it is both \textbf{uhc} and \textbf{lhc} at $x_0$.
-\end{definition}
-
-\begin{proposition}
-    $\Psi$ is upper hemicontinuous (respectively lower hemicontinuous, continuous) if it is uhc (respectively lhc, continuous) at every $x \in X$.
-\end{proposition}
-
-\begin{center}\begin{figure}[htbp]
-    \centering
-    \includegraphics[scale=0.2]{uhc.png}
-    \caption{The correspondence $\Psi$ “implodes in the limit” at $x_0$. $\Psi$ is not upper hemicontinuous at $x_0$.}
-    \label{}
-\end{figure}\end{center}
-
-\begin{center}\begin{figure}[htbp]
-    \centering
-    \includegraphics[scale=0.2]{lhc.png}
-    \caption{The correspondence $\Psi$ “explodes in the limit” at $x_0$. $\Psi$ is not lower hemicontinuous at $x_0$.}
-    \label{}
-\end{figure}\end{center}
-
-\subsection{Graph of Correspondence}
-An alternative notion of continuity looks instead at properties of the graph of the correspondence.
-\begin{definition}[Graph of Correspondence]
-    \normalfont
-    The \textbf{graph} of a correspondence $\Psi : X \rightarrow 2^Y$ is the set
-    $$\textnormal{graph}\Psi=\{(x,y)\in X\times Y:y\in\Psi(x)\}$$
-\end{definition}
-By the definition of continuous function $f:\mathbb{R}^n \rightarrow \mathbb{R}$,  each convergent sequence $\{(x_n, y_n)\}$ in graph $f$ converges to a point $(x, y)$ in graph $f$, that is, graph $f$ is closed.
-
-\begin{definition}[Closed Graph]
-    \normalfont
-    Let $X\subseteq \mathbb{E}^n$, $Y\subseteq \mathbb{E}^m$. A correspondence $\Psi: X \rightarrow 2^Y$ has closed graph if its graph is a closed subset of $X \times Y$, that is, if for any sequences $\{x_n\} \subseteq X$ and $\{y_n\} \subseteq Y$ such that $x_n \rightarrow x \in X$, $y_n \rightarrow y \in Y$ and $y_n \in \Psi(x_n)$ for each $n$, then $y \in \Psi(x)$.
-\end{definition}
-\begin{example}
-    Consider the correspondence $\Psi(x)=\left\{\begin{matrix}
-        \{\frac{1}{x}\},&\textnormal{ if }x\in(0,1]\\
-        \{0\},&\textnormal{ if }x=0
-    \end{matrix}\right.$ ("implode in the limit")\\
-    Let $V = (-0.1, 0.1)$. Then $\Psi(0) = \{0\} \subseteq V$, but no matter how close $x$ is to $0$, $\Psi(x)=\{\frac{1}{x}\}\nsubseteq V$, so $\Psi$ is not uhc at $0$. However, note that $\Psi$ has closed graph.
-\end{example}
-
-\subsection{Theorem: $\Psi(x)=\{f(x)\}$ is uhc $\Leftrightarrow$ $f$ is continuous}
-\begin{theorem}[$\Psi(x)=\{f(x)\}$ is uhc $\Leftrightarrow$ $f$ is continuous]
-    Let $X \subseteq \mathbb{E}^n$, $Y \subseteq \mathbb{E}^m$ and $f : X \rightarrow Y$. Let $\Psi : X \rightarrow  2^Y$ be defined by $\Psi(x) = \{f(x)\}$ for all $x \in X$. Then $\Psi$ is \textbf{uhc} \underline{if and only if} $f$ is \textbf{continuous}.
-\end{theorem}
-
-\subsection{Closed-valued and Compact-valued Correspondences}
-\begin{definition}[Closed-valued and Compact-valued Correspondences]
-    \normalfont
-    A correspondence $\Psi : X \rightarrow 2^Y$ is called \textbf{closed-valued} if $\Psi(x)$ is a closed subset of $Y$ for all $x$; $\Psi$ is called \textbf{compact-valued} if $\Psi(x)$ is compact for all $x$.
-\end{definition}
-For closed-valued correspondences these concepts can be more tightly connected. A closed-valued and upper hemicontinuous correspondence must have closed graph. For a closed-valued correspondence with a compact range, upper hemicontinuity is equivalent to closed graph.
-
-\begin{theorem}[Properties]
-    Let $X\subseteq \mathbb{E}^n$, $Y\subseteq \mathbb{E}^m$, and $\Psi: X \rightarrow 2^Y$.
-    \begin{enumerate}[(i).]
-        \item $\Psi$ is \textbf{closed-valued} and \textbf{uhc} $\Rightarrow$ $\Psi$ has \textbf{closed graph}.
-        \item $\Psi$ is \textbf{closed-valued} and \textbf{uhc} $\Leftrightarrow$ $\Psi$ has \textbf{closed graph}. (If $Y$ is \textbf{compact})
-        \item If $\Psi$ has \textbf{closed graph} and there is an \textbf{open set} $W$ with $x_0 \in W$ and a \textbf{compact set} $Z$ such that $x \in W \cap X \Rightarrow \Psi(x) \subseteq Z$, then $\Psi$ is \textbf{uhc} at $x_0$.
-    \end{enumerate}
-\end{theorem}
-
 
 \section{Differentiable Function \small{(@ Lec 11 of ECON 204)}}
 \subsection{Definition of Differentiable in $\mathbb{R}$}
@@ -1809,10 +1718,79 @@ We want to know how the function $x^*(a)$ changes with keeping $f(x^*,a)=0$.
     All in all, the inverse function theorem is proved.
 \end{proof}
 
+\subsection{Example: Using Implicit Function Theorem in Comparative Statics}
+\begin{example}
+    Let us consider a firm that produces a good $y$; it uses two inputs $x_1$ and $x_2$. The firm sells the output and acquires the inputs in competitive markets: The market price of $y$ is $p$, and the cost of each unit of $x_1$ and $x_2$ are $w_1$ and $w_2$ respectively. Its technology is given by $f : \mathbb{R}^2_+ \rightarrow \mathbb{R}_+$, where $f (x_1, x_2) = x_1^ax_2^b$, $a + b < 1$. Its profits take the form
+    \begin{equation}
+        \begin{aligned}
+            \pi(x_1,x_2; p, w_1,w_2)=p x_1^ax_2^b-w_1x_1-w_2x_2
+        \end{aligned}
+        \nonumber
+    \end{equation}
+    The firm selects $x_1$ and $x_2$ in order to maximize profits. \textbf{We aim to know how its choice of $x_1$ and $x_2$ is affected by a change in $w_1$}.
 
+    Assuming an interior solution, the first-order conditions of this optimization problem are
+    \begin{equation}
+        \begin{aligned}
+            \frac{\partial \pi}{\partial x_1}(x_1^*,x_2^*;p,w_1,w_2)=pa(x_1^*)^{a-1}(x_2^*)^b-w_1=0\\
+            \frac{\partial \pi}{\partial x_2}(x_1^*,x_2^*;p,w_1,w_2)=pb(x_1^*)^{a}(x_2^*)^{b-1}-w_2=0
+        \end{aligned}
+        \nonumber
+    \end{equation}
+    for some $(x_1, x_2) = (x_1^*,x_2^*)$.
+
+    Let us define
+    \begin{equation}
+        \begin{aligned}
+            F(x_1^*,x_2^*;p,w_1,w_2)=
+            \begin{bmatrix}
+                pa(x_1^*)^{a-1}(x_2^*)^b-w_1\\
+                pb(x_1^*)^{a}(x_2^*)^{b-1}-w_1
+            \end{bmatrix}
+        \end{aligned}
+        \nonumber
+    \end{equation}
+    Jacobian matrices are
+    \begin{equation}
+        \begin{aligned}
+            D_{(x_1,x_2)}F(x_1^*,x_2^*;p,w_1,w_2)=\begin{bmatrix}
+                pa(a-1)(x_1^*)^{a-2}(x_2^*)^b&pab(x_1^*)^{a-1}(x_2^*)^{b-1}\\
+                pab(x_1^*)^{a-1}(x_2^*)^{b-1}&pb(b-1)(x_1^*)^{a}(x_2^*)^{b-2}
+            \end{bmatrix}
+        \end{aligned}
+        \nonumber
+    \end{equation}
+    \begin{equation}
+        \begin{aligned}
+            D_{w_1}F(x_1^*,x_2^*;p,w_1,w_2)
+            &=
+            \begin{bmatrix}
+                -1\\
+                0
+            \end{bmatrix}
+        \end{aligned}
+        \nonumber
+    \end{equation}
+    By the implicit function theorem, we can get
+    \begin{equation}
+        \begin{aligned}
+            \begin{bmatrix}
+                \frac{\partial x_1^*}{\partial w_1}\\
+                \frac{\partial x_2^*}{\partial w_1}
+            \end{bmatrix}&=-[D_{(x_1,x_2)}F(x_1^*,x_2^*;p,w_1,w_2)]^{-1}[D_{w_1}F(x_1^*,x_2^*;p,w_1,w_2)]\\
+            &=[D_{(x_1,x_2)}F(x_1^*,x_2^*;p,w_1,w_2)]^{-1}\begin{bmatrix}
+                1\\
+                0
+            \end{bmatrix}
+        \end{aligned}
+        \nonumber
+    \end{equation}
+\end{example}
+
+\subsection{Corollary: $a \rightarrow \{x\in X: f(x,a)=0\}$ is lhc}
 \begin{corollary}
     Suppose $X \subseteq \mathbb{R}^n$ and $A \subseteq \mathbb{R}^p$ are open and $f : X \times A \rightarrow \mathbb{R}^n$ is $C^1$. If $0$ is a regular value of $f(\cdot, a_0)$, then the correspondence $$a \rightarrow \{x\in X: f(x,a)=0\}$$
-    is lower hemicontinuous at $a_0$.
+    is \textbf{lower hemicontinuous} at $a_0$.
 \end{corollary}
 
 
@@ -1868,7 +1846,7 @@ We want to know how the function $x^*(a)$ changes with keeping $f(x^*,a)=0$.
 \chapter{Fixed Point Theorem}
 
 \section{Contraction Mapping Theorem \small{(@ Lec 05 of ECON 204)}}
-\subsection{Contractions}
+\subsection{Contraction: Lipschitz continuous with constant $<1$}
 \begin{definition}
     \normalfont
     Let $(X, d)$ be a \underline{nonempty complete} metric space. An operator is a function $T : X \rightarrow X$. An operator $T$ is a \textbf{contraction of modulus $\beta$} if $\beta < 1$ and $$d(T(x), T(y)) \leq \beta d(x, y), \forall x,y\in X$$
@@ -1883,7 +1861,7 @@ A contraction shrinks distances by a \textit{uniform} factor $\beta < 1$.
     Let $\delta=\frac{\varepsilon}{\beta}$.
 \end{proof}
 
-\subsection{Theorem: Blackwell's Sufficient Conditions for Contraction}
+\subsection{Blackwell's Sufficient Conditions for Contraction}
 Let $X$ be a set, and let $B(X)$ be the set of all bounded functions from $X$ to $\mathbb{R}$. Then $(B(X), \|\cdot\|_\infty)$ is a normed vector space.
 
 (Notice that below we use shorthand notation that identifies a constant function with its constant value in $\mathbb{R}$, that is, we write interchangeably $a \in \mathbb{R}$ and $a : X \rightarrow \mathbb{R}$ to denote the function such that $a(x) = a, \forall x \in X$.)
@@ -1942,7 +1920,7 @@ Let $X$ be a set, and let $B(X)$ be the set of all bounded functions from $X$ to
     \end{enumerate}
 \end{example}
 
-\subsection{Contraction Mapping Theorem: Existence and Uniqueness of Fixed Point}
+\subsection{$\bigstar$ Contraction Mapping Theorem: contraction $\Rightarrow$ exist fixed point}
 \begin{theorem}[Contraction Mapping Theorem]
     Let $(X, d)$ be a nonempty complete metric space and $T : X \rightarrow X$ a contraction with modulus $\beta < 1$. Then
     \begin{enumerate}
@@ -2008,7 +1986,7 @@ Note that the theorem asserts both the \textbf{existence} and \textbf{uniqueness
 
 
 
-\subsection{Theorem: Fixed Point's Continuous Dependence on Parameters}
+\subsection{Conditions for Fixed Point's Continuous Dependence on Parameters}
 \begin{theorem}[Continuous Dependence on Parameters]
     Let $(X, d)$ and $(\Omega, \rho)$ be two metric spaces and $T : X \times \Omega \rightarrow X$. For each parameter $\omega \in \Omega$ let $T_\omega : X \rightarrow X$ be defined by $T_\omega(x)=T(x,\omega)$.
 
@@ -2026,7 +2004,7 @@ Note that the theorem asserts both the \textbf{existence} and \textbf{uniqueness
     Easily proved by Intermediate Value Theorem.
 \end{proof}
 
-\subsection{Brouwer's Fixed Point Theorem}
+\subsection{$\bigstar$ Brouwer's Fixed Point Theorem: continuous function has fixed point over compact, convex set}
 \begin{theorem}[Brouwer's Fixed Point Theorem]
     Let $X \subseteq \mathbb{R}^n$ be nonempty, \textbf{compact}, and \textbf{convex}, and let $f : X \rightarrow X$ be continuous. Then $f$ has a fixed point.
 \end{theorem}
@@ -2040,6 +2018,140 @@ Note that the theorem asserts both the \textbf{existence} and \textbf{uniqueness
 \end{proof}
 
 
+
+
+\chapter{Correspondence: $\Psi : X \rightarrow 2^Y$ \small{(@ Lec 07 of ECON 204)}}
+\begin{definition}[Correspondence]
+    \normalfont
+    A \textbf{correspondence} $\Psi : X \rightarrow 2^Y$ from $X$ to $Y$ is a function from $X$ to $2^Y$, that is, $\Psi(x) \subseteq Y$ for every $x \in X$. ($2^Y$ is the set of all subsets of $Y$)
+\end{definition}
+\begin{example}
+Let $u : \mathbb{R}_+^n \rightarrow \mathbb{R}$ be a continuous utility function, $y > 0$ and $p \in \mathbb{R}_{++}^n$, that is, $p_i > 0$ for each $i$. Define $\Psi : \mathbb{R}_{++}^n \times \mathbb{R}_{++} \rightarrow 2^{\mathbb{R}_{+}^n}$ by
+\begin{equation}
+    \begin{aligned}
+        \Psi(p,y)=&\argmax u(x)\\
+        \textnormal{s.t. }&x\geq 0\\
+        &p\cdot x\leq y
+    \end{aligned}
+    \nonumber
+\end{equation}
+$\Psi$ is the demand correspondence associated with the utility function $u$; typically $\Psi(p, y)$ is multi-valued.
+\end{example}
+
+\section{Continuity of Correspondences}
+\subsection{Upper/Lower Hemicontinuous}
+Let $X\subseteq \mathbb{E}^n$, $Y\subseteq \mathbb{E}^m$, and $\Psi: X \rightarrow 2^Y$.
+\begin{definition}[Upper Hemicontinuous]
+    \normalfont
+    $\Psi$ is \textbf{upper hemicontinuous} (uhc) at $x_0 \in X$ if, for every \underline{open set} $V$ with $\Psi(x_0)\subseteq V$, there is an \underline{open set} $U$ with $x_0 \in U$ s.t.
+    $$x\in U \Rightarrow \Psi(x)\subseteq V$$
+\end{definition}
+Upper hemicontinuity reflects the requirement that $\Psi$ doesn't “jump down/implode in the limit” at $x_0$. \textit{(A set to “jump down” at the limit $x_0$: It should mean the set suddenly gets smaller -- it “implodes in the limit” -- that is, there is a sequence $x_n \rightarrow x_0$ and points $y_n \in \Psi(x_n)$ that are far from every point of $\Psi(x_0)$ as $n \rightarrow \infty$.)}
+\begin{definition}[Lower Hemicontinuous]
+    \normalfont
+    $\Psi$ is \textbf{lower hemicontinuous} (lhc) at $x_0 \in X$ if, for every \underline{open set} $V$ with $\Psi(x_0)\cap V \neq \emptyset$, there is an \underline{open set} $U$ with $x_0 \in U$ s.t.
+    $$x\in U \Rightarrow \Psi(x)\cap V\neq \emptyset$$
+\end{definition}
+Lower hemicontinuity reflects the requirement that $\Psi$ doesn't “jump up/explode in the limit” at $x_0$. \textit{(A set to “jump up” at the limit $x_0$: It should mean that the set suddenly gets bigger -- it “explodes in the limit” -- that is, there is a sequence $x_n \rightarrow x_0$ and a point $y_0\in\Psi(x_0)$ that is far from every point of $\Psi(x_n)$ as $n \rightarrow \infty$.)}
+
+\begin{definition}[Continuous Correspondence]
+    \normalfont
+    $\Psi$ is \textbf{continuous} at $x_0 \in X$ if it is both \textbf{uhc} and \textbf{lhc} at $x_0$.
+\end{definition}
+
+\begin{proposition}
+    $\Psi$ is upper hemicontinuous (respectively lower hemicontinuous, continuous) if it is uhc (respectively lhc, continuous) at every $x \in X$.
+\end{proposition}
+
+\begin{center}\begin{figure}[htbp]
+    \centering
+    \includegraphics[scale=0.2]{uhc.png}
+    \caption{The correspondence $\Psi$ “implodes in the limit” at $x_0$. $\Psi$ is not upper hemicontinuous at $x_0$.}
+    \label{}
+\end{figure}\end{center}
+
+\begin{center}\begin{figure}[htbp]
+    \centering
+    \includegraphics[scale=0.2]{lhc.png}
+    \caption{The correspondence $\Psi$ “explodes in the limit” at $x_0$. $\Psi$ is not lower hemicontinuous at $x_0$.}
+    \label{}
+\end{figure}\end{center}
+
+\subsection{Theorem: $\Psi(x)=\{f(x)\}$ is uhc $\Leftrightarrow$ $f$ is continuous}
+\begin{theorem}[$\Psi(x)=\{f(x)\}$ is uhc $\Leftrightarrow$ $f$ is continuous]
+    Let $X \subseteq \mathbb{E}^n$, $Y \subseteq \mathbb{E}^m$ and $f : X \rightarrow Y$. Let $\Psi : X \rightarrow  2^Y$ be defined by $\Psi(x) = \{f(x)\}$ for all $x \in X$. Then $\Psi$ is \textbf{uhc} \underline{if and only if} $f$ is \textbf{continuous}.
+\end{theorem}
+
+
+\subsection{Berge's Maximum Theorem: $v(y)=\max_{x\in\Gamma(y)}f(x,y)$ is continuous; $\{x:f(x,y)=v(y)\}$ is uhc with non-empty compact values}
+\begin{theorem}[Berge's Maximum Theorem]
+    Let $X \subseteq \mathbb{R}^n$ and $Y \subseteq \mathbb{R}^m$. Consider the function $f : X \times Y \rightarrow \mathbb{R}$ and the correspondence $\Gamma : Y \rightarrow 2^X$. Define $v(y) = \max_{x\in\Gamma(y)} f(x, y)$ and $Ω(y) = \argmax_{x\in\Gamma(y)} f(x, y)=\{x:f(x,y)=v(y)\}$. Suppose $f$ and $\Gamma$ are continuous, and that $\Gamma$ has non-empty compact values. Show that v is continuous and $\Omega$ is uhc with non-empty compact values.
+\end{theorem}
+
+
+
+
+\section{Graph of Correspondence}
+An alternative notion of continuity looks instead at properties of the graph of the correspondence.
+\begin{definition}[Graph of Correspondence]
+    \normalfont
+    The \textbf{graph} of a correspondence $\Psi : X \rightarrow 2^Y$ is the set
+    $$\textnormal{graph}\Psi=\{(x,y)\in X\times Y:y\in\Psi(x)\}$$
+\end{definition}
+
+\subsection{Closed Graph}
+By the definition of continuous function $f:\mathbb{R}^n \rightarrow \mathbb{R}$,  each convergent sequence $\{(x_n, y_n)\}$ in graph $f$ converges to a point $(x, y)$ in graph $f$, that is, graph $f$ is closed.
+
+\begin{definition}[Closed Graph]
+    \normalfont
+    Let $X\subseteq \mathbb{E}^n$, $Y\subseteq \mathbb{E}^m$. A correspondence $\Psi: X \rightarrow 2^Y$ has closed graph if its graph is a closed subset of $X \times Y$, that is, if for any sequences $\{x_n\} \subseteq X$ and $\{y_n\} \subseteq Y$ such that $x_n \rightarrow x \in X$, $y_n \rightarrow y \in Y$ and $y_n \in \Psi(x_n)$ for each $n$, then $y \in \Psi(x)$.
+\end{definition}
+\begin{example}
+    Consider the correspondence $\Psi(x)=\left\{\begin{matrix}
+        \{\frac{1}{x}\},&\textnormal{ if }x\in(0,1]\\
+        \{0\},&\textnormal{ if }x=0
+    \end{matrix}\right.$ ("implode in the limit")\\
+    Let $V = (-0.1, 0.1)$. Then $\Psi(0) = \{0\} \subseteq V$, but no matter how close $x$ is to $0$, $\Psi(x)=\{\frac{1}{x}\}\nsubseteq V$, so $\Psi$ is not uhc at $0$. However, note that $\Psi$ has closed graph.
+\end{example}
+
+\section{Closed-valued and Compact-valued Correspondences}
+\begin{definition}[Closed-valued and Compact-valued Correspondences]
+    \normalfont
+    Given a correspondence $\Psi : X \rightarrow 2^Y$,
+    \begin{enumerate}
+        \item $\Psi$ is \textbf{closed-valued} if $\Psi(x)$ is a closed subset of $Y$ for all $x$;
+        \item $\Psi$ is \textbf{compact-valued} if $\Psi(x)$ is compact for all $x$.
+    \end{enumerate}
+\end{definition}
+
+\subsection{Closed-valued, uhc and Closed Graph}
+For closed-valued correspondences these concepts can be more tightly connected. A closed-valued and upper hemicontinuous correspondence must have closed graph. For a closed-valued correspondence with a compact range, upper hemicontinuity is equivalent to closed graph.
+
+\begin{theorem}[Properties]
+    Let $X\subseteq \mathbb{E}^n$, $Y\subseteq \mathbb{E}^m$, and $\Psi: X \rightarrow 2^Y$.
+    \begin{enumerate}[(i).]
+        \item $\Psi$ is \textbf{closed-valued} and \textbf{uhc} $\Rightarrow$ $\Psi$ has \textbf{closed graph}.
+        \item $\Psi$ is \textbf{closed-valued} and \textbf{uhc} $\Leftrightarrow$ $\Psi$ has \textbf{closed graph}. (If $Y$ is \textbf{compact})
+        \item If $\Psi$ has \textbf{closed graph} and there is an \textbf{open set} $W$ with $x_0 \in W$ and a \textbf{compact set} $Z$ such that $x \in W \cap X \Rightarrow \Psi(x) \subseteq Z$, then $\Psi$ is \textbf{uhc} at $x_0$.
+    \end{enumerate}
+\end{theorem}
+
+
+
+\subsection{Theorem: compact-valued, uhs correspondence of compact set is compact}
+\begin{theorem}\label{thm:compact-valued, uhs correspondence of compact set is compact}
+    Let $X$ be a compact set and $\Psi : X \rightarrow 2^X$ be a non-empty, compact-valued upper-hemicontinuous correspondence. If $C \subseteq X$ is compact, then $\Psi(C)$ is compact.
+\end{theorem}
+\begin{proof}
+    Given the compact-valued $\Psi$, we can have an open cover of $\Psi(C)$, $\{U_\lambda:\lambda\in\Lambda\}$. So $\forall x\in C$, there exists $U_{l(x)},l(x)\in\Lambda$ such that $U_{l(x)}$ is an open cover of $\Psi(x)$.
+
+    Consider a $c\in C$. Since $\Psi$ is uhs and $\Psi(c)\subseteq U_{l(c)}$, there exists open set $V_c$ s.t. $c\in V_c$ and $\Psi(x)\subseteq U_{l(c)}, \forall x\in V_c\cap C$.
+
+    $\{V_c:c\in C\}$ is an open cover of $C$. Because $C$ is compact, there is a finite subcover $\{V_{c_i}: i=1,...,m\},m\in \mathbb{N}$, where $\{c_i:i=1,...,m\}\subseteq C$.
+
+    Because $\Psi(x)\subseteq U_{l(c_i)}, \forall x\in V_{c_i}\cap C$ and $\{V_{c_i}: i=1,...,m\},m\in \mathbb{N}$ is a open cover for $C$, we can infer $\{U_{l(c_i)}:i=1,...,m\}$ is a finite subcover of $\{U_{l(c)}:c\in C\}$ for $\Psi(C)$. Hence, $C$ is compact.
+\end{proof}
+
 \section{Fixed Points for Correspondences \small{(@ Lec 13 of ECON 204)}}
 \subsection{Definition}
 \begin{definition}[Fixed Points for Correspondences]
@@ -2052,10 +2164,37 @@ Note that the theorem asserts both the \textbf{existence} and \textbf{uniqueness
 
 
 
-\subsection{Kakutani's Fixed Point Theorem}
+\subsection{Kakutani's Fixed Point Theorem: uhs, compact, convex values correspondence has a fixed point over compact convex set}
 \begin{theorem}[Kakutani's Fixed Point Theorem]
     Let $X \subseteq \mathbb{R}^n$ be a non-empty, \textbf{compact}, \textbf{convex} set and $\psi : X \rightarrow 2^X$ be an \textbf{upper hemi-continuous} correspondence with non-empty, \textbf{compact}, \textbf{convex} values. Then $\psi$ has a fixed point in $X$.
 \end{theorem}
+
+
+\subsection{Theorem: $\exists$ compact set $C = \cap_{i=0}^\infty \Psi^i(X)$ s.t. $\Psi(C)=C$}
+\begin{theorem}
+    Let $(X, d)$ be a compact metric space and let $\Psi(x) : X \rightarrow 2^X$ be a upper-hemicontinuous, compact-valued correspondence, such that $\Psi(x)$ is non-empty for every $x \in X$. There exists a compact non-empty subset $C\subseteq X$, such that $\Psi(C) \equiv \cup_{x\in C}\Psi(x) = C$.
+\end{theorem}
+\begin{proof}
+    Let's construct a sequence $\{C_n\}$ such that $C_0=X$, $C_1=\Psi(C_0)$, ..., $C_n=\Psi(C_{n-1}),...$ We claim that $C=\cap_{i=0}^\infty C_i$ is a non-empty compact set and satisfies $\Psi(C)=C$.
+    \begin{enumerate}
+        \item Because we can infer $\Psi(X_1)\subseteq \Psi(X_2)$ if $X_1\subseteq X_2$, $X=C_0\supseteq C_1 \Rightarrow C_1=\Psi(C_0)\supseteq C_2=\Psi(C_1)$,...., so $C_0\supseteq C_1\supseteq \cdots C_n\supseteq \cdots$. Hence, $C$ is not empty.
+        \item Because $X$ is compact, by the theorem \ref{thm:compact-valued, uhs correspondence of compact set is compact}, we can infer $C_n$ is compact for all $n$. Then, $C_n$ is closed for all $n$, so $C$ is closed. Because $C$ is a closed set of compact set $X$, $C$ is compact.
+        \item $C\subseteq C_n,\forall n \Rightarrow \Psi(C)\subseteq \Psi(C_n),\forall n \Rightarrow \Psi(C)\subseteq C$
+        \item Assume $C\subseteq \Psi(C)$ doesn't hold, that is $\exists y\in C$ s.t. $y\notin \Psi(C)$. Because $y\in C$ and $C_0\supseteq C_1\supseteq \cdots C_n\supseteq \cdots$, there exists $k\in C_n$ for all $n$ s.t. $y\in\Psi(k)$. $k\in \cap_{i=1}^\infty C_i=C$, so $\Psi(k)\subseteq \Psi(C)$, which contradicts to $y\notin \Psi(C)$. Hence, $C\subseteq \Psi(C)$.
+    \end{enumerate}
+    All in all the claim "$C=\cap_{i=0}^\infty C_i$ is a non-empty compact set and satisfies $\Psi(C)=C$" is proved.
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
 
 
 \chapter{Differential Equations \small{(@ Lec 14/15 of ECON 204)}}
